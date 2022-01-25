@@ -24,6 +24,15 @@ namespace DashBoard_Stive
             pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
         }
 
+        private void reinitBouton()
+        {
+            panel2.Visible = false;
+            panel3.Visible = false;
+            panel4.Visible = false;
+            panel5.Visible = false;
+            panel6.Visible = false;
+            panel12.Visible = false;
+        }
         private void button1_MouseEnter(object sender, EventArgs e)
         {
             button1.BackColor = Color.FromArgb(44, 130, 201);
@@ -109,22 +118,19 @@ namespace DashBoard_Stive
         }
         private void button1_Click(object sender, EventArgs e)
         {
+            reinitBouton();
+            button1.BackColor = Color.FromArgb(44, 130, 201);
+            button1.ForeColor = Color.FromArgb(255, 255, 255);
             panel2.Visible = true;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel12.Visible = false;
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            panel2.Visible = false;
+            reinitBouton();
+            button2.BackColor = Color.FromArgb(44, 130, 201);
+            button2.ForeColor = Color.FromArgb(255, 255, 255);
             panel3.Visible = true;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel12.Visible = false;
+
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -171,5 +177,6 @@ namespace DashBoard_Stive
             panel6.Visible = false;
             panel12.Visible = true;
         }
+
     }
 }
