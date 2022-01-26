@@ -29,6 +29,7 @@ namespace DashBoard_Stive
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.panelMenu = new System.Windows.Forms.FlowLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.pictureBoxUser = new System.Windows.Forms.PictureBox();
@@ -184,9 +185,18 @@ namespace DashBoard_Stive
             this.label34 = new System.Windows.Forms.Label();
             this.panel14 = new System.Windows.Forms.Panel();
             this.button13 = new System.Windows.Forms.Button();
-            this.dataGridView4 = new System.Windows.Forms.DataGridView();
+            this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
             this.button12 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
+            this.utiIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiCompAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiCpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiVilleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiPaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiTelContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utiMailContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -227,7 +237,8 @@ namespace DashBoard_Stive
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.panel14.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // panelMenu
@@ -1917,7 +1928,7 @@ namespace DashBoard_Stive
             // panel14
             // 
             this.panel14.Controls.Add(this.button13);
-            this.panel14.Controls.Add(this.dataGridView4);
+            this.panel14.Controls.Add(this.Dv_fournisseur);
             this.panel14.Controls.Add(this.button12);
             this.panel14.Controls.Add(this.label35);
             this.panel14.Location = new System.Drawing.Point(9, 10);
@@ -1937,14 +1948,29 @@ namespace DashBoard_Stive
             this.button13.TabIndex = 7;
             this.button13.Text = "Ajouter un fournisseur";
             this.button13.UseVisualStyleBackColor = true;
+            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
-            // dataGridView4
+            // Dv_fournisseur
             // 
-            this.dataGridView4.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView4.Location = new System.Drawing.Point(0, 57);
-            this.dataGridView4.Name = "dataGridView4";
-            this.dataGridView4.Size = new System.Drawing.Size(598, 680);
-            this.dataGridView4.TabIndex = 6;
+            this.Dv_fournisseur.AutoGenerateColumns = false;
+            this.Dv_fournisseur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_fournisseur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.utiIdDataGridViewTextBoxColumn,
+            this.utiAdresseDataGridViewTextBoxColumn,
+            this.utiCompAdresseDataGridViewTextBoxColumn,
+            this.utiCpDataGridViewTextBoxColumn,
+            this.utiVilleDataGridViewTextBoxColumn,
+            this.utiPaysDataGridViewTextBoxColumn,
+            this.utiTelContactDataGridViewTextBoxColumn,
+            this.utiMailContactDataGridViewTextBoxColumn});
+            this.Dv_fournisseur.DataSource = this.utilisateurBindingSource;
+            this.Dv_fournisseur.Location = new System.Drawing.Point(0, 57);
+            this.Dv_fournisseur.MultiSelect = false;
+            this.Dv_fournisseur.Name = "Dv_fournisseur";
+            this.Dv_fournisseur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Dv_fournisseur.Size = new System.Drawing.Size(598, 680);
+            this.Dv_fournisseur.TabIndex = 6;
+            this.Dv_fournisseur.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_fournisseur_CellMouseClick);
             // 
             // button12
             // 
@@ -1970,6 +1996,66 @@ namespace DashBoard_Stive
             this.label35.TabIndex = 4;
             this.label35.Text = "Liste des Fournisseurs";
             // 
+            // utiIdDataGridViewTextBoxColumn
+            // 
+            this.utiIdDataGridViewTextBoxColumn.DataPropertyName = "Uti_Id";
+            this.utiIdDataGridViewTextBoxColumn.HeaderText = "Uti_Id";
+            this.utiIdDataGridViewTextBoxColumn.Name = "utiIdDataGridViewTextBoxColumn";
+            this.utiIdDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiAdresseDataGridViewTextBoxColumn
+            // 
+            this.utiAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_Adresse";
+            this.utiAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_Adresse";
+            this.utiAdresseDataGridViewTextBoxColumn.Name = "utiAdresseDataGridViewTextBoxColumn";
+            this.utiAdresseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiCompAdresseDataGridViewTextBoxColumn
+            // 
+            this.utiCompAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_CompAdresse";
+            this.utiCompAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_CompAdresse";
+            this.utiCompAdresseDataGridViewTextBoxColumn.Name = "utiCompAdresseDataGridViewTextBoxColumn";
+            this.utiCompAdresseDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiCpDataGridViewTextBoxColumn
+            // 
+            this.utiCpDataGridViewTextBoxColumn.DataPropertyName = "Uti_Cp";
+            this.utiCpDataGridViewTextBoxColumn.HeaderText = "Uti_Cp";
+            this.utiCpDataGridViewTextBoxColumn.Name = "utiCpDataGridViewTextBoxColumn";
+            this.utiCpDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiVilleDataGridViewTextBoxColumn
+            // 
+            this.utiVilleDataGridViewTextBoxColumn.DataPropertyName = "Uti_Ville";
+            this.utiVilleDataGridViewTextBoxColumn.HeaderText = "Uti_Ville";
+            this.utiVilleDataGridViewTextBoxColumn.Name = "utiVilleDataGridViewTextBoxColumn";
+            this.utiVilleDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiPaysDataGridViewTextBoxColumn
+            // 
+            this.utiPaysDataGridViewTextBoxColumn.DataPropertyName = "Uti_Pays";
+            this.utiPaysDataGridViewTextBoxColumn.HeaderText = "Uti_Pays";
+            this.utiPaysDataGridViewTextBoxColumn.Name = "utiPaysDataGridViewTextBoxColumn";
+            this.utiPaysDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiTelContactDataGridViewTextBoxColumn
+            // 
+            this.utiTelContactDataGridViewTextBoxColumn.DataPropertyName = "Uti_TelContact";
+            this.utiTelContactDataGridViewTextBoxColumn.HeaderText = "Uti_TelContact";
+            this.utiTelContactDataGridViewTextBoxColumn.Name = "utiTelContactDataGridViewTextBoxColumn";
+            this.utiTelContactDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utiMailContactDataGridViewTextBoxColumn
+            // 
+            this.utiMailContactDataGridViewTextBoxColumn.DataPropertyName = "Uti_MailContact";
+            this.utiMailContactDataGridViewTextBoxColumn.HeaderText = "Uti_MailContact";
+            this.utiMailContactDataGridViewTextBoxColumn.Name = "utiMailContactDataGridViewTextBoxColumn";
+            this.utiMailContactDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // utilisateurBindingSource
+            // 
+            this.utilisateurBindingSource.DataSource = typeof(DashBoard_Stive.Utilisateur);
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1977,12 +2063,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panel5);
-            this.Controls.Add(this.panel4);
-            this.Controls.Add(this.panel3);
             this.Controls.Add(this.panel12);
             this.Controls.Add(this.panel2);
             this.Controls.Add(this.panel6);
+            this.Controls.Add(this.panel5);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.panel3);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -2045,7 +2131,8 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.utilisateurBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2126,7 +2213,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label34;
         private System.Windows.Forms.Panel panel14;
-        private System.Windows.Forms.DataGridView dataGridView4;
+        private System.Windows.Forms.DataGridView Dv_fournisseur;
         private System.Windows.Forms.Button button12;
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button button13;
@@ -2210,5 +2297,14 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.DataGridView dataGridView14;
         private System.Windows.Forms.Label label60;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiAdresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiCompAdresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiCpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiVilleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiPaysDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiTelContactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiMailContactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.BindingSource utilisateurBindingSource;
     }
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -119,7 +120,7 @@ namespace DashBoard_Stive
         private void button1_Click(object sender, EventArgs e)
         {
             reinitBouton();
-            button1.BackColor = Color.FromArgb(44, 130, 201);
+            button1.BackColor = Color.FromArgb(139,0,0);
             button1.ForeColor = Color.FromArgb(255, 255, 255);
             panel2.Visible = true;
         }
@@ -170,6 +171,9 @@ namespace DashBoard_Stive
 
         private void button6_Click(object sender, EventArgs e)
         {
+
+
+
             panel2.Visible = false;
             panel3.Visible = false;
             panel4.Visible = false;
@@ -178,5 +182,86 @@ namespace DashBoard_Stive
             panel12.Visible = true;
         }
 
+        private void button13_Click(object sender, EventArgs e)
+        {
+            //const string bt_utilisateur = @"
+            //    [
+            //        {
+            //            Uti_Id : ""1"",
+            //            Uti_Adresse :  ""3 rue de la paix"" 
+            //            Uti_CompAdresse :""bat H""
+            //            Uti_Cp :""34080""
+            //            Uti_Ville :   ""Pas montpellier"" 
+            //            Uti_Pays : ""france""
+            //            Uti_TelContact :""0684529261""
+            //            Uti_Mdp : ""1234""
+            //            Uti_VerifMdp : ""1234""
+            //            Uti_MailContact : ""moi@pasmoi.com""
+            //            Uti_DateCreation : ""01/68/1987""
+            //        },
+            //        {
+            //            Uti_Id: ""2""
+            //            Uti_Adresse: ""ici"" 
+            //            Uti_CompAdresse: ""pas la bas""
+            //            Uti_Cp: ""30080""
+            //            Uti_Ville: ""Nime""
+            //            Uti_Pays: ""Belgique""
+            //            Uti_TelContact: ""0521252569""
+            //            Uti_Mdp: ""567""
+            //            Uti_VerifMdp: ""1234""
+            //            Uti_MailContact: ""lui@paslui.com""
+            //            Uti_DateCreation: ""01/01/2021""
+            //        }
+            //        ]";
+
+
+            const string bt_utilisateur = @"
+                [
+                    {   Fou_Id : 1,
+                        Uti_Id : 1,
+                        Uti_Adresse :  ""3 rue de la paix"" ,
+                        Uti_CompAdresse :""bat H"",
+                        Uti_Cp :""34080"",
+                        Uti_Ville :   ""Pas montpellier"" ,
+                        Uti_Pays : ""france"",
+                        Uti_TelContact :""0684529261"",
+                        Uti_Mdp : ""1234"",
+                        Uti_VerifMdp : ""1234"",
+                        Uti_MailContact : ""moi@pasmoi.com"",
+                        Uti_DateCreation : ""24/12/1987""
+                    },
+
+                    {
+                        Uti_Id: 2,
+                        Uti_Adresse: ""ici"" ,
+                        Uti_CompAdresse: ""pas la bas"",
+                        Uti_Cp: ""30080"",
+                        Uti_Ville: ""Nime"",
+                        Uti_Pays: ""Belgique"",
+                        Uti_TelContact: ""0521252569"",
+                        Uti_Mdp: ""567"",
+                        Uti_VerifMdp: ""1234"",
+                        Uti_MailContact: ""lui@paslui.com"",
+                        Uti_DateCreation: ""01/01/2021""
+                    }   
+                    ]";
+            var  utiListe = JsonConvert.DeserializeObject<List<Utilisateur>>(bt_utilisateur);
+            Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");
+            Dv_fournisseur.DataSource = utiListe;
+           // Dv_fournisseur.Columns["Uti_Id"].HeaderText = "Id";
+           // Dv_fournisseur.Columns["Uti_Id"].Visible = false;
+            //Dv_fournisseur.Columns["Uti_Id"].Visible = false;
+        }
+
+        private void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+
+            if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
+                return;
+            
+            string text = Dv_fournisseur.Rows[e.RowIndex].Cells["utiAdresseDataGridViewTextBoxColumn"].Value.ToString();  //affiche dans la message box le contenu de Uti_Adresse
+                MessageBox.Show(text);
+            
+        }
     }
 }

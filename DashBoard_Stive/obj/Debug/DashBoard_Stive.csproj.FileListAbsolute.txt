@@ -1,11 +1,14 @@
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\bin\Debug\DashBoard_Stive.exe.config
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\bin\Debug\DashBoard_Stive.exe
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\bin\Debug\DashBoard_Stive.pdb
-D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.csprojAssemblyReference.cache
+D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\bin\Debug\Newtonsoft.Json.dll
+D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\bin\Debug\Newtonsoft.Json.xml
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.Dashboard.resources
+D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.Form1.resources
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.Properties.Resources.resources
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.csproj.GenerateResource.cache
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.csproj.CoreCompileInputs.cache
+D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.csproj.CopyComplete
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.exe
 D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.pdb
-D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.Form1.resources
+D:\VisualStudio_w\DashBoard_Stive\DashBoard_Stive\obj\Debug\DashBoard_Stive.csprojAssemblyReference.cache
