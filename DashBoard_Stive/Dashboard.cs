@@ -172,7 +172,7 @@ namespace DashBoard_Stive
         private void button6_Click(object sender, EventArgs e)
         {
 
-
+            reinitBouton();
 
             panel2.Visible = false;
             panel3.Visible = false;
@@ -180,10 +180,7 @@ namespace DashBoard_Stive
             panel5.Visible = false;
             panel6.Visible = false;
             panel12.Visible = true;
-        }
 
-        private void button13_Click(object sender, EventArgs e)
-        {
             //const string bt_utilisateur = @"
             //    [
             //        {
@@ -218,6 +215,13 @@ namespace DashBoard_Stive
             const string bt_utilisateur = @"
                 [
                     {   Fou_Id : 1,
+                        Fou_NomDomaine : ""Domaine de Tariquet"",
+                        Fou_NomResp : ""Max"",
+                        Fou_TelResp : ""0125254589"",
+                        Fou_MailResp : ""max@Tariquet.com"",
+                        Fou_Fonction : ""Gérant"",
+                        Fou_DateCreation : ""24/12/1987"",
+                        Fou_Role : ""admin"",
                         Uti_Id : 1,
                         Uti_Adresse :  ""3 rue de la paix"" ,
                         Uti_CompAdresse :""bat H"",
@@ -232,6 +236,14 @@ namespace DashBoard_Stive
                     },
 
                     {
+                        Fou_Id : 2,
+                        Fou_NomDomaine : ""Domaine des pins"",
+                        Fou_NomResp : ""Lolo"",
+                        Fou_TelResp : ""0125254590"",
+                        Fou_MailResp : ""lolo@lolo.com"",
+                        Fou_Fonction : ""Gérant"",
+                        Fou_DateCreation : ""24/12/1990"",
+                        Fou_Role : ""fournisseur"",
                         Uti_Id: 2,
                         Uti_Adresse: ""ici"" ,
                         Uti_CompAdresse: ""pas la bas"",
@@ -246,11 +258,15 @@ namespace DashBoard_Stive
                     }   
                     ]";
             var  utiListe = JsonConvert.DeserializeObject<List<Utilisateur>>(bt_utilisateur);
-            Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");
-            Dv_fournisseur.DataSource = utiListe;
-           // Dv_fournisseur.Columns["Uti_Id"].HeaderText = "Id";
-           // Dv_fournisseur.Columns["Uti_Id"].Visible = false;
-            //Dv_fournisseur.Columns["Uti_Id"].Visible = false;
+            //Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");
+              Dv_fournisseur.DataSource = utiListe;
+              Dv_fournisseur.Columns["Fou_NomDomaine"].HeaderText = "Fournisseur";
+              //Dv_fournisseur.Columns["Fou_NomResp"].Visible = false;
+              Dv_fournisseur.Columns["Fou_NomResp"].HeaderText = "Responsable";
+              Dv_fournisseur.Columns["Fou_TelResp"].HeaderText = "Tel";
+              Dv_fournisseur.Columns["Fou_MailResp"].HeaderText = "Mail";
+              Dv_fournisseur.Columns["Uti_Cp"].HeaderText = "CP";
+              Dv_fournisseur.Columns["Uti_Ville"].HeaderText = "Ville";
         }
 
         private void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)

@@ -188,15 +188,13 @@ namespace DashBoard_Stive
             this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
             this.button12 = new System.Windows.Forms.Button();
             this.label35 = new System.Windows.Forms.Label();
-            this.utiIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiCompAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiCpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiVilleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiPaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiTelContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiMailContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utilisateurBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_NomResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_TelResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_MailResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -1948,26 +1946,24 @@ namespace DashBoard_Stive
             this.button13.TabIndex = 7;
             this.button13.Text = "Ajouter un fournisseur";
             this.button13.UseVisualStyleBackColor = true;
-            this.button13.Click += new System.EventHandler(this.button13_Click);
             // 
             // Dv_fournisseur
             // 
             this.Dv_fournisseur.AutoGenerateColumns = false;
             this.Dv_fournisseur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_fournisseur.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.utiIdDataGridViewTextBoxColumn,
-            this.utiAdresseDataGridViewTextBoxColumn,
-            this.utiCompAdresseDataGridViewTextBoxColumn,
-            this.utiCpDataGridViewTextBoxColumn,
-            this.utiVilleDataGridViewTextBoxColumn,
-            this.utiPaysDataGridViewTextBoxColumn,
-            this.utiTelContactDataGridViewTextBoxColumn,
-            this.utiMailContactDataGridViewTextBoxColumn});
+            this.Fou_NomDomaine,
+            this.Fou_NomResp,
+            this.Fou_TelResp,
+            this.Fou_MailResp,
+            this.Uti_Cp,
+            this.Uti_Ville});
             this.Dv_fournisseur.DataSource = this.utilisateurBindingSource;
             this.Dv_fournisseur.Location = new System.Drawing.Point(0, 57);
             this.Dv_fournisseur.MultiSelect = false;
             this.Dv_fournisseur.Name = "Dv_fournisseur";
-            this.Dv_fournisseur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
+            this.Dv_fournisseur.ReadOnly = true;
+            this.Dv_fournisseur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dv_fournisseur.Size = new System.Drawing.Size(598, 680);
             this.Dv_fournisseur.TabIndex = 6;
             this.Dv_fournisseur.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_fournisseur_CellMouseClick);
@@ -1996,65 +1992,51 @@ namespace DashBoard_Stive
             this.label35.TabIndex = 4;
             this.label35.Text = "Liste des Fournisseurs";
             // 
-            // utiIdDataGridViewTextBoxColumn
-            // 
-            this.utiIdDataGridViewTextBoxColumn.DataPropertyName = "Uti_Id";
-            this.utiIdDataGridViewTextBoxColumn.HeaderText = "Uti_Id";
-            this.utiIdDataGridViewTextBoxColumn.Name = "utiIdDataGridViewTextBoxColumn";
-            this.utiIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiAdresseDataGridViewTextBoxColumn
-            // 
-            this.utiAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_Adresse";
-            this.utiAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_Adresse";
-            this.utiAdresseDataGridViewTextBoxColumn.Name = "utiAdresseDataGridViewTextBoxColumn";
-            this.utiAdresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiCompAdresseDataGridViewTextBoxColumn
-            // 
-            this.utiCompAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_CompAdresse";
-            this.utiCompAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_CompAdresse";
-            this.utiCompAdresseDataGridViewTextBoxColumn.Name = "utiCompAdresseDataGridViewTextBoxColumn";
-            this.utiCompAdresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiCpDataGridViewTextBoxColumn
-            // 
-            this.utiCpDataGridViewTextBoxColumn.DataPropertyName = "Uti_Cp";
-            this.utiCpDataGridViewTextBoxColumn.HeaderText = "Uti_Cp";
-            this.utiCpDataGridViewTextBoxColumn.Name = "utiCpDataGridViewTextBoxColumn";
-            this.utiCpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiVilleDataGridViewTextBoxColumn
-            // 
-            this.utiVilleDataGridViewTextBoxColumn.DataPropertyName = "Uti_Ville";
-            this.utiVilleDataGridViewTextBoxColumn.HeaderText = "Uti_Ville";
-            this.utiVilleDataGridViewTextBoxColumn.Name = "utiVilleDataGridViewTextBoxColumn";
-            this.utiVilleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiPaysDataGridViewTextBoxColumn
-            // 
-            this.utiPaysDataGridViewTextBoxColumn.DataPropertyName = "Uti_Pays";
-            this.utiPaysDataGridViewTextBoxColumn.HeaderText = "Uti_Pays";
-            this.utiPaysDataGridViewTextBoxColumn.Name = "utiPaysDataGridViewTextBoxColumn";
-            this.utiPaysDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiTelContactDataGridViewTextBoxColumn
-            // 
-            this.utiTelContactDataGridViewTextBoxColumn.DataPropertyName = "Uti_TelContact";
-            this.utiTelContactDataGridViewTextBoxColumn.HeaderText = "Uti_TelContact";
-            this.utiTelContactDataGridViewTextBoxColumn.Name = "utiTelContactDataGridViewTextBoxColumn";
-            this.utiTelContactDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiMailContactDataGridViewTextBoxColumn
-            // 
-            this.utiMailContactDataGridViewTextBoxColumn.DataPropertyName = "Uti_MailContact";
-            this.utiMailContactDataGridViewTextBoxColumn.HeaderText = "Uti_MailContact";
-            this.utiMailContactDataGridViewTextBoxColumn.Name = "utiMailContactDataGridViewTextBoxColumn";
-            this.utiMailContactDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
             // utilisateurBindingSource
             // 
             this.utilisateurBindingSource.DataSource = typeof(DashBoard_Stive.Utilisateur);
+            // 
+            // Fou_NomDomaine
+            // 
+            this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine.HeaderText = "Fou_NomDomaine";
+            this.Fou_NomDomaine.Name = "Fou_NomDomaine";
+            this.Fou_NomDomaine.ReadOnly = true;
+            // 
+            // Fou_NomResp
+            // 
+            this.Fou_NomResp.DataPropertyName = "Fou_NomResp";
+            this.Fou_NomResp.HeaderText = "Fou_NomResp";
+            this.Fou_NomResp.Name = "Fou_NomResp";
+            this.Fou_NomResp.ReadOnly = true;
+            // 
+            // Fou_TelResp
+            // 
+            this.Fou_TelResp.DataPropertyName = "Fou_TelResp";
+            this.Fou_TelResp.HeaderText = "Fou_TelResp";
+            this.Fou_TelResp.Name = "Fou_TelResp";
+            this.Fou_TelResp.ReadOnly = true;
+            // 
+            // Fou_MailResp
+            // 
+            this.Fou_MailResp.DataPropertyName = "Fou_MailResp";
+            this.Fou_MailResp.HeaderText = "Fou_MailResp";
+            this.Fou_MailResp.Name = "Fou_MailResp";
+            this.Fou_MailResp.ReadOnly = true;
+            // 
+            // Uti_Cp
+            // 
+            this.Uti_Cp.DataPropertyName = "Uti_Cp";
+            this.Uti_Cp.HeaderText = "Uti_Cp";
+            this.Uti_Cp.Name = "Uti_Cp";
+            this.Uti_Cp.ReadOnly = true;
+            // 
+            // Uti_Ville
+            // 
+            this.Uti_Ville.DataPropertyName = "Uti_Ville";
+            this.Uti_Ville.HeaderText = "Uti_Ville";
+            this.Uti_Ville.Name = "Uti_Ville";
+            this.Uti_Ville.ReadOnly = true;
             // 
             // Dashboard
             // 
@@ -2297,14 +2279,12 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button button24;
         private System.Windows.Forms.DataGridView dataGridView14;
         private System.Windows.Forms.Label label60;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCompAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiVilleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiPaysDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiTelContactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiMailContactDataGridViewTextBoxColumn;
         private System.Windows.Forms.BindingSource utilisateurBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_TelResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_MailResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville;
     }
 }
