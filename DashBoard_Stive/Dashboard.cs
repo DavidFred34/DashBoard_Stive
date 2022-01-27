@@ -23,165 +23,98 @@ namespace DashBoard_Stive
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
             pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
+            reinitBouton();
         }
 
         private void reinitBouton()
         {
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel12.Visible = false;
+            panelAccueil.Visible = false;
+            panelProduit.Visible = false;
+            panelClients.Visible = false;
+            panelBdc.Visible = false;
+            panelCommandesWeb.Visible = false;
+            panelFournisseurs.Visible = false;
+
+
+            foreach (var item in panelMenu.Controls)
+            {
+                if (item is Button) { (item as Button).Tag = 0; }
+            }
         }
-        private void button1_MouseEnter(object sender, EventArgs e)
+        private void buttonMenu_MouseEnter(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(44, 130, 201);
-            button1.ForeColor = Color.FromArgb(255, 255, 255);
+            if ((int?)(sender as Button).Tag == 1) return;
 
-            //MessageBox.Show("yes");
+            (sender as Button).BackColor = Color.FromArgb(44, 130, 201);
+            (sender as Button).ForeColor = Color.FromArgb(255, 255, 255);
+
         }
 
-        private void button1_MouseLeave(object sender, EventArgs e)
+        private void buttonMenu_MouseLeave(object sender, EventArgs e)
         {
-            button1.BackColor = Color.FromArgb(137, 196, 244);
-            button1.ForeColor = Color.FromArgb(44, 130, 201);
+            if ((int?)(sender as Button).Tag == 1) return; 
+            (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
+            (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
         }
 
-        private void button2_MouseEnter(object sender, EventArgs e)
-        {
-            button2.BackColor = Color.FromArgb(44, 130, 201);
-            button2.ForeColor = Color.FromArgb(255, 255, 255);
 
-            //MessageBox.Show("yes");
-        }
-
-        private void button2_MouseLeave(object sender, EventArgs e)
-        {
-            button2.BackColor = Color.FromArgb(137, 196, 244);
-            button2.ForeColor = Color.FromArgb(44, 130, 201);
-        }
-
-        private void button3_MouseEnter(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.FromArgb(44, 130, 201);
-            button3.ForeColor = Color.FromArgb(255, 255, 255);
-
-            //MessageBox.Show("yes");
-        }
-
-        private void button3_MouseLeave(object sender, EventArgs e)
-        {
-            button3.BackColor = Color.FromArgb(137, 196, 244);
-            button3.ForeColor = Color.FromArgb(44, 130, 201);
-        }
-
-        private void button4_MouseEnter(object sender, EventArgs e)
-        {
-            button4.BackColor = Color.FromArgb(44, 130, 201);
-            button4.ForeColor = Color.FromArgb(255, 255, 255);
-
-            //MessageBox.Show("yes");
-        }
-
-        private void button4_MouseLeave(object sender, EventArgs e)
-        {
-            button4.BackColor = Color.FromArgb(137, 196, 244);
-            button4.ForeColor = Color.FromArgb(44, 130, 201);
-        }
-
-        private void button5_MouseEnter(object sender, EventArgs e)
-        {
-            button5.BackColor = Color.FromArgb(44, 130, 201);
-            button5.ForeColor = Color.FromArgb(255, 255, 255);
-
-            //MessageBox.Show("yes");
-        }
-
-        private void button5_MouseLeave(object sender, EventArgs e)
-        {
-            button5.BackColor = Color.FromArgb(137, 196, 244);
-            button5.ForeColor = Color.FromArgb(44, 130, 201);
-        }
-
-        private void button6_MouseEnter(object sender, EventArgs e)
-        {
-            button6.BackColor = Color.FromArgb(44, 130, 201);
-            button6.ForeColor = Color.FromArgb(255, 255, 255);
-
-            //MessageBox.Show("yes");
-        }
-
-        private void button6_MouseLeave(object sender, EventArgs e)
-        {
-            button6.BackColor = Color.FromArgb(137, 196, 244);
-            button6.ForeColor = Color.FromArgb(44, 130, 201);
-        }
-        private void button1_Click(object sender, EventArgs e)
+        private void buttonAccueil_Click(object sender, EventArgs e)
         {
             reinitBouton();
-            button1.BackColor = Color.FromArgb(139,0,0);
-            button1.ForeColor = Color.FromArgb(255, 255, 255);
-            panel2.Visible = true;
+            buttonAccueil.BackColor = Color.FromArgb(44, 130, 201);
+            buttonAccueil.ForeColor = Color.FromArgb(255, 255, 255);
+            panelAccueil.Visible = true;
+            buttonAccueil.Tag = 1;
+
         }
 
-        private void button2_Click(object sender, EventArgs e)
+        private void buttonProduit_Click(object sender, EventArgs e)
         {
             reinitBouton();
-            button2.BackColor = Color.FromArgb(44, 130, 201);
-            button2.ForeColor = Color.FromArgb(255, 255, 255);
-            panel3.Visible = true;
-
+            buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
+            buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
+            panelProduit.Visible = true;
+            buttonProduit.Tag = 1;
         }
 
-        private void button3_Click(object sender, EventArgs e)
+        private void buttonClients_Click(object sender, EventArgs e)
         {
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = true;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel12.Visible = false;
+            reinitBouton();
+            buttonClients.BackColor = Color.FromArgb(44, 130, 201);
+            buttonClients.ForeColor = Color.FromArgb(255, 255, 255);
+            panelClients.Visible = true;
+
+            buttonClients.Tag = 1;
         }
 
-        private void button4_Click(object sender, EventArgs e)
+        private void buttonBdc_Click(object sender, EventArgs e)
         {
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = true;
-            panel6.Visible = false;
-            panel12.Visible = false;
+            reinitBouton();
+            buttonBdc.BackColor = Color.FromArgb(44, 130, 201);
+            buttonBdc.ForeColor = Color.FromArgb(255, 255, 255);
+            panelBdc.Visible = true;
+            buttonBdc.Tag = 1;
         }
 
-        private void button5_Click(object sender, EventArgs e)
+        private void buttonCommandesWeb_Click(object sender, EventArgs e)
         {
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = true;
-            panel12.Visible = false;
+            reinitBouton();
+            buttonCommandesWeb.BackColor = Color.FromArgb(44, 130, 201);
+            buttonCommandesWeb.ForeColor = Color.FromArgb(255, 255, 255);
+            panelCommandesWeb.Visible = true;
+            buttonCommandesWeb.Tag = 1;
         }
 
-        private void panel6_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
-
-        private void button6_Click(object sender, EventArgs e)
+        private void buttonFournisseurs_Click(object sender, EventArgs e)
         {
 
             reinitBouton();
+            buttonFournisseurs.BackColor = Color.FromArgb(44, 130, 201);
+            buttonFournisseurs.ForeColor = Color.FromArgb(255, 255, 255);
+            panelFournisseurs.Visible = true;
+            buttonFournisseurs.Tag = 1;
 
-            panel2.Visible = false;
-            panel3.Visible = false;
-            panel4.Visible = false;
-            panel5.Visible = false;
-            panel6.Visible = false;
-            panel12.Visible = true;
-
-            //const string bt_utilisateur = @"
+            //const string bt_Fournisseur = @"
             //    [
             //        {
             //            Uti_Id : ""1"",
@@ -212,7 +145,7 @@ namespace DashBoard_Stive
             //        ]";
 
 
-            const string bt_utilisateur = @"
+            const string bt_Fournisseur = @"
                 [
                     {   Fou_Id : 1,
                         Fou_NomDomaine : ""Domaine de Tariquet"",
@@ -257,27 +190,36 @@ namespace DashBoard_Stive
                         Uti_DateCreation: ""01/01/2021""
                     }   
                     ]";
-            var  utiListe = JsonConvert.DeserializeObject<List<Utilisateur>>(bt_utilisateur);
+            utiListe = JsonConvert.DeserializeObject<List<Fournisseur>>(bt_Fournisseur);
             //Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");
-              Dv_fournisseur.DataSource = utiListe;
-              Dv_fournisseur.Columns["Fou_NomDomaine"].HeaderText = "Fournisseur";
-              //Dv_fournisseur.Columns["Fou_NomResp"].Visible = false;
-              Dv_fournisseur.Columns["Fou_NomResp"].HeaderText = "Responsable";
-              Dv_fournisseur.Columns["Fou_TelResp"].HeaderText = "Tel";
-              Dv_fournisseur.Columns["Fou_MailResp"].HeaderText = "Mail";
-              Dv_fournisseur.Columns["Uti_Cp"].HeaderText = "CP";
-              Dv_fournisseur.Columns["Uti_Ville"].HeaderText = "Ville";
+            Dv_fournisseur.DataSource = utiListe;
+            Dv_fournisseur.Columns["Fou_NomDomaine"].HeaderText = "Fournisseur";
+            //Dv_fournisseur.Columns["Fou_NomResp"].Visible = false;
+            Dv_fournisseur.Columns["Fou_NomResp"].HeaderText = "Responsable";
+            Dv_fournisseur.Columns["Fou_TelResp"].HeaderText = "Tel";
+            Dv_fournisseur.Columns["Fou_MailResp"].HeaderText = "Mail";
+            Dv_fournisseur.Columns["Uti_Cp"].HeaderText = "CP";
+            Dv_fournisseur.Columns["Uti_Ville"].HeaderText = "Ville";
         }
-
+        List<Fournisseur> utiListe;
         private void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
-            
-            string text = Dv_fournisseur.Rows[e.RowIndex].Cells["utiAdresseDataGridViewTextBoxColumn"].Value.ToString();  //affiche dans la message box le contenu de Uti_Adresse
-                MessageBox.Show(text);
-            
+
+            //string text = Dv_fournisseur.Rows[e.RowIndex].Cells["FouNomDomaineDataGridViewTextBoxColumn"].Value.ToString();  //affiche dans la message box le contenu de Uti_Adresse
+            //MessageBox.Show(text);
+            //  textBoxNomDomaine.Text =  Dv_fournisseur.Rows[e.RowIndex].Cells["fouNomDomaineDataGridViewTextBoxColumn"].Value.ToString(); // via datgagrid
+            textBoxAdresse.Text = utiListe[e.RowIndex].Uti_Adresse;
+
+            //MessageBox.Show(textBoxNomDomaine.Text);
+
+            //labelNomDomaine.Text = Fournisseur.Equals(Fou_NomDomaine).ToString();
+            // MessageBox.Show(labelDateCreation.Text);
+            //Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_DateCreation"].Value.ToString();
+            // textBoxNomResp.Text = Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_NomResp"].Value.ToString();
+
         }
     }
 }
