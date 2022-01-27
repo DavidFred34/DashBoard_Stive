@@ -281,7 +281,7 @@ namespace DashBoard_Stive
             this.panel1.Controls.Add(this.panel21);
             this.panel1.Location = new System.Drawing.Point(3, 3);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(311, 315);
+            this.panel1.Size = new System.Drawing.Size(290, 315);
             this.panel1.TabIndex = 1;
             // 
             // pictureBoxUser
@@ -298,7 +298,7 @@ namespace DashBoard_Stive
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label3.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
-            this.label3.Location = new System.Drawing.Point(79, 270);
+            this.label3.Location = new System.Drawing.Point(85, 270);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(126, 20);
             this.label3.TabIndex = 2;
@@ -306,7 +306,7 @@ namespace DashBoard_Stive
             // 
             // pictureBoxLogo
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(74, 11);
+            this.pictureBoxLogo.Location = new System.Drawing.Point(65, 11);
             this.pictureBoxLogo.Name = "pictureBoxLogo";
             this.pictureBoxLogo.Size = new System.Drawing.Size(167, 223);
             this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -2202,12 +2202,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelFournisseurs);
+            this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
-            this.Controls.Add(this.panelAccueil);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";

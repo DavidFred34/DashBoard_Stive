@@ -23,10 +23,10 @@ namespace DashBoard_Stive
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
             pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
-            reinitBouton();
+            ReinitBouton();
         }
 
-        private void reinitBouton()
+        private void ReinitBouton()
         {
             panelAccueil.Visible = false;
             panelProduit.Visible = false;
@@ -41,6 +41,36 @@ namespace DashBoard_Stive
                 if (item is Button) { (item as Button).Tag = 0; }
             }
         }
+
+        private void Stamper(
+                        string NomDomaine = "",
+                        string NomResp = ""
+
+                        //Fou_NomDomaine : ""Domaine de Tariquet"",
+                        //Fou_NomResp : ""Max"",
+                        //Fou_TelResp : ""0125254589"",
+                        //Fou_MailResp : ""max @Tariquet.com"",
+                        //Fou_Fonction : ""Gérant"",
+                        //Fou_DateCreation : ""24/12/1987"",
+                        //Fou_Role : ""admin"",
+                        //Uti_Id : 1,
+                        //Uti_Adresse :  ""3 rue de la paix"" ,
+                        //Uti_CompAdresse :""bat H"",
+                        //Uti_Cp :""34080"",
+                        //Uti_Ville :   ""Pas montpellier"" ,
+                        //Uti_Pays : ""france"",
+                        //Uti_TelContact :""0684529261"",
+                        //Uti_Mdp : ""1234"",
+                        //Uti_VerifMdp : ""1234"",
+                        //Uti_MailContact : ""moi @pasmoi.com"",
+                        //Uti_DateCreation
+                            )
+        {
+            textBoxNomDomaine.Text = NomDomaine;
+            textBoxNomResp.Text = NomResp;
+        }
+        
+
         private void buttonMenu_MouseEnter(object sender, EventArgs e)
         {
             if ((int?)(sender as Button).Tag == 1) return;
@@ -60,7 +90,7 @@ namespace DashBoard_Stive
 
         private void buttonAccueil_Click(object sender, EventArgs e)
         {
-            reinitBouton();
+            ReinitBouton();
             buttonAccueil.BackColor = Color.FromArgb(44, 130, 201);
             buttonAccueil.ForeColor = Color.FromArgb(255, 255, 255);
             panelAccueil.Visible = true;
@@ -70,7 +100,7 @@ namespace DashBoard_Stive
 
         private void buttonProduit_Click(object sender, EventArgs e)
         {
-            reinitBouton();
+            ReinitBouton();
             buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
             buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
             panelProduit.Visible = true;
@@ -79,7 +109,7 @@ namespace DashBoard_Stive
 
         private void buttonClients_Click(object sender, EventArgs e)
         {
-            reinitBouton();
+            ReinitBouton();
             buttonClients.BackColor = Color.FromArgb(44, 130, 201);
             buttonClients.ForeColor = Color.FromArgb(255, 255, 255);
             panelClients.Visible = true;
@@ -89,7 +119,7 @@ namespace DashBoard_Stive
 
         private void buttonBdc_Click(object sender, EventArgs e)
         {
-            reinitBouton();
+            ReinitBouton();
             buttonBdc.BackColor = Color.FromArgb(44, 130, 201);
             buttonBdc.ForeColor = Color.FromArgb(255, 255, 255);
             panelBdc.Visible = true;
@@ -98,7 +128,7 @@ namespace DashBoard_Stive
 
         private void buttonCommandesWeb_Click(object sender, EventArgs e)
         {
-            reinitBouton();
+            ReinitBouton();
             buttonCommandesWeb.BackColor = Color.FromArgb(44, 130, 201);
             buttonCommandesWeb.ForeColor = Color.FromArgb(255, 255, 255);
             panelCommandesWeb.Visible = true;
@@ -108,7 +138,7 @@ namespace DashBoard_Stive
         private void buttonFournisseurs_Click(object sender, EventArgs e)
         {
 
-            reinitBouton();
+            ReinitBouton();
             buttonFournisseurs.BackColor = Color.FromArgb(44, 130, 201);
             buttonFournisseurs.ForeColor = Color.FromArgb(255, 255, 255);
             panelFournisseurs.Visible = true;
@@ -202,6 +232,7 @@ namespace DashBoard_Stive
             Dv_fournisseur.Columns["Uti_Ville"].HeaderText = "Ville";
         }
         List<Fournisseur> utiListe;
+
         private void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
 
@@ -211,8 +242,9 @@ namespace DashBoard_Stive
             //string text = Dv_fournisseur.Rows[e.RowIndex].Cells["FouNomDomaineDataGridViewTextBoxColumn"].Value.ToString();  //affiche dans la message box le contenu de Uti_Adresse
             //MessageBox.Show(text);
             //  textBoxNomDomaine.Text =  Dv_fournisseur.Rows[e.RowIndex].Cells["fouNomDomaineDataGridViewTextBoxColumn"].Value.ToString(); // via datgagrid
-            textBoxAdresse.Text = utiListe[e.RowIndex].Uti_Adresse;
-
+            //textBoxAdresse.Text = utiListe[e.RowIndex].Uti_Adresse;
+            Stamper(utiListe[e.RowIndex].Fou_NomDomaine,NomResp: utiListe[e.RowIndex].Fou_NomResp);
+           
             //MessageBox.Show(textBoxNomDomaine.Text);
 
             //labelNomDomaine.Text = Fournisseur.Equals(Fou_NomDomaine).ToString();
