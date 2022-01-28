@@ -151,48 +151,49 @@ namespace DashBoard_Stive
             this.panel13 = new System.Windows.Forms.Panel();
             this.textBoxNomDomaine = new System.Windows.Forms.TextBox();
             this.textBoxNomResp = new System.Windows.Forms.TextBox();
-            this.textBox21 = new System.Windows.Forms.TextBox();
+            this.textBoxFonction = new System.Windows.Forms.TextBox();
             this.label41 = new System.Windows.Forms.Label();
-            this.textBox22 = new System.Windows.Forms.TextBox();
+            this.textBoxMailResp = new System.Windows.Forms.TextBox();
             this.label43 = new System.Windows.Forms.Label();
-            this.textBox23 = new System.Windows.Forms.TextBox();
+            this.textBoxTelResp = new System.Windows.Forms.TextBox();
             this.label46 = new System.Windows.Forms.Label();
-            this.textBox24 = new System.Windows.Forms.TextBox();
             this.label47 = new System.Windows.Forms.Label();
             this.label40 = new System.Windows.Forms.Label();
-            this.textBox9 = new System.Windows.Forms.TextBox();
+            this.textBoxMdp = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
-            this.textBox10 = new System.Windows.Forms.TextBox();
+            this.textBoxMailContact = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox11 = new System.Windows.Forms.TextBox();
+            this.textBoxTelContact = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
-            this.textBox12 = new System.Windows.Forms.TextBox();
+            this.textBoxVille = new System.Windows.Forms.TextBox();
             this.label27 = new System.Windows.Forms.Label();
-            this.textBox13 = new System.Windows.Forms.TextBox();
+            this.textBoxPays = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
-            this.textBox14 = new System.Windows.Forms.TextBox();
+            this.textBoxCodePostal = new System.Windows.Forms.TextBox();
             this.label29 = new System.Windows.Forms.Label();
-            this.textBox15 = new System.Windows.Forms.TextBox();
+            this.textBoxCompAdresse = new System.Windows.Forms.TextBox();
             this.label30 = new System.Windows.Forms.Label();
             this.textBoxAdresse = new System.Windows.Forms.TextBox();
             this.label31 = new System.Windows.Forms.Label();
             this.labelDateCreation = new System.Windows.Forms.Label();
-            this.label33 = new System.Windows.Forms.Label();
+            this.labelListeBdc = new System.Windows.Forms.Label();
             this.buttonMajFournisseur = new System.Windows.Forms.Button();
             this.buttonSuppFournisseur = new System.Windows.Forms.Button();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.label34 = new System.Windows.Forms.Label();
+            this.dataGridViewListeBdc = new System.Windows.Forms.DataGridView();
             this.panel14 = new System.Windows.Forms.Panel();
             this.buttonAjouterfournisseur = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
-            this.label35 = new System.Windows.Forms.Label();
             this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
+            this.buttonCreerFournisseur = new System.Windows.Forms.Button();
+            this.dataGridViewListeProduit = new System.Windows.Forms.DataGridView();
+            this.labelListeProduit = new System.Windows.Forms.Label();
             this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_NomResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_TelResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_MailResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -212,7 +213,6 @@ namespace DashBoard_Stive
             this.utiVerifMdpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utiMailContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -251,9 +251,10 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView12)).BeginInit();
             this.panelFournisseurs.SuspendLayout();
             this.panel13.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeBdc)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeProduit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -1582,39 +1583,40 @@ namespace DashBoard_Stive
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.buttonCreerFournisseur);
+            this.panel13.Controls.Add(this.labelListeProduit);
+            this.panel13.Controls.Add(this.dataGridViewListeProduit);
             this.panel13.Controls.Add(this.textBoxNomDomaine);
             this.panel13.Controls.Add(this.textBoxNomResp);
-            this.panel13.Controls.Add(this.textBox21);
+            this.panel13.Controls.Add(this.textBoxFonction);
             this.panel13.Controls.Add(this.label41);
-            this.panel13.Controls.Add(this.textBox22);
+            this.panel13.Controls.Add(this.textBoxMailResp);
             this.panel13.Controls.Add(this.label43);
-            this.panel13.Controls.Add(this.textBox23);
+            this.panel13.Controls.Add(this.textBoxTelResp);
             this.panel13.Controls.Add(this.label46);
-            this.panel13.Controls.Add(this.textBox24);
             this.panel13.Controls.Add(this.label47);
             this.panel13.Controls.Add(this.label40);
-            this.panel13.Controls.Add(this.textBox9);
+            this.panel13.Controls.Add(this.textBoxMdp);
             this.panel13.Controls.Add(this.label4);
-            this.panel13.Controls.Add(this.textBox10);
+            this.panel13.Controls.Add(this.textBoxMailContact);
             this.panel13.Controls.Add(this.label12);
-            this.panel13.Controls.Add(this.textBox11);
+            this.panel13.Controls.Add(this.textBoxTelContact);
             this.panel13.Controls.Add(this.label13);
-            this.panel13.Controls.Add(this.textBox12);
+            this.panel13.Controls.Add(this.textBoxVille);
             this.panel13.Controls.Add(this.label27);
-            this.panel13.Controls.Add(this.textBox13);
+            this.panel13.Controls.Add(this.textBoxPays);
             this.panel13.Controls.Add(this.label28);
-            this.panel13.Controls.Add(this.textBox14);
+            this.panel13.Controls.Add(this.textBoxCodePostal);
             this.panel13.Controls.Add(this.label29);
-            this.panel13.Controls.Add(this.textBox15);
+            this.panel13.Controls.Add(this.textBoxCompAdresse);
             this.panel13.Controls.Add(this.label30);
             this.panel13.Controls.Add(this.textBoxAdresse);
             this.panel13.Controls.Add(this.label31);
             this.panel13.Controls.Add(this.labelDateCreation);
-            this.panel13.Controls.Add(this.label33);
+            this.panel13.Controls.Add(this.labelListeBdc);
             this.panel13.Controls.Add(this.buttonMajFournisseur);
             this.panel13.Controls.Add(this.buttonSuppFournisseur);
-            this.panel13.Controls.Add(this.dataGridView1);
-            this.panel13.Controls.Add(this.label34);
+            this.panel13.Controls.Add(this.dataGridViewListeBdc);
             this.panel13.Location = new System.Drawing.Point(671, 10);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(601, 740);
@@ -1629,78 +1631,71 @@ namespace DashBoard_Stive
             // 
             // textBoxNomResp
             // 
-            this.textBoxNomResp.Location = new System.Drawing.Point(493, 23);
+            this.textBoxNomResp.Location = new System.Drawing.Point(497, 125);
             this.textBoxNomResp.Name = "textBoxNomResp";
             this.textBoxNomResp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNomResp.TabIndex = 36;
             // 
-            // textBox21
+            // textBoxFonction
             // 
-            this.textBox21.Location = new System.Drawing.Point(493, 281);
-            this.textBox21.Name = "textBox21";
-            this.textBox21.Size = new System.Drawing.Size(100, 20);
-            this.textBox21.TabIndex = 35;
+            this.textBoxFonction.Location = new System.Drawing.Point(496, 236);
+            this.textBoxFonction.Name = "textBoxFonction";
+            this.textBoxFonction.Size = new System.Drawing.Size(100, 20);
+            this.textBoxFonction.TabIndex = 35;
             // 
             // label41
             // 
             this.label41.AutoSize = true;
             this.label41.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label41.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label41.Location = new System.Drawing.Point(389, 283);
+            this.label41.Location = new System.Drawing.Point(392, 235);
             this.label41.Name = "label41";
             this.label41.Size = new System.Drawing.Size(77, 19);
             this.label41.TabIndex = 34;
             this.label41.Text = "Fonction";
             // 
-            // textBox22
+            // textBoxMailResp
             // 
-            this.textBox22.Location = new System.Drawing.Point(493, 250);
-            this.textBox22.Name = "textBox22";
-            this.textBox22.Size = new System.Drawing.Size(100, 20);
-            this.textBox22.TabIndex = 33;
+            this.textBoxMailResp.Location = new System.Drawing.Point(496, 199);
+            this.textBoxMailResp.Name = "textBoxMailResp";
+            this.textBoxMailResp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMailResp.TabIndex = 33;
             // 
             // label43
             // 
             this.label43.AutoSize = true;
             this.label43.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label43.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label43.Location = new System.Drawing.Point(389, 252);
+            this.label43.Location = new System.Drawing.Point(392, 198);
             this.label43.Name = "label43";
             this.label43.Size = new System.Drawing.Size(77, 19);
             this.label43.TabIndex = 32;
             this.label43.Text = "Mail resp";
             // 
-            // textBox23
+            // textBoxTelResp
             // 
-            this.textBox23.Location = new System.Drawing.Point(493, 218);
-            this.textBox23.Name = "textBox23";
-            this.textBox23.Size = new System.Drawing.Size(100, 20);
-            this.textBox23.TabIndex = 31;
+            this.textBoxTelResp.Location = new System.Drawing.Point(496, 162);
+            this.textBoxTelResp.Name = "textBoxTelResp";
+            this.textBoxTelResp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTelResp.TabIndex = 31;
             // 
             // label46
             // 
             this.label46.AutoSize = true;
             this.label46.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label46.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label46.Location = new System.Drawing.Point(389, 217);
+            this.label46.Location = new System.Drawing.Point(392, 161);
             this.label46.Name = "label46";
             this.label46.Size = new System.Drawing.Size(75, 19);
             this.label46.TabIndex = 30;
             this.label46.Text = "Tel Resp";
-            // 
-            // textBox24
-            // 
-            this.textBox24.Location = new System.Drawing.Point(493, 182);
-            this.textBox24.Name = "textBox24";
-            this.textBox24.Size = new System.Drawing.Size(100, 20);
-            this.textBox24.TabIndex = 29;
             // 
             // label47
             // 
             this.label47.AutoSize = true;
             this.label47.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label47.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label47.Location = new System.Drawing.Point(389, 181);
+            this.label47.Location = new System.Drawing.Point(392, 124);
             this.label47.Name = "label47";
             this.label47.Size = new System.Drawing.Size(89, 19);
             this.label47.TabIndex = 28;
@@ -1717,66 +1712,66 @@ namespace DashBoard_Stive
             this.label40.TabIndex = 27;
             this.label40.Text = "Nom domaine";
             // 
-            // textBox9
+            // textBoxMdp
             // 
-            this.textBox9.Location = new System.Drawing.Point(493, 126);
-            this.textBox9.Name = "textBox9";
-            this.textBox9.Size = new System.Drawing.Size(100, 20);
-            this.textBox9.TabIndex = 26;
+            this.textBoxMdp.Location = new System.Drawing.Point(496, 88);
+            this.textBoxMdp.Name = "textBoxMdp";
+            this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMdp.TabIndex = 26;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label4.Location = new System.Drawing.Point(389, 125);
+            this.label4.Location = new System.Drawing.Point(392, 87);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 19);
             this.label4.TabIndex = 25;
             this.label4.Text = "Mdp";
             // 
-            // textBox10
+            // textBoxMailContact
             // 
-            this.textBox10.Location = new System.Drawing.Point(493, 93);
-            this.textBox10.Name = "textBox10";
-            this.textBox10.Size = new System.Drawing.Size(100, 20);
-            this.textBox10.TabIndex = 24;
+            this.textBoxMailContact.Location = new System.Drawing.Point(496, 51);
+            this.textBoxMailContact.Name = "textBoxMailContact";
+            this.textBoxMailContact.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMailContact.TabIndex = 24;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label12.Location = new System.Drawing.Point(389, 92);
+            this.label12.Location = new System.Drawing.Point(392, 50);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(100, 19);
             this.label12.TabIndex = 23;
             this.label12.Text = "Mail contact";
             // 
-            // textBox11
+            // textBoxTelContact
             // 
-            this.textBox11.Location = new System.Drawing.Point(493, 57);
-            this.textBox11.Name = "textBox11";
-            this.textBox11.Size = new System.Drawing.Size(100, 20);
-            this.textBox11.TabIndex = 22;
+            this.textBoxTelContact.Location = new System.Drawing.Point(496, 14);
+            this.textBoxTelContact.Name = "textBoxTelContact";
+            this.textBoxTelContact.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTelContact.TabIndex = 22;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
             this.label13.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label13.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label13.Location = new System.Drawing.Point(389, 56);
+            this.label13.Location = new System.Drawing.Point(392, 13);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(92, 19);
             this.label13.TabIndex = 21;
             this.label13.Text = "Tel contact";
             // 
-            // textBox12
+            // textBoxVille
             // 
-            this.textBox12.Location = new System.Drawing.Point(110, 190);
-            this.textBox12.Name = "textBox12";
-            this.textBox12.Size = new System.Drawing.Size(100, 20);
-            this.textBox12.TabIndex = 20;
+            this.textBoxVille.Location = new System.Drawing.Point(110, 190);
+            this.textBoxVille.Name = "textBoxVille";
+            this.textBoxVille.Size = new System.Drawing.Size(100, 20);
+            this.textBoxVille.TabIndex = 20;
             // 
             // label27
             // 
@@ -1789,12 +1784,12 @@ namespace DashBoard_Stive
             this.label27.TabIndex = 19;
             this.label27.Text = "Ville";
             // 
-            // textBox13
+            // textBoxPays
             // 
-            this.textBox13.Location = new System.Drawing.Point(110, 222);
-            this.textBox13.Name = "textBox13";
-            this.textBox13.Size = new System.Drawing.Size(100, 20);
-            this.textBox13.TabIndex = 18;
+            this.textBoxPays.Location = new System.Drawing.Point(110, 222);
+            this.textBoxPays.Name = "textBoxPays";
+            this.textBoxPays.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPays.TabIndex = 18;
             // 
             // label28
             // 
@@ -1807,12 +1802,12 @@ namespace DashBoard_Stive
             this.label28.TabIndex = 17;
             this.label28.Text = "Pays";
             // 
-            // textBox14
+            // textBoxCodePostal
             // 
-            this.textBox14.Location = new System.Drawing.Point(110, 159);
-            this.textBox14.Name = "textBox14";
-            this.textBox14.Size = new System.Drawing.Size(100, 20);
-            this.textBox14.TabIndex = 16;
+            this.textBoxCodePostal.Location = new System.Drawing.Point(110, 159);
+            this.textBoxCodePostal.Name = "textBoxCodePostal";
+            this.textBoxCodePostal.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCodePostal.TabIndex = 16;
             // 
             // label29
             // 
@@ -1825,12 +1820,12 @@ namespace DashBoard_Stive
             this.label29.TabIndex = 15;
             this.label29.Text = "Code postal";
             // 
-            // textBox15
+            // textBoxCompAdresse
             // 
-            this.textBox15.Location = new System.Drawing.Point(110, 127);
-            this.textBox15.Name = "textBox15";
-            this.textBox15.Size = new System.Drawing.Size(100, 20);
-            this.textBox15.TabIndex = 14;
+            this.textBoxCompAdresse.Location = new System.Drawing.Point(110, 127);
+            this.textBoxCompAdresse.Name = "textBoxCompAdresse";
+            this.textBoxCompAdresse.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCompAdresse.TabIndex = 14;
             // 
             // label30
             // 
@@ -1866,22 +1861,21 @@ namespace DashBoard_Stive
             this.labelDateCreation.AutoSize = true;
             this.labelDateCreation.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDateCreation.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelDateCreation.Location = new System.Drawing.Point(8, 29);
+            this.labelDateCreation.Location = new System.Drawing.Point(8, 32);
             this.labelDateCreation.Name = "labelDateCreation";
-            this.labelDateCreation.Size = new System.Drawing.Size(146, 19);
+            this.labelDateCreation.Size = new System.Drawing.Size(0, 19);
             this.labelDateCreation.TabIndex = 10;
-            this.labelDateCreation.Text = "Créé le 12/12/2021";
             // 
-            // label33
+            // labelListeBdc
             // 
-            this.label33.AutoSize = true;
-            this.label33.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label33.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label33.Location = new System.Drawing.Point(-1, 294);
-            this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(176, 19);
-            this.label33.TabIndex = 9;
-            this.label33.Text = "Liste des commandes";
+            this.labelListeBdc.AutoSize = true;
+            this.labelListeBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelListeBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelListeBdc.Location = new System.Drawing.Point(-1, 294);
+            this.labelListeBdc.Name = "labelListeBdc";
+            this.labelListeBdc.Size = new System.Drawing.Size(176, 19);
+            this.labelListeBdc.TabIndex = 9;
+            this.labelListeBdc.Text = "Liste des commandes";
             // 
             // buttonMajFournisseur
             // 
@@ -1909,30 +1903,18 @@ namespace DashBoard_Stive
             this.buttonSuppFournisseur.Text = "Supprimer fournisseur";
             this.buttonSuppFournisseur.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // dataGridViewListeBdc
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(3, 316);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(598, 376);
-            this.dataGridView1.TabIndex = 7;
-            // 
-            // label34
-            // 
-            this.label34.AutoSize = true;
-            this.label34.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label34.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label34.Location = new System.Drawing.Point(389, 27);
-            this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(45, 19);
-            this.label34.TabIndex = 7;
-            this.label34.Text = "Nom";
+            this.dataGridViewListeBdc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListeBdc.Location = new System.Drawing.Point(3, 316);
+            this.dataGridViewListeBdc.Name = "dataGridViewListeBdc";
+            this.dataGridViewListeBdc.Size = new System.Drawing.Size(304, 376);
+            this.dataGridViewListeBdc.TabIndex = 7;
             // 
             // panel14
             // 
             this.panel14.Controls.Add(this.buttonAjouterfournisseur);
             this.panel14.Controls.Add(this.button12);
-            this.panel14.Controls.Add(this.label35);
             this.panel14.Controls.Add(this.Dv_fournisseur);
             this.panel14.Location = new System.Drawing.Point(9, 10);
             this.panel14.Name = "panel14";
@@ -1945,36 +1927,26 @@ namespace DashBoard_Stive
             this.buttonAjouterfournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonAjouterfournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonAjouterfournisseur.ForeColor = System.Drawing.Color.Green;
-            this.buttonAjouterfournisseur.Location = new System.Drawing.Point(347, 26);
+            this.buttonAjouterfournisseur.Location = new System.Drawing.Point(-26, 26);
             this.buttonAjouterfournisseur.Name = "buttonAjouterfournisseur";
             this.buttonAjouterfournisseur.Size = new System.Drawing.Size(233, 31);
             this.buttonAjouterfournisseur.TabIndex = 7;
             this.buttonAjouterfournisseur.Text = "Ajouter un fournisseur";
             this.buttonAjouterfournisseur.UseVisualStyleBackColor = true;
+            this.buttonAjouterfournisseur.Click += new System.EventHandler(this.buttonAjouterfournisseur_Click);
             // 
             // button12
             // 
             this.button12.FlatAppearance.BorderSize = 0;
             this.button12.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button12.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button12.ForeColor = System.Drawing.Color.Green;
-            this.button12.Location = new System.Drawing.Point(356, 6);
+            this.button12.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.button12.Location = new System.Drawing.Point(359, 30);
             this.button12.Name = "button12";
             this.button12.Size = new System.Drawing.Size(233, 23);
             this.button12.TabIndex = 5;
             this.button12.Text = "Chercher un fournisseur";
             this.button12.UseVisualStyleBackColor = true;
-            // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label35.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label35.Location = new System.Drawing.Point(0, 33);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(184, 19);
-            this.label35.TabIndex = 4;
-            this.label35.Text = "Liste des Fournisseurs";
             // 
             // Dv_fournisseur
             // 
@@ -2015,6 +1987,40 @@ namespace DashBoard_Stive
             this.Dv_fournisseur.Size = new System.Drawing.Size(598, 680);
             this.Dv_fournisseur.TabIndex = 6;
             this.Dv_fournisseur.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_fournisseur_CellMouseClick);
+            // 
+            // buttonCreerFournisseur
+            // 
+            this.buttonCreerFournisseur.BackColor = System.Drawing.Color.White;
+            this.buttonCreerFournisseur.FlatAppearance.BorderSize = 0;
+            this.buttonCreerFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreerFournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreerFournisseur.ForeColor = System.Drawing.Color.Green;
+            this.buttonCreerFournisseur.Location = new System.Drawing.Point(168, 475);
+            this.buttonCreerFournisseur.Name = "buttonCreerFournisseur";
+            this.buttonCreerFournisseur.Size = new System.Drawing.Size(284, 98);
+            this.buttonCreerFournisseur.TabIndex = 38;
+            this.buttonCreerFournisseur.Text = "créer fournisseur";
+            this.buttonCreerFournisseur.UseVisualStyleBackColor = false;
+            this.buttonCreerFournisseur.Click += new System.EventHandler(this.buttonCreerFournisseur_Click);
+            // 
+            // dataGridViewListeProduit
+            // 
+            this.dataGridViewListeProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListeProduit.Location = new System.Drawing.Point(313, 316);
+            this.dataGridViewListeProduit.Name = "dataGridViewListeProduit";
+            this.dataGridViewListeProduit.Size = new System.Drawing.Size(289, 376);
+            this.dataGridViewListeProduit.TabIndex = 39;
+            // 
+            // labelListeProduit
+            // 
+            this.labelListeProduit.AutoSize = true;
+            this.labelListeProduit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelListeProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelListeProduit.Location = new System.Drawing.Point(320, 294);
+            this.labelListeProduit.Name = "labelListeProduit";
+            this.labelListeProduit.Size = new System.Drawing.Size(146, 19);
+            this.labelListeProduit.TabIndex = 40;
+            this.labelListeProduit.Text = "Liste des produits";
             // 
             // Fou_NomDomaine
             // 
@@ -2057,6 +2063,10 @@ namespace DashBoard_Stive
             this.Uti_Ville.HeaderText = "Uti_Ville";
             this.Uti_Ville.Name = "Uti_Ville";
             this.Uti_Ville.ReadOnly = true;
+            // 
+            // fournisseurBindingSource
+            // 
+            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
             // fouIdDataGridViewTextBoxColumn
             // 
@@ -2191,10 +2201,6 @@ namespace DashBoard_Stive
             this.utiDateCreationDataGridViewTextBoxColumn.Name = "utiDateCreationDataGridViewTextBoxColumn";
             this.utiDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // fournisseurBindingSource
-            // 
-            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2267,10 +2273,10 @@ namespace DashBoard_Stive
             this.panelFournisseurs.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeBdc)).EndInit();
             this.panel14.ResumeLayout(false);
-            this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeProduit)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -2328,32 +2334,30 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label18;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Panel panel13;
-        private System.Windows.Forms.TextBox textBox9;
+        private System.Windows.Forms.TextBox textBoxMdp;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.TextBox textBox10;
+        private System.Windows.Forms.TextBox textBoxMailContact;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox11;
+        private System.Windows.Forms.TextBox textBoxTelContact;
         private System.Windows.Forms.Label label13;
-        private System.Windows.Forms.TextBox textBox12;
+        private System.Windows.Forms.TextBox textBoxVille;
         private System.Windows.Forms.Label label27;
-        private System.Windows.Forms.TextBox textBox13;
+        private System.Windows.Forms.TextBox textBoxPays;
         private System.Windows.Forms.Label label28;
-        private System.Windows.Forms.TextBox textBox14;
+        private System.Windows.Forms.TextBox textBoxCodePostal;
         private System.Windows.Forms.Label label29;
-        private System.Windows.Forms.TextBox textBox15;
+        private System.Windows.Forms.TextBox textBoxCompAdresse;
         private System.Windows.Forms.Label label30;
         private System.Windows.Forms.TextBox textBoxAdresse;
         private System.Windows.Forms.Label label31;
         private System.Windows.Forms.Label labelDateCreation;
-        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label labelListeBdc;
         private System.Windows.Forms.Button buttonMajFournisseur;
         private System.Windows.Forms.Button buttonSuppFournisseur;
-        private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.DataGridView dataGridViewListeBdc;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView Dv_fournisseur;
         private System.Windows.Forms.Button button12;
-        private System.Windows.Forms.Label label35;
         private System.Windows.Forms.Button buttonAjouterfournisseur;
         private System.Windows.Forms.Button button14;
         private System.Windows.Forms.Panel panel9;
@@ -2395,13 +2399,12 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.TextBox textBoxNomDomaine;
         private System.Windows.Forms.TextBox textBoxNomResp;
-        private System.Windows.Forms.TextBox textBox21;
+        private System.Windows.Forms.TextBox textBoxFonction;
         private System.Windows.Forms.Label label41;
-        private System.Windows.Forms.TextBox textBox22;
+        private System.Windows.Forms.TextBox textBoxMailResp;
         private System.Windows.Forms.Label label43;
-        private System.Windows.Forms.TextBox textBox23;
+        private System.Windows.Forms.TextBox textBoxTelResp;
         private System.Windows.Forms.Label label46;
-        private System.Windows.Forms.TextBox textBox24;
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Panel panel20;
@@ -2436,6 +2439,9 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView dataGridView14;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.BindingSource fournisseurBindingSource;
+        private System.Windows.Forms.Button buttonCreerFournisseur;
+        private System.Windows.Forms.DataGridView dataGridViewListeProduit;
+        private System.Windows.Forms.Label labelListeProduit;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomResp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_TelResp;

@@ -28,5 +28,5 @@ namespace DashBoard_Stive
         public string Uti_VerifMdp { get; set; }
         public string Uti_MailContact { get; set; }
         public string Uti_DateCreation { get; set; }
-}
+    }
 }

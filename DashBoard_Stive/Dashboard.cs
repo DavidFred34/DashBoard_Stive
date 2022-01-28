@@ -21,7 +21,7 @@ namespace DashBoard_Stive
         private void Dashboard_Load(object sender, EventArgs e)
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
-            pictureBoxUser.ImageLocation = "../../images/concombres01.png";
+            //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
             ReinitBouton();
         }
@@ -43,37 +43,49 @@ namespace DashBoard_Stive
         }
 
         private void Stamper(
+                        //champs fournisseur
                         string NomDomaine = "",
-                        string NomResp = ""
-
-                        //Fou_NomDomaine : ""Domaine de Tariquet"",
-                        //Fou_NomResp : ""Max"",
-                        //Fou_TelResp : ""0125254589"",
-                        //Fou_MailResp : ""max @Tariquet.com"",
-                        //Fou_Fonction : ""Gérant"",
-                        //Fou_DateCreation : ""24/12/1987"",
-                        //Fou_Role : ""admin"",
-                        //Uti_Id : 1,
-                        //Uti_Adresse :  ""3 rue de la paix"" ,
-                        //Uti_CompAdresse :""bat H"",
-                        //Uti_Cp :""34080"",
-                        //Uti_Ville :   ""Pas montpellier"" ,
-                        //Uti_Pays : ""france"",
-                        //Uti_TelContact :""0684529261"",
-                        //Uti_Mdp : ""1234"",
-                        //Uti_VerifMdp : ""1234"",
-                        //Uti_MailContact : ""moi @pasmoi.com"",
-                        //Uti_DateCreation
-                            )
+                        string DateCreation = "",
+                        string NomResp = "",
+                        string TelResp = "",
+                        string MailResp = "",
+                        string Fonction = "",
+                        string TelContact = "",
+                        string MailContact = "",
+                        string Mdp = "",
+                        string Adresse = "",
+                        string CompAdresse = "",
+                        string CodePostal = "",
+                        string Ville = "",
+                        string Pays = ""
+                        )
         {
             textBoxNomDomaine.Text = NomDomaine;
+            labelDateCreation.Text = "Créé le " + DateCreation;
             textBoxNomResp.Text = NomResp;
+            textBoxTelResp.Text = TelResp;
+            textBoxMailResp.Text = MailResp;
+            textBoxFonction.Text = Fonction;
+            textBoxTelContact.Text = TelContact;
+            textBoxMailContact.Text = MailContact;
+            textBoxMdp.Text = Mdp;
+            textBoxAdresse.Text = Adresse;
+            textBoxCompAdresse.Text = CompAdresse;
+            textBoxCodePostal.Text = CodePostal;
+            textBoxVille.Text = Ville;
+            textBoxPays.Text = Pays;
+
         }
         
 
         private void buttonMenu_MouseEnter(object sender, EventArgs e)
         {
-            if ((int?)(sender as Button).Tag == 1) return;
+            if ((int?)(sender as Button).Tag == 1) {
+                buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
+                buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
+                return;
+            }
+            
 
             (sender as Button).BackColor = Color.FromArgb(44, 130, 201);
             (sender as Button).ForeColor = Color.FromArgb(255, 255, 255);
@@ -82,9 +94,14 @@ namespace DashBoard_Stive
 
         private void buttonMenu_MouseLeave(object sender, EventArgs e)
         {
-            if ((int?)(sender as Button).Tag == 1) return; 
-            (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
-            (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
+            if ((int?)(sender as Button).Tag == 1)
+            {
+                buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
+                buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
+                return;
+            }
+                (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
+                (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
         }
 
 
@@ -143,6 +160,13 @@ namespace DashBoard_Stive
             buttonFournisseurs.ForeColor = Color.FromArgb(255, 255, 255);
             panelFournisseurs.Visible = true;
             buttonFournisseurs.Tag = 1;
+            buttonCreerFournisseur.Visible = true;
+            buttonMajFournisseur.Visible = false;
+            buttonSuppFournisseur.Visible = false;
+            dataGridViewListeBdc.Visible = false;
+            dataGridViewListeProduit.Visible = false;
+            labelListeBdc.Visible = false;
+            labelListeProduit.Visible = false;
 
             //const string bt_Fournisseur = @"
             //    [
@@ -235,6 +259,10 @@ namespace DashBoard_Stive
 
         private void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            dataGridViewListeBdc.Visible = true;
+            dataGridViewListeProduit.Visible = true;
+            labelListeBdc.Visible = true;
+            labelListeProduit.Visible = true;
 
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
@@ -243,8 +271,25 @@ namespace DashBoard_Stive
             //MessageBox.Show(text);
             //  textBoxNomDomaine.Text =  Dv_fournisseur.Rows[e.RowIndex].Cells["fouNomDomaineDataGridViewTextBoxColumn"].Value.ToString(); // via datgagrid
             //textBoxAdresse.Text = utiListe[e.RowIndex].Uti_Adresse;
-            Stamper(utiListe[e.RowIndex].Fou_NomDomaine,NomResp: utiListe[e.RowIndex].Fou_NomResp);
-           
+            Stamper(
+                NomDomaine:utiListe[e.RowIndex].Fou_NomDomaine,
+                DateCreation: utiListe[e.RowIndex].Uti_DateCreation,
+                NomResp: utiListe[e.RowIndex].Fou_NomResp,
+                TelResp: utiListe[e.RowIndex].Fou_TelResp,
+                MailResp: utiListe[e.RowIndex].Fou_MailResp,
+                Fonction: utiListe[e.RowIndex].Fou_Fonction,
+                TelContact: utiListe[e.RowIndex].Uti_TelContact,
+                MailContact: utiListe[e.RowIndex].Uti_MailContact,
+                Adresse: utiListe[e.RowIndex].Uti_Adresse,
+                CompAdresse: utiListe[e.RowIndex].Uti_CompAdresse,
+                CodePostal: utiListe[e.RowIndex].Uti_Cp,
+                Ville: utiListe[e.RowIndex].Uti_Ville,
+                Pays: utiListe[e.RowIndex].Uti_Pays
+                );
+            buttonCreerFournisseur.Visible = false;
+            buttonMajFournisseur.Visible = true;
+            buttonSuppFournisseur.Visible = true;
+
             //MessageBox.Show(textBoxNomDomaine.Text);
 
             //labelNomDomaine.Text = Fournisseur.Equals(Fou_NomDomaine).ToString();
@@ -252,6 +297,82 @@ namespace DashBoard_Stive
             //Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_DateCreation"].Value.ToString();
             // textBoxNomResp.Text = Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_NomResp"].Value.ToString();
 
+        }
+
+        private void buttonAjouterfournisseur_Click(object sender, EventArgs e)
+        {
+            Stamper(
+                NomDomaine: "",
+                DateCreation: "",
+                NomResp: "",
+                TelResp: "",
+                MailResp: "",
+                Fonction: "",
+                TelContact: "",
+                MailContact: "",
+                Adresse: "",
+                CompAdresse: "",
+                CodePostal: "",
+                Ville: "",
+                Pays: ""
+                );
+            buttonCreerFournisseur.Visible = true;
+            buttonMajFournisseur.Visible = false;
+            buttonSuppFournisseur.Visible = false;
+            dataGridViewListeBdc.Visible = false;
+            dataGridViewListeProduit.Visible = false;
+            labelListeBdc.Visible = false;
+            labelListeProduit.Visible = false;
+        }
+
+        private void buttonCreerFournisseur_Click(object sender, EventArgs e)
+        {
+            var httpClient = new HttpClient();
+            var response = await
+                _httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php");
+            response.Ensur esuccessStatusCode();
+
+            var content = await response.Content.ReadAsAStringAsync();
+            utiListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content);
+
+
+            //requette http
+            /* json
+             Fou_NomDomaine,
+             Fou_NomResp,
+             Fou_TelResp,
+             Fou_MailResp,
+             Fou_Fonction,
+             Uti_TelContact,
+             Uti_MailContact,
+
+             Uti_Adresse,
+             Uti_CompAdresse,
+             Uti_Cp,
+             Uti_Ville,
+             Uti_Pays
+             Fou_Role
+
+            Fou_Id : 2,
+                        Fou_NomDomaine : ""Domaine des pins"",
+                        Fou_NomResp : ""Lolo"",
+                        Fou_TelResp : ""0125254590"",
+                        Fou_MailResp : ""lolo@lolo.com"",
+                        Fou_Fonction : ""Gérant"",
+                        Fou_DateCreation : ""24/12/1990"",
+                        Fou_Role : ""fournisseur"",
+                        Uti_Id: 2,
+                        Uti_Adresse: ""ici"" ,
+                        Uti_CompAdresse: ""pas la bas"",
+                        Uti_Cp: ""30080"",
+                        Uti_Ville: ""Nime"",
+                        Uti_Pays: ""Belgique"",
+                        Uti_TelContact: ""0521252569"",
+                        Uti_Mdp: ""567"",
+                        Uti_VerifMdp: ""1234"",
+                        Uti_MailContact: ""lui@paslui.com"",
+                        Uti_DateCreation: ""01/01/2021""
+            */
         }
     }
 }
