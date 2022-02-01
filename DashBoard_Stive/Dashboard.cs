@@ -70,6 +70,7 @@ namespace DashBoard_Stive
         }
         private void Stamper(
                         //champs fournisseur
+                        string Uti_Id = "",
                         string NomDomaine = "",
                         string DateCreation = "",
                         string NomResp = "",
@@ -86,6 +87,7 @@ namespace DashBoard_Stive
                         string Pays = ""
                         )
         {
+            label_Uti_Id.Text = Uti_Id;
             textBoxNomDomaine.Text = NomDomaine;
             labelDateCreation.Text = "Créé le " + DateCreation;
             textBoxNomResp.Text = NomResp;
@@ -249,12 +251,9 @@ namespace DashBoard_Stive
 
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
-
-            //string text = Dv_fournisseur.Rows[e.RowIndex].Cells["FouNomDomaineDataGridViewTextBoxColumn"].Value.ToString();  //affiche dans la message box le contenu de Uti_Adresse
-            //MessageBox.Show(text);
-            //  textBoxNomDomaine.Text =  Dv_fournisseur.Rows[e.RowIndex].Cells["fouNomDomaineDataGridViewTextBoxColumn"].Value.ToString(); // via datgagrid
-            //textBoxAdresse.Text = utiListe[e.RowIndex].Uti_Adresse;
+         
             Stamper(
+                Uti_Id: utiListe[e.RowIndex].Uti_Id.ToString(),
                 NomDomaine:utiListe[e.RowIndex].Fou_NomDomaine,
                 DateCreation: utiListe[e.RowIndex].Uti_DateCreation,
                 NomResp: utiListe[e.RowIndex].Fou_NomResp,
@@ -269,16 +268,12 @@ namespace DashBoard_Stive
                 Ville: utiListe[e.RowIndex].Uti_Ville,
                 Pays: utiListe[e.RowIndex].Uti_Pays
                 );
+            
             buttonCreerFournisseur.Visible = false;
             buttonMajFournisseur.Visible = true;
             buttonSuppFournisseur.Visible = true;
-            string id = utiListe[e.RowIndex].Uti_Id.ToString();
-            //MessageBox.Show(textBoxNomDomaine.Text);
+            
 
-            //labelNomDomaine.Text = Fournisseur.Equals(Fou_NomDomaine).ToString();
-            // MessageBox.Show(labelDateCreation.Text);
-            //Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_DateCreation"].Value.ToString();
-            // textBoxNomResp.Text = Dv_fournisseur.Rows[e.RowIndex].Cells["Fou_NomResp"].Value.ToString();
 
         }
 
@@ -375,21 +370,30 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response );
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonFournisseurs.PerformClick();
+            buttonAjouterfournisseur.PerformClick();
         }
 
-        private void buttonSuppFournisseur_Click(object sender, EventArgs e)
+        private async void buttonSuppFournisseur_Click(object sender, EventArgs e)
         {
-          /*  var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(utiListe);
-       
+            Fournisseur suppFour = new Fournisseur();
+            //string v = label_Uti_Id.Text.ToString();
+            suppFour.Uti_Id = int.Parse(label_Uti_Id.Text);
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(suppFour);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = httpClient.DeleteAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/https://apistive.azurewebsites.net/API/controlers/Fournisseur/suprimer.php",data).Result;
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/suprimer.php", data);
+            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
-                Console.Write("Success");
-            }
-            else
-                Console.Write("Error");*/
+                MessageBox.Show("Fournisseur supprimé");
+              }
+              else
+                MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonFournisseurs.PerformClick();
         }
     }
 }

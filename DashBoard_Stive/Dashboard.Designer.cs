@@ -149,6 +149,7 @@ namespace DashBoard_Stive
             this.label59 = new System.Windows.Forms.Label();
             this.panelFournisseurs = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.label_Uti_Id = new System.Windows.Forms.Label();
             this.buttonCreerFournisseur = new System.Windows.Forms.Button();
             this.labelListeProduit = new System.Windows.Forms.Label();
             this.dataGridViewListeProduit = new System.Windows.Forms.DataGridView();
@@ -193,7 +194,6 @@ namespace DashBoard_Stive
             this.Fou_MailResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -226,6 +226,7 @@ namespace DashBoard_Stive
             this.utiMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -1596,6 +1597,7 @@ namespace DashBoard_Stive
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.label_Uti_Id);
             this.panel13.Controls.Add(this.buttonCreerFournisseur);
             this.panel13.Controls.Add(this.labelListeProduit);
             this.panel13.Controls.Add(this.dataGridViewListeProduit);
@@ -1634,6 +1636,18 @@ namespace DashBoard_Stive
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(601, 740);
             this.panel13.TabIndex = 6;
+            // 
+            // label_Uti_Id
+            // 
+            this.label_Uti_Id.AutoSize = true;
+            this.label_Uti_Id.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Uti_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label_Uti_Id.Location = new System.Drawing.Point(309, 10);
+            this.label_Uti_Id.Name = "label_Uti_Id";
+            this.label_Uti_Id.Size = new System.Drawing.Size(53, 19);
+            this.label_Uti_Id.TabIndex = 41;
+            this.label_Uti_Id.Text = "Uti_Id";
+            this.label_Uti_Id.Visible = false;
             // 
             // buttonCreerFournisseur
             // 
@@ -2091,10 +2105,6 @@ namespace DashBoard_Stive
             this.Uti_Ville.Name = "Uti_Ville";
             this.Uti_Ville.ReadOnly = true;
             // 
-            // fournisseurBindingSource
-            // 
-            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
-            // 
             // fouIdDataGridViewTextBoxColumn
             // 
             this.fouIdDataGridViewTextBoxColumn.DataPropertyName = "Fou_Id";
@@ -2318,6 +2328,10 @@ namespace DashBoard_Stive
             this.utiDateCreationDataGridViewTextBoxColumn.HeaderText = "Uti_DateCreation";
             this.utiDateCreationDataGridViewTextBoxColumn.Name = "utiDateCreationDataGridViewTextBoxColumn";
             this.utiDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // fournisseurBindingSource
+            // 
+            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
             // Dashboard
             // 
@@ -2598,5 +2612,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn utiMailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn utiDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.Label label_Uti_Id;
     }
 }
