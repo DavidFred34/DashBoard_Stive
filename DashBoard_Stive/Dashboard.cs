@@ -25,6 +25,7 @@ namespace DashBoard_Stive
             //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
             ReinitBouton();
+            buttonAccueil.PerformClick();
         }
 
         private void ReinitBouton()
@@ -372,7 +373,8 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response );
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonFournisseurs.PerformClick();
-            buttonAjouterfournisseur.PerformClick();
+            Stamper();
+            //buttonAjouterfournisseur.PerformClick();
         }
 
         private async void buttonSuppFournisseur_Click(object sender, EventArgs e)
@@ -394,6 +396,7 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonFournisseurs.PerformClick();
+            Stamper();
         }
     }
 }

@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 
+
 namespace DashBoard_Stive
 {
     public partial class Form1 : Form
@@ -40,7 +41,6 @@ namespace DashBoard_Stive
         {
             Dashboard Dashboard = new Dashboard();
             Dashboard.ShowDialog();
-            //Dashboard. = true;
             this.Close();
         }
     }
