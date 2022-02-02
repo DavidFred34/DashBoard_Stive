@@ -188,45 +188,13 @@ namespace DashBoard_Stive
             this.buttonAjouterfournisseur = new System.Windows.Forms.Button();
             this.button12 = new System.Windows.Forms.Button();
             this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
+            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_NomResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_TelResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_MailResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouNomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouNomRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nomRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouTelRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouMailRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailRespDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouFonctionDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fonctionFouDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fouRoleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.adresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiCompAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.compAdresseDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiCpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.codePostalDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiVilleDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.villeDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiPaysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.paysDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiTelContactDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.telephoneDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiMdpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mdpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiVerifMdpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiMailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.utiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -2020,39 +1988,7 @@ namespace DashBoard_Stive
             this.Fou_TelResp,
             this.Fou_MailResp,
             this.Uti_Cp,
-            this.Uti_Ville,
-            this.fouIdDataGridViewTextBoxColumn,
-            this.fouNomDomaineDataGridViewTextBoxColumn,
-            this.nomDomaineDataGridViewTextBoxColumn,
-            this.fouNomRespDataGridViewTextBoxColumn,
-            this.nomRespDataGridViewTextBoxColumn,
-            this.fouTelRespDataGridViewTextBoxColumn,
-            this.telRespDataGridViewTextBoxColumn,
-            this.fouMailRespDataGridViewTextBoxColumn,
-            this.mailRespDataGridViewTextBoxColumn,
-            this.fouFonctionDataGridViewTextBoxColumn,
-            this.fonctionFouDataGridViewTextBoxColumn,
-            this.fouDateCreationDataGridViewTextBoxColumn,
-            this.fouRoleDataGridViewTextBoxColumn,
-            this.utiIdDataGridViewTextBoxColumn,
-            this.utiAdresseDataGridViewTextBoxColumn,
-            this.adresseDataGridViewTextBoxColumn,
-            this.utiCompAdresseDataGridViewTextBoxColumn,
-            this.compAdresseDataGridViewTextBoxColumn,
-            this.utiCpDataGridViewTextBoxColumn,
-            this.codePostalDataGridViewTextBoxColumn,
-            this.utiVilleDataGridViewTextBoxColumn,
-            this.villeDataGridViewTextBoxColumn,
-            this.utiPaysDataGridViewTextBoxColumn,
-            this.paysDataGridViewTextBoxColumn,
-            this.utiTelContactDataGridViewTextBoxColumn,
-            this.telephoneDataGridViewTextBoxColumn,
-            this.utiMdpDataGridViewTextBoxColumn,
-            this.mdpDataGridViewTextBoxColumn,
-            this.utiVerifMdpDataGridViewTextBoxColumn,
-            this.utiMailDataGridViewTextBoxColumn,
-            this.mailDataGridViewTextBoxColumn,
-            this.utiDateCreationDataGridViewTextBoxColumn});
+            this.Uti_Ville});
             this.Dv_fournisseur.DataSource = this.fournisseurBindingSource;
             this.Dv_fournisseur.Location = new System.Drawing.Point(0, 57);
             this.Dv_fournisseur.MultiSelect = false;
@@ -2063,9 +1999,14 @@ namespace DashBoard_Stive
             this.Dv_fournisseur.TabIndex = 6;
             this.Dv_fournisseur.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_fournisseur_CellMouseClick);
             // 
+            // fournisseurBindingSource
+            // 
+            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
+            // 
             // Fou_NomDomaine
             // 
             this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine.Frozen = true;
             this.Fou_NomDomaine.HeaderText = "Fou_NomDomaine";
             this.Fou_NomDomaine.Name = "Fou_NomDomaine";
             this.Fou_NomDomaine.ReadOnly = true;
@@ -2073,6 +2014,7 @@ namespace DashBoard_Stive
             // Fou_NomResp
             // 
             this.Fou_NomResp.DataPropertyName = "Fou_NomResp";
+            this.Fou_NomResp.Frozen = true;
             this.Fou_NomResp.HeaderText = "Fou_NomResp";
             this.Fou_NomResp.Name = "Fou_NomResp";
             this.Fou_NomResp.ReadOnly = true;
@@ -2080,6 +2022,7 @@ namespace DashBoard_Stive
             // Fou_TelResp
             // 
             this.Fou_TelResp.DataPropertyName = "Fou_TelResp";
+            this.Fou_TelResp.Frozen = true;
             this.Fou_TelResp.HeaderText = "Fou_TelResp";
             this.Fou_TelResp.Name = "Fou_TelResp";
             this.Fou_TelResp.ReadOnly = true;
@@ -2087,6 +2030,7 @@ namespace DashBoard_Stive
             // Fou_MailResp
             // 
             this.Fou_MailResp.DataPropertyName = "Fou_MailResp";
+            this.Fou_MailResp.Frozen = true;
             this.Fou_MailResp.HeaderText = "Fou_MailResp";
             this.Fou_MailResp.Name = "Fou_MailResp";
             this.Fou_MailResp.ReadOnly = true;
@@ -2094,6 +2038,7 @@ namespace DashBoard_Stive
             // Uti_Cp
             // 
             this.Uti_Cp.DataPropertyName = "Uti_Cp";
+            this.Uti_Cp.Frozen = true;
             this.Uti_Cp.HeaderText = "Uti_Cp";
             this.Uti_Cp.Name = "Uti_Cp";
             this.Uti_Cp.ReadOnly = true;
@@ -2101,237 +2046,10 @@ namespace DashBoard_Stive
             // Uti_Ville
             // 
             this.Uti_Ville.DataPropertyName = "Uti_Ville";
+            this.Uti_Ville.Frozen = true;
             this.Uti_Ville.HeaderText = "Uti_Ville";
             this.Uti_Ville.Name = "Uti_Ville";
             this.Uti_Ville.ReadOnly = true;
-            // 
-            // fouIdDataGridViewTextBoxColumn
-            // 
-            this.fouIdDataGridViewTextBoxColumn.DataPropertyName = "Fou_Id";
-            this.fouIdDataGridViewTextBoxColumn.HeaderText = "Fou_Id";
-            this.fouIdDataGridViewTextBoxColumn.Name = "fouIdDataGridViewTextBoxColumn";
-            this.fouIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouNomDomaineDataGridViewTextBoxColumn
-            // 
-            this.fouNomDomaineDataGridViewTextBoxColumn.DataPropertyName = "Fou_NomDomaine";
-            this.fouNomDomaineDataGridViewTextBoxColumn.HeaderText = "Fou_NomDomaine";
-            this.fouNomDomaineDataGridViewTextBoxColumn.Name = "fouNomDomaineDataGridViewTextBoxColumn";
-            this.fouNomDomaineDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomDomaineDataGridViewTextBoxColumn
-            // 
-            this.nomDomaineDataGridViewTextBoxColumn.DataPropertyName = "NomDomaine";
-            this.nomDomaineDataGridViewTextBoxColumn.HeaderText = "NomDomaine";
-            this.nomDomaineDataGridViewTextBoxColumn.Name = "nomDomaineDataGridViewTextBoxColumn";
-            this.nomDomaineDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouNomRespDataGridViewTextBoxColumn
-            // 
-            this.fouNomRespDataGridViewTextBoxColumn.DataPropertyName = "Fou_NomResp";
-            this.fouNomRespDataGridViewTextBoxColumn.HeaderText = "Fou_NomResp";
-            this.fouNomRespDataGridViewTextBoxColumn.Name = "fouNomRespDataGridViewTextBoxColumn";
-            this.fouNomRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // nomRespDataGridViewTextBoxColumn
-            // 
-            this.nomRespDataGridViewTextBoxColumn.DataPropertyName = "NomResp";
-            this.nomRespDataGridViewTextBoxColumn.HeaderText = "NomResp";
-            this.nomRespDataGridViewTextBoxColumn.Name = "nomRespDataGridViewTextBoxColumn";
-            this.nomRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouTelRespDataGridViewTextBoxColumn
-            // 
-            this.fouTelRespDataGridViewTextBoxColumn.DataPropertyName = "Fou_TelResp";
-            this.fouTelRespDataGridViewTextBoxColumn.HeaderText = "Fou_TelResp";
-            this.fouTelRespDataGridViewTextBoxColumn.Name = "fouTelRespDataGridViewTextBoxColumn";
-            this.fouTelRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telRespDataGridViewTextBoxColumn
-            // 
-            this.telRespDataGridViewTextBoxColumn.DataPropertyName = "TelResp";
-            this.telRespDataGridViewTextBoxColumn.HeaderText = "TelResp";
-            this.telRespDataGridViewTextBoxColumn.Name = "telRespDataGridViewTextBoxColumn";
-            this.telRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouMailRespDataGridViewTextBoxColumn
-            // 
-            this.fouMailRespDataGridViewTextBoxColumn.DataPropertyName = "Fou_MailResp";
-            this.fouMailRespDataGridViewTextBoxColumn.HeaderText = "Fou_MailResp";
-            this.fouMailRespDataGridViewTextBoxColumn.Name = "fouMailRespDataGridViewTextBoxColumn";
-            this.fouMailRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailRespDataGridViewTextBoxColumn
-            // 
-            this.mailRespDataGridViewTextBoxColumn.DataPropertyName = "MailResp";
-            this.mailRespDataGridViewTextBoxColumn.HeaderText = "MailResp";
-            this.mailRespDataGridViewTextBoxColumn.Name = "mailRespDataGridViewTextBoxColumn";
-            this.mailRespDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouFonctionDataGridViewTextBoxColumn
-            // 
-            this.fouFonctionDataGridViewTextBoxColumn.DataPropertyName = "Fou_Fonction";
-            this.fouFonctionDataGridViewTextBoxColumn.HeaderText = "Fou_Fonction";
-            this.fouFonctionDataGridViewTextBoxColumn.Name = "fouFonctionDataGridViewTextBoxColumn";
-            this.fouFonctionDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fonctionFouDataGridViewTextBoxColumn
-            // 
-            this.fonctionFouDataGridViewTextBoxColumn.DataPropertyName = "FonctionFou";
-            this.fonctionFouDataGridViewTextBoxColumn.HeaderText = "FonctionFou";
-            this.fonctionFouDataGridViewTextBoxColumn.Name = "fonctionFouDataGridViewTextBoxColumn";
-            this.fonctionFouDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouDateCreationDataGridViewTextBoxColumn
-            // 
-            this.fouDateCreationDataGridViewTextBoxColumn.DataPropertyName = "Fou_DateCreation";
-            this.fouDateCreationDataGridViewTextBoxColumn.HeaderText = "Fou_DateCreation";
-            this.fouDateCreationDataGridViewTextBoxColumn.Name = "fouDateCreationDataGridViewTextBoxColumn";
-            this.fouDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fouRoleDataGridViewTextBoxColumn
-            // 
-            this.fouRoleDataGridViewTextBoxColumn.DataPropertyName = "Fou_Role";
-            this.fouRoleDataGridViewTextBoxColumn.HeaderText = "Fou_Role";
-            this.fouRoleDataGridViewTextBoxColumn.Name = "fouRoleDataGridViewTextBoxColumn";
-            this.fouRoleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiIdDataGridViewTextBoxColumn
-            // 
-            this.utiIdDataGridViewTextBoxColumn.DataPropertyName = "Uti_Id";
-            this.utiIdDataGridViewTextBoxColumn.HeaderText = "Uti_Id";
-            this.utiIdDataGridViewTextBoxColumn.Name = "utiIdDataGridViewTextBoxColumn";
-            this.utiIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiAdresseDataGridViewTextBoxColumn
-            // 
-            this.utiAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_Adresse";
-            this.utiAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_Adresse";
-            this.utiAdresseDataGridViewTextBoxColumn.Name = "utiAdresseDataGridViewTextBoxColumn";
-            this.utiAdresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // adresseDataGridViewTextBoxColumn
-            // 
-            this.adresseDataGridViewTextBoxColumn.DataPropertyName = "Adresse";
-            this.adresseDataGridViewTextBoxColumn.HeaderText = "Adresse";
-            this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
-            this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiCompAdresseDataGridViewTextBoxColumn
-            // 
-            this.utiCompAdresseDataGridViewTextBoxColumn.DataPropertyName = "Uti_CompAdresse";
-            this.utiCompAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_CompAdresse";
-            this.utiCompAdresseDataGridViewTextBoxColumn.Name = "utiCompAdresseDataGridViewTextBoxColumn";
-            this.utiCompAdresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // compAdresseDataGridViewTextBoxColumn
-            // 
-            this.compAdresseDataGridViewTextBoxColumn.DataPropertyName = "CompAdresse";
-            this.compAdresseDataGridViewTextBoxColumn.HeaderText = "CompAdresse";
-            this.compAdresseDataGridViewTextBoxColumn.Name = "compAdresseDataGridViewTextBoxColumn";
-            this.compAdresseDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiCpDataGridViewTextBoxColumn
-            // 
-            this.utiCpDataGridViewTextBoxColumn.DataPropertyName = "Uti_Cp";
-            this.utiCpDataGridViewTextBoxColumn.HeaderText = "Uti_Cp";
-            this.utiCpDataGridViewTextBoxColumn.Name = "utiCpDataGridViewTextBoxColumn";
-            this.utiCpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // codePostalDataGridViewTextBoxColumn
-            // 
-            this.codePostalDataGridViewTextBoxColumn.DataPropertyName = "CodePostal";
-            this.codePostalDataGridViewTextBoxColumn.HeaderText = "CodePostal";
-            this.codePostalDataGridViewTextBoxColumn.Name = "codePostalDataGridViewTextBoxColumn";
-            this.codePostalDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiVilleDataGridViewTextBoxColumn
-            // 
-            this.utiVilleDataGridViewTextBoxColumn.DataPropertyName = "Uti_Ville";
-            this.utiVilleDataGridViewTextBoxColumn.HeaderText = "Uti_Ville";
-            this.utiVilleDataGridViewTextBoxColumn.Name = "utiVilleDataGridViewTextBoxColumn";
-            this.utiVilleDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // villeDataGridViewTextBoxColumn
-            // 
-            this.villeDataGridViewTextBoxColumn.DataPropertyName = "Ville";
-            this.villeDataGridViewTextBoxColumn.HeaderText = "Ville";
-            this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
-            this.villeDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiPaysDataGridViewTextBoxColumn
-            // 
-            this.utiPaysDataGridViewTextBoxColumn.DataPropertyName = "Uti_Pays";
-            this.utiPaysDataGridViewTextBoxColumn.HeaderText = "Uti_Pays";
-            this.utiPaysDataGridViewTextBoxColumn.Name = "utiPaysDataGridViewTextBoxColumn";
-            this.utiPaysDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // paysDataGridViewTextBoxColumn
-            // 
-            this.paysDataGridViewTextBoxColumn.DataPropertyName = "Pays";
-            this.paysDataGridViewTextBoxColumn.HeaderText = "Pays";
-            this.paysDataGridViewTextBoxColumn.Name = "paysDataGridViewTextBoxColumn";
-            this.paysDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiTelContactDataGridViewTextBoxColumn
-            // 
-            this.utiTelContactDataGridViewTextBoxColumn.DataPropertyName = "Uti_TelContact";
-            this.utiTelContactDataGridViewTextBoxColumn.HeaderText = "Uti_TelContact";
-            this.utiTelContactDataGridViewTextBoxColumn.Name = "utiTelContactDataGridViewTextBoxColumn";
-            this.utiTelContactDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // telephoneDataGridViewTextBoxColumn
-            // 
-            this.telephoneDataGridViewTextBoxColumn.DataPropertyName = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
-            this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
-            this.telephoneDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiMdpDataGridViewTextBoxColumn
-            // 
-            this.utiMdpDataGridViewTextBoxColumn.DataPropertyName = "Uti_Mdp";
-            this.utiMdpDataGridViewTextBoxColumn.HeaderText = "Uti_Mdp";
-            this.utiMdpDataGridViewTextBoxColumn.Name = "utiMdpDataGridViewTextBoxColumn";
-            this.utiMdpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mdpDataGridViewTextBoxColumn
-            // 
-            this.mdpDataGridViewTextBoxColumn.DataPropertyName = "Mdp";
-            this.mdpDataGridViewTextBoxColumn.HeaderText = "Mdp";
-            this.mdpDataGridViewTextBoxColumn.Name = "mdpDataGridViewTextBoxColumn";
-            this.mdpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiVerifMdpDataGridViewTextBoxColumn
-            // 
-            this.utiVerifMdpDataGridViewTextBoxColumn.DataPropertyName = "Uti_VerifMdp";
-            this.utiVerifMdpDataGridViewTextBoxColumn.HeaderText = "Uti_VerifMdp";
-            this.utiVerifMdpDataGridViewTextBoxColumn.Name = "utiVerifMdpDataGridViewTextBoxColumn";
-            this.utiVerifMdpDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiMailDataGridViewTextBoxColumn
-            // 
-            this.utiMailDataGridViewTextBoxColumn.DataPropertyName = "Uti_Mail";
-            this.utiMailDataGridViewTextBoxColumn.HeaderText = "Uti_Mail";
-            this.utiMailDataGridViewTextBoxColumn.Name = "utiMailDataGridViewTextBoxColumn";
-            this.utiMailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // mailDataGridViewTextBoxColumn
-            // 
-            this.mailDataGridViewTextBoxColumn.DataPropertyName = "Mail";
-            this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
-            this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
-            this.mailDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // utiDateCreationDataGridViewTextBoxColumn
-            // 
-            this.utiDateCreationDataGridViewTextBoxColumn.DataPropertyName = "Uti_DateCreation";
-            this.utiDateCreationDataGridViewTextBoxColumn.HeaderText = "Uti_DateCreation";
-            this.utiDateCreationDataGridViewTextBoxColumn.Name = "utiDateCreationDataGridViewTextBoxColumn";
-            this.utiDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // fournisseurBindingSource
-            // 
-            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
             // Dashboard
             // 
@@ -2574,44 +2292,12 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button buttonCreerFournisseur;
         private System.Windows.Forms.DataGridView dataGridViewListeProduit;
         private System.Windows.Forms.Label labelListeProduit;
+        private System.Windows.Forms.Label label_Uti_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomResp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_TelResp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_MailResp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomDomaineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouTelRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouMailRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouFonctionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fonctionFouDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouDateCreationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouRoleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCompAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codePostalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiVilleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiPaysDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paysDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiTelContactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiMdpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mdpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiVerifMdpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiMailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiDateCreationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Label label_Uti_Id;
     }
 }

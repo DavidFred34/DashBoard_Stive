@@ -169,6 +169,7 @@ namespace DashBoard_Stive
             dataGridViewListeProduit.Visible = false;
             labelListeBdc.Visible = false;
             labelListeProduit.Visible = false;
+            Stamper();
 
 
 
@@ -390,7 +391,9 @@ namespace DashBoard_Stive
             //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
+                //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
                 MessageBox.Show("Fournisseur supprimé");
+             
               }
               else
                 MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
