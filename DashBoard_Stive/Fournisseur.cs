@@ -67,8 +67,8 @@ namespace DashBoard_Stive
         public string Uti_VerifMdp { get; set; }
 
         //[JsonProperty(PropertyName = "Mail")]
-        public string Uti_Mail { get; set; }
-        public string Mail { get => Uti_Mail; }
+        public string Uti_MailContact { get; set; }
+        public string Mail { get => Uti_MailContact; }
 
         public string Uti_DateCreation { get; set; }
     }

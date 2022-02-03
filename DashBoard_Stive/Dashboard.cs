@@ -230,7 +230,7 @@ namespace DashBoard_Stive
             var content = await response.Content.ReadAsStringAsync();
             utiListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content);
            
-                //MessageBox.Show(content);
+                //MessageBox.Show(content);  //controle du json
                 //declaration des colonnes de la grid
                 Dv_fournisseur.DataSource = utiListe;
             Dv_fournisseur.Columns["Fou_NomDomaine"].HeaderText = "Fournisseur";
@@ -263,7 +263,8 @@ namespace DashBoard_Stive
                 MailResp: utiListe[e.RowIndex].Fou_MailResp,
                 Fonction: utiListe[e.RowIndex].Fou_Fonction,
                 TelContact: utiListe[e.RowIndex].Uti_TelContact,
-                MailContact: utiListe[e.RowIndex].Uti_Mail,
+                MailContact: utiListe[e.RowIndex].Uti_MailContact,
+                Mdp: ".......",
                 Adresse: utiListe[e.RowIndex].Uti_Adresse,
                 CompAdresse: utiListe[e.RowIndex].Uti_CompAdresse,
                 CodePostal: utiListe[e.RowIndex].Uti_Cp,
@@ -307,9 +308,9 @@ namespace DashBoard_Stive
 
         private async void buttonCreerFournisseur_Click(object sender, EventArgs e)
         {
-            string bt_fournisseur = 
+            string bt_fournisseur = //bouchon test
                       @" {   
-                        Fou_NomDomaine: """+textBoxNomDomaine.Text+ @""",
+                        Fou_NomDomaine: """ + textBoxNomDomaine.Text + @""", 
                         Fou_NomResp: ""Max"",
                         Fou_TelResp: ""0125254589"",
                         Fou_MailResp: ""max @Tariquet.com"",
@@ -328,22 +329,8 @@ namespace DashBoard_Stive
                         Uti_MailContact: ""moi @pasmoi.com"",
                         Uti_DateCreation: ""28/01/2022""
                         
-                    }"
-
-                    /* @"{
-                     Adresse: ""cccccc"",
-                     CodePostal: ""xxxxx"",
-                     Ville: ""xxxxx"",
-                     Pays: ""xxxxx"",
-                     Telephone: ""xxxxx"",
-                     Mdp: ""xxxxx"",
-                     Mail: ""xx669S0000000DSDSDS99yx"",
-                     NomDomaine: ""Les pins"",
-                     NomResp: ""xzzzzz"",
-                     TelResp: ""xzzzzz"",
-                     MailResp: ""xzzzzz""
-                    }"*/
-                    ;
+                    }";
+                    
             Fournisseur newFour = new Fournisseur();
                 newFour.Fou_NomDomaine  = textBoxNomDomaine.Text;
                 newFour.Fou_NomResp     = textBoxNomResp.Text;
@@ -358,14 +345,14 @@ namespace DashBoard_Stive
                 newFour.Uti_Pays        = textBoxPays.Text;
                 newFour.Uti_TelContact  = textBoxTelContact.Text;
                 newFour.Uti_Mdp         = textBoxMdp.Text;
-                newFour.Uti_Mail = textBoxMailContact.Text;
+                newFour.Uti_MailContact = textBoxMailContact.Text;
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newFour);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
+            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
             //MessageBox.Show(json.ToString());
-            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Fournisseur créé");
@@ -400,6 +387,63 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonFournisseurs.PerformClick();
             Stamper();
+        }
+
+        private async void buttonMajFournisseur_Click(object sender, EventArgs e)
+        {
+            Fournisseur majFour = new Fournisseur();
+            majFour.Fou_NomDomaine = textBoxNomDomaine.Text;
+            majFour.Fou_NomResp = textBoxNomResp.Text;
+            majFour.Fou_TelResp = textBoxTelResp.Text;
+            majFour.Fou_MailResp = textBoxMailResp.Text;
+            majFour.Fou_Fonction = textBoxFonction.Text;
+            majFour.Fou_Role = "3";
+            majFour.Uti_Adresse = textBoxAdresse.Text;
+            majFour.Uti_CompAdresse = textBoxCompAdresse.Text;
+            majFour.Uti_Cp = textBoxCodePostal.Text;
+            majFour.Uti_Ville = textBoxVille.Text;
+            majFour.Uti_Pays = textBoxPays.Text;
+            majFour.Uti_TelContact = textBoxTelContact.Text;
+            majFour.Uti_Mdp = textBoxMdp.Text;
+            majFour.Uti_MailContact = textBoxMailContact.Text;
+            majFour.Uti_Id = int.Parse(label_Uti_Id.Text);
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(majFour);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/modifier.php", data);
+            //MessageBox.Show(json.ToString());
+            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Fournisseur mis à jour");
+            }
+            else
+                MessageBox.Show("Erreur: pas de mise à jour du fournisseur" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonFournisseurs.PerformClick();
+            Stamper();
+            
+        }
+
+        private void buttonCherchFournisseur_Click(object sender, EventArgs e)
+        {
+            //MessageBox.Show(Dv_fournisseur.Rows.Count.ToString());
+            for(int i = 0; i < Dv_fournisseur.Rows.Count; i++) 
+            {
+                    MessageBox.Show(i.ToString());
+                foreach(DataGridViewCell cell in Dv_fournisseur.Rows[i].Cells)
+                {
+                    //if (cell.Value != null && (cell.Value.ToString().IndexOf(textBoxCherchFournisseur.Text.ToString())) > 0)
+                    if (cell.Value != null && (cell.Value.ToString().Contains(textBoxCherchFournisseur.Text.ToString())))
+                    {
+                        //MessageBox.Show(Dv_fournisseur.Rows[i].ToString() + cell.Value.ToString());
+                        cell.Style.BackColor = Color.LightBlue;
+                        //Dv_fournisseur.Rows[i].Cells.
+                    }
+                    else cell.Style.BackColor = Color.White;
+                }
+            }
         }
     }
 }
