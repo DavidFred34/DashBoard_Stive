@@ -61,11 +61,24 @@ namespace DashBoard_Stive
             this.label7 = new System.Windows.Forms.Label();
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.textBox7 = new System.Windows.Forms.TextBox();
+            this.textBox6 = new System.Windows.Forms.TextBox();
+            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.label17 = new System.Windows.Forms.Label();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.comboBox2 = new System.Windows.Forms.ComboBox();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label_pro_Fou_Id = new System.Windows.Forms.Label();
+            this.label16 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.button19 = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.label39 = new System.Windows.Forms.Label();
-            this.textBox18 = new System.Windows.Forms.TextBox();
+            this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.textBox20 = new System.Windows.Forms.TextBox();
@@ -86,34 +99,40 @@ namespace DashBoard_Stive
             this.label45 = new System.Windows.Forms.Label();
             this.panelClients = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox8 = new System.Windows.Forms.TextBox();
-            this.label26 = new System.Windows.Forms.Label();
-            this.textBox7 = new System.Windows.Forms.TextBox();
-            this.label25 = new System.Windows.Forms.Label();
-            this.textBox6 = new System.Windows.Forms.TextBox();
-            this.label24 = new System.Windows.Forms.Label();
-            this.textBox5 = new System.Windows.Forms.TextBox();
-            this.label23 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.label22 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.label21 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.label19 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
-            this.label16 = new System.Windows.Forms.Label();
-            this.button9 = new System.Windows.Forms.Button();
-            this.button10 = new System.Windows.Forms.Button();
-            this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label15 = new System.Windows.Forms.Label();
+            this.textBoxMdp2 = new System.Windows.Forms.TextBox();
+            this.labeMdp2 = new System.Windows.Forms.Label();
+            this.buttonCreerClient = new System.Windows.Forms.Button();
+            this.labelUti_Id2 = new System.Windows.Forms.Label();
+            this.textBoxPrenom = new System.Windows.Forms.TextBox();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.labelPrenom = new System.Windows.Forms.Label();
+            this.checkBoxPro = new System.Windows.Forms.CheckBox();
+            this.textBoxDateNaissance = new System.Windows.Forms.TextBox();
+            this.labelDateNaiss = new System.Windows.Forms.Label();
+            this.textBoxMail = new System.Windows.Forms.TextBox();
+            this.labelMail = new System.Windows.Forms.Label();
+            this.textBoxTel = new System.Windows.Forms.TextBox();
+            this.labelTel = new System.Windows.Forms.Label();
+            this.textBoxCity = new System.Windows.Forms.TextBox();
+            this.labelCity = new System.Windows.Forms.Label();
+            this.textBoxCountry = new System.Windows.Forms.TextBox();
+            this.labelCountry = new System.Windows.Forms.Label();
+            this.textBoxCP = new System.Windows.Forms.TextBox();
+            this.labelCP = new System.Windows.Forms.Label();
+            this.textBoxCompAdresse2 = new System.Windows.Forms.TextBox();
+            this.labelCompAdressse2 = new System.Windows.Forms.Label();
+            this.textBoxAdresse2 = new System.Windows.Forms.TextBox();
+            this.labelAdressse2 = new System.Windows.Forms.Label();
+            this.labelInscription = new System.Windows.Forms.Label();
+            this.labelListCommande = new System.Windows.Forms.Label();
+            this.buttonMajClient = new System.Windows.Forms.Button();
+            this.buttonSuppClient = new System.Windows.Forms.Button();
+            this.dataGridViewListCommandeClient = new System.Windows.Forms.DataGridView();
+            this.labelNom = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
-            this.button14 = new System.Windows.Forms.Button();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
-            this.button8 = new System.Windows.Forms.Button();
-            this.label14 = new System.Windows.Forms.Label();
+            this.buttonAjouterClient = new System.Windows.Forms.Button();
+            this.Dv_ListClient = new System.Windows.Forms.DataGridView();
+            this.buttonChercherClient = new System.Windows.Forms.Button();
             this.panelBdc = new System.Windows.Forms.Panel();
             this.panel22 = new System.Windows.Forms.Panel();
             this.label5 = new System.Windows.Forms.Label();
@@ -185,6 +204,8 @@ namespace DashBoard_Stive
             this.buttonSuppFournisseur = new System.Windows.Forms.Button();
             this.dataGridViewListeBdc = new System.Windows.Forms.DataGridView();
             this.panel14 = new System.Windows.Forms.Panel();
+            this.labelCherchFournisseur = new System.Windows.Forms.Label();
+            this.textBoxCherchFournisseur = new System.Windows.Forms.TextBox();
             this.buttonAjouterfournisseur = new System.Windows.Forms.Button();
             this.buttonCherchFournisseur = new System.Windows.Forms.Button();
             this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
@@ -194,8 +215,7 @@ namespace DashBoard_Stive
             this.Fou_MailResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Cp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.textBoxCherchFournisseur = new System.Windows.Forms.TextBox();
-            this.labelCherchFournisseur = new System.Windows.Forms.Label();
+            this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.fouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.nomDomaineDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -228,6 +248,12 @@ namespace DashBoard_Stive
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Cli_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_DateNaissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -251,9 +277,9 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView6)).BeginInit();
             this.panelClients.SuspendLayout();
             this.panel15.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListCommandeClient)).BeginInit();
             this.panel16.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_ListClient)).BeginInit();
             this.panelBdc.SuspendLayout();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView13)).BeginInit();
@@ -270,6 +296,7 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeBdc)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
@@ -633,11 +660,24 @@ namespace DashBoard_Stive
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.textBox7);
+            this.panel11.Controls.Add(this.textBox6);
+            this.panel11.Controls.Add(this.textBox5);
+            this.panel11.Controls.Add(this.textBox4);
+            this.panel11.Controls.Add(this.textBox3);
+            this.panel11.Controls.Add(this.label17);
+            this.panel11.Controls.Add(this.textBox2);
+            this.panel11.Controls.Add(this.comboBox2);
+            this.panel11.Controls.Add(this.label14);
+            this.panel11.Controls.Add(this.label15);
+            this.panel11.Controls.Add(this.label_pro_Fou_Id);
+            this.panel11.Controls.Add(this.label16);
+            this.panel11.Controls.Add(this.textBox1);
             this.panel11.Controls.Add(this.button19);
             this.panel11.Controls.Add(this.checkBox3);
             this.panel11.Controls.Add(this.checkBox2);
             this.panel11.Controls.Add(this.label39);
-            this.panel11.Controls.Add(this.textBox18);
+            this.panel11.Controls.Add(this.textBoxDescription);
             this.panel11.Controls.Add(this.label38);
             this.panel11.Controls.Add(this.label37);
             this.panel11.Controls.Add(this.textBox20);
@@ -656,6 +696,124 @@ namespace DashBoard_Stive
             this.panel11.Size = new System.Drawing.Size(601, 734);
             this.panel11.TabIndex = 8;
             // 
+            // textBox7
+            // 
+            this.textBox7.Location = new System.Drawing.Point(458, 144);
+            this.textBox7.Name = "textBox7";
+            this.textBox7.Size = new System.Drawing.Size(123, 20);
+            this.textBox7.TabIndex = 48;
+            // 
+            // textBox6
+            // 
+            this.textBox6.Location = new System.Drawing.Point(458, 175);
+            this.textBox6.Name = "textBox6";
+            this.textBox6.Size = new System.Drawing.Size(123, 20);
+            this.textBox6.TabIndex = 47;
+            // 
+            // textBox5
+            // 
+            this.textBox5.Location = new System.Drawing.Point(60, 161);
+            this.textBox5.Name = "textBox5";
+            this.textBox5.Size = new System.Drawing.Size(123, 20);
+            this.textBox5.TabIndex = 46;
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(458, 237);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(123, 20);
+            this.textBox4.TabIndex = 45;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(458, 268);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(123, 20);
+            this.textBox3.TabIndex = 44;
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label17.Location = new System.Drawing.Point(344, 145);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(71, 19);
+            this.label17.TabIndex = 43;
+            this.label17.Text = "Prix/litre";
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(124, 221);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 42;
+            // 
+            // comboBox2
+            // 
+            this.comboBox2.FormattingEnabled = true;
+            this.comboBox2.Items.AddRange(new object[] {
+            "Vin rouge",
+            "Vin rosé",
+            "Vin blanc",
+            "Produit terroir"});
+            this.comboBox2.Location = new System.Drawing.Point(458, 82);
+            this.comboBox2.Name = "comboBox2";
+            this.comboBox2.Size = new System.Drawing.Size(121, 21);
+            this.comboBox2.TabIndex = 41;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label14.Location = new System.Drawing.Point(344, 238);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(79, 19);
+            this.label14.TabIndex = 40;
+            this.label14.Text = "Millesime";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label15.Location = new System.Drawing.Point(14, 162);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(35, 19);
+            this.label15.TabIndex = 39;
+            this.label15.Text = "Ref";
+            // 
+            // label_pro_Fou_Id
+            // 
+            this.label_pro_Fou_Id.AutoSize = true;
+            this.label_pro_Fou_Id.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pro_Fou_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label_pro_Fou_Id.Location = new System.Drawing.Point(26, 122);
+            this.label_pro_Fou_Id.Name = "label_pro_Fou_Id";
+            this.label_pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
+            this.label_pro_Fou_Id.TabIndex = 36;
+            this.label_pro_Fou_Id.Text = "pro_Fou_Id";
+            this.label_pro_Fou_Id.Visible = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label16.Location = new System.Drawing.Point(344, 84);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(105, 19);
+            this.label16.TabIndex = 38;
+            this.label16.Text = "Type produit";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(343, 37);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(245, 20);
+            this.textBox1.TabIndex = 37;
+            // 
             // button19
             // 
             this.button19.FlatAppearance.BorderSize = 0;
@@ -673,7 +831,7 @@ namespace DashBoard_Stive
             // 
             this.checkBox3.AutoSize = true;
             this.checkBox3.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox3.Location = new System.Drawing.Point(487, 559);
+            this.checkBox3.Location = new System.Drawing.Point(487, 635);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(105, 17);
             this.checkBox3.TabIndex = 34;
@@ -684,11 +842,11 @@ namespace DashBoard_Stive
             // 
             this.checkBox2.AutoSize = true;
             this.checkBox2.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox2.Location = new System.Drawing.Point(388, 536);
+            this.checkBox2.Location = new System.Drawing.Point(16, 291);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(204, 17);
+            this.checkBox2.Size = new System.Drawing.Size(158, 17);
             this.checkBox2.TabIndex = 33;
-            this.checkBox2.Text = "Désactiver la commande automatique";
+            this.checkBox2.Text = "Commande automatique      ";
             this.checkBox2.UseVisualStyleBackColor = true;
             // 
             // label39
@@ -696,47 +854,47 @@ namespace DashBoard_Stive
             this.label39.AutoSize = true;
             this.label39.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label39.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label39.Location = new System.Drawing.Point(3, 203);
+            this.label39.Location = new System.Drawing.Point(3, 362);
             this.label39.Name = "label39";
             this.label39.Size = new System.Drawing.Size(91, 19);
             this.label39.TabIndex = 32;
             this.label39.Text = "Desciption";
             // 
-            // textBox18
+            // textBoxDescription
             // 
-            this.textBox18.Location = new System.Drawing.Point(3, 223);
-            this.textBox18.Multiline = true;
-            this.textBox18.Name = "textBox18";
-            this.textBox18.Size = new System.Drawing.Size(592, 291);
-            this.textBox18.TabIndex = 31;
+            this.textBoxDescription.Location = new System.Drawing.Point(3, 384);
+            this.textBoxDescription.Multiline = true;
+            this.textBoxDescription.Name = "textBoxDescription";
+            this.textBoxDescription.Size = new System.Drawing.Size(592, 245);
+            this.textBoxDescription.TabIndex = 31;
             // 
             // label38
             // 
             this.label38.AutoSize = true;
             this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label38.Location = new System.Drawing.Point(367, 33);
+            this.label38.Location = new System.Drawing.Point(344, 269);
             this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(166, 19);
+            this.label38.Size = new System.Drawing.Size(65, 19);
             this.label38.TabIndex = 30;
-            this.label38.Text = "Domaine de Tariquet";
+            this.label38.Text = "volume";
             // 
             // label37
             // 
             this.label37.AutoSize = true;
             this.label37.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label37.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label37.Location = new System.Drawing.Point(484, 114);
+            this.label37.Location = new System.Drawing.Point(344, 175);
             this.label37.Name = "label37";
-            this.label37.Size = new System.Drawing.Size(27, 19);
+            this.label37.Size = new System.Drawing.Size(68, 19);
             this.label37.TabIndex = 29;
-            this.label37.Text = "15";
+            this.label37.Text = "Cépage";
             // 
             // textBox20
             // 
-            this.textBox20.Location = new System.Drawing.Point(371, 7);
+            this.textBox20.Location = new System.Drawing.Point(343, 7);
             this.textBox20.Name = "textBox20";
-            this.textBox20.Size = new System.Drawing.Size(132, 20);
+            this.textBox20.Size = new System.Drawing.Size(245, 20);
             this.textBox20.TabIndex = 27;
             // 
             // pictureBoxProduit
@@ -750,7 +908,7 @@ namespace DashBoard_Stive
             // 
             // textBox17
             // 
-            this.textBox17.Location = new System.Drawing.Point(488, 151);
+            this.textBox17.Location = new System.Drawing.Point(125, 257);
             this.textBox17.Name = "textBox17";
             this.textBox17.Size = new System.Drawing.Size(100, 20);
             this.textBox17.TabIndex = 26;
@@ -760,28 +918,28 @@ namespace DashBoard_Stive
             this.label10.AutoSize = true;
             this.label10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label10.Location = new System.Drawing.Point(376, 150);
+            this.label10.Location = new System.Drawing.Point(13, 256);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(108, 19);
+            this.label10.Size = new System.Drawing.Size(93, 19);
             this.label10.TabIndex = 25;
-            this.label10.Text = "Seuil critique";
+            this.label10.Text = "Seuil alerte";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
             this.label11.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label11.Location = new System.Drawing.Point(376, 116);
+            this.label11.Location = new System.Drawing.Point(13, 222);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(53, 19);
+            this.label11.Size = new System.Drawing.Size(76, 19);
             this.label11.TabIndex = 23;
-            this.label11.Text = "Stock";
+            this.label11.Text = "En stock";
             // 
             // textBox19
             // 
-            this.textBox19.Location = new System.Drawing.Point(488, 81);
+            this.textBox19.Location = new System.Drawing.Point(458, 113);
             this.textBox19.Name = "textBox19";
-            this.textBox19.Size = new System.Drawing.Size(100, 20);
+            this.textBox19.Size = new System.Drawing.Size(123, 20);
             this.textBox19.TabIndex = 22;
             // 
             // label36
@@ -789,18 +947,18 @@ namespace DashBoard_Stive
             this.label36.AutoSize = true;
             this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label36.Location = new System.Drawing.Point(376, 80);
+            this.label36.Location = new System.Drawing.Point(344, 114);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(108, 19);
+            this.label36.Size = new System.Drawing.Size(39, 19);
             this.label36.TabIndex = 21;
-            this.label36.Text = "Prix de vente";
+            this.label36.Text = "Prix";
             // 
             // label42
             // 
             this.label42.AutoSize = true;
             this.label42.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label42.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label42.Location = new System.Drawing.Point(222, 34);
+            this.label42.Location = new System.Drawing.Point(194, 36);
             this.label42.Name = "label42";
             this.label42.Size = new System.Drawing.Size(107, 19);
             this.label42.TabIndex = 10;
@@ -837,7 +995,7 @@ namespace DashBoard_Stive
             this.label44.AutoSize = true;
             this.label44.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label44.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label44.Location = new System.Drawing.Point(222, 6);
+            this.label44.Location = new System.Drawing.Point(194, 6);
             this.label44.Name = "label44";
             this.label44.Size = new System.Drawing.Size(128, 19);
             this.label44.TabIndex = 7;
@@ -913,313 +1071,393 @@ namespace DashBoard_Stive
             // 
             // panel15
             // 
-            this.panel15.Controls.Add(this.checkBox1);
-            this.panel15.Controls.Add(this.textBox8);
-            this.panel15.Controls.Add(this.label26);
-            this.panel15.Controls.Add(this.textBox7);
-            this.panel15.Controls.Add(this.label25);
-            this.panel15.Controls.Add(this.textBox6);
-            this.panel15.Controls.Add(this.label24);
-            this.panel15.Controls.Add(this.textBox5);
-            this.panel15.Controls.Add(this.label23);
-            this.panel15.Controls.Add(this.textBox4);
-            this.panel15.Controls.Add(this.label22);
-            this.panel15.Controls.Add(this.textBox3);
-            this.panel15.Controls.Add(this.label21);
-            this.panel15.Controls.Add(this.textBox2);
-            this.panel15.Controls.Add(this.label19);
-            this.panel15.Controls.Add(this.textBox1);
-            this.panel15.Controls.Add(this.label18);
-            this.panel15.Controls.Add(this.label17);
-            this.panel15.Controls.Add(this.label16);
-            this.panel15.Controls.Add(this.button9);
-            this.panel15.Controls.Add(this.button10);
-            this.panel15.Controls.Add(this.dataGridView3);
-            this.panel15.Controls.Add(this.label15);
+            this.panel15.Controls.Add(this.textBoxMdp2);
+            this.panel15.Controls.Add(this.labeMdp2);
+            this.panel15.Controls.Add(this.buttonCreerClient);
+            this.panel15.Controls.Add(this.labelUti_Id2);
+            this.panel15.Controls.Add(this.textBoxPrenom);
+            this.panel15.Controls.Add(this.textBoxNom);
+            this.panel15.Controls.Add(this.labelPrenom);
+            this.panel15.Controls.Add(this.checkBoxPro);
+            this.panel15.Controls.Add(this.textBoxDateNaissance);
+            this.panel15.Controls.Add(this.labelDateNaiss);
+            this.panel15.Controls.Add(this.textBoxMail);
+            this.panel15.Controls.Add(this.labelMail);
+            this.panel15.Controls.Add(this.textBoxTel);
+            this.panel15.Controls.Add(this.labelTel);
+            this.panel15.Controls.Add(this.textBoxCity);
+            this.panel15.Controls.Add(this.labelCity);
+            this.panel15.Controls.Add(this.textBoxCountry);
+            this.panel15.Controls.Add(this.labelCountry);
+            this.panel15.Controls.Add(this.textBoxCP);
+            this.panel15.Controls.Add(this.labelCP);
+            this.panel15.Controls.Add(this.textBoxCompAdresse2);
+            this.panel15.Controls.Add(this.labelCompAdressse2);
+            this.panel15.Controls.Add(this.textBoxAdresse2);
+            this.panel15.Controls.Add(this.labelAdressse2);
+            this.panel15.Controls.Add(this.labelInscription);
+            this.panel15.Controls.Add(this.labelListCommande);
+            this.panel15.Controls.Add(this.buttonMajClient);
+            this.panel15.Controls.Add(this.buttonSuppClient);
+            this.panel15.Controls.Add(this.dataGridViewListCommandeClient);
+            this.panel15.Controls.Add(this.labelNom);
             this.panel15.Location = new System.Drawing.Point(663, 13);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(601, 740);
             this.panel15.TabIndex = 4;
             // 
-            // checkBox1
+            // textBoxMdp2
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBox1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox1.Location = new System.Drawing.Point(451, 220);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(134, 23);
-            this.checkBox1.TabIndex = 27;
-            this.checkBox1.Text = "Professionnel";
-            this.checkBox1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.textBoxMdp2.Location = new System.Drawing.Point(486, 166);
+            this.textBoxMdp2.Name = "textBoxMdp2";
+            this.textBoxMdp2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMdp2.TabIndex = 41;
             // 
-            // textBox8
+            // labeMdp2
             // 
-            this.textBox8.Location = new System.Drawing.Point(485, 179);
-            this.textBox8.Name = "textBox8";
-            this.textBox8.Size = new System.Drawing.Size(100, 20);
-            this.textBox8.TabIndex = 26;
+            this.labeMdp2.AutoSize = true;
+            this.labeMdp2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labeMdp2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labeMdp2.Location = new System.Drawing.Point(378, 165);
+            this.labeMdp2.Name = "labeMdp2";
+            this.labeMdp2.Size = new System.Drawing.Size(43, 19);
+            this.labeMdp2.TabIndex = 40;
+            this.labeMdp2.Text = "mdp";
             // 
-            // label26
+            // buttonCreerClient
             // 
-            this.label26.AutoSize = true;
-            this.label26.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label26.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label26.Location = new System.Drawing.Point(381, 158);
-            this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(149, 19);
-            this.label26.TabIndex = 25;
-            this.label26.Text = "Date de naissance";
+            this.buttonCreerClient.BackColor = System.Drawing.Color.White;
+            this.buttonCreerClient.FlatAppearance.BorderSize = 0;
+            this.buttonCreerClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreerClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreerClient.ForeColor = System.Drawing.Color.Green;
+            this.buttonCreerClient.Location = new System.Drawing.Point(207, 368);
+            this.buttonCreerClient.Name = "buttonCreerClient";
+            this.buttonCreerClient.Size = new System.Drawing.Size(284, 98);
+            this.buttonCreerClient.TabIndex = 39;
+            this.buttonCreerClient.Text = "créer client";
+            this.buttonCreerClient.UseVisualStyleBackColor = false;
             // 
-            // textBox7
+            // labelUti_Id2
             // 
-            this.textBox7.Location = new System.Drawing.Point(485, 129);
-            this.textBox7.Name = "textBox7";
-            this.textBox7.Size = new System.Drawing.Size(100, 20);
-            this.textBox7.TabIndex = 24;
+            this.labelUti_Id2.AutoSize = true;
+            this.labelUti_Id2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelUti_Id2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelUti_Id2.Location = new System.Drawing.Point(296, 8);
+            this.labelUti_Id2.Name = "labelUti_Id2";
+            this.labelUti_Id2.Size = new System.Drawing.Size(53, 19);
+            this.labelUti_Id2.TabIndex = 31;
+            this.labelUti_Id2.Text = "Uti_Id";
             // 
-            // label25
+            // textBoxPrenom
             // 
-            this.label25.AutoSize = true;
-            this.label25.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label25.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label25.Location = new System.Drawing.Point(381, 128);
-            this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(39, 19);
-            this.label25.TabIndex = 23;
-            this.label25.Text = "Mail";
+            this.textBoxPrenom.Location = new System.Drawing.Point(101, 39);
+            this.textBoxPrenom.Name = "textBoxPrenom";
+            this.textBoxPrenom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxPrenom.TabIndex = 30;
             // 
-            // textBox6
+            // textBoxNom
             // 
-            this.textBox6.Location = new System.Drawing.Point(485, 93);
-            this.textBox6.Name = "textBox6";
-            this.textBox6.Size = new System.Drawing.Size(100, 20);
-            this.textBox6.TabIndex = 22;
+            this.textBoxNom.Location = new System.Drawing.Point(100, 9);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(100, 20);
+            this.textBoxNom.TabIndex = 29;
             // 
-            // label24
+            // labelPrenom
             // 
-            this.label24.AutoSize = true;
-            this.label24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label24.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label24.Location = new System.Drawing.Point(381, 92);
-            this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(31, 19);
-            this.label24.TabIndex = 21;
-            this.label24.Text = "Tel";
+            this.labelPrenom.AutoSize = true;
+            this.labelPrenom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelPrenom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelPrenom.Location = new System.Drawing.Point(9, 39);
+            this.labelPrenom.Name = "labelPrenom";
+            this.labelPrenom.Size = new System.Drawing.Size(69, 19);
+            this.labelPrenom.TabIndex = 28;
+            this.labelPrenom.Text = "Prénom";
             // 
-            // textBox5
+            // checkBoxPro
             // 
-            this.textBox5.Location = new System.Drawing.Point(110, 190);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(100, 20);
-            this.textBox5.TabIndex = 20;
+            this.checkBoxPro.AutoSize = true;
+            this.checkBoxPro.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.checkBoxPro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxPro.Location = new System.Drawing.Point(451, 262);
+            this.checkBoxPro.Name = "checkBoxPro";
+            this.checkBoxPro.Size = new System.Drawing.Size(134, 23);
+            this.checkBoxPro.TabIndex = 27;
+            this.checkBoxPro.Text = "Professionnel";
+            this.checkBoxPro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            this.checkBoxPro.UseVisualStyleBackColor = true;
             // 
-            // label23
+            // textBoxDateNaissance
             // 
-            this.label23.AutoSize = true;
-            this.label23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label23.Location = new System.Drawing.Point(6, 192);
-            this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(41, 19);
-            this.label23.TabIndex = 19;
-            this.label23.Text = "Ville";
+            this.textBoxDateNaissance.Location = new System.Drawing.Point(485, 221);
+            this.textBoxDateNaissance.Name = "textBoxDateNaissance";
+            this.textBoxDateNaissance.Size = new System.Drawing.Size(100, 20);
+            this.textBoxDateNaissance.TabIndex = 26;
             // 
-            // textBox4
+            // labelDateNaiss
             // 
-            this.textBox4.Location = new System.Drawing.Point(110, 222);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(100, 20);
-            this.textBox4.TabIndex = 18;
+            this.labelDateNaiss.AutoSize = true;
+            this.labelDateNaiss.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDateNaiss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelDateNaiss.Location = new System.Drawing.Point(381, 200);
+            this.labelDateNaiss.Name = "labelDateNaiss";
+            this.labelDateNaiss.Size = new System.Drawing.Size(149, 19);
+            this.labelDateNaiss.TabIndex = 25;
+            this.labelDateNaiss.Text = "Date de naissance";
             // 
-            // label22
+            // textBoxMail
             // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label22.Location = new System.Drawing.Point(6, 224);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(47, 19);
-            this.label22.TabIndex = 17;
-            this.label22.Text = "Pays";
+            this.textBoxMail.Location = new System.Drawing.Point(485, 129);
+            this.textBoxMail.Name = "textBoxMail";
+            this.textBoxMail.Size = new System.Drawing.Size(100, 20);
+            this.textBoxMail.TabIndex = 24;
             // 
-            // textBox3
+            // labelMail
             // 
-            this.textBox3.Location = new System.Drawing.Point(110, 159);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(100, 20);
-            this.textBox3.TabIndex = 16;
+            this.labelMail.AutoSize = true;
+            this.labelMail.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelMail.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelMail.Location = new System.Drawing.Point(381, 128);
+            this.labelMail.Name = "labelMail";
+            this.labelMail.Size = new System.Drawing.Size(39, 19);
+            this.labelMail.TabIndex = 23;
+            this.labelMail.Text = "Mail";
             // 
-            // label21
+            // textBoxTel
             // 
-            this.label21.AutoSize = true;
-            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label21.Location = new System.Drawing.Point(6, 161);
-            this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(101, 19);
-            this.label21.TabIndex = 15;
-            this.label21.Text = "Code postal";
+            this.textBoxTel.Location = new System.Drawing.Point(485, 93);
+            this.textBoxTel.Name = "textBoxTel";
+            this.textBoxTel.Size = new System.Drawing.Size(100, 20);
+            this.textBoxTel.TabIndex = 22;
             // 
-            // textBox2
+            // labelTel
             // 
-            this.textBox2.Location = new System.Drawing.Point(110, 127);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(100, 20);
-            this.textBox2.TabIndex = 14;
+            this.labelTel.AutoSize = true;
+            this.labelTel.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTel.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelTel.Location = new System.Drawing.Point(381, 92);
+            this.labelTel.Name = "labelTel";
+            this.labelTel.Size = new System.Drawing.Size(31, 19);
+            this.labelTel.TabIndex = 21;
+            this.labelTel.Text = "Tel";
             // 
-            // label19
+            // textBoxCity
             // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label19.Location = new System.Drawing.Point(6, 126);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(63, 19);
-            this.label19.TabIndex = 13;
-            this.label19.Text = "Compl.";
+            this.textBoxCity.Location = new System.Drawing.Point(110, 190);
+            this.textBoxCity.Name = "textBoxCity";
+            this.textBoxCity.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCity.TabIndex = 20;
             // 
-            // textBox1
+            // labelCity
             // 
-            this.textBox1.Location = new System.Drawing.Point(110, 91);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(100, 20);
-            this.textBox1.TabIndex = 12;
+            this.labelCity.AutoSize = true;
+            this.labelCity.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCity.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelCity.Location = new System.Drawing.Point(6, 192);
+            this.labelCity.Name = "labelCity";
+            this.labelCity.Size = new System.Drawing.Size(41, 19);
+            this.labelCity.TabIndex = 19;
+            this.labelCity.Text = "Ville";
             // 
-            // label18
+            // textBoxCountry
             // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label18.Location = new System.Drawing.Point(6, 90);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(72, 19);
-            this.label18.TabIndex = 11;
-            this.label18.Text = "Adresse";
+            this.textBoxCountry.Location = new System.Drawing.Point(110, 222);
+            this.textBoxCountry.Name = "textBoxCountry";
+            this.textBoxCountry.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCountry.TabIndex = 18;
             // 
-            // label17
+            // labelCountry
             // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label17.Location = new System.Drawing.Point(227, 38);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(157, 19);
-            this.label17.TabIndex = 10;
-            this.label17.Text = "Inscrit le 12/12/2021";
+            this.labelCountry.AutoSize = true;
+            this.labelCountry.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCountry.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelCountry.Location = new System.Drawing.Point(6, 224);
+            this.labelCountry.Name = "labelCountry";
+            this.labelCountry.Size = new System.Drawing.Size(47, 19);
+            this.labelCountry.TabIndex = 17;
+            this.labelCountry.Text = "Pays";
             // 
-            // label16
+            // textBoxCP
             // 
-            this.label16.AutoSize = true;
-            this.label16.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label16.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label16.Location = new System.Drawing.Point(3, 294);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(176, 19);
-            this.label16.TabIndex = 9;
-            this.label16.Text = "Liste des commandes";
+            this.textBoxCP.Location = new System.Drawing.Point(110, 159);
+            this.textBoxCP.Name = "textBoxCP";
+            this.textBoxCP.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCP.TabIndex = 16;
             // 
-            // button9
+            // labelCP
             // 
-            this.button9.FlatAppearance.BorderSize = 0;
-            this.button9.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button9.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button9.ForeColor = System.Drawing.Color.Green;
-            this.button9.Location = new System.Drawing.Point(365, 703);
-            this.button9.Name = "button9";
-            this.button9.Size = new System.Drawing.Size(233, 23);
-            this.button9.TabIndex = 7;
-            this.button9.Text = "MAJ client";
-            this.button9.UseVisualStyleBackColor = true;
+            this.labelCP.AutoSize = true;
+            this.labelCP.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCP.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelCP.Location = new System.Drawing.Point(6, 161);
+            this.labelCP.Name = "labelCP";
+            this.labelCP.Size = new System.Drawing.Size(101, 19);
+            this.labelCP.TabIndex = 15;
+            this.labelCP.Text = "Code postal";
             // 
-            // button10
+            // textBoxCompAdresse2
             // 
-            this.button10.FlatAppearance.BorderSize = 0;
-            this.button10.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button10.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button10.ForeColor = System.Drawing.Color.Red;
-            this.button10.Location = new System.Drawing.Point(3, 703);
-            this.button10.Name = "button10";
-            this.button10.Size = new System.Drawing.Size(233, 23);
-            this.button10.TabIndex = 8;
-            this.button10.Text = "Supprimer client";
-            this.button10.UseVisualStyleBackColor = true;
+            this.textBoxCompAdresse2.Location = new System.Drawing.Point(110, 127);
+            this.textBoxCompAdresse2.Name = "textBoxCompAdresse2";
+            this.textBoxCompAdresse2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCompAdresse2.TabIndex = 14;
             // 
-            // dataGridView3
+            // labelCompAdressse2
             // 
-            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView3.Location = new System.Drawing.Point(3, 325);
-            this.dataGridView3.Name = "dataGridView3";
-            this.dataGridView3.Size = new System.Drawing.Size(598, 367);
-            this.dataGridView3.TabIndex = 7;
+            this.labelCompAdressse2.AutoSize = true;
+            this.labelCompAdressse2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCompAdressse2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelCompAdressse2.Location = new System.Drawing.Point(6, 126);
+            this.labelCompAdressse2.Name = "labelCompAdressse2";
+            this.labelCompAdressse2.Size = new System.Drawing.Size(63, 19);
+            this.labelCompAdressse2.TabIndex = 13;
+            this.labelCompAdressse2.Text = "Compl.";
             // 
-            // label15
+            // textBoxAdresse2
             // 
-            this.label15.AutoSize = true;
-            this.label15.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label15.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label15.Location = new System.Drawing.Point(227, 10);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(121, 19);
-            this.label15.TabIndex = 7;
-            this.label15.Text = "Nom + prenom";
+            this.textBoxAdresse2.Location = new System.Drawing.Point(110, 91);
+            this.textBoxAdresse2.Name = "textBoxAdresse2";
+            this.textBoxAdresse2.Size = new System.Drawing.Size(100, 20);
+            this.textBoxAdresse2.TabIndex = 12;
+            // 
+            // labelAdressse2
+            // 
+            this.labelAdressse2.AutoSize = true;
+            this.labelAdressse2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelAdressse2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelAdressse2.Location = new System.Drawing.Point(6, 90);
+            this.labelAdressse2.Name = "labelAdressse2";
+            this.labelAdressse2.Size = new System.Drawing.Size(72, 19);
+            this.labelAdressse2.TabIndex = 11;
+            this.labelAdressse2.Text = "Adresse";
+            // 
+            // labelInscription
+            // 
+            this.labelInscription.AutoSize = true;
+            this.labelInscription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelInscription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelInscription.Location = new System.Drawing.Point(436, 7);
+            this.labelInscription.Name = "labelInscription";
+            this.labelInscription.Size = new System.Drawing.Size(83, 19);
+            this.labelInscription.TabIndex = 10;
+            this.labelInscription.Text = "Inscrit le :";
+            // 
+            // labelListCommande
+            // 
+            this.labelListCommande.AutoSize = true;
+            this.labelListCommande.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelListCommande.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelListCommande.Location = new System.Drawing.Point(3, 294);
+            this.labelListCommande.Name = "labelListCommande";
+            this.labelListCommande.Size = new System.Drawing.Size(176, 19);
+            this.labelListCommande.TabIndex = 9;
+            this.labelListCommande.Text = "Liste des commandes";
+            // 
+            // buttonMajClient
+            // 
+            this.buttonMajClient.FlatAppearance.BorderSize = 0;
+            this.buttonMajClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonMajClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonMajClient.ForeColor = System.Drawing.Color.Green;
+            this.buttonMajClient.Location = new System.Drawing.Point(365, 703);
+            this.buttonMajClient.Name = "buttonMajClient";
+            this.buttonMajClient.Size = new System.Drawing.Size(233, 23);
+            this.buttonMajClient.TabIndex = 7;
+            this.buttonMajClient.Text = "MAJ client";
+            this.buttonMajClient.UseVisualStyleBackColor = true;
+            // 
+            // buttonSuppClient
+            // 
+            this.buttonSuppClient.FlatAppearance.BorderSize = 0;
+            this.buttonSuppClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonSuppClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonSuppClient.ForeColor = System.Drawing.Color.Red;
+            this.buttonSuppClient.Location = new System.Drawing.Point(3, 703);
+            this.buttonSuppClient.Name = "buttonSuppClient";
+            this.buttonSuppClient.Size = new System.Drawing.Size(233, 23);
+            this.buttonSuppClient.TabIndex = 8;
+            this.buttonSuppClient.Text = "Supprimer client";
+            this.buttonSuppClient.UseVisualStyleBackColor = true;
+            this.buttonSuppClient.Click += new System.EventHandler(this.buttonClients_Click);
+            // 
+            // dataGridViewListCommandeClient
+            // 
+            this.dataGridViewListCommandeClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewListCommandeClient.Location = new System.Drawing.Point(3, 325);
+            this.dataGridViewListCommandeClient.Name = "dataGridViewListCommandeClient";
+            this.dataGridViewListCommandeClient.Size = new System.Drawing.Size(598, 367);
+            this.dataGridViewListCommandeClient.TabIndex = 7;
+            // 
+            // labelNom
+            // 
+            this.labelNom.AutoSize = true;
+            this.labelNom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelNom.Location = new System.Drawing.Point(9, 12);
+            this.labelNom.Name = "labelNom";
+            this.labelNom.Size = new System.Drawing.Size(45, 19);
+            this.labelNom.TabIndex = 7;
+            this.labelNom.Text = "Nom";
             // 
             // panel16
             // 
-            this.panel16.Controls.Add(this.button14);
-            this.panel16.Controls.Add(this.dataGridView2);
-            this.panel16.Controls.Add(this.button8);
-            this.panel16.Controls.Add(this.label14);
+            this.panel16.Controls.Add(this.buttonAjouterClient);
+            this.panel16.Controls.Add(this.Dv_ListClient);
+            this.panel16.Controls.Add(this.buttonChercherClient);
             this.panel16.Location = new System.Drawing.Point(8, 13);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(601, 740);
             this.panel16.TabIndex = 3;
             // 
-            // button14
+            // buttonAjouterClient
             // 
-            this.button14.FlatAppearance.BorderSize = 0;
-            this.button14.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button14.ForeColor = System.Drawing.Color.Green;
-            this.button14.Location = new System.Drawing.Point(348, 26);
-            this.button14.Name = "button14";
-            this.button14.Size = new System.Drawing.Size(233, 31);
-            this.button14.TabIndex = 7;
-            this.button14.Text = "Ajouter un client";
-            this.button14.UseVisualStyleBackColor = true;
+            this.buttonAjouterClient.FlatAppearance.BorderSize = 0;
+            this.buttonAjouterClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonAjouterClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonAjouterClient.ForeColor = System.Drawing.Color.Green;
+            this.buttonAjouterClient.Location = new System.Drawing.Point(7, 26);
+            this.buttonAjouterClient.Name = "buttonAjouterClient";
+            this.buttonAjouterClient.Size = new System.Drawing.Size(143, 31);
+            this.buttonAjouterClient.TabIndex = 7;
+            this.buttonAjouterClient.Text = "Ajouter un client";
+            this.buttonAjouterClient.UseVisualStyleBackColor = true;
+            this.buttonAjouterClient.Click += new System.EventHandler(this.buttonAjouterClient_Click);
             // 
-            // dataGridView2
+            // Dv_ListClient
             // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(0, 57);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(598, 680);
-            this.dataGridView2.TabIndex = 6;
+            this.Dv_ListClient.AllowUserToAddRows = false;
+            this.Dv_ListClient.AllowUserToDeleteRows = false;
+            this.Dv_ListClient.AutoGenerateColumns = false;
+            this.Dv_ListClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_ListClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cli_Nom,
+            this.Cli_Prenom,
+            this.Cli_DateNaissance,
+            this.Cli_DateCreation,
+            this.Uti_Cp2,
+            this.Uti_Ville2});
+            this.Dv_ListClient.DataSource = this.clientBindingSource;
+            this.Dv_ListClient.Location = new System.Drawing.Point(0, 57);
+            this.Dv_ListClient.MultiSelect = false;
+            this.Dv_ListClient.Name = "Dv_ListClient";
+            this.Dv_ListClient.ReadOnly = true;
+            this.Dv_ListClient.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dv_ListClient.Size = new System.Drawing.Size(598, 680);
+            this.Dv_ListClient.TabIndex = 6;
+            this.Dv_ListClient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_ListClient_CellMouseClick);
             // 
-            // button8
+            // buttonChercherClient
             // 
-            this.button8.FlatAppearance.BorderSize = 0;
-            this.button8.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button8.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button8.ForeColor = System.Drawing.Color.Green;
-            this.button8.Location = new System.Drawing.Point(356, 4);
-            this.button8.Name = "button8";
-            this.button8.Size = new System.Drawing.Size(233, 23);
-            this.button8.TabIndex = 5;
-            this.button8.Text = "Chercher un client";
-            this.button8.UseVisualStyleBackColor = true;
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label14.Location = new System.Drawing.Point(0, 33);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(135, 19);
-            this.label14.TabIndex = 4;
-            this.label14.Text = "Liste des Clients";
+            this.buttonChercherClient.FlatAppearance.BorderSize = 0;
+            this.buttonChercherClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonChercherClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonChercherClient.ForeColor = System.Drawing.Color.Green;
+            this.buttonChercherClient.Location = new System.Drawing.Point(421, 25);
+            this.buttonChercherClient.Name = "buttonChercherClient";
+            this.buttonChercherClient.Size = new System.Drawing.Size(173, 23);
+            this.buttonChercherClient.TabIndex = 5;
+            this.buttonChercherClient.Text = "Chercher un client";
+            this.buttonChercherClient.UseVisualStyleBackColor = true;
             // 
             // panelBdc
             // 
@@ -1988,6 +2226,25 @@ namespace DashBoard_Stive
             this.panel14.Size = new System.Drawing.Size(601, 740);
             this.panel14.TabIndex = 5;
             // 
+            // labelCherchFournisseur
+            // 
+            this.labelCherchFournisseur.AutoSize = true;
+            this.labelCherchFournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelCherchFournisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelCherchFournisseur.Location = new System.Drawing.Point(357, 9);
+            this.labelCherchFournisseur.Name = "labelCherchFournisseur";
+            this.labelCherchFournisseur.Size = new System.Drawing.Size(177, 19);
+            this.labelCherchFournisseur.TabIndex = 42;
+            this.labelCherchFournisseur.Text = "Chercher Fournisseur";
+            // 
+            // textBoxCherchFournisseur
+            // 
+            this.textBoxCherchFournisseur.Location = new System.Drawing.Point(359, 32);
+            this.textBoxCherchFournisseur.Name = "textBoxCherchFournisseur";
+            this.textBoxCherchFournisseur.Size = new System.Drawing.Size(191, 20);
+            this.textBoxCherchFournisseur.TabIndex = 42;
+            this.textBoxCherchFournisseur.TextChanged += new System.EventHandler(this.textBoxCherchFournisseur_TextChanged);
+            // 
             // buttonAjouterfournisseur
             // 
             this.buttonAjouterfournisseur.FlatAppearance.BorderSize = 0;
@@ -2116,23 +2373,9 @@ namespace DashBoard_Stive
             this.Uti_Ville.Name = "Uti_Ville";
             this.Uti_Ville.ReadOnly = true;
             // 
-            // textBoxCherchFournisseur
+            // clientBindingSource
             // 
-            this.textBoxCherchFournisseur.Location = new System.Drawing.Point(359, 32);
-            this.textBoxCherchFournisseur.Name = "textBoxCherchFournisseur";
-            this.textBoxCherchFournisseur.Size = new System.Drawing.Size(191, 20);
-            this.textBoxCherchFournisseur.TabIndex = 42;
-            // 
-            // labelCherchFournisseur
-            // 
-            this.labelCherchFournisseur.AutoSize = true;
-            this.labelCherchFournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelCherchFournisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelCherchFournisseur.Location = new System.Drawing.Point(357, 9);
-            this.labelCherchFournisseur.Name = "labelCherchFournisseur";
-            this.labelCherchFournisseur.Size = new System.Drawing.Size(177, 19);
-            this.labelCherchFournisseur.TabIndex = 42;
-            this.labelCherchFournisseur.Text = "Chercher Fournisseur";
+            this.clientBindingSource.DataSource = typeof(DashBoard_Stive.Client);
             // 
             // fouIdDataGridViewTextBoxColumn
             // 
@@ -2355,6 +2598,48 @@ namespace DashBoard_Stive
             // 
             this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
+            // Cli_Nom
+            // 
+            this.Cli_Nom.DataPropertyName = "Cli_Nom";
+            this.Cli_Nom.HeaderText = "Cli_Nom";
+            this.Cli_Nom.Name = "Cli_Nom";
+            this.Cli_Nom.ReadOnly = true;
+            // 
+            // Cli_Prenom
+            // 
+            this.Cli_Prenom.DataPropertyName = "Cli_Prenom";
+            this.Cli_Prenom.HeaderText = "Cli_Prenom";
+            this.Cli_Prenom.Name = "Cli_Prenom";
+            this.Cli_Prenom.ReadOnly = true;
+            // 
+            // Cli_DateNaissance
+            // 
+            this.Cli_DateNaissance.DataPropertyName = "Cli_DateNaissance";
+            this.Cli_DateNaissance.HeaderText = "Cli_DateNaissance";
+            this.Cli_DateNaissance.Name = "Cli_DateNaissance";
+            this.Cli_DateNaissance.ReadOnly = true;
+            // 
+            // Cli_DateCreation
+            // 
+            this.Cli_DateCreation.DataPropertyName = "Cli_DateCreation";
+            this.Cli_DateCreation.HeaderText = "Cli_DateCreation";
+            this.Cli_DateCreation.Name = "Cli_DateCreation";
+            this.Cli_DateCreation.ReadOnly = true;
+            // 
+            // Uti_Cp2
+            // 
+            this.Uti_Cp2.DataPropertyName = "Uti_Cp";
+            this.Uti_Cp2.HeaderText = "Uti_Cp";
+            this.Uti_Cp2.Name = "Uti_Cp2";
+            this.Uti_Cp2.ReadOnly = true;
+            // 
+            // Uti_Ville2
+            // 
+            this.Uti_Ville2.DataPropertyName = "Uti_Ville";
+            this.Uti_Ville2.HeaderText = "Uti_Ville";
+            this.Uti_Ville2.Name = "Uti_Ville2";
+            this.Uti_Ville2.ReadOnly = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2362,12 +2647,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
-            this.Controls.Add(this.panelClients);
-            this.Controls.Add(this.panelProduit);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -2405,10 +2690,9 @@ namespace DashBoard_Stive
             this.panelClients.ResumeLayout(false);
             this.panel15.ResumeLayout(false);
             this.panel15.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListCommandeClient)).EndInit();
             this.panel16.ResumeLayout(false);
-            this.panel16.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_ListClient)).EndInit();
             this.panelBdc.ResumeLayout(false);
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
@@ -2432,6 +2716,7 @@ namespace DashBoard_Stive
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).EndInit();
             this.ResumeLayout(false);
 
@@ -2462,32 +2747,31 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Panel panelFournisseurs;
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
-        private System.Windows.Forms.DataGridView dataGridView2;
-        private System.Windows.Forms.Button button8;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.Button button9;
-        private System.Windows.Forms.Button button10;
-        private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.CheckBox checkBox1;
-        private System.Windows.Forms.TextBox textBox8;
-        private System.Windows.Forms.Label label26;
-        private System.Windows.Forms.TextBox textBox7;
-        private System.Windows.Forms.Label label25;
-        private System.Windows.Forms.TextBox textBox6;
-        private System.Windows.Forms.Label label24;
-        private System.Windows.Forms.TextBox textBox5;
-        private System.Windows.Forms.Label label23;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Label label22;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Label label19;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.DataGridView Dv_ListClient;
+        private System.Windows.Forms.Button buttonChercherClient;
+        private System.Windows.Forms.Label labelListCommande;
+        private System.Windows.Forms.Button buttonMajClient;
+        private System.Windows.Forms.Button buttonSuppClient;
+        private System.Windows.Forms.DataGridView dataGridViewListCommandeClient;
+        private System.Windows.Forms.Label labelNom;
+        private System.Windows.Forms.CheckBox checkBoxPro;
+        private System.Windows.Forms.TextBox textBoxDateNaissance;
+        private System.Windows.Forms.Label labelDateNaiss;
+        private System.Windows.Forms.TextBox textBoxMail;
+        private System.Windows.Forms.Label labelMail;
+        private System.Windows.Forms.TextBox textBoxTel;
+        private System.Windows.Forms.Label labelTel;
+        private System.Windows.Forms.TextBox textBoxCity;
+        private System.Windows.Forms.Label labelCity;
+        private System.Windows.Forms.TextBox textBoxCountry;
+        private System.Windows.Forms.Label labelCountry;
+        private System.Windows.Forms.TextBox textBoxCP;
+        private System.Windows.Forms.Label labelCP;
+        private System.Windows.Forms.TextBox textBoxCompAdresse2;
+        private System.Windows.Forms.Label labelCompAdressse2;
+        private System.Windows.Forms.TextBox textBoxAdresse2;
+        private System.Windows.Forms.Label labelAdressse2;
+        private System.Windows.Forms.Label labelInscription;
         private System.Windows.Forms.Panel panel13;
         private System.Windows.Forms.TextBox textBoxMdp;
         private System.Windows.Forms.Label label4;
@@ -2514,7 +2798,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView Dv_fournisseur;
         private System.Windows.Forms.Button buttonCherchFournisseur;
         private System.Windows.Forms.Button buttonAjouterfournisseur;
-        private System.Windows.Forms.Button button14;
+        private System.Windows.Forms.Button buttonAjouterClient;
         private System.Windows.Forms.Panel panel9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Panel panel8;
@@ -2550,7 +2834,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.CheckBox checkBox3;
         private System.Windows.Forms.CheckBox checkBox2;
         private System.Windows.Forms.Label label39;
-        private System.Windows.Forms.TextBox textBox18;
+        private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button button19;
         private System.Windows.Forms.TextBox textBoxNomDomaine;
         private System.Windows.Forms.TextBox textBoxNomResp;
@@ -2638,5 +2922,32 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn utiDateCreationDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBoxCherchFournisseur;
         private System.Windows.Forms.Label labelCherchFournisseur;
+        private System.Windows.Forms.TextBox textBoxPrenom;
+        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.Label labelPrenom;
+        private System.Windows.Forms.Label labelUti_Id2;
+        private System.Windows.Forms.Button buttonCreerClient;
+        private System.Windows.Forms.BindingSource clientBindingSource;
+        private System.Windows.Forms.TextBox textBoxMdp2;
+        private System.Windows.Forms.Label labeMdp2;
+        private System.Windows.Forms.Label label_pro_Fou_Id;
+        private System.Windows.Forms.Label label14;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.Label label16;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox comboBox2;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Label label17;
+        private System.Windows.Forms.TextBox textBox7;
+        private System.Windows.Forms.TextBox textBox6;
+        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Prenom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateNaissance;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateCreation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
     }
 }
