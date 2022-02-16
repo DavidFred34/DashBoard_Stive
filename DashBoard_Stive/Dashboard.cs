@@ -23,7 +23,15 @@ namespace DashBoard_Stive
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
             //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
-            pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
+            //pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
+
+           /* System.Data.DataTable dataTable = new System.Data.DataTable();
+            dataTable.Columns.Add(supp DataColumn("Couleur", typeof(string)));
+            dataTable.Columns.Add(supp DataColumn("Taille", typeof(string)));
+            deleteButton.HeaderText = "Supprimer cette ";
+            dataGridView1.Columns.Add(DeleteButton);
+            dataTable.Rows.Add(new string[] { " rouge ", " Large" });*/
+
             ReinitBouton();
             buttonAccueil.PerformClick();
         }
@@ -147,6 +155,52 @@ namespace DashBoard_Stive
 
         }
 
+        //permet de renseigner les données  ds le panel produit
+        private void StamperProduit(
+                        //champs fournisseur
+                        string Pro_Fou_Id = "",
+                        string Pro_Id = "",
+                        string Pro_Typ_Id ="",
+                        string NomProduit = "",
+                        string Domaine = "",
+                        string Pro_Ref = "",
+                        string Pro_Cepage = "",
+                        string Pro_Annee = "",
+                        string Pro_Prix = "",
+                        string Pro_PrixLitre= "",
+                        string Pro_Quantite = "",
+                        string Pro_SeuilAlerte = "",
+                        int Pro_CommandeAuto= 0,
+                        string Pro_Volume= "",
+                        string Pro_Description = "",
+                        string Typ_Libelle = ""
+                      
+                        )
+        {
+            label_pro_Fou_Id.Text = Pro_Fou_Id;
+            labelPro_Typ_Id.Text = Pro_Typ_Id;
+            label_Pro_Id.Text = Pro_Id;
+            textBoxNomProduit.Text = NomProduit;
+            textBoxProposePar.Text = Domaine;
+            comboBoxProposePar.Text = Domaine;
+            textBoxRef.Text = Pro_Ref;
+            textBoxCepage.Text = Pro_Cepage;
+            textBoxMillesime.Text = Pro_Annee;
+            textBoxPrix.Text = Pro_Prix;
+            textBoxPrixLitre.Text = Pro_PrixLitre;
+            textBoxEnStock.Text = Pro_Quantite;
+            textBoxSeuilAlerte.Text = Pro_SeuilAlerte;
+            if (Pro_CommandeAuto == 1)
+            {
+                checkBoxCommandeAuto.Checked = true;
+            }
+            else { checkBoxCommandeAuto.Checked = false; }
+            textBoxVolume.Text = Pro_Volume;
+            textBoxDescription.Text = Pro_Description;
+            comboBoxTypeProduit.Text = Typ_Libelle;
+
+        }
+
         //gestion du clic des boutons du menu et remplissagge des grid
         private void buttonAccueil_Click(object sender, EventArgs e)
         {
@@ -159,16 +213,6 @@ namespace DashBoard_Stive
 
         }
 
-        private void buttonProduit_Click(object sender, EventArgs e)
-        {
-            //gestion affichage
-            ReinitBouton();
-            buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
-            buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
-            panelProduit.Visible = true;
-            buttonProduit.Tag = 1;
-        }
-
         private void buttonBdc_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -178,6 +222,7 @@ namespace DashBoard_Stive
             panelBdc.Visible = true;
             buttonBdc.Tag = 1;
         }
+        
         private void buttonCommandesWeb_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -188,7 +233,7 @@ namespace DashBoard_Stive
             buttonCommandesWeb.Tag = 1;
         }
 
-        private async void buttonFournisseurs_Click(object sender, EventArgs e)
+        public async void buttonFournisseurs_Click(object sender, EventArgs e)
         {
             //gestion affichage
             ReinitBouton();
@@ -253,7 +298,7 @@ namespace DashBoard_Stive
                         Uti_DateCreation: ""01/01/2021""
                     }   
                     ]"
-            utiListe = JsonConvert.DeserializeObject<List<Fournisseur>>(bt_Fournisseur);
+           fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(bt_Fournisseur);
             */
             
             var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
@@ -414,7 +459,7 @@ namespace DashBoard_Stive
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(suppFour);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/suprimer.php", data);
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
             //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
@@ -453,7 +498,7 @@ namespace DashBoard_Stive
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/modifier.php", data);
             //MessageBox.Show(json.ToString());
-            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Fournisseur mis à jour");
@@ -618,7 +663,7 @@ namespace DashBoard_Stive
 
         }
             
-        private async void buttonAjouterClient_Click(object sender, EventArgs e)
+        private  void buttonAjouterClient_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
             StamperClient();
@@ -629,6 +674,11 @@ namespace DashBoard_Stive
             dataGridViewListCommandeClient.Visible = false;
             labelListCommande.Visible = false;
 
+            
+        }
+
+        private async void buttonCreerClient_Click(object sender, EventArgs e)
+        {
             Client newCli = new Client();
             newCli.Cli_Nom = textBoxNom.Text;
             newCli.Cli_Prenom = textBoxPrenom.Text;
@@ -647,21 +697,307 @@ namespace DashBoard_Stive
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newCli);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Client/obtenirTous.php", data);
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
             //MessageBox.Show(json.ToString());
-            StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Fournisseur créé");
+                MessageBox.Show("Client créé");
             }
             else
-                MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response);
+                MessageBox.Show("Erreur: Client non créé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
-            buttonFournisseurs.PerformClick();
-            StamperFournisseur();
-            //buttonAjouterfournisseur.PerformClick();
+            buttonClients.PerformClick();
+            StamperClient();
+            
         }
 
+        private async void buttonMajClient_Click(object sender, EventArgs e)
+        {
+            Client majCli = new Client();
+            majCli.Cli_Nom = textBoxNom.Text;
+            majCli.Cli_Prenom = textBoxPrenom.Text;
+            majCli.Cli_DateNaissance = textBoxDateNaissance.Text;
+
+            majCli.Cli_Role = "3";
+            majCli.Uti_Adresse = textBoxAdresse2.Text;
+            majCli.Uti_CompAdresse = textBoxCompAdresse2.Text;
+            majCli.Uti_Cp = textBoxCP.Text;
+            majCli.Uti_Ville = textBoxCity.Text;
+            majCli.Uti_Pays = textBoxCountry.Text;
+            majCli.Uti_TelContact = textBoxTelContact.Text;
+            majCli.Uti_Mdp = textBoxMdp.Text;
+            majCli.Uti_MailContact = textBoxMailContact.Text;
+            majCli.Uti_Id = int.Parse(labelUti_Id2.Text);
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(majCli);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Client/modifier.php", data);
+            //MessageBox.Show(json.ToString());
+            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Client mis à jour");
+            }
+            else
+                MessageBox.Show("Erreur: pas de mise à jour du Client" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonClients.PerformClick();
+            StamperClient();
+
+        }
+
+        private async void buttonSuppClient_Click(object sender, EventArgs e)
+        {
+           Client suppCli = new Client();
+           suppCli.Uti_Id=Convert.ToInt32(labelUti_Id2.Text);
+
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(suppCli);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+           // MessageBox.Show(json);
+            //MessageBox.Show(data.ToString());
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/supprimer.php", data);
+          
+
+            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
+                MessageBox.Show("Client supprimé");
+
+            }
+            else
+                MessageBox.Show("Erreur: client non supprimé" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonClients.PerformClick();
+            StamperClient();
+        }
+
+        public async void buttonProduit_Click(object sender, EventArgs e)
+        {
+            //gestion affichage
+            ReinitBouton();
+            buttonProduit.BackColor = Color.FromArgb(44, 130, 201);
+            buttonProduit.ForeColor = Color.FromArgb(255, 255, 255);
+            panelProduit.Visible = true;
+            buttonProduit.Tag = 1;
+            buttonSuppProduit.Visible = false;
+            buttonMajProduit.Visible = false;
+            buttonCommanderProduit.Visible = false;
+            textBoxNbPiece.Visible = false;
+            dataGridViewListeProduit.Visible = true;
+            panel_AjouterType.Visible = false;
+            textBox_Libelle.Visible = false;
+            buttonValider.Visible = false;
+            StamperProduit(); //remet les champs à vide
+
+
+           
+
+            var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+            var response = await
+                httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
+            response.EnsureSuccessStatusCode();
+
+            var content = await response.Content.ReadAsStringAsync();
+            prodListe = JsonConvert.DeserializeObject<List<Produit>>(content);
+
+            //MessageBox.Show(content);  //controle du json
+            //declaration des colonnes de la grid
+            Dv_ListeProduit.DataSource = prodListe;
+            Dv_ListeProduit.Columns["Pro_Nom"].HeaderText = "Nom";
+            Dv_ListeProduit.Columns["Pro_Quantite"].HeaderText = "Stock";
+            Dv_ListeProduit.Columns["Pro_SeuilAlerte"].HeaderText = "Seuil Alerte";
+            Dv_ListeProduit.Columns["Pro_CommandeAuto"].HeaderText = "Auto";
+            Dv_ListeProduit.Columns["Typ_Libelle"].HeaderText = "Type";
+            Dv_ListeProduit.Columns["Fou_NomDomaine2"].HeaderText = "Fournisseur";
+
+            var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure
+            var response2 = await
+                httpClient2.GetAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/obtenirTous.php");
+            response2.EnsureSuccessStatusCode();
+
+            var content2 = await response2.Content.ReadAsStringAsync();
+            typListe = JsonConvert.DeserializeObject<List<TypeProduit>>(content2);
+            //MessageBox.Show(content2);  //controle du json
+            Dv_TypeProduit.DataSource = typListe;
+        }
+        List<Produit> prodListe;
+        List<TypeProduit> typListe;
+
+        public void Dv_Produit_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //gestion affichage
+            buttonCreerProduit.Visible = false;
+            buttonAjouterProduit.Visible = true;
+            buttonMajProduit.Visible = true;
+            buttonSuppProduit.Visible = true;
+            buttonCommanderProduit.Visible = true;
+            textBoxNbPiece.Visible = true;
+
+            if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
+                return;
+
+            StamperProduit(
+                NomProduit: prodListe[e.RowIndex].Pro_Nom,
+                Domaine: prodListe[e.RowIndex].Fou_NomDomaine,
+                Pro_Ref: prodListe[e.RowIndex].Pro_Ref ,
+                Pro_Cepage: prodListe[e.RowIndex].Pro_Cepage,
+                Pro_Annee: prodListe[e.RowIndex].Pro_Annee.ToString(),
+                Pro_Prix: prodListe[e.RowIndex].Pro_Prix.ToString(),
+                Pro_PrixLitre: prodListe[e.RowIndex].Pro_PrixLitre.ToString(),
+                Pro_Quantite: prodListe[e.RowIndex].Pro_Quantite.ToString(),
+                Pro_SeuilAlerte: prodListe[e.RowIndex].Pro_SeuilAlerte.ToString(),
+
+                Pro_CommandeAuto: prodListe[e.RowIndex].Pro_CommandeAuto,
+                Pro_Volume: prodListe[e.RowIndex].Pro_Volume.ToString(),
+                Pro_Description: prodListe[e.RowIndex].Pro_Description,
+                Typ_Libelle: prodListe[e.RowIndex].Typ_Libelle,
+                Pro_Typ_Id: prodListe[e.RowIndex].Pro_Typ_Id.ToString(),
+                Pro_Fou_Id: prodListe[e.RowIndex].Pro_Fou_Id.ToString(),
+                Pro_Id: prodListe[e.RowIndex].Pro_Id.ToString()
+                );
+        }
+
+        private void buttonAjouterProduit_Click(object sender, EventArgs e)
+        {
+            //on propose une fiche vide
+            StamperProduit();
+            buttonCreerProduit.Visible = true;
+            buttonAjouterProduit.Visible = false;
+            buttonMajProduit.Visible = false;
+            buttonSuppProduit.Visible = false;
+            buttonCommanderProduit.Visible = false;
+            textBoxNbPiece.Visible = false;
+        }
+
+        private async void buttonCreerProduit_Click(object sender, EventArgs e)
+        {
+            Produit newPro = new Produit();
+           // newPro.Pro_Typ_Id = proListe[e.RowIndex].Pro_Typ_Id//Convert.ToInt32(textBoxNomProduit.Text); //à recup de la liste des types
+            newPro.Pro_Nom = textBoxNomProduit.Text;
+            comboBoxProposePar.DataSource = fourListe;
+            newPro.Pro_Nom = comboBoxProposePar.SelectedText;
+
+            newPro.Pro_Ref = textBoxRef.Text; ;
+            newPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text); //à recup dela liste des fournisseurs
+            newPro.Pro_Cepage = textBoxCepage.Text;
+            newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
+            newPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
+            newPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
+            newPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
+            newPro.Pro_CommandeAuto = Convert.ToInt32(checkBoxCommandeAuto.Text);
+            newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
+            newPro.Pro_Description = textBoxDescription.Text;
+            comboBoxTypeProduit.DataSource = typListe;
+            newPro.Typ_Libelle = comboBoxTypeProduit.Text;     //à recup de la liste des types
+            newPro.Fou_NomDomaine = textBoxProposePar.Text;    //à recup dela liste des fournisseurs
+            newPro.Img_Adresse = textBoxProposePar.Text;
+            newPro.Img_Nom = textBoxProposePar.Text;
+
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(newPro);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/ajouter.php", data);
+            //MessageBox.Show(json.ToString());
+            //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Produit créé");
+            }
+            else
+                MessageBox.Show("Erreur: produit non créé" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonProduit.PerformClick();
+            StamperProduit();
+        }
+
+        private async void buttonMajProduit_Click(object sender, EventArgs e)
+        {
+            Produit majPro = new Produit();
+            majPro.Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
+            majPro.Pro_Typ_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
+            majPro.Pro_Nom = textBoxNomProduit.Text;
+            //comboBoxProposePar.DataSource = fourListe;
+            //majPro.Pro_Nom = comboBoxProposePar.SelectedText;
+
+            majPro.Pro_Ref = textBoxRef.Text; ;
+            majPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text); 
+            majPro.Pro_Cepage = textBoxCepage.Text;
+            majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            majPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
+            majPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
+            majPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
+            majPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
+            if (checkBoxCommandeAuto.Checked) {
+                majPro.Pro_CommandeAuto = 1;
+            }
+            else {
+                majPro.Pro_CommandeAuto = 0;
+            }
+            majPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
+            majPro.Pro_Description = textBoxDescription.Text;
+            majPro.Typ_Libelle = comboBoxTypeProduit.Text;     //à recup de la liste des types
+            majPro.Fou_NomDomaine = textBoxProposePar.Text;    //à recup dela liste des fournisseurs
+            majPro.Img_Adresse = textBoxProposePar.Text;
+            majPro.Img_Nom = textBoxProposePar.Text;
+
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(majPro);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
+            //MessageBox.Show(json.ToString());
+           // StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Produit mis à jour");
+            }
+            else
+                MessageBox.Show("Erreur: pas de mise à jour du produit" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton produit
+            buttonProduit.PerformClick();
+            StamperProduit();
+        }
+
+        private void buttonCommanderProduit_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void buttonAjouterType_Click(object sender, EventArgs e)
+        {
+            panel_AjouterType.Visible = true;
+            textBox_Libelle.Text = "";
+            textBox_Libelle.Visible = true;
+            buttonValider.Visible = true;
+
+        }
+
+        private async void buttonValider_Click(object sender, EventArgs e)
+        {
+            TypeProduit newTyp = new TypeProduit();
+            newTyp.Typ_Libelle= textBox_Libelle.Text;
+            
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(newTyp);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/ajouter.php", data);
+            //MessageBox.Show(json.ToString());
+            //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Type créé");
+            }
+            else
+                MessageBox.Show("Erreur: Type non créé" + "\r\n\n" + response);
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonProduit.PerformClick();
+        }
     }
     
 }

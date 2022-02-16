@@ -11,6 +11,7 @@ namespace DashBoard_Stive
         public int Cli_Id { get; set; }
         public string Cli_Nom { get; set; }
         public string Cli_Prenom { get; set; }
+        public string Cli_Uti_Id { get; set; }
         public string Cli_DateNaissance { get; set; }
         public string Cli_DateCreation { get; set; }
         public string Cli_Role { get; set; }
