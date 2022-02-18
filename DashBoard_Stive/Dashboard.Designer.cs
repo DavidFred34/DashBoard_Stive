@@ -44,29 +44,24 @@ namespace DashBoard_Stive
             this.buttonBdc = new System.Windows.Forms.Button();
             this.buttonCommandesWeb = new System.Windows.Forms.Button();
             this.panelAccueil = new System.Windows.Forms.Panel();
-            this.panel18 = new System.Windows.Forms.Panel();
-            this.dataGridView11 = new System.Windows.Forms.DataGridView();
-            this.label2 = new System.Windows.Forms.Label();
-            this.panel9 = new System.Windows.Forms.Panel();
-            this.dataGridView10 = new System.Windows.Forms.DataGridView();
-            this.label8 = new System.Windows.Forms.Label();
-            this.panel8 = new System.Windows.Forms.Panel();
-            this.dataGridView8 = new System.Windows.Forms.DataGridView();
-            this.label1 = new System.Windows.Forms.Label();
-            this.panel10 = new System.Windows.Forms.Panel();
-            this.dataGridView9 = new System.Windows.Forms.DataGridView();
+            this.buttonInventaire = new System.Windows.Forms.Button();
+            this.label19 = new System.Windows.Forms.Label();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.dataGridView2 = new System.Windows.Forms.DataGridView();
+            this.dataGridView3 = new System.Windows.Forms.DataGridView();
+            this.label18 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
-            this.panel7 = new System.Windows.Forms.Panel();
-            this.dataGridView7 = new System.Windows.Forms.DataGridView();
+            this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.label1 = new System.Windows.Forms.Label();
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxProposePar = new System.Windows.Forms.ComboBox();
+            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonCreerProduit = new System.Windows.Forms.Button();
             this.textBoxPrixLitre = new System.Windows.Forms.TextBox();
             this.textBoxCepage = new System.Windows.Forms.TextBox();
@@ -81,7 +76,6 @@ namespace DashBoard_Stive
             this.label15 = new System.Windows.Forms.Label();
             this.label_pro_Fou_Id = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBoxProposePar = new System.Windows.Forms.TextBox();
             this.buttonCommanderProduit = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBoxCommandeAuto = new System.Windows.Forms.CheckBox();
@@ -101,6 +95,7 @@ namespace DashBoard_Stive
             this.buttonSuppProduit = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.panel_AjouterType = new System.Windows.Forms.Panel();
             this.buttonValider = new System.Windows.Forms.Button();
             this.label_Libelle = new System.Windows.Forms.Label();
@@ -127,7 +122,6 @@ namespace DashBoard_Stive
             this.buttonCreerClient = new System.Windows.Forms.Button();
             this.labelUti_Id2 = new System.Windows.Forms.Label();
             this.textBoxPrenom = new System.Windows.Forms.TextBox();
-            this.textBoxNom = new System.Windows.Forms.TextBox();
             this.labelPrenom = new System.Windows.Forms.Label();
             this.checkBoxPro = new System.Windows.Forms.CheckBox();
             this.textBoxDateNaissance = new System.Windows.Forms.TextBox();
@@ -151,7 +145,6 @@ namespace DashBoard_Stive
             this.buttonMajClient = new System.Windows.Forms.Button();
             this.buttonSuppClient = new System.Windows.Forms.Button();
             this.dataGridViewListCommandeClient = new System.Windows.Forms.DataGridView();
-            this.labelNom = new System.Windows.Forms.Label();
             this.panel16 = new System.Windows.Forms.Panel();
             this.buttonAjouterClient = new System.Windows.Forms.Button();
             this.Dv_ListClient = new System.Windows.Forms.DataGridView();
@@ -162,10 +155,15 @@ namespace DashBoard_Stive
             this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.buttonChercherClient = new System.Windows.Forms.Button();
+            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.labelNom = new System.Windows.Forms.Label();
             this.panelBdc = new System.Windows.Forms.Panel();
+            this.button1 = new System.Windows.Forms.Button();
+            this.panel23 = new System.Windows.Forms.Panel();
+            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.Dv_CommandeFournisseur = new System.Windows.Forms.DataGridView();
+            this.label60 = new System.Windows.Forms.Label();
             this.panel22 = new System.Windows.Forms.Panel();
-            this.labelBdcFournisseur = new System.Windows.Forms.Label();
             this.labelDateMajBdc = new System.Windows.Forms.Label();
             this.labelDateCreationBdc = new System.Windows.Forms.Label();
             this.labelEtatBdc = new System.Windows.Forms.Label();
@@ -174,16 +172,11 @@ namespace DashBoard_Stive
             this.labelDetailBdc = new System.Windows.Forms.Label();
             this.Dv_DetailCommandeFournisseur = new System.Windows.Forms.DataGridView();
             this.labelNumBdc = new System.Windows.Forms.Label();
-            this.panel23 = new System.Windows.Forms.Panel();
-            this.button24 = new System.Windows.Forms.Button();
-            this.Dv_CommandeFournisseur = new System.Windows.Forms.DataGridView();
-            this.label60 = new System.Windows.Forms.Label();
             this.panelCommandesWeb = new System.Windows.Forms.Panel();
             this.label50 = new System.Windows.Forms.Label();
             this.button20 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
             this.panel19 = new System.Windows.Forms.Panel();
-            this.label49 = new System.Windows.Forms.Label();
             this.label48 = new System.Windows.Forms.Label();
             this.label56 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
@@ -193,8 +186,9 @@ namespace DashBoard_Stive
             this.dataGridView5 = new System.Windows.Forms.DataGridView();
             this.label58 = new System.Windows.Forms.Label();
             this.panel20 = new System.Windows.Forms.Panel();
-            this.button22 = new System.Windows.Forms.Button();
+            this.label5 = new System.Windows.Forms.Label();
             this.dataGridView12 = new System.Windows.Forms.DataGridView();
+            this.textBox2 = new System.Windows.Forms.TextBox();
             this.label59 = new System.Windows.Forms.Label();
             this.panelFournisseurs = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
@@ -237,7 +231,6 @@ namespace DashBoard_Stive
             this.labelCherchFournisseur = new System.Windows.Forms.Label();
             this.textBoxCherchFournisseur = new System.Windows.Forms.TextBox();
             this.buttonAjouterfournisseur = new System.Windows.Forms.Button();
-            this.buttonCherchFournisseur = new System.Windows.Forms.Button();
             this.Dv_fournisseur = new System.Windows.Forms.DataGridView();
             this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Fou_NomResp = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -282,16 +275,9 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.panel21.SuspendLayout();
             this.panelAccueil.SuspendLayout();
-            this.panel18.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).BeginInit();
-            this.panel9.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).BeginInit();
-            this.panel8.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).BeginInit();
-            this.panel10.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).BeginInit();
-            this.panel7.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panelProduit.SuspendLayout();
             this.panel11.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).BeginInit();
@@ -309,10 +295,10 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ListClient)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).BeginInit();
             this.panelBdc.SuspendLayout();
-            this.panel22.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).BeginInit();
             this.panel23.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_CommandeFournisseur)).BeginInit();
+            this.panel22.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).BeginInit();
             this.panelCommandesWeb.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -515,162 +501,140 @@ namespace DashBoard_Stive
             // panelAccueil
             // 
             this.panelAccueil.BackColor = System.Drawing.Color.LightGray;
-            this.panelAccueil.Controls.Add(this.panel18);
-            this.panelAccueil.Controls.Add(this.panel9);
-            this.panelAccueil.Controls.Add(this.panel8);
-            this.panelAccueil.Controls.Add(this.panel10);
-            this.panelAccueil.Controls.Add(this.panel7);
+            this.panelAccueil.Controls.Add(this.buttonInventaire);
+            this.panelAccueil.Controls.Add(this.label19);
+            this.panelAccueil.Controls.Add(this.dataGridView1);
+            this.panelAccueil.Controls.Add(this.dataGridView2);
+            this.panelAccueil.Controls.Add(this.dataGridView3);
+            this.panelAccueil.Controls.Add(this.label18);
+            this.panelAccueil.Controls.Add(this.label9);
+            this.panelAccueil.Controls.Add(this.label8);
+            this.panelAccueil.Controls.Add(this.label7);
+            this.panelAccueil.Controls.Add(this.label2);
+            this.panelAccueil.Controls.Add(this.label1);
             this.panelAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.panelAccueil.Location = new System.Drawing.Point(320, 2);
+            this.panelAccueil.Location = new System.Drawing.Point(320, 4);
             this.panelAccueil.Name = "panelAccueil";
-            this.panelAccueil.Size = new System.Drawing.Size(1294, 756);
+            this.panelAccueil.Size = new System.Drawing.Size(1278, 758);
             this.panelAccueil.TabIndex = 1;
             this.panelAccueil.Visible = false;
             // 
-            // panel18
+            // buttonInventaire
             // 
-            this.panel18.BackColor = System.Drawing.Color.Transparent;
-            this.panel18.Controls.Add(this.dataGridView11);
-            this.panel18.Controls.Add(this.label2);
-            this.panel18.Location = new System.Drawing.Point(31, 494);
-            this.panel18.Name = "panel18";
-            this.panel18.Size = new System.Drawing.Size(1213, 229);
-            this.panel18.TabIndex = 5;
+            this.buttonInventaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.buttonInventaire.FlatAppearance.BorderSize = 0;
+            this.buttonInventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonInventaire.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonInventaire.ForeColor = System.Drawing.Color.White;
+            this.buttonInventaire.Location = new System.Drawing.Point(759, 541);
+            this.buttonInventaire.Name = "buttonInventaire";
+            this.buttonInventaire.Size = new System.Drawing.Size(271, 47);
+            this.buttonInventaire.TabIndex = 40;
+            this.buttonInventaire.Text = "INVENTAIRE";
+            this.buttonInventaire.UseVisualStyleBackColor = false;
+            this.buttonInventaire.Click += new System.EventHandler(this.buttonInventaire_Click);
             // 
-            // dataGridView11
+            // label19
             // 
-            this.dataGridView11.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView11.Location = new System.Drawing.Point(7, 38);
-            this.dataGridView11.Name = "dataGridView11";
-            this.dataGridView11.Size = new System.Drawing.Size(1196, 177);
-            this.dataGridView11.TabIndex = 7;
+            this.label19.AutoSize = true;
+            this.label19.BackColor = System.Drawing.Color.Transparent;
+            this.label19.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.Red;
+            this.label19.Location = new System.Drawing.Point(1046, 119);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(22, 24);
+            this.label19.TabIndex = 21;
+            this.label19.Text = "8";
             // 
-            // label2
+            // dataGridView1
             // 
-            this.label2.AutoSize = true;
-            this.label2.BackColor = System.Drawing.Color.Transparent;
-            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(3, 11);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(309, 24);
-            this.label2.TabIndex = 2;
-            this.label2.Text = "Bons de commandes du jour: 12";
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(713, 146);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(360, 239);
+            this.dataGridView1.TabIndex = 20;
             // 
-            // panel9
+            // dataGridView2
             // 
-            this.panel9.BackColor = System.Drawing.Color.Transparent;
-            this.panel9.Controls.Add(this.dataGridView10);
-            this.panel9.Controls.Add(this.label8);
-            this.panel9.Location = new System.Drawing.Point(666, 259);
-            this.panel9.Name = "panel9";
-            this.panel9.Size = new System.Drawing.Size(578, 220);
-            this.panel9.TabIndex = 5;
+            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView2.Location = new System.Drawing.Point(21, 445);
+            this.dataGridView2.Name = "dataGridView2";
+            this.dataGridView2.Size = new System.Drawing.Size(360, 239);
+            this.dataGridView2.TabIndex = 19;
             // 
-            // dataGridView10
+            // dataGridView3
             // 
-            this.dataGridView10.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView10.Location = new System.Drawing.Point(9, 34);
-            this.dataGridView10.Name = "dataGridView10";
-            this.dataGridView10.Size = new System.Drawing.Size(559, 168);
-            this.dataGridView10.TabIndex = 6;
+            this.dataGridView3.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView3.Location = new System.Drawing.Point(21, 146);
+            this.dataGridView3.Name = "dataGridView3";
+            this.dataGridView3.Size = new System.Drawing.Size(360, 239);
+            this.dataGridView3.TabIndex = 18;
             // 
-            // label8
+            // label18
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(3, 11);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(370, 24);
-            this.label8.TabIndex = 2;
-            this.label8.Text = "Commandes fournisseurs en cours: 10";
-            // 
-            // panel8
-            // 
-            this.panel8.BackColor = System.Drawing.Color.Transparent;
-            this.panel8.Controls.Add(this.dataGridView8);
-            this.panel8.Controls.Add(this.label1);
-            this.panel8.Location = new System.Drawing.Point(666, 20);
-            this.panel8.Name = "panel8";
-            this.panel8.Size = new System.Drawing.Size(578, 220);
-            this.panel8.TabIndex = 3;
-            // 
-            // dataGridView8
-            // 
-            this.dataGridView8.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView8.Location = new System.Drawing.Point(9, 36);
-            this.dataGridView8.Name = "dataGridView8";
-            this.dataGridView8.Size = new System.Drawing.Size(559, 168);
-            this.dataGridView8.TabIndex = 4;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(3, 11);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(265, 24);
-            this.label1.TabIndex = 2;
-            this.label1.Text = "Derniers clients inscrits: 18";
-            // 
-            // panel10
-            // 
-            this.panel10.BackColor = System.Drawing.Color.Transparent;
-            this.panel10.Controls.Add(this.dataGridView9);
-            this.panel10.Controls.Add(this.label9);
-            this.panel10.Location = new System.Drawing.Point(31, 255);
-            this.panel10.Name = "panel10";
-            this.panel10.Size = new System.Drawing.Size(578, 220);
-            this.panel10.TabIndex = 4;
-            // 
-            // dataGridView9
-            // 
-            this.dataGridView9.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView9.Location = new System.Drawing.Point(7, 38);
-            this.dataGridView9.Name = "dataGridView9";
-            this.dataGridView9.Size = new System.Drawing.Size(559, 168);
-            this.dataGridView9.TabIndex = 5;
+            this.label18.AutoSize = true;
+            this.label18.BackColor = System.Drawing.Color.Transparent;
+            this.label18.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.Location = new System.Drawing.Point(17, 15);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(233, 24);
+            this.label18.TabIndex = 14;
+            this.label18.Text = "Nombre de produits : 59";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
             this.label9.BackColor = System.Drawing.Color.Transparent;
             this.label9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(3, 11);
+            this.label9.Location = new System.Drawing.Point(17, 40);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(293, 24);
-            this.label9.TabIndex = 2;
-            this.label9.Text = "Commandes web en cours: 45";
+            this.label9.Size = new System.Drawing.Size(262, 24);
+            this.label9.TabIndex = 13;
+            this.label9.Text = "Nombre de fournisseurs : 7";
             // 
-            // panel7
+            // label8
             // 
-            this.panel7.BackColor = System.Drawing.Color.Transparent;
-            this.panel7.Controls.Add(this.dataGridView7);
-            this.panel7.Controls.Add(this.label7);
-            this.panel7.Location = new System.Drawing.Point(31, 16);
-            this.panel7.Name = "panel7";
-            this.panel7.Size = new System.Drawing.Size(578, 220);
-            this.panel7.TabIndex = 1;
-            // 
-            // dataGridView7
-            // 
-            this.dataGridView7.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView7.Location = new System.Drawing.Point(7, 36);
-            this.dataGridView7.Name = "dataGridView7";
-            this.dataGridView7.Size = new System.Drawing.Size(559, 168);
-            this.dataGridView7.TabIndex = 3;
+            this.label8.AutoSize = true;
+            this.label8.BackColor = System.Drawing.Color.Transparent;
+            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label8.Location = new System.Drawing.Point(17, 65);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(225, 24);
+            this.label8.TabIndex = 12;
+            this.label8.Text = "Nombre de clients: 152";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
             this.label7.BackColor = System.Drawing.Color.Transparent;
             this.label7.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.Location = new System.Drawing.Point(3, 11);
+            this.label7.Location = new System.Drawing.Point(17, 119);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(344, 24);
-            this.label7.TabIndex = 2;
-            this.label7.Text = "Produits proche du seuil critique: 10";
+            this.label7.Size = new System.Drawing.Size(364, 24);
+            this.label7.TabIndex = 11;
+            this.label7.Text = "Commandes fournisseurs en cours : 6";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.BackColor = System.Drawing.Color.Transparent;
+            this.label2.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(17, 419);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(321, 24);
+            this.label2.TabIndex = 10;
+            this.label2.Text = "Commandes clients en cours : 48";
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.BackColor = System.Drawing.Color.Transparent;
+            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(709, 119);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(331, 24);
+            this.label1.TabIndex = 8;
+            this.label1.Text = "Produits proches du seuil critique :";
             // 
             // panelProduit
             // 
@@ -678,9 +642,9 @@ namespace DashBoard_Stive
             this.panelProduit.Controls.Add(this.panel11);
             this.panelProduit.Controls.Add(this.panel17);
             this.panelProduit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.panelProduit.Location = new System.Drawing.Point(320, 2);
+            this.panelProduit.Location = new System.Drawing.Point(331, 17);
             this.panelProduit.Name = "panelProduit";
-            this.panelProduit.Size = new System.Drawing.Size(1294, 756);
+            this.panelProduit.Size = new System.Drawing.Size(1283, 741);
             this.panelProduit.TabIndex = 2;
             this.panelProduit.Visible = false;
             // 
@@ -689,7 +653,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.label_Pro_Id);
             this.panel11.Controls.Add(this.labelPro_Typ_Id);
             this.panel11.Controls.Add(this.textBoxNbPiece);
-            this.panel11.Controls.Add(this.listBox1);
             this.panel11.Controls.Add(this.comboBoxProposePar);
             this.panel11.Controls.Add(this.buttonCreerProduit);
             this.panel11.Controls.Add(this.textBoxPrixLitre);
@@ -704,7 +667,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.label15);
             this.panel11.Controls.Add(this.label_pro_Fou_Id);
             this.panel11.Controls.Add(this.label16);
-            this.panel11.Controls.Add(this.textBoxProposePar);
             this.panel11.Controls.Add(this.buttonCommanderProduit);
             this.panel11.Controls.Add(this.checkBox3);
             this.panel11.Controls.Add(this.checkBoxCommandeAuto);
@@ -738,6 +700,7 @@ namespace DashBoard_Stive
             this.label_Pro_Id.Size = new System.Drawing.Size(59, 19);
             this.label_Pro_Id.TabIndex = 54;
             this.label_Pro_Id.Text = "Pro_Id";
+            this.label_Pro_Id.Visible = false;
             // 
             // labelPro_Typ_Id
             // 
@@ -749,6 +712,7 @@ namespace DashBoard_Stive
             this.labelPro_Typ_Id.Size = new System.Drawing.Size(96, 19);
             this.labelPro_Typ_Id.TabIndex = 53;
             this.labelPro_Typ_Id.Text = "Pro_Typ_Id";
+            this.labelPro_Typ_Id.Visible = false;
             // 
             // textBoxNbPiece
             // 
@@ -757,33 +721,21 @@ namespace DashBoard_Stive
             this.textBoxNbPiece.Size = new System.Drawing.Size(58, 20);
             this.textBoxNbPiece.TabIndex = 52;
             // 
-            // listBox1
-            // 
-            this.listBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fournisseurBindingSource, "Fou_NomDomaine", true));
-            this.listBox1.DataSource = this.fournisseurBindingSource;
-            this.listBox1.DisplayMember = "Fou_NomDomaine";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(204, 93);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 30);
-            this.listBox1.TabIndex = 50;
-            this.listBox1.ValueMember = "Fou_NomDomaine";
-            // 
-            // fournisseurBindingSource
-            // 
-            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
-            // 
             // comboBoxProposePar
             // 
             this.comboBoxProposePar.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fournisseurBindingSource, "Fou_NomDomaine", true));
             this.comboBoxProposePar.DataSource = this.fournisseurBindingSource;
             this.comboBoxProposePar.DisplayMember = "Fou_NomDomaine";
             this.comboBoxProposePar.FormattingEnabled = true;
-            this.comboBoxProposePar.Location = new System.Drawing.Point(201, 62);
+            this.comboBoxProposePar.Location = new System.Drawing.Point(343, 36);
             this.comboBoxProposePar.Name = "comboBoxProposePar";
             this.comboBoxProposePar.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProposePar.TabIndex = 49;
             this.comboBoxProposePar.ValueMember = "Fou_NomDomaine";
+            // 
+            // fournisseurBindingSource
+            // 
+            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
             // buttonCreerProduit
             // 
@@ -858,6 +810,7 @@ namespace DashBoard_Stive
             this.comboBoxTypeProduit.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.typeProduitBindingSource, "Typ_Libelle", true));
             this.comboBoxTypeProduit.DataSource = this.typeProduitBindingSource;
             this.comboBoxTypeProduit.DisplayMember = "Typ_Libelle";
+            this.comboBoxTypeProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeProduit.FormattingEnabled = true;
             this.comboBoxTypeProduit.Location = new System.Drawing.Point(458, 82);
             this.comboBoxTypeProduit.Name = "comboBoxTypeProduit";
@@ -901,6 +854,7 @@ namespace DashBoard_Stive
             this.label_pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
             this.label_pro_Fou_Id.TabIndex = 36;
             this.label_pro_Fou_Id.Text = "pro_Fou_Id";
+            this.label_pro_Fou_Id.Visible = false;
             // 
             // label16
             // 
@@ -912,13 +866,6 @@ namespace DashBoard_Stive
             this.label16.Size = new System.Drawing.Size(105, 19);
             this.label16.TabIndex = 38;
             this.label16.Text = "Type produit";
-            // 
-            // textBoxProposePar
-            // 
-            this.textBoxProposePar.Location = new System.Drawing.Point(343, 37);
-            this.textBoxProposePar.Name = "textBoxProposePar";
-            this.textBoxProposePar.Size = new System.Drawing.Size(245, 20);
-            this.textBoxProposePar.TabIndex = 37;
             // 
             // buttonCommanderProduit
             // 
@@ -1111,6 +1058,7 @@ namespace DashBoard_Stive
             // 
             // panel17
             // 
+            this.panel17.Controls.Add(this.textBox1);
             this.panel17.Controls.Add(this.panel_AjouterType);
             this.panel17.Controls.Add(this.buttonAjouterType);
             this.panel17.Controls.Add(this.label_List_TypProduit);
@@ -1122,6 +1070,13 @@ namespace DashBoard_Stive
             this.panel17.Name = "panel17";
             this.panel17.Size = new System.Drawing.Size(601, 734);
             this.panel17.TabIndex = 7;
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(423, 31);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(150, 20);
+            this.textBox1.TabIndex = 55;
             // 
             // panel_AjouterType
             // 
@@ -1308,10 +1263,10 @@ namespace DashBoard_Stive
             this.button18.FlatAppearance.BorderSize = 0;
             this.button18.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button18.ForeColor = System.Drawing.Color.Green;
-            this.button18.Location = new System.Drawing.Point(356, 6);
+            this.button18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.button18.Location = new System.Drawing.Point(402, 6);
             this.button18.Name = "button18";
-            this.button18.Size = new System.Drawing.Size(233, 23);
+            this.button18.Size = new System.Drawing.Size(187, 23);
             this.button18.TabIndex = 5;
             this.button18.Text = "Chercher un produit";
             this.button18.UseVisualStyleBackColor = true;
@@ -1322,9 +1277,9 @@ namespace DashBoard_Stive
             this.panelClients.Controls.Add(this.panel15);
             this.panelClients.Controls.Add(this.panel16);
             this.panelClients.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.panelClients.Location = new System.Drawing.Point(320, -1);
+            this.panelClients.Location = new System.Drawing.Point(339, 20);
             this.panelClients.Name = "panelClients";
-            this.panelClients.Size = new System.Drawing.Size(1294, 759);
+            this.panelClients.Size = new System.Drawing.Size(1275, 738);
             this.panelClients.TabIndex = 3;
             this.panelClients.Visible = false;
             // 
@@ -1335,7 +1290,6 @@ namespace DashBoard_Stive
             this.panel15.Controls.Add(this.buttonCreerClient);
             this.panel15.Controls.Add(this.labelUti_Id2);
             this.panel15.Controls.Add(this.textBoxPrenom);
-            this.panel15.Controls.Add(this.textBoxNom);
             this.panel15.Controls.Add(this.labelPrenom);
             this.panel15.Controls.Add(this.checkBoxPro);
             this.panel15.Controls.Add(this.textBoxDateNaissance);
@@ -1359,7 +1313,6 @@ namespace DashBoard_Stive
             this.panel15.Controls.Add(this.buttonMajClient);
             this.panel15.Controls.Add(this.buttonSuppClient);
             this.panel15.Controls.Add(this.dataGridViewListCommandeClient);
-            this.panel15.Controls.Add(this.labelNom);
             this.panel15.Location = new System.Drawing.Point(663, 13);
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(601, 740);
@@ -1416,13 +1369,6 @@ namespace DashBoard_Stive
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(136, 20);
             this.textBoxPrenom.TabIndex = 30;
-            // 
-            // textBoxNom
-            // 
-            this.textBoxNom.Location = new System.Drawing.Point(100, 9);
-            this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(137, 20);
-            this.textBoxNom.TabIndex = 29;
             // 
             // labelPrenom
             // 
@@ -1650,22 +1596,12 @@ namespace DashBoard_Stive
             this.dataGridViewListCommandeClient.Size = new System.Drawing.Size(598, 367);
             this.dataGridViewListCommandeClient.TabIndex = 7;
             // 
-            // labelNom
-            // 
-            this.labelNom.AutoSize = true;
-            this.labelNom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelNom.Location = new System.Drawing.Point(9, 12);
-            this.labelNom.Name = "labelNom";
-            this.labelNom.Size = new System.Drawing.Size(45, 19);
-            this.labelNom.TabIndex = 7;
-            this.labelNom.Text = "Nom";
-            // 
             // panel16
             // 
             this.panel16.Controls.Add(this.buttonAjouterClient);
             this.panel16.Controls.Add(this.Dv_ListClient);
-            this.panel16.Controls.Add(this.buttonChercherClient);
+            this.panel16.Controls.Add(this.textBoxNom);
+            this.panel16.Controls.Add(this.labelNom);
             this.panel16.Location = new System.Drawing.Point(8, 13);
             this.panel16.Name = "panel16";
             this.panel16.Size = new System.Drawing.Size(601, 740);
@@ -1754,34 +1690,88 @@ namespace DashBoard_Stive
             // 
             this.clientBindingSource.DataSource = typeof(DashBoard_Stive.Client);
             // 
-            // buttonChercherClient
+            // textBoxNom
             // 
-            this.buttonChercherClient.FlatAppearance.BorderSize = 0;
-            this.buttonChercherClient.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonChercherClient.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonChercherClient.ForeColor = System.Drawing.Color.Green;
-            this.buttonChercherClient.Location = new System.Drawing.Point(421, 25);
-            this.buttonChercherClient.Name = "buttonChercherClient";
-            this.buttonChercherClient.Size = new System.Drawing.Size(173, 23);
-            this.buttonChercherClient.TabIndex = 5;
-            this.buttonChercherClient.Text = "Chercher un client";
-            this.buttonChercherClient.UseVisualStyleBackColor = true;
+            this.textBoxNom.Location = new System.Drawing.Point(441, 32);
+            this.textBoxNom.Name = "textBoxNom";
+            this.textBoxNom.Size = new System.Drawing.Size(137, 20);
+            this.textBoxNom.TabIndex = 29;
+            // 
+            // labelNom
+            // 
+            this.labelNom.AutoSize = true;
+            this.labelNom.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNom.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.labelNom.Location = new System.Drawing.Point(438, 10);
+            this.labelNom.Name = "labelNom";
+            this.labelNom.Size = new System.Drawing.Size(125, 19);
+            this.labelNom.TabIndex = 7;
+            this.labelNom.Text = "Chercher client";
             // 
             // panelBdc
             // 
             this.panelBdc.BackColor = System.Drawing.Color.LightGray;
-            this.panelBdc.Controls.Add(this.panel22);
+            this.panelBdc.Controls.Add(this.button1);
             this.panelBdc.Controls.Add(this.panel23);
+            this.panelBdc.Controls.Add(this.panel22);
             this.panelBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.panelBdc.Location = new System.Drawing.Point(320, 2);
+            this.panelBdc.Location = new System.Drawing.Point(342, 24);
             this.panelBdc.Name = "panelBdc";
-            this.panelBdc.Size = new System.Drawing.Size(1294, 756);
+            this.panelBdc.Size = new System.Drawing.Size(1272, 734);
             this.panelBdc.TabIndex = 4;
             this.panelBdc.Visible = false;
             // 
+            // button1
+            // 
+            this.button1.FlatAppearance.BorderSize = 0;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.button1.Location = new System.Drawing.Point(450, 12);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(195, 31);
+            this.button1.TabIndex = 34;
+            this.button1.Text = "Chercher";
+            this.button1.UseVisualStyleBackColor = true;
+            // 
+            // panel23
+            // 
+            this.panel23.Controls.Add(this.textBox3);
+            this.panel23.Controls.Add(this.Dv_CommandeFournisseur);
+            this.panel23.Controls.Add(this.label60);
+            this.panel23.Location = new System.Drawing.Point(31, 24);
+            this.panel23.Name = "panel23";
+            this.panel23.Size = new System.Drawing.Size(589, 721);
+            this.panel23.TabIndex = 7;
+            // 
+            // textBox3
+            // 
+            this.textBox3.Location = new System.Drawing.Point(495, 30);
+            this.textBox3.Name = "textBox3";
+            this.textBox3.Size = new System.Drawing.Size(100, 20);
+            this.textBox3.TabIndex = 35;
+            // 
+            // Dv_CommandeFournisseur
+            // 
+            this.Dv_CommandeFournisseur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_CommandeFournisseur.Location = new System.Drawing.Point(0, 57);
+            this.Dv_CommandeFournisseur.Name = "Dv_CommandeFournisseur";
+            this.Dv_CommandeFournisseur.Size = new System.Drawing.Size(598, 680);
+            this.Dv_CommandeFournisseur.TabIndex = 6;
+            // 
+            // label60
+            // 
+            this.label60.AutoSize = true;
+            this.label60.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label60.Location = new System.Drawing.Point(0, 29);
+            this.label60.Name = "label60";
+            this.label60.Size = new System.Drawing.Size(281, 19);
+            this.label60.TabIndex = 4;
+            this.label60.Text = "Liste des  commandes fournisseurs";
+            // 
             // panel22
             // 
-            this.panel22.Controls.Add(this.labelBdcFournisseur);
             this.panel22.Controls.Add(this.labelDateMajBdc);
             this.panel22.Controls.Add(this.labelDateCreationBdc);
             this.panel22.Controls.Add(this.labelEtatBdc);
@@ -1794,17 +1784,6 @@ namespace DashBoard_Stive
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(601, 690);
             this.panel22.TabIndex = 8;
-            // 
-            // labelBdcFournisseur
-            // 
-            this.labelBdcFournisseur.AutoSize = true;
-            this.labelBdcFournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelBdcFournisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelBdcFournisseur.Location = new System.Drawing.Point(425, 7);
-            this.labelBdcFournisseur.Name = "labelBdcFournisseur";
-            this.labelBdcFournisseur.Size = new System.Drawing.Size(173, 19);
-            this.labelBdcFournisseur.TabIndex = 31;
-            this.labelBdcFournisseur.Text = "Commandé chez Max";
             // 
             // labelDateMajBdc
             // 
@@ -1844,12 +1823,12 @@ namespace DashBoard_Stive
             this.button21.FlatAppearance.BorderSize = 0;
             this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.Color.Green;
-            this.button21.Location = new System.Drawing.Point(406, 27);
+            this.button21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.button21.Location = new System.Drawing.Point(404, -2);
             this.button21.Name = "button21";
             this.button21.Size = new System.Drawing.Size(198, 31);
             this.button21.TabIndex = 8;
-            this.button21.Text = "Ouvrir fiche fournisseur";
+            this.button21.Text = "Commandé chez Max";
             this.button21.UseVisualStyleBackColor = true;
             // 
             // textBox28
@@ -1888,48 +1867,6 @@ namespace DashBoard_Stive
             this.labelNumBdc.Size = new System.Drawing.Size(128, 19);
             this.labelNumBdc.TabIndex = 7;
             this.labelNumBdc.Text = "Numero de Bdc";
-            // 
-            // panel23
-            // 
-            this.panel23.Controls.Add(this.button24);
-            this.panel23.Controls.Add(this.Dv_CommandeFournisseur);
-            this.panel23.Controls.Add(this.label60);
-            this.panel23.Location = new System.Drawing.Point(19, 12);
-            this.panel23.Name = "panel23";
-            this.panel23.Size = new System.Drawing.Size(601, 733);
-            this.panel23.TabIndex = 7;
-            // 
-            // button24
-            // 
-            this.button24.FlatAppearance.BorderSize = 0;
-            this.button24.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button24.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button24.ForeColor = System.Drawing.Color.Green;
-            this.button24.Location = new System.Drawing.Point(348, 23);
-            this.button24.Name = "button24";
-            this.button24.Size = new System.Drawing.Size(250, 31);
-            this.button24.TabIndex = 7;
-            this.button24.Text = "Chercher une commande";
-            this.button24.UseVisualStyleBackColor = true;
-            // 
-            // Dv_CommandeFournisseur
-            // 
-            this.Dv_CommandeFournisseur.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dv_CommandeFournisseur.Location = new System.Drawing.Point(0, 57);
-            this.Dv_CommandeFournisseur.Name = "Dv_CommandeFournisseur";
-            this.Dv_CommandeFournisseur.Size = new System.Drawing.Size(598, 680);
-            this.Dv_CommandeFournisseur.TabIndex = 6;
-            // 
-            // label60
-            // 
-            this.label60.AutoSize = true;
-            this.label60.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label60.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label60.Location = new System.Drawing.Point(0, 29);
-            this.label60.Name = "label60";
-            this.label60.Size = new System.Drawing.Size(281, 19);
-            this.label60.TabIndex = 4;
-            this.label60.Text = "Liste des  commandes fournisseurs";
             // 
             // panelCommandesWeb
             // 
@@ -1980,7 +1917,6 @@ namespace DashBoard_Stive
             // 
             // panel19
             // 
-            this.panel19.Controls.Add(this.label49);
             this.panel19.Controls.Add(this.label48);
             this.panel19.Controls.Add(this.label56);
             this.panel19.Controls.Add(this.label6);
@@ -1993,17 +1929,6 @@ namespace DashBoard_Stive
             this.panel19.Name = "panel19";
             this.panel19.Size = new System.Drawing.Size(601, 690);
             this.panel19.TabIndex = 6;
-            // 
-            // label49
-            // 
-            this.label49.AutoSize = true;
-            this.label49.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label49.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label49.Location = new System.Drawing.Point(432, 10);
-            this.label49.Name = "label49";
-            this.label49.Size = new System.Drawing.Size(161, 19);
-            this.label49.TabIndex = 31;
-            this.label49.Text = "Commandé par Max";
             // 
             // label48
             // 
@@ -2043,12 +1968,12 @@ namespace DashBoard_Stive
             this.button23.FlatAppearance.BorderSize = 0;
             this.button23.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button23.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button23.ForeColor = System.Drawing.Color.Green;
-            this.button23.Location = new System.Drawing.Point(436, 31);
+            this.button23.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.button23.Location = new System.Drawing.Point(392, 10);
             this.button23.Name = "button23";
-            this.button23.Size = new System.Drawing.Size(168, 31);
+            this.button23.Size = new System.Drawing.Size(195, 31);
             this.button23.TabIndex = 8;
-            this.button23.Text = "Ouvrir fiche client";
+            this.button23.Text = "Commandé par Max";
             this.button23.UseVisualStyleBackColor = true;
             // 
             // textBox27
@@ -2090,26 +2015,25 @@ namespace DashBoard_Stive
             // 
             // panel20
             // 
-            this.panel20.Controls.Add(this.button22);
+            this.panel20.Controls.Add(this.label5);
             this.panel20.Controls.Add(this.dataGridView12);
+            this.panel20.Controls.Add(this.textBox2);
             this.panel20.Controls.Add(this.label59);
             this.panel20.Location = new System.Drawing.Point(19, 15);
             this.panel20.Name = "panel20";
             this.panel20.Size = new System.Drawing.Size(601, 733);
             this.panel20.TabIndex = 5;
             // 
-            // button22
+            // label5
             // 
-            this.button22.FlatAppearance.BorderSize = 0;
-            this.button22.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button22.ForeColor = System.Drawing.Color.Green;
-            this.button22.Location = new System.Drawing.Point(333, 24);
-            this.button22.Name = "button22";
-            this.button22.Size = new System.Drawing.Size(250, 31);
-            this.button22.TabIndex = 7;
-            this.button22.Text = "Chercher une commande web";
-            this.button22.UseVisualStyleBackColor = true;
+            this.label5.AutoSize = true;
+            this.label5.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label5.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label5.Location = new System.Drawing.Point(486, 11);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(77, 19);
+            this.label5.TabIndex = 33;
+            this.label5.Text = "chercher";
             // 
             // dataGridView12
             // 
@@ -2118,6 +2042,13 @@ namespace DashBoard_Stive
             this.dataGridView12.Name = "dataGridView12";
             this.dataGridView12.Size = new System.Drawing.Size(598, 680);
             this.dataGridView12.TabIndex = 6;
+            // 
+            // textBox2
+            // 
+            this.textBox2.Location = new System.Drawing.Point(490, 33);
+            this.textBox2.Name = "textBox2";
+            this.textBox2.Size = new System.Drawing.Size(100, 20);
+            this.textBox2.TabIndex = 32;
             // 
             // label59
             // 
@@ -2136,9 +2067,9 @@ namespace DashBoard_Stive
             this.panelFournisseurs.Controls.Add(this.panel13);
             this.panelFournisseurs.Controls.Add(this.panel14);
             this.panelFournisseurs.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.panelFournisseurs.Location = new System.Drawing.Point(319, 2);
+            this.panelFournisseurs.Location = new System.Drawing.Point(331, 12);
             this.panelFournisseurs.Name = "panelFournisseurs";
-            this.panelFournisseurs.Size = new System.Drawing.Size(1292, 756);
+            this.panelFournisseurs.Size = new System.Drawing.Size(1280, 746);
             this.panelFournisseurs.TabIndex = 4;
             this.panelFournisseurs.Visible = false;
             // 
@@ -2527,7 +2458,6 @@ namespace DashBoard_Stive
             this.panel14.Controls.Add(this.labelCherchFournisseur);
             this.panel14.Controls.Add(this.textBoxCherchFournisseur);
             this.panel14.Controls.Add(this.buttonAjouterfournisseur);
-            this.panel14.Controls.Add(this.buttonCherchFournisseur);
             this.panel14.Controls.Add(this.Dv_fournisseur);
             this.panel14.Location = new System.Drawing.Point(9, 10);
             this.panel14.Name = "panel14";
@@ -2566,20 +2496,6 @@ namespace DashBoard_Stive
             this.buttonAjouterfournisseur.Text = "Ajouter un fournisseur";
             this.buttonAjouterfournisseur.UseVisualStyleBackColor = true;
             this.buttonAjouterfournisseur.Click += new System.EventHandler(this.buttonAjouterfournisseur_Click);
-            // 
-            // buttonCherchFournisseur
-            // 
-            this.buttonCherchFournisseur.FlatAppearance.BorderSize = 0;
-            this.buttonCherchFournisseur.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonCherchFournisseur.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonCherchFournisseur.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.buttonCherchFournisseur.Location = new System.Drawing.Point(535, 22);
-            this.buttonCherchFournisseur.Name = "buttonCherchFournisseur";
-            this.buttonCherchFournisseur.Size = new System.Drawing.Size(63, 37);
-            this.buttonCherchFournisseur.TabIndex = 5;
-            this.buttonCherchFournisseur.Text = "go";
-            this.buttonCherchFournisseur.UseVisualStyleBackColor = true;
-            this.buttonCherchFournisseur.Click += new System.EventHandler(this.buttonCherchFournisseur_Click);
             // 
             // Dv_fournisseur
             // 
@@ -2905,12 +2821,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
+            this.Controls.Add(this.panelFournisseurs);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -2923,21 +2839,10 @@ namespace DashBoard_Stive
             this.panel21.ResumeLayout(false);
             this.panel21.PerformLayout();
             this.panelAccueil.ResumeLayout(false);
-            this.panel18.ResumeLayout(false);
-            this.panel18.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView11)).EndInit();
-            this.panel9.ResumeLayout(false);
-            this.panel9.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView10)).EndInit();
-            this.panel8.ResumeLayout(false);
-            this.panel8.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView8)).EndInit();
-            this.panel10.ResumeLayout(false);
-            this.panel10.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView9)).EndInit();
-            this.panel7.ResumeLayout(false);
-            this.panel7.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView7)).EndInit();
+            this.panelAccueil.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).EndInit();
             this.panelProduit.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
@@ -2956,15 +2861,16 @@ namespace DashBoard_Stive
             this.panel15.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListCommandeClient)).EndInit();
             this.panel16.ResumeLayout(false);
+            this.panel16.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ListClient)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.clientBindingSource)).EndInit();
             this.panelBdc.ResumeLayout(false);
-            this.panel22.ResumeLayout(false);
-            this.panel22.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).EndInit();
             this.panel23.ResumeLayout(false);
             this.panel23.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_CommandeFournisseur)).EndInit();
+            this.panel22.ResumeLayout(false);
+            this.panel22.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).EndInit();
             this.panelCommandesWeb.ResumeLayout(false);
             this.panelCommandesWeb.PerformLayout();
             this.panel19.ResumeLayout(false);
@@ -3002,8 +2908,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Panel panelClients;
         private System.Windows.Forms.Panel panelBdc;
         private System.Windows.Forms.Panel panelCommandesWeb;
-        private System.Windows.Forms.Panel panel7;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Panel panel21;
         private System.Windows.Forms.Label label20;
         private System.Windows.Forms.Button buttonFournisseurs;
@@ -3011,7 +2915,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Panel panel15;
         private System.Windows.Forms.Panel panel16;
         private System.Windows.Forms.DataGridView Dv_ListClient;
-        private System.Windows.Forms.Button buttonChercherClient;
         private System.Windows.Forms.Label labelListCommande;
         private System.Windows.Forms.Button buttonMajClient;
         private System.Windows.Forms.Button buttonSuppClient;
@@ -3059,15 +2962,8 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView dataGridViewListeBdc;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView Dv_fournisseur;
-        private System.Windows.Forms.Button buttonCherchFournisseur;
         private System.Windows.Forms.Button buttonAjouterfournisseur;
         private System.Windows.Forms.Button buttonAjouterClient;
-        private System.Windows.Forms.Panel panel9;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Panel panel8;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Panel panel10;
-        private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Panel panel11;
         private System.Windows.Forms.TextBox textBoxSeuilAlerte;
         private System.Windows.Forms.Label label10;
@@ -3081,13 +2977,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView Dv_ListeProduit;
         private System.Windows.Forms.Button button18;
         private System.Windows.Forms.PictureBox pictureBoxProduit;
-        private System.Windows.Forms.Panel panel18;
-        private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView11;
-        private System.Windows.Forms.DataGridView dataGridView10;
-        private System.Windows.Forms.DataGridView dataGridView8;
-        private System.Windows.Forms.DataGridView dataGridView9;
-        private System.Windows.Forms.DataGridView dataGridView7;
         private System.Windows.Forms.Label label38;
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox textBoxNomProduit;
@@ -3109,13 +2998,11 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label47;
         private System.Windows.Forms.Label label40;
         private System.Windows.Forms.Panel panel20;
-        private System.Windows.Forms.Button button22;
         private System.Windows.Forms.DataGridView dataGridView12;
         private System.Windows.Forms.Label label59;
         private System.Windows.Forms.Panel panel19;
         private System.Windows.Forms.Label label50;
         private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.Label label49;
         private System.Windows.Forms.Label label48;
         private System.Windows.Forms.Label label56;
         private System.Windows.Forms.Label label6;
@@ -3126,7 +3013,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label labelBdcFournisseur;
         private System.Windows.Forms.Label labelDateMajBdc;
         private System.Windows.Forms.Label labelDateCreationBdc;
         private System.Windows.Forms.Label labelEtatBdc;
@@ -3136,7 +3022,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView Dv_DetailCommandeFournisseur;
         private System.Windows.Forms.Label labelNumBdc;
         private System.Windows.Forms.Panel panel23;
-        private System.Windows.Forms.Button button24;
         private System.Windows.Forms.DataGridView Dv_CommandeFournisseur;
         private System.Windows.Forms.Label label60;
         private System.Windows.Forms.BindingSource fournisseurBindingSource;
@@ -3196,7 +3081,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBoxProposePar;
         private System.Windows.Forms.ComboBox comboBoxTypeProduit;
         private System.Windows.Forms.TextBox textBoxEnStock;
         private System.Windows.Forms.Label label17;
@@ -3220,7 +3104,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
         private System.Windows.Forms.Button buttonCreerProduit;
         private System.Windows.Forms.ComboBox comboBoxProposePar;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxNbPiece;
         private System.Windows.Forms.Label labelPro_Typ_Id;
         private System.Windows.Forms.Label label_List_TypProduit;
@@ -3234,5 +3117,21 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox textBox_Libelle;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Label label_Pro_Id;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.Button buttonInventaire;
+        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView dataGridView2;
+        private System.Windows.Forms.DataGridView dataGridView3;
+        private System.Windows.Forms.Label label18;
+        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.Label label1;
     }
 }

@@ -181,7 +181,7 @@ namespace DashBoard_Stive
             labelPro_Typ_Id.Text = Pro_Typ_Id;
             label_Pro_Id.Text = Pro_Id;
             textBoxNomProduit.Text = NomProduit;
-            textBoxProposePar.Text = Domaine;
+            comboBoxProposePar.Text = Domaine;
             comboBoxProposePar.Text = Domaine;
             textBoxRef.Text = Pro_Ref;
             textBoxCepage.Text = Pro_Cepage;
@@ -841,10 +841,11 @@ namespace DashBoard_Stive
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
 
+            comboBoxTypeProduit.DataSource = typListe;
             StamperProduit(
                 NomProduit: prodListe[e.RowIndex].Pro_Nom,
                 Domaine: prodListe[e.RowIndex].Fou_NomDomaine,
-                Pro_Ref: prodListe[e.RowIndex].Pro_Ref ,
+                Pro_Ref: prodListe[e.RowIndex].Pro_Ref,
                 Pro_Cepage: prodListe[e.RowIndex].Pro_Cepage,
                 Pro_Annee: prodListe[e.RowIndex].Pro_Annee.ToString(),
                 Pro_Prix: prodListe[e.RowIndex].Pro_Prix.ToString(),
@@ -856,14 +857,16 @@ namespace DashBoard_Stive
                 Pro_Volume: prodListe[e.RowIndex].Pro_Volume.ToString(),
                 Pro_Description: prodListe[e.RowIndex].Pro_Description,
                 Typ_Libelle: prodListe[e.RowIndex].Typ_Libelle,
-                Pro_Typ_Id: prodListe[e.RowIndex].Pro_Typ_Id.ToString(),
+                Pro_Typ_Id: ((comboBoxTypeProduit.SelectedIndex)+1).ToString(),
                 Pro_Fou_Id: prodListe[e.RowIndex].Pro_Fou_Id.ToString(),
                 Pro_Id: prodListe[e.RowIndex].Pro_Id.ToString()
-                );
+                ) ;
+            //MessageBox.Show(((comboBoxTypeProduit.SelectedIndex) + 1).ToString());
         }
 
-        private void buttonAjouterProduit_Click(object sender, EventArgs e)
+        public void buttonAjouterProduit_Click(object sender, EventArgs e)
         {
+            comboBoxProposePar.DataSource = fourListe;
             //on propose une fiche vide
             StamperProduit();
             buttonCreerProduit.Visible = true;
@@ -872,32 +875,39 @@ namespace DashBoard_Stive
             buttonSuppProduit.Visible = false;
             buttonCommanderProduit.Visible = false;
             textBoxNbPiece.Visible = false;
+            
         }
 
         private async void buttonCreerProduit_Click(object sender, EventArgs e)
         {
             Produit newPro = new Produit();
-           // newPro.Pro_Typ_Id = proListe[e.RowIndex].Pro_Typ_Id//Convert.ToInt32(textBoxNomProduit.Text); //à recup de la liste des types
+          
             newPro.Pro_Nom = textBoxNomProduit.Text;
-            comboBoxProposePar.DataSource = fourListe;
-            newPro.Pro_Nom = comboBoxProposePar.SelectedText;
 
-            newPro.Pro_Ref = textBoxRef.Text; ;
-            newPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text); //à recup dela liste des fournisseurs
+            newPro.Pro_Ref = textBoxRef.Text; 
+            newPro.Pro_Fou_Id = Convert.ToInt32(((comboBoxProposePar.SelectedIndex) + 1));
+            MessageBox.Show(((comboBoxProposePar.SelectedIndex) + 1).ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
             newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
             newPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
             newPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
             newPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
-            newPro.Pro_CommandeAuto = Convert.ToInt32(checkBoxCommandeAuto.Text);
+            if (checkBoxCommandeAuto.Checked)
+            {
+                newPro.Pro_CommandeAuto = 1;
+            }
+            else
+            {
+                newPro.Pro_CommandeAuto = 0;
+            }
             newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
             newPro.Pro_Description = textBoxDescription.Text;
-            comboBoxTypeProduit.DataSource = typListe;
-            newPro.Typ_Libelle = comboBoxTypeProduit.Text;     //à recup de la liste des types
-            newPro.Fou_NomDomaine = textBoxProposePar.Text;    //à recup dela liste des fournisseurs
-            newPro.Img_Adresse = textBoxProposePar.Text;
-            newPro.Img_Nom = textBoxProposePar.Text;
+            newPro.Pro_Typ_Id = Convert.ToInt32(((comboBoxTypeProduit.SelectedIndex) + 1));
+            newPro.Typ_Libelle = comboBoxTypeProduit.Text;    
+            newPro.Fou_NomDomaine = comboBoxProposePar.Text;    
+            //newPro.Img_Adresse = textBoxProposePar.Text;
+            //newPro.Img_Nom = textBoxProposePar.Text;
 
 
             var httpClient = new HttpClient();
@@ -919,13 +929,11 @@ namespace DashBoard_Stive
 
         private async void buttonMajProduit_Click(object sender, EventArgs e)
         {
+            
             Produit majPro = new Produit();
             majPro.Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
-            majPro.Pro_Typ_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
+            majPro.Pro_Typ_Id = Convert.ToInt32(((comboBoxTypeProduit.SelectedIndex) + 1));
             majPro.Pro_Nom = textBoxNomProduit.Text;
-            //comboBoxProposePar.DataSource = fourListe;
-            //majPro.Pro_Nom = comboBoxProposePar.SelectedText;
-
             majPro.Pro_Ref = textBoxRef.Text; ;
             majPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text); 
             majPro.Pro_Cepage = textBoxCepage.Text;
@@ -942,10 +950,9 @@ namespace DashBoard_Stive
             }
             majPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
             majPro.Pro_Description = textBoxDescription.Text;
-            majPro.Typ_Libelle = comboBoxTypeProduit.Text;     //à recup de la liste des types
-            majPro.Fou_NomDomaine = textBoxProposePar.Text;    //à recup dela liste des fournisseurs
-            majPro.Img_Adresse = textBoxProposePar.Text;
-            majPro.Img_Nom = textBoxProposePar.Text;
+            majPro.Fou_NomDomaine = comboBoxProposePar.Text;   
+            //majPro.Img_Adresse = textBoxProposePar.Text;
+            //majPro.Img_Nom = textBoxProposePar.Text;
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(majPro);
@@ -995,8 +1002,15 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: Type non créé" + "\r\n\n" + response);
-            //recharge la liste en simulant le click sur le bouton fournisseur
+            //recharge la liste en simulant le click sur le bouton produit
             buttonProduit.PerformClick();
+        }
+
+        private void buttonInventaire_Click(object sender, EventArgs e)
+        {
+            Inventaire Inventaire = new Inventaire();
+            Inventaire.ShowDialog();
+           // this.Close();
         }
     }
     
