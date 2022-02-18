@@ -64,7 +64,6 @@ namespace DashBoard_Stive
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxProposePar = new System.Windows.Forms.ComboBox();
             this.buttonCreerProduit = new System.Windows.Forms.Button();
@@ -81,7 +80,6 @@ namespace DashBoard_Stive
             this.label15 = new System.Windows.Forms.Label();
             this.label_pro_Fou_Id = new System.Windows.Forms.Label();
             this.label16 = new System.Windows.Forms.Label();
-            this.textBoxProposePar = new System.Windows.Forms.TextBox();
             this.buttonCommanderProduit = new System.Windows.Forms.Button();
             this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.checkBoxCommandeAuto = new System.Windows.Forms.CheckBox();
@@ -689,7 +687,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.label_Pro_Id);
             this.panel11.Controls.Add(this.labelPro_Typ_Id);
             this.panel11.Controls.Add(this.textBoxNbPiece);
-            this.panel11.Controls.Add(this.listBox1);
             this.panel11.Controls.Add(this.comboBoxProposePar);
             this.panel11.Controls.Add(this.buttonCreerProduit);
             this.panel11.Controls.Add(this.textBoxPrixLitre);
@@ -704,7 +701,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.label15);
             this.panel11.Controls.Add(this.label_pro_Fou_Id);
             this.panel11.Controls.Add(this.label16);
-            this.panel11.Controls.Add(this.textBoxProposePar);
             this.panel11.Controls.Add(this.buttonCommanderProduit);
             this.panel11.Controls.Add(this.checkBox3);
             this.panel11.Controls.Add(this.checkBoxCommandeAuto);
@@ -738,6 +734,7 @@ namespace DashBoard_Stive
             this.label_Pro_Id.Size = new System.Drawing.Size(59, 19);
             this.label_Pro_Id.TabIndex = 54;
             this.label_Pro_Id.Text = "Pro_Id";
+            this.label_Pro_Id.Visible = false;
             // 
             // labelPro_Typ_Id
             // 
@@ -749,6 +746,7 @@ namespace DashBoard_Stive
             this.labelPro_Typ_Id.Size = new System.Drawing.Size(96, 19);
             this.labelPro_Typ_Id.TabIndex = 53;
             this.labelPro_Typ_Id.Text = "Pro_Typ_Id";
+            this.labelPro_Typ_Id.Visible = false;
             // 
             // textBoxNbPiece
             // 
@@ -756,18 +754,6 @@ namespace DashBoard_Stive
             this.textBoxNbPiece.Name = "textBoxNbPiece";
             this.textBoxNbPiece.Size = new System.Drawing.Size(58, 20);
             this.textBoxNbPiece.TabIndex = 52;
-            // 
-            // listBox1
-            // 
-            this.listBox1.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fournisseurBindingSource, "Fou_NomDomaine", true));
-            this.listBox1.DataSource = this.fournisseurBindingSource;
-            this.listBox1.DisplayMember = "Fou_NomDomaine";
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.Location = new System.Drawing.Point(204, 93);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 30);
-            this.listBox1.TabIndex = 50;
-            this.listBox1.ValueMember = "Fou_NomDomaine";
             // 
             // fournisseurBindingSource
             // 
@@ -779,7 +765,7 @@ namespace DashBoard_Stive
             this.comboBoxProposePar.DataSource = this.fournisseurBindingSource;
             this.comboBoxProposePar.DisplayMember = "Fou_NomDomaine";
             this.comboBoxProposePar.FormattingEnabled = true;
-            this.comboBoxProposePar.Location = new System.Drawing.Point(201, 62);
+            this.comboBoxProposePar.Location = new System.Drawing.Point(343, 36);
             this.comboBoxProposePar.Name = "comboBoxProposePar";
             this.comboBoxProposePar.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProposePar.TabIndex = 49;
@@ -858,6 +844,7 @@ namespace DashBoard_Stive
             this.comboBoxTypeProduit.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.typeProduitBindingSource, "Typ_Libelle", true));
             this.comboBoxTypeProduit.DataSource = this.typeProduitBindingSource;
             this.comboBoxTypeProduit.DisplayMember = "Typ_Libelle";
+            this.comboBoxTypeProduit.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.comboBoxTypeProduit.FormattingEnabled = true;
             this.comboBoxTypeProduit.Location = new System.Drawing.Point(458, 82);
             this.comboBoxTypeProduit.Name = "comboBoxTypeProduit";
@@ -901,6 +888,7 @@ namespace DashBoard_Stive
             this.label_pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
             this.label_pro_Fou_Id.TabIndex = 36;
             this.label_pro_Fou_Id.Text = "pro_Fou_Id";
+            this.label_pro_Fou_Id.Visible = false;
             // 
             // label16
             // 
@@ -912,13 +900,6 @@ namespace DashBoard_Stive
             this.label16.Size = new System.Drawing.Size(105, 19);
             this.label16.TabIndex = 38;
             this.label16.Text = "Type produit";
-            // 
-            // textBoxProposePar
-            // 
-            this.textBoxProposePar.Location = new System.Drawing.Point(343, 37);
-            this.textBoxProposePar.Name = "textBoxProposePar";
-            this.textBoxProposePar.Size = new System.Drawing.Size(245, 20);
-            this.textBoxProposePar.TabIndex = 37;
             // 
             // buttonCommanderProduit
             // 
@@ -3196,7 +3177,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.TextBox textBoxProposePar;
         private System.Windows.Forms.ComboBox comboBoxTypeProduit;
         private System.Windows.Forms.TextBox textBoxEnStock;
         private System.Windows.Forms.Label label17;
@@ -3220,7 +3200,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
         private System.Windows.Forms.Button buttonCreerProduit;
         private System.Windows.Forms.ComboBox comboBoxProposePar;
-        private System.Windows.Forms.ListBox listBox1;
         private System.Windows.Forms.TextBox textBoxNbPiece;
         private System.Windows.Forms.Label labelPro_Typ_Id;
         private System.Windows.Forms.Label label_List_TypProduit;
