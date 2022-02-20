@@ -244,9 +244,9 @@ namespace DashBoard_Stive
             response3.EnsureSuccessStatusCode();
 
             var content3 = await response3.Content.ReadAsStringAsync();
-            fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content3);
+            fourListe = JsonConvert.DeserializeObject <List<Fournisseur>>(content3);
             //MessageBox.Show(content3);  //controle du json
-
+            //StamperFournisseur(CompAdresse: content3.ToString());
         
 
             //Affectation des listes
@@ -295,7 +295,7 @@ namespace DashBoard_Stive
             buttonMajFournisseur.Visible = false;
             buttonSuppFournisseur.Visible = false;
             Dv_ListeBdc.Visible = false;
-            dataGridViewListeProduit.Visible = false;
+            Dv_ListeProduit2.Visible = false;
             labelListeBdc.Visible = false;
             labelListeProduit.Visible = false;
             StamperFournisseur(); //remet les champs à vide
@@ -371,7 +371,7 @@ namespace DashBoard_Stive
         {
             //gestion affichage
             Dv_ListeBdc.Visible = true;
-            dataGridViewListeProduit.Visible = true;
+            Dv_ListeProduit2.Visible = true;
             labelListeBdc.Visible = true;
             labelListeProduit.Visible = true;
             buttonCreerFournisseur.Visible = false;
@@ -407,38 +407,41 @@ namespace DashBoard_Stive
             var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
             var response = await
                 httpClient.GetAsync(url);// label_Fou_Id.Text);
-            response.EnsureSuccessStatusCode();
+                response.EnsureSuccessStatusCode();
 
             var contentCommande = await response.Content.ReadAsStringAsync();
            
             bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
            
             // MessageBox.Show(debug.ToString());  //controle du json
-            MessageBox.Show(contentCommande);
-
+           // MessageBox.Show(contentCommande);
             Dv_ListeBdc.DataSource = bdcListe;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
 
-        //chargement liste produit_du fournisseur
-            var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-            var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
-            var response = await
-                httpClient.GetAsync(url);// label_Fou_Id.Text);
-            response.EnsureSuccessStatusCode();
+        //chargement liste produit_du fournisseur  
+            var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
+            var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
+            var response2 = await
+                httpClient2.GetAsync(url2);// label_Fou_Id.Text);
+            response2.EnsureSuccessStatusCode();
 
-            var contentCommande = await response.Content.ReadAsStringAsync();
+            var contentProduit2 = await response2.Content.ReadAsStringAsync();
 
-            bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
+           // MessageBox.Show(contentProduit2.ToString());
+           // StamperFournisseur(Adresse: contentProduit2.ToString()); //permet de recup le json pour le copier
+            prodListe2 = JsonConvert.DeserializeObject<List<Produit>>(contentProduit2);
 
-            // MessageBox.Show(debug.ToString());  //controle du json
-            MessageBox.Show(contentCommande);
+            //controle du json
+           // MessageBox.Show(contentProduit2);
 
             Dv_ListeBdc.DataSource = bdcListe;
+            Dv_ListeProduit2.DataSource = prodListe2;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
         }
             List<CommandeFournisseur> bdcListe;
+            List<Produit> prodListe2;
         private void buttonAjouterfournisseur_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
@@ -462,7 +465,7 @@ namespace DashBoard_Stive
             buttonMajFournisseur.Visible = false;
             buttonSuppFournisseur.Visible = false;
             Dv_ListeBdc.Visible = false;
-            dataGridViewListeProduit.Visible = false;
+            Dv_ListeProduit2.Visible = false;
             labelListeBdc.Visible = false;
             labelListeProduit.Visible = false;
         }
@@ -866,7 +869,7 @@ namespace DashBoard_Stive
             buttonMajProduit.Visible = false;
             buttonCommanderProduit.Visible = false;
             textBoxNbPiece.Visible = false;
-            dataGridViewListeProduit.Visible = true;
+            Dv_ListeProduit2.Visible = true;
             panel_AjouterType.Visible = false;
             textBox_Libelle.Visible = false;
             buttonValider.Visible = false;

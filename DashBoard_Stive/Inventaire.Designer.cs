@@ -87,16 +87,17 @@ namespace DashBoard_Stive
             // 
             // buttonSaveAndMajInventaire
             // 
+            this.buttonSaveAndMajInventaire.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
             this.buttonSaveAndMajInventaire.FlatAppearance.BorderSize = 0;
             this.buttonSaveAndMajInventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSaveAndMajInventaire.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonSaveAndMajInventaire.ForeColor = System.Drawing.Color.Green;
-            this.buttonSaveAndMajInventaire.Location = new System.Drawing.Point(838, 360);
+            this.buttonSaveAndMajInventaire.ForeColor = System.Drawing.Color.White;
+            this.buttonSaveAndMajInventaire.Location = new System.Drawing.Point(797, 360);
             this.buttonSaveAndMajInventaire.Name = "buttonSaveAndMajInventaire";
-            this.buttonSaveAndMajInventaire.Size = new System.Drawing.Size(125, 114);
+            this.buttonSaveAndMajInventaire.Size = new System.Drawing.Size(219, 53);
             this.buttonSaveAndMajInventaire.TabIndex = 24;
-            this.buttonSaveAndMajInventaire.Text = "Enregistrer et mettre à jour le stock";
-            this.buttonSaveAndMajInventaire.UseVisualStyleBackColor = true;
+            this.buttonSaveAndMajInventaire.Text = "Mettre  à jour le stock";
+            this.buttonSaveAndMajInventaire.UseVisualStyleBackColor = false;
             this.buttonSaveAndMajInventaire.Click += new System.EventHandler(this.buttonSaveAndMajInventaire_Click);
             // 
             // button_SaveInventaire
@@ -105,11 +106,11 @@ namespace DashBoard_Stive
             this.button_SaveInventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.button_SaveInventaire.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.button_SaveInventaire.ForeColor = System.Drawing.Color.Green;
-            this.button_SaveInventaire.Location = new System.Drawing.Point(838, 286);
+            this.button_SaveInventaire.Location = new System.Drawing.Point(797, 275);
             this.button_SaveInventaire.Name = "button_SaveInventaire";
-            this.button_SaveInventaire.Size = new System.Drawing.Size(125, 34);
+            this.button_SaveInventaire.Size = new System.Drawing.Size(219, 34);
             this.button_SaveInventaire.TabIndex = 23;
-            this.button_SaveInventaire.Text = "Enregistrer";
+            this.button_SaveInventaire.Text = "Enregistrer l\'inventaire";
             this.button_SaveInventaire.UseVisualStyleBackColor = true;
             this.button_SaveInventaire.Click += new System.EventHandler(this.button_SaveInventaire_Click);
             // 
