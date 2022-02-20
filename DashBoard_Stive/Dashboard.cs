@@ -9,6 +9,7 @@ using System.Net.Http;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using DashBoard_Stive;
 
 namespace DashBoard_Stive
 {
@@ -256,7 +257,8 @@ namespace DashBoard_Stive
             comboBoxTypeProduit.DataSource = typListe;
             comboBoxProposePar.DataSource = fourListe;
             
-            
+
+
         }
         List<TypeProduit> typListe;
         List<Produit> prodListe;
@@ -384,8 +386,8 @@ namespace DashBoard_Stive
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
             StamperFournisseur(
-                 Uti_Id: fourListe[e.RowIndex].Uti_Id.ToString(),
-                Fou_Id: fourListe[e.RowIndex].Fou_Id.ToString(),
+                 //Uti_Id: fourListe[e.RowIndex].Uti_Id.ToString(),
+                //Fou_Id: fourListe[e.RowIndex].Fou_Id.ToString(),
                 NomDomaine: fourListe[e.RowIndex].Fou_NomDomaine,
                 DateCreation: fourListe[e.RowIndex].Uti_DateCreation,
                 NomResp: fourListe[e.RowIndex].Fou_NomResp,
@@ -1103,12 +1105,6 @@ namespace DashBoard_Stive
             buttonProduit.PerformClick();
         }
 
-        private void buttonInventaire_Click(object sender, EventArgs e)
-        {
-            Inventaire Inventaire = new Inventaire();
-            Inventaire.ShowDialog();
-           // this.Close();
-        }
 
         public void comboBoxTypeProduit_SelectedValueChanged(object sender, EventArgs e)
         {
@@ -1118,11 +1114,19 @@ namespace DashBoard_Stive
             //Dv_TypeProduit.ValueMembert += labelPro_Typ_Id.Text;
             //buttonProduit_.PerformClick();
              labelPro_Typ_Id.Text =  (Dv_TypeProduit.Columns.Count +1).ToString();
-            MessageBox.Show(labelPro_Typ_Id.Text);
+           // MessageBox.Show(labelPro_Typ_Id.Text);
             //prodListe.Uti_Id.ToString();
         }
+        public async void buttonInventaire_Click(object sender, EventArgs e)
+        {
+            Inventaire Inventaire = new Inventaire();
+            Inventaire.ShowDialog();
+           
+            // this.Close();
+            
+        }
 
-      
+
     }
     
 }

@@ -98,6 +98,7 @@
     <None Include="Properties\DataSources\Client.datasource" />
     <None Include="Properties\DataSources\CommandeFournisseur.datasource" />
     <None Include="Properties\DataSources\Fournisseur.datasource" />
+    <None Include="Properties\DataSources\Inventaire.datasource" />
     <None Include="Properties\DataSources\Produit.datasource" />
     <None Include="Properties\DataSources\TypeProduit.datasource" />
     <None Include="Properties\Settings.settings">

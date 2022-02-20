@@ -29,6 +29,7 @@ namespace DashBoard_Stive
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.Dv_Inventaire = new System.Windows.Forms.DataGridView();
             this.label_Inventaire = new System.Windows.Forms.Label();
             this.panel_Inventaire = new System.Windows.Forms.Panel();
@@ -37,17 +38,35 @@ namespace DashBoard_Stive
             this.button_SaveInventaire = new System.Windows.Forms.Button();
             this.label_Historique = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
+            this.inventaireBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inv = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).BeginInit();
             this.panel_Inventaire.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventaireBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Dv_Inventaire
             // 
+            this.Dv_Inventaire.AllowUserToDeleteRows = false;
+            this.Dv_Inventaire.AutoGenerateColumns = false;
+            this.Dv_Inventaire.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.Dv_Inventaire.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_Inventaire.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Pro_Nom,
+            this.Typ_Libelle,
+            this.Fou_NomDomaine,
+            this.Pro_Quantite,
+            this.Inv});
+            this.Dv_Inventaire.DataSource = this.inventaireBindingSource;
             this.Dv_Inventaire.Location = new System.Drawing.Point(145, 35);
             this.Dv_Inventaire.Name = "Dv_Inventaire";
+            this.Dv_Inventaire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dv_Inventaire.Size = new System.Drawing.Size(516, 540);
             this.Dv_Inventaire.TabIndex = 20;
             // 
@@ -135,6 +154,43 @@ namespace DashBoard_Stive
             this.pictureBoxLogo.TabIndex = 20;
             this.pictureBoxLogo.TabStop = false;
             // 
+            // inventaireBindingSource
+            // 
+            this.inventaireBindingSource.DataSource = typeof(DashBoard_Stive.Inventaire);
+            // 
+            // Pro_Nom
+            // 
+            this.Pro_Nom.DataPropertyName = "Pro_Nom";
+            this.Pro_Nom.HeaderText = "Produit";
+            this.Pro_Nom.Name = "Pro_Nom";
+            this.Pro_Nom.ReadOnly = true;
+            // 
+            // Typ_Libelle
+            // 
+            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
+            this.Typ_Libelle.HeaderText = "Type";
+            this.Typ_Libelle.Name = "Typ_Libelle";
+            this.Typ_Libelle.ReadOnly = true;
+            // 
+            // Fou_NomDomaine
+            // 
+            this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine.HeaderText = "Fournisseur";
+            this.Fou_NomDomaine.Name = "Fou_NomDomaine";
+            this.Fou_NomDomaine.ReadOnly = true;
+            // 
+            // Pro_Quantite
+            // 
+            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
+            this.Pro_Quantite.HeaderText = "Stock";
+            this.Pro_Quantite.Name = "Pro_Quantite";
+            this.Pro_Quantite.ReadOnly = true;
+            // 
+            // Inv
+            // 
+            this.Inv.HeaderText = "Inventaire";
+            this.Inv.Name = "Inv";
+            // 
             // Inventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -149,6 +205,7 @@ namespace DashBoard_Stive
             this.panel_Inventaire.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.inventaireBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -163,5 +220,11 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView Dv_Historique;
         private System.Windows.Forms.Button buttonSaveAndMajInventaire;
         private System.Windows.Forms.Button button_SaveInventaire;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Quantite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Inv;
+        private System.Windows.Forms.BindingSource inventaireBindingSource;
     }
 }
