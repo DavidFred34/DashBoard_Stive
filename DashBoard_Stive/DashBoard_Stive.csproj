@@ -50,6 +50,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Client.cs" />
+    <Compile Include="CommandeFournisseur.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -95,6 +96,7 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Client.datasource" />
+    <None Include="Properties\DataSources\CommandeFournisseur.datasource" />
     <None Include="Properties\DataSources\Fournisseur.datasource" />
     <None Include="Properties\DataSources\Produit.datasource" />
     <None Include="Properties\DataSources\TypeProduit.datasource" />

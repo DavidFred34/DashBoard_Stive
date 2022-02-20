@@ -57,6 +57,9 @@ namespace DashBoard_Stive
             this.label1 = new System.Windows.Forms.Label();
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.comboBoxTypeProduit2 = new System.Windows.Forms.ComboBox();
+            this.typeProduitBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.label_pro_Uti_Id = new System.Windows.Forms.Label();
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
@@ -71,7 +74,6 @@ namespace DashBoard_Stive
             this.label17 = new System.Windows.Forms.Label();
             this.textBoxEnStock = new System.Windows.Forms.TextBox();
             this.comboBoxTypeProduit = new System.Windows.Forms.ComboBox();
-            this.typeProduitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label14 = new System.Windows.Forms.Label();
             this.label15 = new System.Windows.Forms.Label();
             this.label_pro_Fou_Id = new System.Windows.Forms.Label();
@@ -108,6 +110,8 @@ namespace DashBoard_Stive
             this.buttonAjouterProduit = new System.Windows.Forms.Button();
             this.Dv_ListeProduit = new System.Windows.Forms.DataGridView();
             this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Uti_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_CommandeAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -192,6 +196,7 @@ namespace DashBoard_Stive
             this.label59 = new System.Windows.Forms.Label();
             this.panelFournisseurs = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
+            this.label_Fou_Id = new System.Windows.Forms.Label();
             this.label_Uti_Id = new System.Windows.Forms.Label();
             this.buttonCreerFournisseur = new System.Windows.Forms.Button();
             this.labelListeProduit = new System.Windows.Forms.Label();
@@ -226,7 +231,8 @@ namespace DashBoard_Stive
             this.labelListeBdc = new System.Windows.Forms.Label();
             this.buttonMajFournisseur = new System.Windows.Forms.Button();
             this.buttonSuppFournisseur = new System.Windows.Forms.Button();
-            this.dataGridViewListeBdc = new System.Windows.Forms.DataGridView();
+            this.Dv_ListeBdc = new System.Windows.Forms.DataGridView();
+            this.commandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.panel14 = new System.Windows.Forms.Panel();
             this.labelCherchFournisseur = new System.Windows.Forms.Label();
             this.textBoxCherchFournisseur = new System.Windows.Forms.TextBox();
@@ -269,6 +275,17 @@ namespace DashBoard_Stive
             this.utiVerifMdpDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.mailDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.utiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cof_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cof_Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eta_Libelle2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -280,8 +297,8 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView3)).BeginInit();
             this.panelProduit.SuspendLayout();
             this.panel11.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeProduitBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProduit)).BeginInit();
             this.panel17.SuspendLayout();
             this.panel_AjouterType.SuspendLayout();
@@ -307,7 +324,8 @@ namespace DashBoard_Stive
             this.panelFournisseurs.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeProduit)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeBdc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_ListeBdc)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeFournisseurBindingSource)).BeginInit();
             this.panel14.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).BeginInit();
             this.SuspendLayout();
@@ -650,6 +668,8 @@ namespace DashBoard_Stive
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.comboBoxTypeProduit2);
+            this.panel11.Controls.Add(this.label_pro_Uti_Id);
             this.panel11.Controls.Add(this.label_Pro_Id);
             this.panel11.Controls.Add(this.labelPro_Typ_Id);
             this.panel11.Controls.Add(this.textBoxNbPiece);
@@ -690,6 +710,35 @@ namespace DashBoard_Stive
             this.panel11.Size = new System.Drawing.Size(601, 734);
             this.panel11.TabIndex = 8;
             // 
+            // comboBoxTypeProduit2
+            // 
+            this.comboBoxTypeProduit2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.typeProduitBindingSource, "Typ_Libelle", true));
+            this.comboBoxTypeProduit2.DataSource = this.typeProduitBindingSource;
+            this.comboBoxTypeProduit2.DisplayMember = "Typ_Id";
+            this.comboBoxTypeProduit2.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.comboBoxTypeProduit2.FormattingEnabled = true;
+            this.comboBoxTypeProduit2.Location = new System.Drawing.Point(240, 357);
+            this.comboBoxTypeProduit2.Name = "comboBoxTypeProduit2";
+            this.comboBoxTypeProduit2.Size = new System.Drawing.Size(121, 21);
+            this.comboBoxTypeProduit2.TabIndex = 56;
+            this.comboBoxTypeProduit2.ValueMember = "Typ_Id";
+            this.comboBoxTypeProduit2.SelectedValueChanged += new System.EventHandler(this.comboBoxTypeProduit_SelectedValueChanged);
+            // 
+            // typeProduitBindingSource
+            // 
+            this.typeProduitBindingSource.DataSource = typeof(DashBoard_Stive.TypeProduit);
+            // 
+            // label_pro_Uti_Id
+            // 
+            this.label_pro_Uti_Id.AutoSize = true;
+            this.label_pro_Uti_Id.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_pro_Uti_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label_pro_Uti_Id.Location = new System.Drawing.Point(211, 113);
+            this.label_pro_Uti_Id.Name = "label_pro_Uti_Id";
+            this.label_pro_Uti_Id.Size = new System.Drawing.Size(88, 19);
+            this.label_pro_Uti_Id.TabIndex = 55;
+            this.label_pro_Uti_Id.Text = "pro_Uti_Id";
+            // 
             // label_Pro_Id
             // 
             this.label_Pro_Id.AutoSize = true;
@@ -700,7 +749,6 @@ namespace DashBoard_Stive
             this.label_Pro_Id.Size = new System.Drawing.Size(59, 19);
             this.label_Pro_Id.TabIndex = 54;
             this.label_Pro_Id.Text = "Pro_Id";
-            this.label_Pro_Id.Visible = false;
             // 
             // labelPro_Typ_Id
             // 
@@ -712,7 +760,6 @@ namespace DashBoard_Stive
             this.labelPro_Typ_Id.Size = new System.Drawing.Size(96, 19);
             this.labelPro_Typ_Id.TabIndex = 53;
             this.labelPro_Typ_Id.Text = "Pro_Typ_Id";
-            this.labelPro_Typ_Id.Visible = false;
             // 
             // textBoxNbPiece
             // 
@@ -731,7 +778,7 @@ namespace DashBoard_Stive
             this.comboBoxProposePar.Name = "comboBoxProposePar";
             this.comboBoxProposePar.Size = new System.Drawing.Size(121, 21);
             this.comboBoxProposePar.TabIndex = 49;
-            this.comboBoxProposePar.ValueMember = "Fou_NomDomaine";
+            this.comboBoxProposePar.ValueMember = "Fou_Id";
             // 
             // fournisseurBindingSource
             // 
@@ -816,11 +863,8 @@ namespace DashBoard_Stive
             this.comboBoxTypeProduit.Name = "comboBoxTypeProduit";
             this.comboBoxTypeProduit.Size = new System.Drawing.Size(121, 21);
             this.comboBoxTypeProduit.TabIndex = 41;
-            this.comboBoxTypeProduit.ValueMember = "Typ_Libelle";
-            // 
-            // typeProduitBindingSource
-            // 
-            this.typeProduitBindingSource.DataSource = typeof(DashBoard_Stive.TypeProduit);
+            this.comboBoxTypeProduit.ValueMember = "Typ_Id";
+            this.comboBoxTypeProduit.SelectedValueChanged += new System.EventHandler(this.comboBoxTypeProduit_SelectedValueChanged);
             // 
             // label14
             // 
@@ -854,7 +898,6 @@ namespace DashBoard_Stive
             this.label_pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
             this.label_pro_Fou_Id.TabIndex = 36;
             this.label_pro_Fou_Id.Text = "pro_Fou_Id";
-            this.label_pro_Fou_Id.Visible = false;
             // 
             // label16
             // 
@@ -1155,7 +1198,7 @@ namespace DashBoard_Stive
             this.Typ_Id,
             this.dataGridViewTextBoxColumn5});
             this.Dv_TypeProduit.DataSource = this.typeProduitBindingSource;
-            this.Dv_TypeProduit.Location = new System.Drawing.Point(0, 525);
+            this.Dv_TypeProduit.Location = new System.Drawing.Point(3, 526);
             this.Dv_TypeProduit.MultiSelect = false;
             this.Dv_TypeProduit.Name = "Dv_TypeProduit";
             this.Dv_TypeProduit.ReadOnly = true;
@@ -1197,6 +1240,8 @@ namespace DashBoard_Stive
             this.Dv_ListeProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_ListeProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pro_Nom,
+            this.Pro_Uti_Id,
+            this.Pro_Typ_Id,
             this.Pro_Quantite,
             this.Pro_SeuilAlerte,
             this.Pro_CommandeAuto,
@@ -1218,6 +1263,21 @@ namespace DashBoard_Stive
             this.Pro_Nom.HeaderText = "Pro_Nom";
             this.Pro_Nom.Name = "Pro_Nom";
             this.Pro_Nom.ReadOnly = true;
+            // 
+            // Pro_Uti_Id
+            // 
+            this.Pro_Uti_Id.DataPropertyName = "Pro_Uti_Id";
+            this.Pro_Uti_Id.HeaderText = "Pro_Uti_Id";
+            this.Pro_Uti_Id.Name = "Pro_Uti_Id";
+            this.Pro_Uti_Id.ReadOnly = true;
+            // 
+            // Pro_Typ_Id
+            // 
+            this.Pro_Typ_Id.DataPropertyName = "Pro_Typ_Id";
+            this.Pro_Typ_Id.HeaderText = "Pro_Typ_Id";
+            this.Pro_Typ_Id.Name = "Pro_Typ_Id";
+            this.Pro_Typ_Id.ReadOnly = true;
+            this.Pro_Typ_Id.Visible = false;
             // 
             // Pro_Quantite
             // 
@@ -2075,6 +2135,7 @@ namespace DashBoard_Stive
             // 
             // panel13
             // 
+            this.panel13.Controls.Add(this.label_Fou_Id);
             this.panel13.Controls.Add(this.label_Uti_Id);
             this.panel13.Controls.Add(this.buttonCreerFournisseur);
             this.panel13.Controls.Add(this.labelListeProduit);
@@ -2109,11 +2170,22 @@ namespace DashBoard_Stive
             this.panel13.Controls.Add(this.labelListeBdc);
             this.panel13.Controls.Add(this.buttonMajFournisseur);
             this.panel13.Controls.Add(this.buttonSuppFournisseur);
-            this.panel13.Controls.Add(this.dataGridViewListeBdc);
+            this.panel13.Controls.Add(this.Dv_ListeBdc);
             this.panel13.Location = new System.Drawing.Point(671, 10);
             this.panel13.Name = "panel13";
             this.panel13.Size = new System.Drawing.Size(601, 740);
             this.panel13.TabIndex = 6;
+            // 
+            // label_Fou_Id
+            // 
+            this.label_Fou_Id.AutoSize = true;
+            this.label_Fou_Id.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Fou_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label_Fou_Id.Location = new System.Drawing.Point(311, 56);
+            this.label_Fou_Id.Name = "label_Fou_Id";
+            this.label_Fou_Id.Size = new System.Drawing.Size(62, 19);
+            this.label_Fou_Id.TabIndex = 42;
+            this.label_Fou_Id.Text = "Fou_Id";
             // 
             // label_Uti_Id
             // 
@@ -2125,7 +2197,6 @@ namespace DashBoard_Stive
             this.label_Uti_Id.Size = new System.Drawing.Size(53, 19);
             this.label_Uti_Id.TabIndex = 41;
             this.label_Uti_Id.Text = "Uti_Id";
-            this.label_Uti_Id.Visible = false;
             // 
             // buttonCreerFournisseur
             // 
@@ -2445,13 +2516,29 @@ namespace DashBoard_Stive
             this.buttonSuppFournisseur.UseVisualStyleBackColor = true;
             this.buttonSuppFournisseur.Click += new System.EventHandler(this.buttonSuppFournisseur_Click);
             // 
-            // dataGridViewListeBdc
+            // Dv_ListeBdc
             // 
-            this.dataGridViewListeBdc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewListeBdc.Location = new System.Drawing.Point(3, 316);
-            this.dataGridViewListeBdc.Name = "dataGridViewListeBdc";
-            this.dataGridViewListeBdc.Size = new System.Drawing.Size(304, 376);
-            this.dataGridViewListeBdc.TabIndex = 7;
+            this.Dv_ListeBdc.AutoGenerateColumns = false;
+            this.Dv_ListeBdc.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_ListeBdc.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Cof_Id,
+            this.DateMaj,
+            this.Fou_Id,
+            this.Uti_Id,
+            this.NomDomaine,
+            this.Cof_Eta_Id,
+            this.Eta_Libelle2,
+            this.DateCreation});
+            this.Dv_ListeBdc.DataSource = this.commandeFournisseurBindingSource;
+            this.Dv_ListeBdc.Location = new System.Drawing.Point(3, 316);
+            this.Dv_ListeBdc.Name = "Dv_ListeBdc";
+            this.Dv_ListeBdc.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.Dv_ListeBdc.Size = new System.Drawing.Size(304, 376);
+            this.Dv_ListeBdc.TabIndex = 7;
+            // 
+            // commandeFournisseurBindingSource
+            // 
+            this.commandeFournisseurBindingSource.DataSource = typeof(DashBoard_Stive.CommandeFournisseur);
             // 
             // panel14
             // 
@@ -2814,6 +2901,76 @@ namespace DashBoard_Stive
             this.utiDateCreationDataGridViewTextBoxColumn.Name = "utiDateCreationDataGridViewTextBoxColumn";
             this.utiDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
             // 
+            // Cof_Id2
+            // 
+            this.Cof_Id2.DataPropertyName = "Cof_Id2";
+            this.Cof_Id2.HeaderText = "Id";
+            this.Cof_Id2.Name = "Cof_Id2";
+            // 
+            // Cof_DateMaj
+            // 
+            this.Cof_DateMaj.DataPropertyName = "Cof_DateMaj";
+            this.Cof_DateMaj.HeaderText = "DateMaj";
+            this.Cof_DateMaj.Name = "Cof_DateMaj";
+            // 
+            // Eta_Libelle
+            // 
+            this.Eta_Libelle.DataPropertyName = "Eta_Libelle";
+            this.Eta_Libelle.HeaderText = "Etat";
+            this.Eta_Libelle.Name = "Eta_Libelle";
+            // 
+            // Cof_Id
+            // 
+            this.Cof_Id.DataPropertyName = "Cof_Id";
+            this.Cof_Id.HeaderText = "Id";
+            this.Cof_Id.Name = "Cof_Id";
+            // 
+            // DateMaj
+            // 
+            this.DateMaj.DataPropertyName = "Cof_DateMaj";
+            this.DateMaj.HeaderText = "Cof_DateMaj";
+            this.DateMaj.Name = "DateMaj";
+            this.DateMaj.Visible = false;
+            // 
+            // Fou_Id
+            // 
+            this.Fou_Id.DataPropertyName = "Cof_Fou_Id";
+            this.Fou_Id.HeaderText = "Cof_Fou_Id";
+            this.Fou_Id.Name = "Fou_Id";
+            this.Fou_Id.Visible = false;
+            // 
+            // Uti_Id
+            // 
+            this.Uti_Id.DataPropertyName = "Uti_Id";
+            this.Uti_Id.HeaderText = "Uti_Id";
+            this.Uti_Id.Name = "Uti_Id";
+            this.Uti_Id.Visible = false;
+            // 
+            // NomDomaine
+            // 
+            this.NomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.NomDomaine.HeaderText = "Fournisseur";
+            this.NomDomaine.Name = "NomDomaine";
+            // 
+            // Cof_Eta_Id
+            // 
+            this.Cof_Eta_Id.DataPropertyName = "Cof_Eta_Id";
+            this.Cof_Eta_Id.HeaderText = "Cof_Eta_Id";
+            this.Cof_Eta_Id.Name = "Cof_Eta_Id";
+            this.Cof_Eta_Id.Visible = false;
+            // 
+            // Eta_Libelle2
+            // 
+            this.Eta_Libelle2.DataPropertyName = "Eta_Libelle";
+            this.Eta_Libelle2.HeaderText = "Etat";
+            this.Eta_Libelle2.Name = "Eta_Libelle2";
+            // 
+            // DateCreation
+            // 
+            this.DateCreation.DataPropertyName = "Cof_DateCreation";
+            this.DateCreation.HeaderText = "DateCreation";
+            this.DateCreation.Name = "DateCreation";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -2821,12 +2978,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -2846,8 +3003,8 @@ namespace DashBoard_Stive
             this.panelProduit.ResumeLayout(false);
             this.panel11.ResumeLayout(false);
             this.panel11.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.typeProduitBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.fournisseurBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxProduit)).EndInit();
             this.panel17.ResumeLayout(false);
             this.panel17.PerformLayout();
@@ -2883,7 +3040,8 @@ namespace DashBoard_Stive
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeProduit)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewListeBdc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Dv_ListeBdc)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeFournisseurBindingSource)).EndInit();
             this.panel14.ResumeLayout(false);
             this.panel14.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_fournisseur)).EndInit();
@@ -2959,7 +3117,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label labelListeBdc;
         private System.Windows.Forms.Button buttonMajFournisseur;
         private System.Windows.Forms.Button buttonSuppFournisseur;
-        private System.Windows.Forms.DataGridView dataGridViewListeBdc;
+        private System.Windows.Forms.DataGridView Dv_ListeBdc;
         private System.Windows.Forms.Panel panel14;
         private System.Windows.Forms.DataGridView Dv_fournisseur;
         private System.Windows.Forms.Button buttonAjouterfournisseur;
@@ -3096,12 +3254,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
         private System.Windows.Forms.BindingSource produitBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Quantite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_SeuilAlerte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_CommandeAuto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
         private System.Windows.Forms.Button buttonCreerProduit;
         private System.Windows.Forms.ComboBox comboBoxProposePar;
         private System.Windows.Forms.TextBox textBoxNbPiece;
@@ -3133,5 +3285,30 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_pro_Uti_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Uti_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Typ_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Quantite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_SeuilAlerte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_CommandeAuto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
+        private System.Windows.Forms.ComboBox comboBoxTypeProduit2;
+        private System.Windows.Forms.BindingSource commandeFournisseurBindingSource;
+        private System.Windows.Forms.Label label_Fou_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn CoF_DateCreation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Fou_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Id2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_DateMaj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Libelle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateMaj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn NomDomaine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Eta_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Libelle2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreation;
     }
 }

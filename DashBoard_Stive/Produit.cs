@@ -9,6 +9,7 @@ namespace DashBoard_Stive
     public class Produit
     {
         public int Pro_Id { get; set; }
+        public int Uti_Id { get; set; }
         public int Pro_Typ_Id { get; set; }
         public string Pro_Nom { get; set; }
         public string Pro_Ref { get; set; }

@@ -32,15 +32,15 @@ namespace DashBoard_Stive
             this.Dv_Inventaire = new System.Windows.Forms.DataGridView();
             this.label_Inventaire = new System.Windows.Forms.Label();
             this.panel_Inventaire = new System.Windows.Forms.Panel();
-            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.label_Historique = new System.Windows.Forms.Label();
-            this.button_SaveInventaire = new System.Windows.Forms.Button();
-            this.buttonSaveAndMajInventaire = new System.Windows.Forms.Button();
             this.Dv_Historique = new System.Windows.Forms.DataGridView();
+            this.buttonSaveAndMajInventaire = new System.Windows.Forms.Button();
+            this.button_SaveInventaire = new System.Windows.Forms.Button();
+            this.label_Historique = new System.Windows.Forms.Label();
+            this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).BeginInit();
             this.panel_Inventaire.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
             this.SuspendLayout();
             // 
             // Dv_Inventaire
@@ -77,40 +77,13 @@ namespace DashBoard_Stive
             this.panel_Inventaire.Size = new System.Drawing.Size(1102, 601);
             this.panel_Inventaire.TabIndex = 21;
             // 
-            // pictureBoxLogo
+            // Dv_Historique
             // 
-            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 11);
-            this.pictureBoxLogo.Name = "pictureBoxLogo";
-            this.pictureBoxLogo.Size = new System.Drawing.Size(73, 90);
-            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBoxLogo.TabIndex = 20;
-            this.pictureBoxLogo.TabStop = false;
-            // 
-            // label_Historique
-            // 
-            this.label_Historique.AutoSize = true;
-            this.label_Historique.BackColor = System.Drawing.Color.Transparent;
-            this.label_Historique.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label_Historique.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label_Historique.Location = new System.Drawing.Point(740, 8);
-            this.label_Historique.Name = "label_Historique";
-            this.label_Historique.Size = new System.Drawing.Size(104, 24);
-            this.label_Historique.TabIndex = 21;
-            this.label_Historique.Text = "Historique";
-            // 
-            // button_SaveInventaire
-            // 
-            this.button_SaveInventaire.FlatAppearance.BorderSize = 0;
-            this.button_SaveInventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button_SaveInventaire.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button_SaveInventaire.ForeColor = System.Drawing.Color.Green;
-            this.button_SaveInventaire.Location = new System.Drawing.Point(838, 286);
-            this.button_SaveInventaire.Name = "button_SaveInventaire";
-            this.button_SaveInventaire.Size = new System.Drawing.Size(125, 34);
-            this.button_SaveInventaire.TabIndex = 23;
-            this.button_SaveInventaire.Text = "Enregistrer";
-            this.button_SaveInventaire.UseVisualStyleBackColor = true;
-            this.button_SaveInventaire.Click += new System.EventHandler(this.button_SaveInventaire_Click);
+            this.Dv_Historique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_Historique.Location = new System.Drawing.Point(744, 35);
+            this.Dv_Historique.Name = "Dv_Historique";
+            this.Dv_Historique.Size = new System.Drawing.Size(313, 158);
+            this.Dv_Historique.TabIndex = 25;
             // 
             // buttonSaveAndMajInventaire
             // 
@@ -126,13 +99,40 @@ namespace DashBoard_Stive
             this.buttonSaveAndMajInventaire.UseVisualStyleBackColor = true;
             this.buttonSaveAndMajInventaire.Click += new System.EventHandler(this.buttonSaveAndMajInventaire_Click);
             // 
-            // Dv_Historique
+            // button_SaveInventaire
             // 
-            this.Dv_Historique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.Dv_Historique.Location = new System.Drawing.Point(744, 35);
-            this.Dv_Historique.Name = "Dv_Historique";
-            this.Dv_Historique.Size = new System.Drawing.Size(313, 158);
-            this.Dv_Historique.TabIndex = 25;
+            this.button_SaveInventaire.FlatAppearance.BorderSize = 0;
+            this.button_SaveInventaire.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button_SaveInventaire.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button_SaveInventaire.ForeColor = System.Drawing.Color.Green;
+            this.button_SaveInventaire.Location = new System.Drawing.Point(838, 286);
+            this.button_SaveInventaire.Name = "button_SaveInventaire";
+            this.button_SaveInventaire.Size = new System.Drawing.Size(125, 34);
+            this.button_SaveInventaire.TabIndex = 23;
+            this.button_SaveInventaire.Text = "Enregistrer";
+            this.button_SaveInventaire.UseVisualStyleBackColor = true;
+            this.button_SaveInventaire.Click += new System.EventHandler(this.button_SaveInventaire_Click);
+            // 
+            // label_Historique
+            // 
+            this.label_Historique.AutoSize = true;
+            this.label_Historique.BackColor = System.Drawing.Color.Transparent;
+            this.label_Historique.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_Historique.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label_Historique.Location = new System.Drawing.Point(740, 8);
+            this.label_Historique.Name = "label_Historique";
+            this.label_Historique.Size = new System.Drawing.Size(104, 24);
+            this.label_Historique.TabIndex = 21;
+            this.label_Historique.Text = "Historique";
+            // 
+            // pictureBoxLogo
+            // 
+            this.pictureBoxLogo.Location = new System.Drawing.Point(33, 11);
+            this.pictureBoxLogo.Name = "pictureBoxLogo";
+            this.pictureBoxLogo.Size = new System.Drawing.Size(73, 90);
+            this.pictureBoxLogo.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
+            this.pictureBoxLogo.TabIndex = 20;
+            this.pictureBoxLogo.TabStop = false;
             // 
             // Inventaire
             // 
@@ -140,15 +140,14 @@ namespace DashBoard_Stive
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 601);
             this.Controls.Add(this.panel_Inventaire);
-            this.Location = new System.Drawing.Point(2000, 600);
             this.Name = "Inventaire";
             this.Text = "Inventaire";
             this.Load += new System.EventHandler(this.Inventaire_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).EndInit();
             this.panel_Inventaire.ResumeLayout(false);
             this.panel_Inventaire.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
             this.ResumeLayout(false);
 
         }
