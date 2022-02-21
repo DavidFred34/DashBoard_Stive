@@ -46,7 +46,7 @@ namespace DashBoard_Stive
         List<Produit> prodListe3;
         public async void button_SaveInventaire_Click(object sender, EventArgs e)
         {
-            foreach (DataGridViewRow dr in Dv_Inventaire.Rows) {
+          /*  foreach (DataGridViewRow dr in Dv_Inventaire.Rows) {
            ContenuInventaire newInv = new ContenuInventaire();
                 newInv.Coi_ProId = Convert.ToInt32(dr.Cells["Coi_ProId"].Value);
                 newInv.Coi_ProLibelle = dr.Cells["Pro_Nom"].Value.ToString();
@@ -67,7 +67,7 @@ namespace DashBoard_Stive
             else
                 MessageBox.Show("Erreur: inventaire non créé" + "\r\n\n" + response);
                 }
-            //recharge la liste en simulant le click sur le bouton fournisseur
+            //recharge la liste en simulant le click sur le bouton fournisseur*/
             
 
 

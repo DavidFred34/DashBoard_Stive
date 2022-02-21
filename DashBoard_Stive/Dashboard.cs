@@ -989,11 +989,12 @@ namespace DashBoard_Stive
             Produit newPro = new Produit();
 
             newPro.Pro_Nom = textBoxNomProduit.Text;
-           
+                                                          //cbo.SelectedItem.Value;
+
             newPro.Pro_Ref = textBoxRef.Text;
-            newPro.Pro_Fou_Id = Convert.ToInt32(((comboBoxProposePar.SelectedIndex) + 1));
+            newPro.Pro_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
             //newPro.Pro_Fou_Id = Convert.ToInt32((Dv_TypeProduit.SelectedRow.Select.Typ_Id));
-            // MessageBox.Show(((comboBoxProposePar.SelectedIndex) + 1).ToString());
+            MessageBox.Show(comboBoxProposePar.SelectedValue.ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
             newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
@@ -1013,12 +1014,12 @@ namespace DashBoard_Stive
             }
             newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
             newPro.Pro_Description = textBoxDescription.Text;
-            newPro.Pro_Typ_Id = Convert.ToInt32(((comboBoxTypeProduit.SelectedIndex) + 1));
+            newPro.Pro_Typ_Id = Convert.ToInt32(comboBoxTypeProduit.SelectedValue);
             newPro.Typ_Libelle = comboBoxTypeProduit.Text;
             newPro.Fou_NomDomaine = comboBoxProposePar.Text;
             //newPro.Img_Adresse = textBoxProposePar.Text;
             //newPro.Img_Nom = textBoxProposePar.Text;
-
+            MessageBox.Show(comboBoxTypeProduit.SelectedValue.ToString());
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newPro);
@@ -1033,6 +1034,7 @@ namespace DashBoard_Stive
             else
                 MessageBox.Show("Erreur: produit non créé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonAccueil.PerformClick();
             buttonProduit.PerformClick();
             StamperProduit();
         }
@@ -1044,11 +1046,11 @@ namespace DashBoard_Stive
 
             majPro.Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
 
-            majPro.Pro_Typ_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
+            majPro.Pro_Typ_Id = Convert.ToInt32(comboBoxTypeProduit.SelectedValue);
             majPro.Uti_Id = int.Parse(label_pro_Uti_Id.Text);
             majPro.Pro_Nom = textBoxNomProduit.Text;
             majPro.Pro_Ref = textBoxRef.Text; ;
-            majPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text);
+            majPro.Pro_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
             majPro.Pro_Cepage = textBoxCepage.Text;
             majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             majPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
@@ -1091,12 +1093,12 @@ namespace DashBoard_Stive
 
         private void buttonCommanderProduit_Click(object sender, EventArgs e)
         {
-            CommandeFournisseur newBdc = new CommandeFournisseur();
+           /* CommandeFournisseur newBdc = new CommandeFournisseur();
 
-            //newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
+            newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
 
-            newBdc.Cof_Fou_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
-            newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);
+            newBdc.Cof_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
+            newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);*/
         }
 
         private void buttonAjouterType_Click(object sender, EventArgs e)
@@ -1159,6 +1161,130 @@ namespace DashBoard_Stive
 
             // only allow one decimal point
             if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        //gestion de la sasie numeric des textBox
+        private void textBoxPrix_KeyPress(object sender, KeyPressEventArgs e)
+        {
+
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+
+        }
+
+        private void textBoxPrixLitre_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxMillesime_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) )
+            {
+                e.Handled = true;
+            }
+
+           
+      
+        }
+
+        private void textBoxVolume_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxEnStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxSeuilAlerte_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) && (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCodePostal_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTelContact_KeyPress_1(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTelResp_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxCP_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
+            {
+                e.Handled = true;
+            }
+        }
+
+        private void textBoxTel_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
             }

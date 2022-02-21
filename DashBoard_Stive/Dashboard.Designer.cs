@@ -150,6 +150,11 @@ namespace DashBoard_Stive
             this.panel16 = new System.Windows.Forms.Panel();
             this.buttonAjouterClient = new System.Windows.Forms.Button();
             this.Dv_ListClient = new System.Windows.Forms.DataGridView();
+            this.Cli_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.labelNom = new System.Windows.Forms.Label();
@@ -298,11 +303,6 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -806,6 +806,7 @@ namespace DashBoard_Stive
             this.textBoxPrixLitre.Name = "textBoxPrixLitre";
             this.textBoxPrixLitre.Size = new System.Drawing.Size(123, 20);
             this.textBoxPrixLitre.TabIndex = 48;
+            this.textBoxPrixLitre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrixLitre_KeyPress);
             // 
             // textBoxCepage
             // 
@@ -827,6 +828,7 @@ namespace DashBoard_Stive
             this.textBoxMillesime.Name = "textBoxMillesime";
             this.textBoxMillesime.Size = new System.Drawing.Size(123, 20);
             this.textBoxMillesime.TabIndex = 45;
+            this.textBoxMillesime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxMillesime_KeyPress);
             // 
             // textBoxVolume
             // 
@@ -834,6 +836,7 @@ namespace DashBoard_Stive
             this.textBoxVolume.Name = "textBoxVolume";
             this.textBoxVolume.Size = new System.Drawing.Size(123, 20);
             this.textBoxVolume.TabIndex = 44;
+            this.textBoxVolume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxVolume_KeyPress);
             // 
             // label17
             // 
@@ -852,6 +855,7 @@ namespace DashBoard_Stive
             this.textBoxEnStock.Name = "textBoxEnStock";
             this.textBoxEnStock.Size = new System.Drawing.Size(100, 20);
             this.textBoxEnStock.TabIndex = 42;
+            this.textBoxEnStock.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxEnStock_KeyPress);
             // 
             // comboBoxTypeProduit
             // 
@@ -1015,6 +1019,7 @@ namespace DashBoard_Stive
             this.textBoxSeuilAlerte.Name = "textBoxSeuilAlerte";
             this.textBoxSeuilAlerte.Size = new System.Drawing.Size(100, 20);
             this.textBoxSeuilAlerte.TabIndex = 26;
+            this.textBoxSeuilAlerte.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxSeuilAlerte_KeyPress);
             // 
             // label10
             // 
@@ -1044,6 +1049,7 @@ namespace DashBoard_Stive
             this.textBoxPrix.Name = "textBoxPrix";
             this.textBoxPrix.Size = new System.Drawing.Size(123, 20);
             this.textBoxPrix.TabIndex = 22;
+            this.textBoxPrix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxPrix_KeyPress);
             // 
             // label36
             // 
@@ -1494,6 +1500,7 @@ namespace DashBoard_Stive
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(100, 20);
             this.textBoxTel.TabIndex = 22;
+            this.textBoxTel.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTel_KeyPress);
             // 
             // labelTel
             // 
@@ -1548,6 +1555,7 @@ namespace DashBoard_Stive
             this.textBoxCP.Name = "textBoxCP";
             this.textBoxCP.Size = new System.Drawing.Size(127, 20);
             this.textBoxCP.TabIndex = 16;
+            this.textBoxCP.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCP_KeyPress);
             // 
             // labelCP
             // 
@@ -1700,6 +1708,41 @@ namespace DashBoard_Stive
             this.Dv_ListClient.Size = new System.Drawing.Size(598, 680);
             this.Dv_ListClient.TabIndex = 6;
             this.Dv_ListClient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_ListClient_CellMouseClick);
+            // 
+            // Cli_Nom
+            // 
+            this.Cli_Nom.DataPropertyName = "Cli_Nom";
+            this.Cli_Nom.HeaderText = "Cli_Nom";
+            this.Cli_Nom.Name = "Cli_Nom";
+            this.Cli_Nom.ReadOnly = true;
+            // 
+            // Cli_Prenom
+            // 
+            this.Cli_Prenom.DataPropertyName = "Cli_Prenom";
+            this.Cli_Prenom.HeaderText = "Cli_Prenom";
+            this.Cli_Prenom.Name = "Cli_Prenom";
+            this.Cli_Prenom.ReadOnly = true;
+            // 
+            // Cli_DateCreation
+            // 
+            this.Cli_DateCreation.DataPropertyName = "Cli_DateCreation";
+            this.Cli_DateCreation.HeaderText = "Cli_DateCreation";
+            this.Cli_DateCreation.Name = "Cli_DateCreation";
+            this.Cli_DateCreation.ReadOnly = true;
+            // 
+            // Uti_Cp2
+            // 
+            this.Uti_Cp2.DataPropertyName = "Uti_Cp";
+            this.Uti_Cp2.HeaderText = "Uti_Cp";
+            this.Uti_Cp2.Name = "Uti_Cp2";
+            this.Uti_Cp2.ReadOnly = true;
+            // 
+            // Uti_Ville2
+            // 
+            this.Uti_Ville2.DataPropertyName = "Uti_Ville";
+            this.Uti_Ville2.HeaderText = "Uti_Ville";
+            this.Uti_Ville2.Name = "Uti_Ville2";
+            this.Uti_Ville2.ReadOnly = true;
             // 
             // clientBindingSource
             // 
@@ -2447,6 +2490,7 @@ namespace DashBoard_Stive
             this.textBoxTelResp.Name = "textBoxTelResp";
             this.textBoxTelResp.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelResp.TabIndex = 31;
+            this.textBoxTelResp.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelResp_KeyPress);
             // 
             // label46
             // 
@@ -2483,10 +2527,10 @@ namespace DashBoard_Stive
             // 
             // textBoxMdp
             // 
-            this.textBoxMdp.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxMdp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMdp.Location = new System.Drawing.Point(496, 88);
             this.textBoxMdp.Name = "textBoxMdp";
-            this.textBoxMdp.Size = new System.Drawing.Size(100, 32);
+            this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp.TabIndex = 26;
             // 
             // label4
@@ -2494,7 +2538,7 @@ namespace DashBoard_Stive
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label4.Location = new System.Drawing.Point(392, 95);
+            this.label4.Location = new System.Drawing.Point(392, 90);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(42, 19);
             this.label4.TabIndex = 25;
@@ -2524,6 +2568,7 @@ namespace DashBoard_Stive
             this.textBoxTelContact.Name = "textBoxTelContact";
             this.textBoxTelContact.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelContact.TabIndex = 22;
+            this.textBoxTelContact.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxTelContact_KeyPress_1);
             // 
             // label13
             // 
@@ -2578,6 +2623,7 @@ namespace DashBoard_Stive
             this.textBoxCodePostal.Name = "textBoxCodePostal";
             this.textBoxCodePostal.Size = new System.Drawing.Size(100, 20);
             this.textBoxCodePostal.TabIndex = 16;
+            this.textBoxCodePostal.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.textBoxCodePostal_KeyPress);
             // 
             // label29
             // 
@@ -3129,41 +3175,6 @@ namespace DashBoard_Stive
             this.Eta_Libelle.DataPropertyName = "Eta_Libelle";
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
-            // 
-            // Cli_Nom
-            // 
-            this.Cli_Nom.DataPropertyName = "Cli_Nom";
-            this.Cli_Nom.HeaderText = "Cli_Nom";
-            this.Cli_Nom.Name = "Cli_Nom";
-            this.Cli_Nom.ReadOnly = true;
-            // 
-            // Cli_Prenom
-            // 
-            this.Cli_Prenom.DataPropertyName = "Cli_Prenom";
-            this.Cli_Prenom.HeaderText = "Cli_Prenom";
-            this.Cli_Prenom.Name = "Cli_Prenom";
-            this.Cli_Prenom.ReadOnly = true;
-            // 
-            // Cli_DateCreation
-            // 
-            this.Cli_DateCreation.DataPropertyName = "Cli_DateCreation";
-            this.Cli_DateCreation.HeaderText = "Cli_DateCreation";
-            this.Cli_DateCreation.Name = "Cli_DateCreation";
-            this.Cli_DateCreation.ReadOnly = true;
-            // 
-            // Uti_Cp2
-            // 
-            this.Uti_Cp2.DataPropertyName = "Uti_Cp";
-            this.Uti_Cp2.HeaderText = "Uti_Cp";
-            this.Uti_Cp2.Name = "Uti_Cp2";
-            this.Uti_Cp2.ReadOnly = true;
-            // 
-            // Uti_Ville2
-            // 
-            this.Uti_Ville2.DataPropertyName = "Uti_Ville";
-            this.Uti_Ville2.HeaderText = "Uti_Ville";
-            this.Uti_Ville2.Name = "Uti_Ville2";
-            this.Uti_Ville2.ReadOnly = true;
             // 
             // Dashboard
             // 
