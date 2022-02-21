@@ -63,8 +63,9 @@ namespace DashBoard_Stive
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
+
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
+
             this.comboBoxProposePar = new System.Windows.Forms.ComboBox();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonCreerProduit = new System.Windows.Forms.Button();
@@ -792,6 +793,12 @@ namespace DashBoard_Stive
             this.textBoxNbPiece.Size = new System.Drawing.Size(58, 20);
             this.textBoxNbPiece.TabIndex = 52;
             // 
+
+            // fournisseurBindingSource
+            // 
+            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
+            // 
+
             // comboBoxProposePar
             // 
             this.comboBoxProposePar.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fournisseurBindingSource, "Fou_NomDomaine", true));
