@@ -386,7 +386,7 @@ namespace DashBoard_Stive
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
             StamperFournisseur(
-                 //Uti_Id: fourListe[e.RowIndex].Uti_Id.ToString(),
+                 Uti_Id: fourListe[e.RowIndex].Uti_Id.ToString(),
                 //Fou_Id: fourListe[e.RowIndex].Fou_Id.ToString(),
                 NomDomaine: fourListe[e.RowIndex].Fou_NomDomaine,
                 DateCreation: fourListe[e.RowIndex].Uti_DateCreation,
