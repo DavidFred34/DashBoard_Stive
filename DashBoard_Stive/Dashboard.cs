@@ -1117,14 +1117,19 @@ namespace DashBoard_Stive
            // MessageBox.Show(labelPro_Typ_Id.Text);
             //prodListe.Uti_Id.ToString();
         }
-       /* public async void buttonInventaire_Click(object sender, EventArgs e)
+
+        private void buttonInventaire_Click(object sender, EventArgs e)
         {
-            Inventaire Inventaire = new Inventaire();
-            Inventaire.ShowDialog();
-           
-            // this.Close();
-            
-        }*/
+
+    Inventaire Inventaire = new Inventaire();
+    Inventaire.ShowDialog();
+        }
+        /* public async void buttonInventaire_Click(object sender, EventArgs e)
+{
+
+    // this.Close();
+
+}*/
 
 
     }

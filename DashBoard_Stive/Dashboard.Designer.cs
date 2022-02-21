@@ -63,9 +63,6 @@ namespace DashBoard_Stive
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
-
-            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
-
             this.comboBoxProposePar = new System.Windows.Forms.ComboBox();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonCreerProduit = new System.Windows.Forms.Button();
@@ -113,7 +110,6 @@ namespace DashBoard_Stive
             this.buttonAjouterProduit = new System.Windows.Forms.Button();
             this.Dv_ListeProduit = new System.Windows.Forms.DataGridView();
             this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Uti_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -793,12 +789,6 @@ namespace DashBoard_Stive
             this.textBoxNbPiece.Size = new System.Drawing.Size(58, 20);
             this.textBoxNbPiece.TabIndex = 52;
             // 
-
-            // fournisseurBindingSource
-            // 
-            this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
-            // 
-
             // comboBoxProposePar
             // 
             this.comboBoxProposePar.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.fournisseurBindingSource, "Fou_NomDomaine", true));
@@ -1272,7 +1262,6 @@ namespace DashBoard_Stive
             this.Dv_ListeProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_ListeProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Pro_Nom,
-            this.Pro_Uti_Id,
             this.Pro_Typ_Id,
             this.Pro_Quantite,
             this.Pro_SeuilAlerte,
@@ -1295,13 +1284,6 @@ namespace DashBoard_Stive
             this.Pro_Nom.HeaderText = "Pro_Nom";
             this.Pro_Nom.Name = "Pro_Nom";
             this.Pro_Nom.ReadOnly = true;
-            // 
-            // Pro_Uti_Id
-            // 
-            this.Pro_Uti_Id.DataPropertyName = "Pro_Uti_Id";
-            this.Pro_Uti_Id.HeaderText = "Pro_Uti_Id";
-            this.Pro_Uti_Id.Name = "Pro_Uti_Id";
-            this.Pro_Uti_Id.ReadOnly = true;
             // 
             // Pro_Typ_Id
             // 
@@ -3212,12 +3194,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
+            this.Controls.Add(this.panelFournisseurs);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
