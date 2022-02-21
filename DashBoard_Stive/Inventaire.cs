@@ -20,11 +20,11 @@ namespace DashBoard_Stive
             InitializeComponent();
         }
 
-        public int Pro_Nom { get; set; }
+        /*public int Pro_Nom { get; set; }
         public int Pro_Id { get; set; }
         public int Pro_Id { get; set; }
         public int Pro_Id { get; set; }
-        public int Pro_Id { get; set; }
+        public int Pro_Id { get; set; }*/
         public async void Inventaire_Load(object sender, EventArgs e)
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";

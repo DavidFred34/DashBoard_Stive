@@ -573,7 +573,7 @@ namespace DashBoard_Stive
             majFour.Uti_TelContact = textBoxTelContact.Text;
             majFour.Uti_Mdp = textBoxMdp.Text;
             majFour.Uti_MailContact = textBoxMailContact.Text;
-            majFour.Uti_Id = int.Parse(label_Uti_Id.Text);
+            majFour.Uti_Id = Convert.ToInt32(label_Uti_Id.Text);
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(majFour);
