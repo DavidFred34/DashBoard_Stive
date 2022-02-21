@@ -423,7 +423,7 @@ namespace DashBoard_Stive
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
                 bdcListe = null;
             }
             Dv_ListeBdc.DataSource = bdcListe;
@@ -444,7 +444,7 @@ namespace DashBoard_Stive
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ce fournisseur n'a pas de produit");
+                //MessageBox.Show("Ce fournisseur n'a pas de produit");
                 prodListe2 = null;
             }
 
@@ -544,6 +544,7 @@ namespace DashBoard_Stive
             else
                 MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonAccueil.PerformClick();
             buttonFournisseurs.PerformClick();
             StamperFournisseur();
             //buttonAjouterfournisseur.PerformClick();
@@ -569,6 +570,7 @@ namespace DashBoard_Stive
             else
                 MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
+            buttonAccueil.PerformClick();
             buttonFournisseurs.PerformClick();
             StamperFournisseur();
         }
@@ -987,16 +989,20 @@ namespace DashBoard_Stive
             Produit newPro = new Produit();
 
             newPro.Pro_Nom = textBoxNomProduit.Text;
-
+           
             newPro.Pro_Ref = textBoxRef.Text;
             newPro.Pro_Fou_Id = Convert.ToInt32(((comboBoxProposePar.SelectedIndex) + 1));
-            MessageBox.Show(((comboBoxProposePar.SelectedIndex) + 1).ToString());
+            //newPro.Pro_Fou_Id = Convert.ToInt32((Dv_TypeProduit.SelectedRow.Select.Typ_Id));
+            // MessageBox.Show(((comboBoxProposePar.SelectedIndex) + 1).ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
             newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
             newPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
             newPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
             newPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
+
+          //  newInv.Coi_ProId = Convert.ToInt32(dr.Cells["Coi_ProId"].Value);
+
             if (checkBoxCommandeAuto.Checked)
             {
                 newPro.Pro_CommandeAuto = 1;
