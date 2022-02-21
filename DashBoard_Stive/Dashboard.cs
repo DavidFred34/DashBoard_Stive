@@ -26,12 +26,12 @@ namespace DashBoard_Stive
             //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             //pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
 
-           /* System.Data.DataTable dataTable = new System.Data.DataTable();
-            dataTable.Columns.Add(supp DataColumn("Couleur", typeof(string)));
-            dataTable.Columns.Add(supp DataColumn("Taille", typeof(string)));
-            deleteButton.HeaderText = "Supprimer cette ";
-            dataGridView1.Columns.Add(DeleteButton);
-            dataTable.Rows.Add(new string[] { " rouge ", " Large" });*/
+            /* System.Data.DataTable dataTable = new System.Data.DataTable();
+             dataTable.Columns.Add(supp DataColumn("Couleur", typeof(string)));
+             dataTable.Columns.Add(supp DataColumn("Taille", typeof(string)));
+             deleteButton.HeaderText = "Supprimer cette ";
+             dataGridView1.Columns.Add(DeleteButton);
+             dataTable.Rows.Add(new string[] { " rouge ", " Large" });*/
 
             ReinitBouton();
             buttonAccueil.PerformClick();
@@ -53,15 +53,16 @@ namespace DashBoard_Stive
             }
         }
 
-        
+
         //gestion du survol de la souris des btn du menu
         private void buttonMenu_MouseEnter(object sender, EventArgs e)
         {
-            if ((int?)(sender as Button).Tag == 1) {
+            if ((int?)(sender as Button).Tag == 1)
+            {
 
                 return;
             }
-            
+
 
             (sender as Button).BackColor = Color.FromArgb(44, 130, 201);
             (sender as Button).ForeColor = Color.FromArgb(255, 255, 255);
@@ -76,10 +77,10 @@ namespace DashBoard_Stive
                 return;
             }
                 (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
-                (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
+            (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
         }
-        
-        
+
+
         //permet de renseigner les données fournisseur ds le panel 
         private void StamperFournisseur(
                         //champs fournisseur
@@ -124,7 +125,7 @@ namespace DashBoard_Stive
         //permet de renseigner les données clients ds le panel client
         private void StamperClient(
                  //champs clients
-                 
+
                  string Nom = "",
                  string Prenom = "",
                  string DateNaissance = "",
@@ -140,7 +141,7 @@ namespace DashBoard_Stive
                  string TelContact = "",
                  string MailContact = "",
                  string Mdp2 = ""
-                // string VerifMdp = ""
+                 // string VerifMdp = ""
                  )
         {
             labelUti_Id2.Text = Uti_Id2;
@@ -165,21 +166,21 @@ namespace DashBoard_Stive
                         string Pro_Fou_Id = "",
                         string Pro_Uti_Id = "",
                         string Pro_Id = "",
-                        string Pro_Typ_Id ="",
+                        string Pro_Typ_Id = "",
                         string NomProduit = "",
                         string Domaine = "",
                         string Pro_Ref = "",
                         string Pro_Cepage = "",
                         string Pro_Annee = "",
                         string Pro_Prix = "",
-                        string Pro_PrixLitre= "",
+                        string Pro_PrixLitre = "",
                         string Pro_Quantite = "",
                         string Pro_SeuilAlerte = "",
-                        int Pro_CommandeAuto= 0,
-                        string Pro_Volume= "",
+                        int Pro_CommandeAuto = 0,
+                        string Pro_Volume = "",
                         string Pro_Description = "",
                         string Typ_Libelle = ""
-                      
+
                         )
         {
             label_pro_Fou_Id.Text = Pro_Fou_Id;
@@ -217,18 +218,18 @@ namespace DashBoard_Stive
             panelAccueil.Visible = true;
             buttonAccueil.Tag = 1;
 
-        //Chargement liste produit
+            //Chargement liste produit
             var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
             var response = await
                 httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
             response.EnsureSuccessStatusCode();
-           
+
 
             var content = await response.Content.ReadAsStringAsync();
             prodListe = JsonConvert.DeserializeObject<List<Produit>>(content);
             //MessageBox.Show(content2);  //controle du json
 
-        //Chargement liste TypeProduit
+            //Chargement liste TypeProduit
             var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure
             var response2 = await
                 httpClient2.GetAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/obtenirTous.php");
@@ -238,17 +239,17 @@ namespace DashBoard_Stive
             typListe = JsonConvert.DeserializeObject<List<TypeProduit>>(content2);
             //MessageBox.Show(content2);  //controle du json
 
-        //chargement liste fournisseur
+            //chargement liste fournisseur
             var httpClient3 = new HttpClient();   //connexion à la bdd Stive sur azure
             var response3 = await
                 httpClient3.GetAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/obtenirTous.php");
             response3.EnsureSuccessStatusCode();
 
             var content3 = await response3.Content.ReadAsStringAsync();
-            fourListe = JsonConvert.DeserializeObject <List<Fournisseur>>(content3);
+            fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content3);
             //MessageBox.Show(content3);  //controle du json
             //StamperFournisseur(CompAdresse: content3.ToString());
-        
+
 
             //Affectation des listes
             Dv_TypeProduit.DataSource = typListe;
@@ -256,14 +257,14 @@ namespace DashBoard_Stive
             Dv_ListeProduit.DataSource = prodListe;
             comboBoxTypeProduit.DataSource = typListe;
             comboBoxProposePar.DataSource = fourListe;
-            
+
 
 
         }
         List<TypeProduit> typListe;
         List<Produit> prodListe;
         List<Fournisseur> fourListe;
-        
+
         private void buttonBdc_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -273,7 +274,7 @@ namespace DashBoard_Stive
             panelBdc.Visible = true;
             buttonBdc.Tag = 1;
         }
-        
+
         private void buttonCommandesWeb_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -284,7 +285,7 @@ namespace DashBoard_Stive
             buttonCommandesWeb.Tag = 1;
         }
 
-        public  void buttonFournisseurs_Click(object sender, EventArgs e)
+        public void buttonFournisseurs_Click(object sender, EventArgs e)
         {
             //gestion affichage
             ReinitBouton();
@@ -292,7 +293,7 @@ namespace DashBoard_Stive
             buttonFournisseurs.ForeColor = Color.FromArgb(255, 255, 255);
             panelFournisseurs.Visible = true;
             buttonFournisseurs.Tag = 1;
-            buttonCreerFournisseur.Visible = true; 
+            buttonCreerFournisseur.Visible = true;
             buttonAjouterfournisseur.Visible = false;
             buttonMajFournisseur.Visible = false;
             buttonSuppFournisseur.Visible = false;
@@ -351,12 +352,12 @@ namespace DashBoard_Stive
                     ]"
            fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(bt_Fournisseur);
             */
-            
-           
-           
+
+
+
             //MessageBox.Show(content);  //controle du json
-                //declaration des colonnes de la grid
-            
+            //declaration des colonnes de la grid
+
             Dv_fournisseur.Columns["Fou_NomDomaine"].HeaderText = "Fournisseur";
             Dv_fournisseur.Columns["Fou_NomResp"].HeaderText = "Responsable";
             Dv_fournisseur.Columns["Fou_TelResp"].HeaderText = "Tel";
@@ -366,7 +367,7 @@ namespace DashBoard_Stive
             //Dv_fournisseur.Columns["Fou_NomResp"].Visible = false;
             //Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");*/
         }
-        
+
 
 
         public async void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -404,24 +405,24 @@ namespace DashBoard_Stive
                 Pays: fourListe[e.RowIndex].Uti_Pays
                 );
 
-        //chargement liste bdc_du fournisseur
+            //chargement liste bdc_du fournisseur
             var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
             var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
             var response = await
                 httpClient.GetAsync(url);// label_Fou_Id.Text);
-                response.EnsureSuccessStatusCode();
+            response.EnsureSuccessStatusCode();
 
             var contentCommande = await response.Content.ReadAsStringAsync();
-           
+
             bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
-           
+
             // MessageBox.Show(debug.ToString());  //controle du json
-           // MessageBox.Show(contentCommande);
+            // MessageBox.Show(contentCommande);
             Dv_ListeBdc.DataSource = bdcListe;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
 
-        //chargement liste produit_du fournisseur  
+            //chargement liste produit_du fournisseur  
             var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
             var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
             var response2 = await
@@ -430,20 +431,20 @@ namespace DashBoard_Stive
 
             var contentProduit2 = await response2.Content.ReadAsStringAsync();
 
-           // MessageBox.Show(contentProduit2.ToString());
-           // StamperFournisseur(Adresse: contentProduit2.ToString()); //permet de recup le json pour le copier
+            // MessageBox.Show(contentProduit2.ToString());
+            // StamperFournisseur(Adresse: contentProduit2.ToString()); //permet de recup le json pour le copier
             prodListe2 = JsonConvert.DeserializeObject<List<Produit>>(contentProduit2);
 
             //controle du json
-           // MessageBox.Show(contentProduit2);
+            // MessageBox.Show(contentProduit2);
 
             Dv_ListeBdc.DataSource = bdcListe;
             Dv_ListeProduit2.DataSource = prodListe2;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
         }
-            List<CommandeFournisseur> bdcListe;
-            List<Produit> prodListe2;
+        List<CommandeFournisseur> bdcListe;
+        List<Produit> prodListe2;
         private void buttonAjouterfournisseur_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
@@ -471,7 +472,7 @@ namespace DashBoard_Stive
             labelListeBdc.Visible = false;
             labelListeProduit.Visible = false;
         }
-      
+
 
         private async void buttonCreerFournisseur_Click(object sender, EventArgs e)
         {
@@ -497,22 +498,22 @@ namespace DashBoard_Stive
                         Uti_DateCreation: ""28/01/2022""
                         
                     }";
-                    
+
             Fournisseur newFour = new Fournisseur();
-                newFour.Fou_NomDomaine  = textBoxNomDomaine.Text;
-                newFour.Fou_NomResp     = textBoxNomResp.Text;
-                newFour.Fou_TelResp     = textBoxTelResp.Text;
-                newFour.Fou_MailResp    = textBoxMailResp.Text;
-                newFour.Fou_Fonction    = textBoxFonction.Text;
-                newFour.Fou_Role        = "3";
-                newFour.Uti_Adresse     = textBoxAdresse.Text;
-                newFour.Uti_CompAdresse = textBoxCompAdresse.Text;
-                newFour.Uti_Cp          = textBoxCodePostal.Text;
-                newFour.Uti_Ville       = textBoxVille.Text;
-                newFour.Uti_Pays        = textBoxPays.Text;
-                newFour.Uti_TelContact  = textBoxTelContact.Text;
-                newFour.Uti_Mdp         = textBoxMdp.Text;
-                newFour.Uti_MailContact = textBoxMailContact.Text;
+            newFour.Fou_NomDomaine = textBoxNomDomaine.Text;
+            newFour.Fou_NomResp = textBoxNomResp.Text;
+            newFour.Fou_TelResp = textBoxTelResp.Text;
+            newFour.Fou_MailResp = textBoxMailResp.Text;
+            newFour.Fou_Fonction = textBoxFonction.Text;
+            newFour.Fou_Role = "3";
+            newFour.Uti_Adresse = textBoxAdresse.Text;
+            newFour.Uti_CompAdresse = textBoxCompAdresse.Text;
+            newFour.Uti_Cp = textBoxCodePostal.Text;
+            newFour.Uti_Ville = textBoxVille.Text;
+            newFour.Uti_Pays = textBoxPays.Text;
+            newFour.Uti_TelContact = textBoxTelContact.Text;
+            newFour.Uti_Mdp = textBoxMdp.Text;
+            newFour.Uti_MailContact = textBoxMailContact.Text;
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newFour);
@@ -525,7 +526,7 @@ namespace DashBoard_Stive
                 MessageBox.Show("Fournisseur créé");
             }
             else
-                MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response );
+                MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonFournisseurs.PerformClick();
             StamperFournisseur();
@@ -547,9 +548,9 @@ namespace DashBoard_Stive
             {
                 //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
                 MessageBox.Show("Fournisseur supprimé");
-             
-              }
-              else
+
+            }
+            else
                 MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonFournisseurs.PerformClick();
@@ -590,18 +591,18 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonAccueil.PerformClick();
             buttonFournisseurs.PerformClick();
-                //StamperFournisseur();
-            
+            //StamperFournisseur();
+
         }
 
         private void buttonCherchFournisseur_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(Dv_fournisseur.Rows.Count.ToString());
-            for(int i = 0; i < Dv_fournisseur.Rows.Count; i++) 
+            for (int i = 0; i < Dv_fournisseur.Rows.Count; i++)
             {
                 int result = 0;
-                    MessageBox.Show(i.ToString()+' '+result);
-                foreach(DataGridViewCell cell in Dv_fournisseur.Rows[i].Cells)
+                MessageBox.Show(i.ToString() + ' ' + result);
+                foreach (DataGridViewCell cell in Dv_fournisseur.Rows[i].Cells)
                 {
                     if (cell.Value != null && (cell.Value.ToString().IndexOf(textBoxCherchFournisseur.Text.ToString())) > 0)
                     //if (cell.Value != null && (cell.Value.ToString().Contains(textBoxCherchFournisseur.Text.ToString())))
@@ -611,7 +612,7 @@ namespace DashBoard_Stive
                         //Dv_fournisseur.Rows[i].Cells.
                     }
                     else { cell.Style.BackColor = Color.White; };
-                    if (result > 0) { cell.Style.BackColor = Color.LightBlue; }; 
+                    if (result > 0) { cell.Style.BackColor = Color.LightBlue; };
                 }
             }
         }
@@ -633,7 +634,7 @@ namespace DashBoard_Stive
             buttonMajClient.Visible = false;
             buttonSuppClient.Visible = false;
             labelListCommande.Visible = false;
-           
+
 
             buttonClients.Tag = 1;
 
@@ -642,52 +643,52 @@ namespace DashBoard_Stive
 
 
             //bouchon de test: simule le resultat du json obtenue
-           /* const string bt_Client = @"     
-                [
-                    {   Cli_Id : 1,
-                        Cli_Nom : ""La menace"",
-                        Cli_Prenom : ""Max"",
-                        cli_DateNaissance : ""0125254589"",
-                        cli_DateCreation : ""09/02/2022"",
-                        Cli_Role : ""client"",
-                        Uti_Id : 1,
-                        Uti_Adresse :  ""rue x"" ,
-                        Uti_CompAdresse :""bat rond"",
-                        Uti_Cp :""34080"",
-                        Uti_Ville :   ""montpellier"" ,
-                        Uti_Pays : ""france"",
-                        Uti_TelContact :""0121252545"",
-                        Uti_Mdp : ""1234"",
-                        Uti_VerifMdp : ""1234"",
-                        Uti_MailContact : ""max@max.com"",
-                        Uti_DateCreation : ""09/02/2022""
-                    },
+            /* const string bt_Client = @"     
+                 [
+                     {   Cli_Id : 1,
+                         Cli_Nom : ""La menace"",
+                         Cli_Prenom : ""Max"",
+                         cli_DateNaissance : ""0125254589"",
+                         cli_DateCreation : ""09/02/2022"",
+                         Cli_Role : ""client"",
+                         Uti_Id : 1,
+                         Uti_Adresse :  ""rue x"" ,
+                         Uti_CompAdresse :""bat rond"",
+                         Uti_Cp :""34080"",
+                         Uti_Ville :   ""montpellier"" ,
+                         Uti_Pays : ""france"",
+                         Uti_TelContact :""0121252545"",
+                         Uti_Mdp : ""1234"",
+                         Uti_VerifMdp : ""1234"",
+                         Uti_MailContact : ""max@max.com"",
+                         Uti_DateCreation : ""09/02/2022""
+                     },
 
-                    {
-                        Cli_Id : 2,
-                        Cli_Nom : ""Masqué"",
-                        Cli_Prenom : ""le concombre"",
-                        Cli_DateNaissance : ""0125254589"",
-                        Cli_DateCreation : ""09/02/2022"",
-                        Cli_Role : ""client"",
-                        Uti_Id : 1,
-                        Uti_Adresse :  ""rue du sud"" ,
-                        Uti_CompAdresse :""square du truc"",
-                        Uti_Cp :""30000"",
-                        Uti_Ville :   ""nime"" ,
-                        Uti_Pays : ""france"",
-                        Uti_TelContact :""0621252545"",
-                        Uti_Mdp : ""1234"",
-                        Uti_VerifMdp : ""1234"",
-                        Uti_MailContact : ""masque@masque.com"",
-                        Uti_DateCreation : ""09/02/2022""
-                    }  
-                    ]";*/
+                     {
+                         Cli_Id : 2,
+                         Cli_Nom : ""Masqué"",
+                         Cli_Prenom : ""le concombre"",
+                         Cli_DateNaissance : ""0125254589"",
+                         Cli_DateCreation : ""09/02/2022"",
+                         Cli_Role : ""client"",
+                         Uti_Id : 1,
+                         Uti_Adresse :  ""rue du sud"" ,
+                         Uti_CompAdresse :""square du truc"",
+                         Uti_Cp :""30000"",
+                         Uti_Ville :   ""nime"" ,
+                         Uti_Pays : ""france"",
+                         Uti_TelContact :""0621252545"",
+                         Uti_Mdp : ""1234"",
+                         Uti_VerifMdp : ""1234"",
+                         Uti_MailContact : ""masque@masque.com"",
+                         Uti_DateCreation : ""09/02/2022""
+                     }  
+                     ]";*/
             //version bouchon test
             //cliListe = JsonConvert.DeserializeObject<List<Client>>(bt_Client); 
-         
 
-           // version serveur
+
+            // version serveur
             var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
             var response = await
             httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Client/obtenirTous.php");
@@ -695,9 +696,9 @@ namespace DashBoard_Stive
 
             var content = await response.Content.ReadAsStringAsync();
             cliListe = JsonConvert.DeserializeObject<List<Client>>(content);
-            
-            
-            
+
+
+
             //MessageBox.Show(content);  //controle du json
             //MessageBox.Show(cliListe);
             //declaration des colonnes de la grid
@@ -708,7 +709,7 @@ namespace DashBoard_Stive
             Dv_ListClient.Columns["Cli_DateCreation"].HeaderText = "Inscrit le";
             Dv_ListClient.Columns["Uti_Cp2"].HeaderText = "CP";
             Dv_ListClient.Columns["Uti_Ville2"].HeaderText = "Ville";
-         
+
         }
         List<Client> cliListe;
         private void Dv_ListClient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
@@ -730,7 +731,7 @@ namespace DashBoard_Stive
                 Prenom: cliListe[e.RowIndex].Cli_Prenom,
                 DateInscription: cliListe[e.RowIndex].Uti_DateCreation,
                 DateNaissance: cliListe[e.RowIndex].Cli_DateNaissance,
-    
+
                 TelContact: cliListe[e.RowIndex].Uti_TelContact,
                 MailContact: cliListe[e.RowIndex].Uti_MailContact,
                 Mdp2: ".......",
@@ -745,8 +746,8 @@ namespace DashBoard_Stive
 
 
         }
-            
-        private  void buttonAjouterClient_Click(object sender, EventArgs e)
+
+        private void buttonAjouterClient_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
             StamperClient();
@@ -757,7 +758,7 @@ namespace DashBoard_Stive
             dataGridViewListCommandeClient.Visible = false;
             labelListCommande.Visible = false;
 
-            
+
         }
 
         private async void buttonCreerClient_Click(object sender, EventArgs e)
@@ -792,7 +793,7 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonClients.PerformClick();
             StamperClient();
-            
+
         }
 
         private async void buttonMajClient_Click(object sender, EventArgs e)
@@ -833,17 +834,17 @@ namespace DashBoard_Stive
 
         private async void buttonSuppClient_Click(object sender, EventArgs e)
         {
-           Client suppCli = new Client();
-           suppCli.Uti_Id=Convert.ToInt32(labelUti_Id2.Text);
+            Client suppCli = new Client();
+            suppCli.Uti_Id = Convert.ToInt32(labelUti_Id2.Text);
 
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(suppCli);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-           // MessageBox.Show(json);
+            // MessageBox.Show(json);
             //MessageBox.Show(data.ToString());
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/supprimer.php", data);
-          
+
 
             //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
@@ -859,7 +860,7 @@ namespace DashBoard_Stive
             StamperClient();
         }
 
-        public  void buttonProduit_Click(object sender, EventArgs e)
+        public void buttonProduit_Click(object sender, EventArgs e)
         {
             //gestion affichage
             ReinitBouton();
@@ -876,7 +877,7 @@ namespace DashBoard_Stive
             textBox_Libelle.Visible = false;
             buttonValider.Visible = false;
             StamperProduit(); //remet les champs à vide;
-           
+
 
 
 
@@ -909,10 +910,10 @@ namespace DashBoard_Stive
               //MessageBox.Show(content2);  //controle du json*/
 
             //Dv_TypeProduit.DataSource = null;
-            
+
         }
-        
-        
+
+
 
         public void Dv_Produit_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -931,7 +932,7 @@ namespace DashBoard_Stive
             StamperProduit(
                 NomProduit: prodListe[e.RowIndex].Pro_Nom,
                 Domaine: prodListe[e.RowIndex].Fou_NomDomaine,
-                Pro_Ref: prodListe[e.RowIndex].Pro_Ref ,
+                Pro_Ref: prodListe[e.RowIndex].Pro_Ref,
                 Pro_Cepage: prodListe[e.RowIndex].Pro_Cepage,
                 Pro_Annee: prodListe[e.RowIndex].Pro_Annee.ToString(),
                 Pro_Prix: prodListe[e.RowIndex].Pro_Prix.ToString(),
@@ -947,7 +948,7 @@ namespace DashBoard_Stive
                 Pro_Fou_Id: prodListe[e.RowIndex].Pro_Fou_Id.ToString(),
                 Pro_Uti_Id: prodListe[e.RowIndex].Uti_Id.ToString(),
                 Pro_Id: prodListe[e.RowIndex].Pro_Id.ToString()
-                ) ;
+                );
             //MessageBox.Show(((comboBoxTypeProduit.SelectedIndex) + 1).ToString());
         }
 
@@ -962,16 +963,16 @@ namespace DashBoard_Stive
             buttonSuppProduit.Visible = false;
             buttonCommanderProduit.Visible = false;
             textBoxNbPiece.Visible = false;
-            
+
         }
 
         private async void buttonCreerProduit_Click(object sender, EventArgs e)
         {
             Produit newPro = new Produit();
-          
+
             newPro.Pro_Nom = textBoxNomProduit.Text;
 
-            newPro.Pro_Ref = textBoxRef.Text; 
+            newPro.Pro_Ref = textBoxRef.Text;
             newPro.Pro_Fou_Id = Convert.ToInt32(((comboBoxProposePar.SelectedIndex) + 1));
             MessageBox.Show(((comboBoxProposePar.SelectedIndex) + 1).ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
@@ -991,8 +992,8 @@ namespace DashBoard_Stive
             newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
             newPro.Pro_Description = textBoxDescription.Text;
             newPro.Pro_Typ_Id = Convert.ToInt32(((comboBoxTypeProduit.SelectedIndex) + 1));
-            newPro.Typ_Libelle = comboBoxTypeProduit.Text;    
-            newPro.Fou_NomDomaine = comboBoxProposePar.Text;    
+            newPro.Typ_Libelle = comboBoxTypeProduit.Text;
+            newPro.Fou_NomDomaine = comboBoxProposePar.Text;
             //newPro.Img_Adresse = textBoxProposePar.Text;
             //newPro.Img_Nom = textBoxProposePar.Text;
 
@@ -1016,26 +1017,28 @@ namespace DashBoard_Stive
 
         public async void buttonMajProduit_Click(object sender, EventArgs e2)
         {
-            
+
             Produit majPro = new Produit();
-            
+
             majPro.Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
 
             majPro.Pro_Typ_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
             majPro.Uti_Id = int.Parse(label_pro_Uti_Id.Text);
             majPro.Pro_Nom = textBoxNomProduit.Text;
             majPro.Pro_Ref = textBoxRef.Text; ;
-            majPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text); 
+            majPro.Pro_Fou_Id = Convert.ToInt32(label_pro_Fou_Id.Text);
             majPro.Pro_Cepage = textBoxCepage.Text;
             majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             majPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
             majPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
             majPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
             majPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
-            if (checkBoxCommandeAuto.Checked) {
+            if (checkBoxCommandeAuto.Checked)
+            {
                 majPro.Pro_CommandeAuto = 1;
             }
-            else {
+            else
+            {
                 majPro.Pro_CommandeAuto = 0;
             }
             majPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
@@ -1050,7 +1053,7 @@ namespace DashBoard_Stive
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
             //MessageBox.Show(json.ToString());
-           StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
+            //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Produit mis à jour");
@@ -1071,7 +1074,7 @@ namespace DashBoard_Stive
             //newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
 
             newBdc.Cof_Fou_Id = Convert.ToInt32(labelPro_Typ_Id.Text);
-            newBdc.Cof_Eta_Id= int.Parse(label_pro_Uti_Id.Text);
+            newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);
         }
 
         private void buttonAjouterType_Click(object sender, EventArgs e)
@@ -1086,8 +1089,8 @@ namespace DashBoard_Stive
         private async void buttonValider_Click(object sender, EventArgs e)
         {
             TypeProduit newTyp = new TypeProduit();
-            newTyp.Typ_Libelle= textBox_Libelle.Text;
-            
+            newTyp.Typ_Libelle = textBox_Libelle.Text;
+
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newTyp);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
@@ -1113,25 +1116,16 @@ namespace DashBoard_Stive
             // string OptionText = this.cboSelectOption.SelectedItem.ToString();
             //Dv_TypeProduit.ValueMembert += labelPro_Typ_Id.Text;
             //buttonProduit_.PerformClick();
-             labelPro_Typ_Id.Text =  (Dv_TypeProduit.Columns.Count +1).ToString();
-           // MessageBox.Show(labelPro_Typ_Id.Text);
+            labelPro_Typ_Id.Text = (Dv_TypeProduit.Columns.Count + 1).ToString();
+            // MessageBox.Show(labelPro_Typ_Id.Text);
             //prodListe.Uti_Id.ToString();
         }
 
         private void buttonInventaire_Click(object sender, EventArgs e)
         {
-
-    Inventaire Inventaire = new Inventaire();
-    Inventaire.ShowDialog();
+            Inventaire Inventaire = new Inventaire();
+            Inventaire.ShowDialog();
         }
-        /* public async void buttonInventaire_Click(object sender, EventArgs e)
-{
-
-    // this.Close();
-
-}*/
-
 
     }
-    
 }

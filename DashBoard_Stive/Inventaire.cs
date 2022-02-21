@@ -36,18 +36,24 @@ namespace DashBoard_Stive
         response.EnsureSuccessStatusCode();
 
         var content = await response.Content.ReadAsStringAsync();
-        invListe = JsonConvert.DeserializeObject<List<Inventaire>>(content);
+        prodListe3 = JsonConvert.DeserializeObject<List<Produit>>(content);
 
          MessageBox.Show(content.ToString());  //controle du json
 
-        Inventaire Inv = new Inventaire();
-            //Pro_Nom = invListe.Pro_Nom;
-        Dv_Inventaire.DataSource = invListe;
+            Dv_Inventaire.DataSource = prodListe3;
        
         }
-        List<Inventaire> invListe;
+        List<Produit> prodListe3;
         private void button_SaveInventaire_Click(object sender, EventArgs e)
         {
+           ContenuInventaire newInv = new ContenuInventaire();
+            foreach (var contInv in Dv_Inventaire.Rows) {
+                newInv.Coi_ProId = 
+                newInv.Coi_ProLibelle = prodListe3.Pro_Id;
+                newInv.Coi_ProQuantite = prodListe3.Pro_Id;
+                newInv.Coi_Inventaire = prodListe3.Pro_Id;
+            Nom: cliListe[e.RowIndex].Cli_Nom,
+                    }
             this.Close();
         }
 
