@@ -423,7 +423,7 @@ namespace DashBoard_Stive
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ce forunisseur n'a pas de bon de commande");
+                MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
                 bdcListe = null;
             }
             Dv_ListeBdc.DataSource = bdcListe;
@@ -444,7 +444,8 @@ namespace DashBoard_Stive
             }
             catch (Exception ex)
             {
-                MessageBox.Show("Ce forunisseur n'a pas de produit");
+                MessageBox.Show("Ce fournisseur n'a pas de produit");
+                prodListe2 = null;
             }
 
             // MessageBox.Show(contentProduit2.ToString());
