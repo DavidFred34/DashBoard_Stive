@@ -148,7 +148,7 @@ namespace DashBoard_Stive
             textBoxNom2.Text = Nom;
             textBoxPrenom.Text = Prenom;
             labelInscription.Text = "Inscrit le " + DateInscription;
-            labelDateNaiss.Text = "né le " + DateNaissance;
+            //labelDateNaiss.Text = "né le " + DateNaissance;
             textBoxTel.Text = TelContact;
             textBoxMail.Text = MailContact;
             textBoxMdp2.Text = Mdp2;
@@ -723,7 +723,7 @@ namespace DashBoard_Stive
             Dv_ListClient.DataSource = cliListe;
             Dv_ListClient.Columns["Cli_Nom"].HeaderText = "Nom";
             Dv_ListClient.Columns["Cli_Prenom"].HeaderText = "Prenom";
-            Dv_ListClient.Columns["Cli_DateNaissance"].HeaderText = "Anniversaire";
+           // Dv_ListClient.Columns["Cli_DateNaissance"].HeaderText = "Anniversaire";
             Dv_ListClient.Columns["Cli_DateCreation"].HeaderText = "Inscrit le";
             Dv_ListClient.Columns["Uti_Cp2"].HeaderText = "CP";
             Dv_ListClient.Columns["Uti_Ville2"].HeaderText = "Ville";
@@ -784,7 +784,7 @@ namespace DashBoard_Stive
             Client newCli = new Client();
             newCli.Cli_Nom = textBoxNom2.Text;
             newCli.Cli_Prenom = textBoxPrenom.Text;
-            newCli.Cli_DateNaissance = textBoxDateNaissance.Text;
+            //newCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 
             newCli.Cli_Role = "1";
             newCli.Uti_Adresse = textBoxAdresse2.Text;
@@ -819,7 +819,7 @@ namespace DashBoard_Stive
             Client majCli = new Client();
             majCli.Cli_Nom = textBoxNom2.Text;
             majCli.Cli_Prenom = textBoxPrenom.Text;
-            majCli.Cli_DateNaissance = textBoxDateNaissance.Text;
+            //majCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 
             majCli.Cli_Role = "3";
             majCli.Uti_Adresse = textBoxAdresse2.Text;

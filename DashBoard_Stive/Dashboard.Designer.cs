@@ -128,8 +128,6 @@ namespace DashBoard_Stive
             this.textBoxPrenom = new System.Windows.Forms.TextBox();
             this.labelPrenom = new System.Windows.Forms.Label();
             this.checkBoxPro = new System.Windows.Forms.CheckBox();
-            this.textBoxDateNaissance = new System.Windows.Forms.TextBox();
-            this.labelDateNaiss = new System.Windows.Forms.Label();
             this.textBoxMail = new System.Windows.Forms.TextBox();
             this.labelMail = new System.Windows.Forms.Label();
             this.textBoxTel = new System.Windows.Forms.TextBox();
@@ -152,12 +150,6 @@ namespace DashBoard_Stive
             this.panel16 = new System.Windows.Forms.Panel();
             this.buttonAjouterClient = new System.Windows.Forms.Button();
             this.Dv_ListClient = new System.Windows.Forms.DataGridView();
-            this.Cli_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_DateNaissance = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cli_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.textBoxNom = new System.Windows.Forms.TextBox();
             this.labelNom = new System.Windows.Forms.Label();
@@ -306,6 +298,11 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_Prenom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Cli_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -1355,8 +1352,6 @@ namespace DashBoard_Stive
             this.panel15.Controls.Add(this.textBoxPrenom);
             this.panel15.Controls.Add(this.labelPrenom);
             this.panel15.Controls.Add(this.checkBoxPro);
-            this.panel15.Controls.Add(this.textBoxDateNaissance);
-            this.panel15.Controls.Add(this.labelDateNaiss);
             this.panel15.Controls.Add(this.textBoxMail);
             this.panel15.Controls.Add(this.labelMail);
             this.panel15.Controls.Add(this.textBoxTel);
@@ -1474,24 +1469,6 @@ namespace DashBoard_Stive
             this.checkBoxPro.Text = "Professionnel";
             this.checkBoxPro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             this.checkBoxPro.UseVisualStyleBackColor = true;
-            // 
-            // textBoxDateNaissance
-            // 
-            this.textBoxDateNaissance.Location = new System.Drawing.Point(387, 221);
-            this.textBoxDateNaissance.Name = "textBoxDateNaissance";
-            this.textBoxDateNaissance.Size = new System.Drawing.Size(100, 20);
-            this.textBoxDateNaissance.TabIndex = 26;
-            // 
-            // labelDateNaiss
-            // 
-            this.labelDateNaiss.AutoSize = true;
-            this.labelDateNaiss.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateNaiss.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelDateNaiss.Location = new System.Drawing.Point(381, 200);
-            this.labelDateNaiss.Name = "labelDateNaiss";
-            this.labelDateNaiss.Size = new System.Drawing.Size(149, 19);
-            this.labelDateNaiss.TabIndex = 25;
-            this.labelDateNaiss.Text = "Date de naissance";
             // 
             // textBoxMail
             // 
@@ -1711,7 +1688,6 @@ namespace DashBoard_Stive
             this.Dv_ListClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Cli_Nom,
             this.Cli_Prenom,
-            this.Cli_DateNaissance,
             this.Cli_DateCreation,
             this.Uti_Cp2,
             this.Uti_Ville2});
@@ -1724,48 +1700,6 @@ namespace DashBoard_Stive
             this.Dv_ListClient.Size = new System.Drawing.Size(598, 680);
             this.Dv_ListClient.TabIndex = 6;
             this.Dv_ListClient.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_ListClient_CellMouseClick);
-            // 
-            // Cli_Nom
-            // 
-            this.Cli_Nom.DataPropertyName = "Cli_Nom";
-            this.Cli_Nom.HeaderText = "Cli_Nom";
-            this.Cli_Nom.Name = "Cli_Nom";
-            this.Cli_Nom.ReadOnly = true;
-            // 
-            // Cli_Prenom
-            // 
-            this.Cli_Prenom.DataPropertyName = "Cli_Prenom";
-            this.Cli_Prenom.HeaderText = "Cli_Prenom";
-            this.Cli_Prenom.Name = "Cli_Prenom";
-            this.Cli_Prenom.ReadOnly = true;
-            // 
-            // Cli_DateNaissance
-            // 
-            this.Cli_DateNaissance.DataPropertyName = "Cli_DateNaissance";
-            this.Cli_DateNaissance.HeaderText = "Cli_DateNaissance";
-            this.Cli_DateNaissance.Name = "Cli_DateNaissance";
-            this.Cli_DateNaissance.ReadOnly = true;
-            // 
-            // Cli_DateCreation
-            // 
-            this.Cli_DateCreation.DataPropertyName = "Cli_DateCreation";
-            this.Cli_DateCreation.HeaderText = "Cli_DateCreation";
-            this.Cli_DateCreation.Name = "Cli_DateCreation";
-            this.Cli_DateCreation.ReadOnly = true;
-            // 
-            // Uti_Cp2
-            // 
-            this.Uti_Cp2.DataPropertyName = "Uti_Cp";
-            this.Uti_Cp2.HeaderText = "Uti_Cp";
-            this.Uti_Cp2.Name = "Uti_Cp2";
-            this.Uti_Cp2.ReadOnly = true;
-            // 
-            // Uti_Ville2
-            // 
-            this.Uti_Ville2.DataPropertyName = "Uti_Ville";
-            this.Uti_Ville2.HeaderText = "Uti_Ville";
-            this.Uti_Ville2.Name = "Uti_Ville2";
-            this.Uti_Ville2.ReadOnly = true;
             // 
             // clientBindingSource
             // 
@@ -3196,6 +3130,41 @@ namespace DashBoard_Stive
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
             // 
+            // Cli_Nom
+            // 
+            this.Cli_Nom.DataPropertyName = "Cli_Nom";
+            this.Cli_Nom.HeaderText = "Cli_Nom";
+            this.Cli_Nom.Name = "Cli_Nom";
+            this.Cli_Nom.ReadOnly = true;
+            // 
+            // Cli_Prenom
+            // 
+            this.Cli_Prenom.DataPropertyName = "Cli_Prenom";
+            this.Cli_Prenom.HeaderText = "Cli_Prenom";
+            this.Cli_Prenom.Name = "Cli_Prenom";
+            this.Cli_Prenom.ReadOnly = true;
+            // 
+            // Cli_DateCreation
+            // 
+            this.Cli_DateCreation.DataPropertyName = "Cli_DateCreation";
+            this.Cli_DateCreation.HeaderText = "Cli_DateCreation";
+            this.Cli_DateCreation.Name = "Cli_DateCreation";
+            this.Cli_DateCreation.ReadOnly = true;
+            // 
+            // Uti_Cp2
+            // 
+            this.Uti_Cp2.DataPropertyName = "Uti_Cp";
+            this.Uti_Cp2.HeaderText = "Uti_Cp";
+            this.Uti_Cp2.Name = "Uti_Cp2";
+            this.Uti_Cp2.ReadOnly = true;
+            // 
+            // Uti_Ville2
+            // 
+            this.Uti_Ville2.DataPropertyName = "Uti_Ville";
+            this.Uti_Ville2.HeaderText = "Uti_Ville";
+            this.Uti_Ville2.Name = "Uti_Ville2";
+            this.Uti_Ville2.ReadOnly = true;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -3304,8 +3273,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView dataGridViewListCommandeClient;
         private System.Windows.Forms.Label labelNom;
         private System.Windows.Forms.CheckBox checkBoxPro;
-        private System.Windows.Forms.TextBox textBoxDateNaissance;
-        private System.Windows.Forms.Label labelDateNaiss;
         private System.Windows.Forms.TextBox textBoxMail;
         private System.Windows.Forms.Label labelMail;
         private System.Windows.Forms.TextBox textBoxTel;
@@ -3472,12 +3439,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox textBoxRef;
         private System.Windows.Forms.TextBox textBoxMillesime;
         private System.Windows.Forms.TextBox textBoxVolume;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Prenom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateNaissance;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateCreation;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
         private System.Windows.Forms.BindingSource produitBindingSource;
         private System.Windows.Forms.Button buttonCreerProduit;
         private System.Windows.Forms.ComboBox comboBoxProposePar;
@@ -3560,5 +3521,10 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn imgNomDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox textBoxNom2;
         private System.Windows.Forms.Label label21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_Prenom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateCreation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
     }
 }
