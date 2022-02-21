@@ -145,7 +145,7 @@ namespace DashBoard_Stive
                  )
         {
             labelUti_Id2.Text = Uti_Id2;
-            textBoxNom.Text = Nom;
+            textBoxNom2.Text = Nom;
             textBoxPrenom.Text = Prenom;
             labelInscription.Text = "Inscrit le " + DateInscription;
             labelDateNaiss.Text = "né le " + DateNaissance;
@@ -782,7 +782,7 @@ namespace DashBoard_Stive
         private async void buttonCreerClient_Click(object sender, EventArgs e)
         {
             Client newCli = new Client();
-            newCli.Cli_Nom = textBoxNom.Text;
+            newCli.Cli_Nom = textBoxNom2.Text;
             newCli.Cli_Prenom = textBoxPrenom.Text;
             newCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 
@@ -817,7 +817,7 @@ namespace DashBoard_Stive
         private async void buttonMajClient_Click(object sender, EventArgs e)
         {
             Client majCli = new Client();
-            majCli.Cli_Nom = textBoxNom.Text;
+            majCli.Cli_Nom = textBoxNom2.Text;
             majCli.Cli_Prenom = textBoxPrenom.Text;
             majCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 

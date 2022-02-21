@@ -119,6 +119,8 @@ namespace DashBoard_Stive
             this.button18 = new System.Windows.Forms.Button();
             this.panelClients = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.textBoxNom2 = new System.Windows.Forms.TextBox();
+            this.label21 = new System.Windows.Forms.Label();
             this.textBoxMdp2 = new System.Windows.Forms.TextBox();
             this.labeMdp2 = new System.Windows.Forms.Label();
             this.buttonCreerClient = new System.Windows.Forms.Button();
@@ -1344,6 +1346,8 @@ namespace DashBoard_Stive
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.textBoxNom2);
+            this.panel15.Controls.Add(this.label21);
             this.panel15.Controls.Add(this.textBoxMdp2);
             this.panel15.Controls.Add(this.labeMdp2);
             this.panel15.Controls.Add(this.buttonCreerClient);
@@ -1376,6 +1380,24 @@ namespace DashBoard_Stive
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(601, 740);
             this.panel15.TabIndex = 4;
+            // 
+            // textBoxNom2
+            // 
+            this.textBoxNom2.Location = new System.Drawing.Point(100, 11);
+            this.textBoxNom2.Name = "textBoxNom2";
+            this.textBoxNom2.Size = new System.Drawing.Size(136, 20);
+            this.textBoxNom2.TabIndex = 43;
+            // 
+            // label21
+            // 
+            this.label21.AutoSize = true;
+            this.label21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label21.Location = new System.Drawing.Point(8, 11);
+            this.label21.Name = "label21";
+            this.label21.Size = new System.Drawing.Size(45, 19);
+            this.label21.TabIndex = 42;
+            this.label21.Text = "Nom";
             // 
             // textBoxMdp2
             // 
@@ -1415,7 +1437,7 @@ namespace DashBoard_Stive
             this.labelUti_Id2.AutoSize = true;
             this.labelUti_Id2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelUti_Id2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelUti_Id2.Location = new System.Drawing.Point(296, 8);
+            this.labelUti_Id2.Location = new System.Drawing.Point(295, 108);
             this.labelUti_Id2.Name = "labelUti_Id2";
             this.labelUti_Id2.Size = new System.Drawing.Size(53, 19);
             this.labelUti_Id2.TabIndex = 31;
@@ -1455,7 +1477,7 @@ namespace DashBoard_Stive
             // 
             // textBoxDateNaissance
             // 
-            this.textBoxDateNaissance.Location = new System.Drawing.Point(485, 221);
+            this.textBoxDateNaissance.Location = new System.Drawing.Point(387, 221);
             this.textBoxDateNaissance.Name = "textBoxDateNaissance";
             this.textBoxDateNaissance.Size = new System.Drawing.Size(100, 20);
             this.textBoxDateNaissance.TabIndex = 26;
@@ -1602,7 +1624,7 @@ namespace DashBoard_Stive
             this.labelInscription.AutoSize = true;
             this.labelInscription.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelInscription.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelInscription.Location = new System.Drawing.Point(436, 7);
+            this.labelInscription.Location = new System.Drawing.Point(379, 7);
             this.labelInscription.Name = "labelInscription";
             this.labelInscription.Size = new System.Drawing.Size(83, 19);
             this.labelInscription.TabIndex = 10;
@@ -3181,12 +3203,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
-            this.Controls.Add(this.panelClients);
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
@@ -3536,5 +3558,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn imgIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imgAdresseDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn imgNomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.TextBox textBoxNom2;
+        private System.Windows.Forms.Label label21;
     }
 }
