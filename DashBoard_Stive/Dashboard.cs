@@ -931,7 +931,7 @@ namespace DashBoard_Stive
             StamperProduit(
                 NomProduit: prodListe[e.RowIndex].Pro_Nom,
                 Domaine: prodListe[e.RowIndex].Fou_NomDomaine,
-                Pro_Ref: prodListe[e.RowIndex].Pro_Ref,
+                Pro_Ref: prodListe[e.RowIndex].Pro_Ref ,
                 Pro_Cepage: prodListe[e.RowIndex].Pro_Cepage,
                 Pro_Annee: prodListe[e.RowIndex].Pro_Annee.ToString(),
                 Pro_Prix: prodListe[e.RowIndex].Pro_Prix.ToString(),

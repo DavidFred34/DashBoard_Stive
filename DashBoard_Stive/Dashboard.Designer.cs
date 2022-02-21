@@ -63,6 +63,8 @@ namespace DashBoard_Stive
             this.label_Pro_Id = new System.Windows.Forms.Label();
             this.labelPro_Typ_Id = new System.Windows.Forms.Label();
             this.textBoxNbPiece = new System.Windows.Forms.TextBox();
+            this.listBox1 = new System.Windows.Forms.ListBox();
+            this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.comboBoxProposePar = new System.Windows.Forms.ComboBox();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.buttonCreerProduit = new System.Windows.Forms.Button();
@@ -769,6 +771,7 @@ namespace DashBoard_Stive
             this.label_Pro_Id.Size = new System.Drawing.Size(59, 19);
             this.label_Pro_Id.TabIndex = 54;
             this.label_Pro_Id.Text = "Pro_Id";
+            this.label_Pro_Id.Visible = false;
             // 
             // labelPro_Typ_Id
             // 
@@ -780,6 +783,7 @@ namespace DashBoard_Stive
             this.labelPro_Typ_Id.Size = new System.Drawing.Size(96, 19);
             this.labelPro_Typ_Id.TabIndex = 53;
             this.labelPro_Typ_Id.Text = "Pro_Typ_Id";
+            this.labelPro_Typ_Id.Visible = false;
             // 
             // textBoxNbPiece
             // 
@@ -918,6 +922,7 @@ namespace DashBoard_Stive
             this.label_pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
             this.label_pro_Fou_Id.TabIndex = 36;
             this.label_pro_Fou_Id.Text = "pro_Fou_Id";
+            this.label_pro_Fou_Id.Visible = false;
             // 
             // label16
             // 
