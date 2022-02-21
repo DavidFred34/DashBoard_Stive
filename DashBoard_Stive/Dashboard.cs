@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using DashBoard_Stive;
+using System.Text.RegularExpressions;
 
 namespace DashBoard_Stive
 {
@@ -1151,6 +1152,7 @@ namespace DashBoard_Stive
             Inventaire.ShowDialog();
         }
 
+        ////////////////////////gestion de la sasie numeric des textBox
         private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -1166,7 +1168,6 @@ namespace DashBoard_Stive
             }
         }
 
-        //gestion de la sasie numeric des textBox
         private void textBoxPrix_KeyPress(object sender, KeyPressEventArgs e)
         {
 
@@ -1287,6 +1288,52 @@ namespace DashBoard_Stive
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
             {
                 e.Handled = true;
+            }
+        }
+
+        ///////////////////////Gestion format mail
+        private void textBoxMailContact_Leave(object sender, EventArgs e)
+        {
+            Regex mRegxExpression;
+            if (textBoxMailContact.Text.Trim() != string.Empty)
+            {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(textBoxMailContact.Text.Trim()))
+                {
+                    MessageBox.Show("Format mail incorrect", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxMailContact.Focus();
+                }
+            }
+        }
+
+        private void textBoxMailResp_Leave(object sender, EventArgs e)
+        {
+            Regex mRegxExpression;
+            if (textBoxMailResp.Text.Trim() != string.Empty)
+            {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(textBoxMailResp.Text.Trim()))
+                {
+                    MessageBox.Show("Format mail incorrect", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxMailResp.Focus();
+                }
+            }
+        }
+
+        private void textBoxMail_Leave(object sender, EventArgs e)
+        {
+            Regex mRegxExpression;
+            if (textBoxMail.Text.Trim() != string.Empty)
+            {
+                mRegxExpression = new Regex(@"^([a-zA-Z0-9_\-])([a-zA-Z0-9_\-\.]*)@(\[((25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\.){3}|((([a-zA-Z0-9\-]+)\.)+))([a-zA-Z]{2,}|(25[0-5]|2[0-4][0-9]|1[0-9][0-9]|[1-9][0-9]|[0-9])\])$");
+
+                if (!mRegxExpression.IsMatch(textBoxMail.Text.Trim()))
+                {
+                    MessageBox.Show("Format mail incorrect", "MojoCRM", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    textBoxMail.Focus();
+                }
             }
         }
     }

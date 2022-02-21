@@ -803,6 +803,7 @@ namespace DashBoard_Stive
             // textBoxPrixLitre
             // 
             this.textBoxPrixLitre.Location = new System.Drawing.Point(458, 144);
+            this.textBoxPrixLitre.MaxLength = 5;
             this.textBoxPrixLitre.Name = "textBoxPrixLitre";
             this.textBoxPrixLitre.Size = new System.Drawing.Size(123, 20);
             this.textBoxPrixLitre.TabIndex = 48;
@@ -811,6 +812,7 @@ namespace DashBoard_Stive
             // textBoxCepage
             // 
             this.textBoxCepage.Location = new System.Drawing.Point(458, 175);
+            this.textBoxCepage.MaxLength = 100;
             this.textBoxCepage.Name = "textBoxCepage";
             this.textBoxCepage.Size = new System.Drawing.Size(123, 20);
             this.textBoxCepage.TabIndex = 47;
@@ -818,6 +820,7 @@ namespace DashBoard_Stive
             // textBoxRef
             // 
             this.textBoxRef.Location = new System.Drawing.Point(60, 161);
+            this.textBoxRef.MaxLength = 10;
             this.textBoxRef.Name = "textBoxRef";
             this.textBoxRef.Size = new System.Drawing.Size(123, 20);
             this.textBoxRef.TabIndex = 46;
@@ -825,6 +828,7 @@ namespace DashBoard_Stive
             // textBoxMillesime
             // 
             this.textBoxMillesime.Location = new System.Drawing.Point(458, 237);
+            this.textBoxMillesime.MaxLength = 4;
             this.textBoxMillesime.Name = "textBoxMillesime";
             this.textBoxMillesime.Size = new System.Drawing.Size(123, 20);
             this.textBoxMillesime.TabIndex = 45;
@@ -833,6 +837,7 @@ namespace DashBoard_Stive
             // textBoxVolume
             // 
             this.textBoxVolume.Location = new System.Drawing.Point(458, 268);
+            this.textBoxVolume.MaxLength = 5;
             this.textBoxVolume.Name = "textBoxVolume";
             this.textBoxVolume.Size = new System.Drawing.Size(123, 20);
             this.textBoxVolume.TabIndex = 44;
@@ -852,6 +857,7 @@ namespace DashBoard_Stive
             // textBoxEnStock
             // 
             this.textBoxEnStock.Location = new System.Drawing.Point(124, 221);
+            this.textBoxEnStock.MaxLength = 5;
             this.textBoxEnStock.Name = "textBoxEnStock";
             this.textBoxEnStock.Size = new System.Drawing.Size(100, 20);
             this.textBoxEnStock.TabIndex = 42;
@@ -1000,6 +1006,7 @@ namespace DashBoard_Stive
             // textBoxNomProduit
             // 
             this.textBoxNomProduit.Location = new System.Drawing.Point(343, 7);
+            this.textBoxNomProduit.MaxLength = 100;
             this.textBoxNomProduit.Name = "textBoxNomProduit";
             this.textBoxNomProduit.Size = new System.Drawing.Size(245, 20);
             this.textBoxNomProduit.TabIndex = 27;
@@ -1016,6 +1023,7 @@ namespace DashBoard_Stive
             // textBoxSeuilAlerte
             // 
             this.textBoxSeuilAlerte.Location = new System.Drawing.Point(125, 257);
+            this.textBoxSeuilAlerte.MaxLength = 5;
             this.textBoxSeuilAlerte.Name = "textBoxSeuilAlerte";
             this.textBoxSeuilAlerte.Size = new System.Drawing.Size(100, 20);
             this.textBoxSeuilAlerte.TabIndex = 26;
@@ -1046,6 +1054,7 @@ namespace DashBoard_Stive
             // textBoxPrix
             // 
             this.textBoxPrix.Location = new System.Drawing.Point(458, 113);
+            this.textBoxPrix.MaxLength = 5;
             this.textBoxPrix.Name = "textBoxPrix";
             this.textBoxPrix.Size = new System.Drawing.Size(123, 20);
             this.textBoxPrix.TabIndex = 22;
@@ -1385,6 +1394,7 @@ namespace DashBoard_Stive
             // textBoxNom2
             // 
             this.textBoxNom2.Location = new System.Drawing.Point(100, 11);
+            this.textBoxNom2.MaxLength = 50;
             this.textBoxNom2.Name = "textBoxNom2";
             this.textBoxNom2.Size = new System.Drawing.Size(136, 20);
             this.textBoxNom2.TabIndex = 43;
@@ -1403,6 +1413,7 @@ namespace DashBoard_Stive
             // textBoxMdp2
             // 
             this.textBoxMdp2.Location = new System.Drawing.Point(486, 166);
+            this.textBoxMdp2.MaxLength = 100;
             this.textBoxMdp2.Name = "textBoxMdp2";
             this.textBoxMdp2.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp2.TabIndex = 41;
@@ -1448,6 +1459,7 @@ namespace DashBoard_Stive
             // textBoxPrenom
             // 
             this.textBoxPrenom.Location = new System.Drawing.Point(101, 39);
+            this.textBoxPrenom.MaxLength = 50;
             this.textBoxPrenom.Name = "textBoxPrenom";
             this.textBoxPrenom.Size = new System.Drawing.Size(136, 20);
             this.textBoxPrenom.TabIndex = 30;
@@ -1482,6 +1494,7 @@ namespace DashBoard_Stive
             this.textBoxMail.Name = "textBoxMail";
             this.textBoxMail.Size = new System.Drawing.Size(100, 20);
             this.textBoxMail.TabIndex = 24;
+            this.textBoxMail.Leave += new System.EventHandler(this.textBoxMail_Leave);
             // 
             // labelMail
             // 
@@ -1497,6 +1510,7 @@ namespace DashBoard_Stive
             // textBoxTel
             // 
             this.textBoxTel.Location = new System.Drawing.Point(485, 93);
+            this.textBoxTel.MaxLength = 10;
             this.textBoxTel.Name = "textBoxTel";
             this.textBoxTel.Size = new System.Drawing.Size(100, 20);
             this.textBoxTel.TabIndex = 22;
@@ -1516,6 +1530,7 @@ namespace DashBoard_Stive
             // textBoxCity
             // 
             this.textBoxCity.Location = new System.Drawing.Point(110, 190);
+            this.textBoxCity.MaxLength = 50;
             this.textBoxCity.Name = "textBoxCity";
             this.textBoxCity.Size = new System.Drawing.Size(127, 20);
             this.textBoxCity.TabIndex = 20;
@@ -1534,6 +1549,7 @@ namespace DashBoard_Stive
             // textBoxCountry
             // 
             this.textBoxCountry.Location = new System.Drawing.Point(110, 222);
+            this.textBoxCountry.MaxLength = 50;
             this.textBoxCountry.Name = "textBoxCountry";
             this.textBoxCountry.Size = new System.Drawing.Size(127, 20);
             this.textBoxCountry.TabIndex = 18;
@@ -1552,6 +1568,7 @@ namespace DashBoard_Stive
             // textBoxCP
             // 
             this.textBoxCP.Location = new System.Drawing.Point(110, 159);
+            this.textBoxCP.MaxLength = 5;
             this.textBoxCP.Name = "textBoxCP";
             this.textBoxCP.Size = new System.Drawing.Size(127, 20);
             this.textBoxCP.TabIndex = 16;
@@ -1571,6 +1588,7 @@ namespace DashBoard_Stive
             // textBoxCompAdresse2
             // 
             this.textBoxCompAdresse2.Location = new System.Drawing.Point(110, 127);
+            this.textBoxCompAdresse2.MaxLength = 100;
             this.textBoxCompAdresse2.Name = "textBoxCompAdresse2";
             this.textBoxCompAdresse2.Size = new System.Drawing.Size(127, 20);
             this.textBoxCompAdresse2.TabIndex = 14;
@@ -1589,6 +1607,7 @@ namespace DashBoard_Stive
             // textBoxAdresse2
             // 
             this.textBoxAdresse2.Location = new System.Drawing.Point(110, 91);
+            this.textBoxAdresse2.MaxLength = 100;
             this.textBoxAdresse2.Name = "textBoxAdresse2";
             this.textBoxAdresse2.Size = new System.Drawing.Size(127, 20);
             this.textBoxAdresse2.TabIndex = 12;
@@ -2437,6 +2456,7 @@ namespace DashBoard_Stive
             // textBoxNomDomaine
             // 
             this.textBoxNomDomaine.Location = new System.Drawing.Point(129, 7);
+            this.textBoxNomDomaine.MaxLength = 100;
             this.textBoxNomDomaine.Name = "textBoxNomDomaine";
             this.textBoxNomDomaine.Size = new System.Drawing.Size(233, 20);
             this.textBoxNomDomaine.TabIndex = 37;
@@ -2444,6 +2464,7 @@ namespace DashBoard_Stive
             // textBoxNomResp
             // 
             this.textBoxNomResp.Location = new System.Drawing.Point(497, 125);
+            this.textBoxNomResp.MaxLength = 50;
             this.textBoxNomResp.Name = "textBoxNomResp";
             this.textBoxNomResp.Size = new System.Drawing.Size(100, 20);
             this.textBoxNomResp.TabIndex = 36;
@@ -2451,6 +2472,7 @@ namespace DashBoard_Stive
             // textBoxFonction
             // 
             this.textBoxFonction.Location = new System.Drawing.Point(496, 236);
+            this.textBoxFonction.MaxLength = 50;
             this.textBoxFonction.Name = "textBoxFonction";
             this.textBoxFonction.Size = new System.Drawing.Size(100, 20);
             this.textBoxFonction.TabIndex = 35;
@@ -2472,6 +2494,7 @@ namespace DashBoard_Stive
             this.textBoxMailResp.Name = "textBoxMailResp";
             this.textBoxMailResp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMailResp.TabIndex = 33;
+            this.textBoxMailResp.Leave += new System.EventHandler(this.textBoxMailResp_Leave);
             // 
             // label43
             // 
@@ -2487,6 +2510,7 @@ namespace DashBoard_Stive
             // textBoxTelResp
             // 
             this.textBoxTelResp.Location = new System.Drawing.Point(496, 162);
+            this.textBoxTelResp.MaxLength = 10;
             this.textBoxTelResp.Name = "textBoxTelResp";
             this.textBoxTelResp.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelResp.TabIndex = 31;
@@ -2529,6 +2553,7 @@ namespace DashBoard_Stive
             // 
             this.textBoxMdp.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxMdp.Location = new System.Drawing.Point(496, 88);
+            this.textBoxMdp.MaxLength = 100;
             this.textBoxMdp.Name = "textBoxMdp";
             this.textBoxMdp.Size = new System.Drawing.Size(100, 20);
             this.textBoxMdp.TabIndex = 26;
@@ -2550,6 +2575,7 @@ namespace DashBoard_Stive
             this.textBoxMailContact.Name = "textBoxMailContact";
             this.textBoxMailContact.Size = new System.Drawing.Size(100, 20);
             this.textBoxMailContact.TabIndex = 24;
+            this.textBoxMailContact.Leave += new System.EventHandler(this.textBoxMailContact_Leave);
             // 
             // label12
             // 
@@ -2565,6 +2591,7 @@ namespace DashBoard_Stive
             // textBoxTelContact
             // 
             this.textBoxTelContact.Location = new System.Drawing.Point(496, 14);
+            this.textBoxTelContact.MaxLength = 10;
             this.textBoxTelContact.Name = "textBoxTelContact";
             this.textBoxTelContact.Size = new System.Drawing.Size(100, 20);
             this.textBoxTelContact.TabIndex = 22;
@@ -2584,6 +2611,7 @@ namespace DashBoard_Stive
             // textBoxVille
             // 
             this.textBoxVille.Location = new System.Drawing.Point(110, 190);
+            this.textBoxVille.MaxLength = 50;
             this.textBoxVille.Name = "textBoxVille";
             this.textBoxVille.Size = new System.Drawing.Size(100, 20);
             this.textBoxVille.TabIndex = 20;
@@ -2602,6 +2630,7 @@ namespace DashBoard_Stive
             // textBoxPays
             // 
             this.textBoxPays.Location = new System.Drawing.Point(110, 222);
+            this.textBoxPays.MaxLength = 50;
             this.textBoxPays.Name = "textBoxPays";
             this.textBoxPays.Size = new System.Drawing.Size(100, 20);
             this.textBoxPays.TabIndex = 18;
@@ -2620,6 +2649,7 @@ namespace DashBoard_Stive
             // textBoxCodePostal
             // 
             this.textBoxCodePostal.Location = new System.Drawing.Point(110, 159);
+            this.textBoxCodePostal.MaxLength = 5;
             this.textBoxCodePostal.Name = "textBoxCodePostal";
             this.textBoxCodePostal.Size = new System.Drawing.Size(100, 20);
             this.textBoxCodePostal.TabIndex = 16;
@@ -2639,6 +2669,7 @@ namespace DashBoard_Stive
             // textBoxCompAdresse
             // 
             this.textBoxCompAdresse.Location = new System.Drawing.Point(110, 127);
+            this.textBoxCompAdresse.MaxLength = 50;
             this.textBoxCompAdresse.Name = "textBoxCompAdresse";
             this.textBoxCompAdresse.Size = new System.Drawing.Size(100, 20);
             this.textBoxCompAdresse.TabIndex = 14;
@@ -2657,6 +2688,7 @@ namespace DashBoard_Stive
             // textBoxAdresse
             // 
             this.textBoxAdresse.Location = new System.Drawing.Point(110, 91);
+            this.textBoxAdresse.MaxLength = 200;
             this.textBoxAdresse.Name = "textBoxAdresse";
             this.textBoxAdresse.Size = new System.Drawing.Size(100, 20);
             this.textBoxAdresse.TabIndex = 12;
