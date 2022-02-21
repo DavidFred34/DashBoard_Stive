@@ -406,34 +406,49 @@ namespace DashBoard_Stive
                 );
 
             //chargement liste bdc_du fournisseur
-            var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-            var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
-            var response = await
-                httpClient.GetAsync(url);// label_Fou_Id.Text);
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
+                var response = await
+                    httpClient.GetAsync(url);// label_Fou_Id.Text);
+                response.EnsureSuccessStatusCode();
 
-            var contentCommande = await response.Content.ReadAsStringAsync();
+                var contentCommande = await response.Content.ReadAsStringAsync();
 
-            bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
+                bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
 
-            // MessageBox.Show(debug.ToString());  //controle du json
-            // MessageBox.Show(contentCommande);
+                // MessageBox.Show(debug.ToString());  //controle du json
+                // MessageBox.Show(contentCommande);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ce forunisseur n'a pas de bon de commande");
+                bdcListe = null;
+            }
             Dv_ListeBdc.DataSource = bdcListe;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
 
             //chargement liste produit_du fournisseur  
-            var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
-            var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
-            var response2 = await
-                httpClient2.GetAsync(url2);// label_Fou_Id.Text);
-            response2.EnsureSuccessStatusCode();
-
-            var contentProduit2 = await response2.Content.ReadAsStringAsync();
+            try
+            {
+                var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
+                var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
+                var response2 = await
+                    httpClient2.GetAsync(url2);// label_Fou_Id.Text);
+                response2.EnsureSuccessStatusCode();
+                var contentProduit2 = await response2.Content.ReadAsStringAsync();
+                
+                prodListe2 = JsonConvert.DeserializeObject<List<Produit>>(contentProduit2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Ce forunisseur n'a pas de produit");
+            }
 
             // MessageBox.Show(contentProduit2.ToString());
             // StamperFournisseur(Adresse: contentProduit2.ToString()); //permet de recup le json pour le copier
-            prodListe2 = JsonConvert.DeserializeObject<List<Produit>>(contentProduit2);
 
             //controle du json
             // MessageBox.Show(contentProduit2);
@@ -1127,5 +1142,19 @@ namespace DashBoard_Stive
             Inventaire.ShowDialog();
         }
 
+        private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
+                (e.KeyChar != '.'))
+            {
+                e.Handled = true;
+            }
+
+            // only allow one decimal point
+            if ((e.KeyChar == '.') && ((sender as TextBox).Text.IndexOf('.') > -1))
+            {
+                e.Handled = true;
+            }
+        }
     }
 }

@@ -44,16 +44,35 @@ namespace DashBoard_Stive
        
         }
         List<Produit> prodListe3;
-        private void button_SaveInventaire_Click(object sender, EventArgs e)
+        public async void button_SaveInventaire_Click(object sender, EventArgs e)
         {
+            foreach (DataGridViewRow dr in Dv_Inventaire.Rows) {
            ContenuInventaire newInv = new ContenuInventaire();
-            foreach (var contInv in Dv_Inventaire.Rows) {
-                newInv.Coi_ProId = 
-                newInv.Coi_ProLibelle = prodListe3.Pro_Id;
-                newInv.Coi_ProQuantite = prodListe3.Pro_Id;
-                newInv.Coi_Inventaire = prodListe3.Pro_Id;
-            Nom: cliListe[e.RowIndex].Cli_Nom,
-                    }
+                newInv.Coi_ProId = Convert.ToInt32(dr.Cells["Coi_ProId"].Value);
+                newInv.Coi_ProLibelle = dr.Cells["Pro_Nom"].Value.ToString();
+                newInv.Coi_ProQuantite = Convert.ToInt32(dr.Cells["Pro_Quantite"].Value);
+                newInv.Coi_Inventaire = Convert.ToInt32(dr.Cells["CoI_Inventaire"].Value);
+
+            //envoi pour la creation de l'inventaire
+            var httpClient = new HttpClient();
+            var json = JsonConvert.SerializeObject(newInv);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Inventaire/ajouter.php", data);
+            MessageBox.Show(json.ToString());
+           
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Inventaire créé");
+            }
+            else
+                MessageBox.Show("Erreur: inventaire non créé" + "\r\n\n" + response);
+                }
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            
+
+
+
+
             this.Close();
         }
 
