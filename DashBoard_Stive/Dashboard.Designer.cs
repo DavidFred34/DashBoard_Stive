@@ -850,9 +850,9 @@ namespace DashBoard_Stive
             this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
             this.label17.Location = new System.Drawing.Point(344, 145);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(71, 19);
+            this.label17.Size = new System.Drawing.Size(100, 19);
             this.label17.TabIndex = 43;
-            this.label17.Text = "Prix/litre";
+            this.label17.Text = "Prix/L ou kg";
             // 
             // textBoxEnStock
             // 

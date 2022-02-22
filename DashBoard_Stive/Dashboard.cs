@@ -1105,11 +1105,11 @@ namespace DashBoard_Stive
             majPro.Pro_Cepage = textBoxCepage.Text;
             if (textBoxMillesime.Text == "")
             {
-                majPro.Pro_Annee = null;
+                majPro.Pro_Annee = 0;
             }
             else
             {
-                majPro.Pro_Annee = majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+                majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             }
 
             majPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
