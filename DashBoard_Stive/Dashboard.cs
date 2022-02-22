@@ -859,9 +859,9 @@ namespace DashBoard_Stive
             majCli.Uti_Cp = textBoxCP.Text;
             majCli.Uti_Ville = textBoxCity.Text;
             majCli.Uti_Pays = textBoxCountry.Text;
-            majCli.Uti_TelContact = textBoxTelContact.Text;
-            majCli.Uti_Mdp = textBoxMdp.Text;
-            majCli.Uti_MailContact = textBoxMailContact.Text;
+            majCli.Uti_TelContact = textBoxTel.Text;
+            majCli.Uti_Mdp = textBoxMdp2.Text;
+            majCli.Uti_MailContact = textBoxMail.Text;
             majCli.Uti_Id = int.Parse(labelUti_Id2.Text);
 
             var httpClient = new HttpClient();
@@ -1026,7 +1026,7 @@ namespace DashBoard_Stive
             newPro.Pro_Ref = textBoxRef.Text;
             newPro.Pro_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
             //newPro.Pro_Fou_Id = Convert.ToInt32((Dv_TypeProduit.SelectedRow.Select.Typ_Id));
-            MessageBox.Show(comboBoxProposePar.SelectedValue.ToString());
+           // MessageBox.Show(comboBoxProposePar.SelectedValue.ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
             newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
             newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
@@ -1051,7 +1051,7 @@ namespace DashBoard_Stive
             newPro.Fou_NomDomaine = comboBoxProposePar.Text;
             //newPro.Img_Adresse = textBoxProposePar.Text;
             //newPro.Img_Nom = textBoxProposePar.Text;
-            MessageBox.Show(comboBoxTypeProduit.SelectedValue.ToString());
+            //MessageBox.Show(comboBoxTypeProduit.SelectedValue.ToString());
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(newPro);
@@ -1184,7 +1184,9 @@ namespace DashBoard_Stive
             Inventaire.ShowDialog();
         }
 
-        ////////////////////////gestion de la sasie numeric des textBox
+        
+        
+/////////////////////////////////////////gestion de la sasie numeric des textBox
         private void textBoxTelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -1323,7 +1325,9 @@ namespace DashBoard_Stive
             }
         }
 
-        ///////////////////////Gestion format mail
+        
+        
+ ////////////////////////////////////Gestion format mail
         private void textBoxMailContact_Leave(object sender, EventArgs e)
         {
             Regex mRegxExpression;
