@@ -29,17 +29,24 @@ namespace DashBoard_Stive
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
 
-        //Chargement liste produit
-        var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-        var response = await
-            httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
-        response.EnsureSuccessStatusCode();
+            //Chargement liste produit
+            try
+            {
+                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
+                response.EnsureSuccessStatusCode();
 
-        var content = await response.Content.ReadAsStringAsync();
-        prodListe3 = JsonConvert.DeserializeObject<List<Produit>>(content);
+                var content = await response.Content.ReadAsStringAsync();
+                prodListe3 = JsonConvert.DeserializeObject<List<Produit>>(content);
 
-         MessageBox.Show(content.ToString());  //controle du json
-
+                //MessageBox.Show(content.ToString());  //controle du json
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                prodListe3 = null;
+            }
             Dv_Inventaire.DataSource = prodListe3;
        
         }
@@ -68,9 +75,10 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: inventaire non créé" + "\r\n\n" + response);
                 }
             //recharge la liste en simulant le click sur le bouton fournisseur*/
-            
 
 
+            MessageBox.Show("L'enregistrement n'a pas pu se faire, contactez l'assistance");
+          
 
 
             this.Close();
@@ -78,6 +86,7 @@ namespace DashBoard_Stive
 
         private void buttonSaveAndMajInventaire_Click(object sender, EventArgs e)
         {
+            MessageBox.Show("La mise à jour du stock n'a pas pu se faire, contactez l'assistance");
             this.Close();
         }
     }

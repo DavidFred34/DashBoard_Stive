@@ -1108,6 +1108,7 @@ namespace DashBoard_Stive
             this.buttonSuppProduit.TabIndex = 8;
             this.buttonSuppProduit.Text = "Supprimer produit";
             this.buttonSuppProduit.UseVisualStyleBackColor = true;
+            this.buttonSuppProduit.Click += new System.EventHandler(this.buttonSuppProduit_Click);
             // 
             // label44
             // 
@@ -1141,6 +1142,7 @@ namespace DashBoard_Stive
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(150, 20);
             this.textBox1.TabIndex = 55;
+            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
             // 
             // panel_AjouterType
             // 
@@ -1773,6 +1775,7 @@ namespace DashBoard_Stive
             this.textBoxNom.Name = "textBoxNom";
             this.textBoxNom.Size = new System.Drawing.Size(137, 20);
             this.textBoxNom.TabIndex = 29;
+            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // labelNom
             // 
@@ -1827,6 +1830,7 @@ namespace DashBoard_Stive
             this.textBox3.Name = "textBox3";
             this.textBox3.Size = new System.Drawing.Size(100, 20);
             this.textBox3.TabIndex = 35;
+            this.textBox3.TextChanged += new System.EventHandler(this.textBox3_TextChanged);
             // 
             // Dv_CommandeFournisseur
             // 
@@ -2126,6 +2130,7 @@ namespace DashBoard_Stive
             this.textBox2.Name = "textBox2";
             this.textBox2.Size = new System.Drawing.Size(100, 20);
             this.textBox2.TabIndex = 32;
+            this.textBox2.TextChanged += new System.EventHandler(this.textBox2_TextChanged);
             // 
             // label59
             // 

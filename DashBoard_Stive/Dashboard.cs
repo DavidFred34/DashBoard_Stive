@@ -220,34 +220,59 @@ namespace DashBoard_Stive
             buttonAccueil.Tag = 1;
 
             //Chargement liste produit
-            var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-            var response = await
-                httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
-            response.EnsureSuccessStatusCode();
+            try
+            {
+                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
+                response.EnsureSuccessStatusCode();
+                
+                var content = await response.Content.ReadAsStringAsync();
+                
+                prodListe = JsonConvert.DeserializeObject<List<Produit>>(content);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Liste produits non chargée");
+                prodListe = null;
+            }
 
-
-            var content = await response.Content.ReadAsStringAsync();
-            prodListe = JsonConvert.DeserializeObject<List<Produit>>(content);
             //MessageBox.Show(content2);  //controle du json
 
             //Chargement liste TypeProduit
-            var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure
-            var response2 = await
-                httpClient2.GetAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/obtenirTous.php");
-            response2.EnsureSuccessStatusCode();
+            try
+            {
+                var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure
+                var response2 = await
+                    httpClient2.GetAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/obtenirTous.php");
+                response2.EnsureSuccessStatusCode();
 
-            var content2 = await response2.Content.ReadAsStringAsync();
-            typListe = JsonConvert.DeserializeObject<List<TypeProduit>>(content2);
+                var content2 = await response2.Content.ReadAsStringAsync();
+                typListe = JsonConvert.DeserializeObject<List<TypeProduit>>(content2);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Liste des types produits non chargée");
+                typListe = null;
+            }
             //MessageBox.Show(content2);  //controle du json
 
             //chargement liste fournisseur
-            var httpClient3 = new HttpClient();   //connexion à la bdd Stive sur azure
-            var response3 = await
-                httpClient3.GetAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/obtenirTous.php");
-            response3.EnsureSuccessStatusCode();
+            try
+            {
+                var httpClient3 = new HttpClient();   //connexion à la bdd Stive sur azure
+                var response3 = await
+                    httpClient3.GetAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/obtenirTous.php");
+                response3.EnsureSuccessStatusCode();
 
-            var content3 = await response3.Content.ReadAsStringAsync();
-            fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content3);
+                var content3 = await response3.Content.ReadAsStringAsync();
+                fourListe = JsonConvert.DeserializeObject<List<Fournisseur>>(content3);
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Liste des fournisseurs non chargée");
+                typListe = null;
+            }
             //MessageBox.Show(content3);  //controle du json
             //StamperFournisseur(CompAdresse: content3.ToString());
 
@@ -274,6 +299,8 @@ namespace DashBoard_Stive
             buttonBdc.ForeColor = Color.FromArgb(255, 255, 255);
             panelBdc.Visible = true;
             buttonBdc.Tag = 1;
+
+            MessageBox.Show("Fonctionnalité en cours de développement");
         }
 
         private void buttonCommandesWeb_Click(object sender, EventArgs e)
@@ -284,6 +311,8 @@ namespace DashBoard_Stive
             buttonCommandesWeb.ForeColor = Color.FromArgb(255, 255, 255);
             panelCommandesWeb.Visible = true;
             buttonCommandesWeb.Tag = 1;
+
+            MessageBox.Show("Fonctionnalité non développée");
         }
 
         public void buttonFournisseurs_Click(object sender, EventArgs e)
@@ -638,7 +667,9 @@ namespace DashBoard_Stive
 
         private void textBoxCherchFournisseur_TextChanged(object sender, EventArgs e)
         {
-            fournisseurBindingSource.Filter = "Fou_NomDomaine Like '%" + textBoxCherchFournisseur.Text + "%'";
+            //fournisseurBindingSource.Contains( "Fou_NomDomaine Like '%" + textBoxCherchFournisseur.Text + "%'");
+            //  fourListe.Select("Fou_NomDomaine Like '%" + textBoxCherchFournisseur.Text + "%'");
+            MessageBox.Show("Fonctionnalité non développée");
         }
 
         private async void buttonClients_Click(object sender, EventArgs e)
@@ -1094,12 +1125,13 @@ namespace DashBoard_Stive
 
         private void buttonCommanderProduit_Click(object sender, EventArgs e)
         {
-           /* CommandeFournisseur newBdc = new CommandeFournisseur();
+            /* CommandeFournisseur newBdc = new CommandeFournisseur();
 
-            newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
+             newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
 
-            newBdc.Cof_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
-            newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);*/
+             newBdc.Cof_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
+             newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);*/
+            MessageBox.Show("Fonctionnalité en cours de developpement");
         }
 
         private void buttonAjouterType_Click(object sender, EventArgs e)
@@ -1335,6 +1367,31 @@ namespace DashBoard_Stive
                     textBoxMail.Focus();
                 }
             }
+        }
+
+        private void buttonSuppProduit_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité non développée");
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité non développée");
+        }
+
+        private void textBox2_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité non développée");
+        }
+
+        private void textBox3_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité non développée");
+        }
+
+        private void textBoxNom_TextChanged(object sender, EventArgs e)
+        {
+            MessageBox.Show("Fonctionnalité non développée");
         }
     }
 }
