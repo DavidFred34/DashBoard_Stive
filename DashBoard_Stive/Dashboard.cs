@@ -1028,9 +1028,20 @@ namespace DashBoard_Stive
             //newPro.Pro_Fou_Id = Convert.ToInt32((Dv_TypeProduit.SelectedRow.Select.Typ_Id));
            // MessageBox.Show(comboBoxProposePar.SelectedValue.ToString());
             newPro.Pro_Cepage = textBoxCepage.Text;
-            newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            if (textBoxMillesime.Text == "")
+            {
+                newPro.Pro_Annee = null;
+            }
+            else
+            {
+                newPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            }
             newPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
-            newPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
+            if (textBoxPrixLitre.Text == "")
+            {
+                newPro.Pro_PrixLitre = 0;
+            }
+            else { newPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text); }
             newPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
             newPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
 
@@ -1044,7 +1055,15 @@ namespace DashBoard_Stive
             {
                 newPro.Pro_CommandeAuto = 0;
             }
-            newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
+
+            if (textBoxVolume.Text == "")
+            {
+                newPro.Pro_Volume = 0;
+            }
+            else
+            {
+                newPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
+            }
             newPro.Pro_Description = textBoxDescription.Text;
             newPro.Pro_Typ_Id = Convert.ToInt32(comboBoxTypeProduit.SelectedValue);
             newPro.Typ_Libelle = comboBoxTypeProduit.Text;
@@ -1084,9 +1103,25 @@ namespace DashBoard_Stive
             majPro.Pro_Ref = textBoxRef.Text; ;
             majPro.Pro_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
             majPro.Pro_Cepage = textBoxCepage.Text;
-            majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            if (textBoxMillesime.Text == "")
+            {
+                majPro.Pro_Annee = null;
+            }
+            else
+            {
+                majPro.Pro_Annee = majPro.Pro_Annee = Convert.ToInt32(textBoxMillesime.Text);
+            }
+
             majPro.Pro_Prix = (float)Convert.ToDouble(textBoxPrix.Text);
-            majPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
+            if (textBoxPrixLitre.Text == "")
+            {
+                majPro.Pro_PrixLitre = 0;
+            }
+            else
+            {
+                majPro.Pro_PrixLitre = (float)Convert.ToDouble(textBoxPrixLitre.Text);
+            }
+
             majPro.Pro_Quantite = (float)Convert.ToDouble(textBoxEnStock.Text);
             majPro.Pro_SeuilAlerte = (float)Convert.ToDouble(textBoxSeuilAlerte.Text);
             if (checkBoxCommandeAuto.Checked)
@@ -1097,7 +1132,11 @@ namespace DashBoard_Stive
             {
                 majPro.Pro_CommandeAuto = 0;
             }
-            majPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text);
+            if (textBoxVolume.Text == "")
+            {
+                majPro.Pro_Volume = 0;
+            }
+            else { majPro.Pro_Volume = (float)Convert.ToDouble(textBoxVolume.Text); }
             majPro.Pro_Description = textBoxDescription.Text;
             majPro.Fou_NomDomaine = comboBoxProposePar.Text;
             majPro.Typ_Libelle = comboBoxTypeProduit.Text;
