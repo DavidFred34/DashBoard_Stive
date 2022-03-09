@@ -50,7 +50,12 @@ namespace DashBoard_Stive
 
             foreach (var item in panelMenu.Controls)
             {
-                if (item is Button) { (item as Button).Tag = 0; }
+                if (item is Button) 
+                { (item as Button).Tag = 0;
+                    (item as Button).BackColor = Color.FromArgb(137, 196, 244);
+                    (item as Button).ForeColor = Color.FromArgb(44, 130, 201);
+                }
+
             }
         }
 
@@ -77,7 +82,7 @@ namespace DashBoard_Stive
 
                 return;
             }
-                (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
+            (sender as Button).BackColor = Color.FromArgb(137, 196, 244);
             (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
         }
 
@@ -1366,7 +1371,7 @@ namespace DashBoard_Stive
 
         
         
- ////////////////////////////////////Gestion format mail
+ ////////////////////////////////////Gestion format mail etfonctionnalités non dev
         private void textBoxMailContact_Leave(object sender, EventArgs e)
         {
             Regex mRegxExpression;
