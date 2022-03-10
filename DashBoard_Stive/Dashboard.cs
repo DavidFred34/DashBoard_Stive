@@ -648,7 +648,7 @@ namespace DashBoard_Stive
 
         }
 
-        private void buttonCherchFournisseur_Click(object sender, EventArgs e)
+        /*private void buttonCherchFournisseur_Click(object sender, EventArgs e)
         {
             //MessageBox.Show(Dv_fournisseur.Rows.Count.ToString());
             for (int i = 0; i < Dv_fournisseur.Rows.Count; i++)
@@ -668,13 +668,12 @@ namespace DashBoard_Stive
                     if (result > 0) { cell.Style.BackColor = Color.LightBlue; };
                 }
             }
-        }
+        }*/
 
         private void textBoxCherchFournisseur_TextChanged(object sender, EventArgs e)
         {
-            //fournisseurBindingSource.Contains( "Fou_NomDomaine Like '%" + textBoxCherchFournisseur.Text + "%'");
-            //  fourListe.Select("Fou_NomDomaine Like '%" + textBoxCherchFournisseur.Text + "%'");
-            MessageBox.Show("Fonctionnalité non développée");
+            List<Fournisseur> filtre = fourListe.Where(x => x.Fou_NomDomaine.ToLower().Contains(textBoxCherchFournisseur.Text.ToLower())).ToList();
+            Dv_fournisseur.DataSource = filtre;
         }
 
         private async void buttonClients_Click(object sender, EventArgs e)
@@ -757,6 +756,8 @@ namespace DashBoard_Stive
             //MessageBox.Show(content);  //controle du json
             //MessageBox.Show(cliListe);
             //declaration des colonnes de la grid
+
+            //if (textBoxNom.Text != "") { Dv_ListClient.DataSource = filtre; } else { Dv_ListClient.DataSource = cliListe; }
             Dv_ListClient.DataSource = cliListe;
             Dv_ListClient.Columns["Cli_Nom"].HeaderText = "Nom";
             Dv_ListClient.Columns["Cli_Prenom"].HeaderText = "Prenom";
@@ -767,6 +768,7 @@ namespace DashBoard_Stive
 
         }
         List<Client> cliListe;
+        List<Client> filtre;
         private void Dv_ListClient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //gestion affichage
@@ -776,10 +778,10 @@ namespace DashBoard_Stive
             buttonAjouterClient.Visible = true;
             buttonMajClient.Visible = true;
             buttonSuppClient.Visible = true;
-
+         
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
-
+           // if (textBoxNom.Text != "") { Dv_ListClient.DataSource = filtre; } else { Dv_ListClient.DataSource = cliListe; }
             StamperClient(
                 Uti_Id2: cliListe[e.RowIndex].Uti_Id.ToString(),
                 Nom: cliListe[e.RowIndex].Cli_Nom,
@@ -913,6 +915,13 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             buttonClients.PerformClick();
             StamperClient();
+        }
+
+        public void textBoxNom_TextChanged(object sender, EventArgs e)
+        {
+            List<Client> filtre = cliListe.Where(x => x.Cli_Nom.ToLower().Contains(textBoxNom.Text.ToLower())).ToList();
+            //cliListe = filtre;
+            Dv_ListClient.DataSource = filtre;
         }
 
         public void buttonProduit_Click(object sender, EventArgs e)
@@ -1178,6 +1187,12 @@ namespace DashBoard_Stive
             MessageBox.Show("Fonctionnalité en cours de developpement");
         }
 
+        private void textBoxChProd_TextChanged(object sender, EventArgs e)
+        {
+            List<Produit> filtre = prodListe.Where(x => x.Pro_Nom.ToLower().Contains(textBoxChProd.Text.ToLower())).ToList();
+            Dv_ListeProduit.DataSource = filtre;
+        }
+
         private void buttonAjouterType_Click(object sender, EventArgs e)
         {
             panel_AjouterType.Visible = true;
@@ -1422,10 +1437,7 @@ namespace DashBoard_Stive
             MessageBox.Show("Fonctionnalité non développée");
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Fonctionnalité non développée");
-        }
+
 
         private void textBox2_TextChanged(object sender, EventArgs e)
         {
@@ -1437,9 +1449,6 @@ namespace DashBoard_Stive
             MessageBox.Show("Fonctionnalité non développée");
         }
 
-        private void textBoxNom_TextChanged(object sender, EventArgs e)
-        {
-            MessageBox.Show("Fonctionnalité non développée");
-        }
+ 
     }
 }

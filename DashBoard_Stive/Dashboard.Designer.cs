@@ -97,7 +97,7 @@ namespace DashBoard_Stive
             this.buttonSuppProduit = new System.Windows.Forms.Button();
             this.label44 = new System.Windows.Forms.Label();
             this.panel17 = new System.Windows.Forms.Panel();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.textBoxChProd = new System.Windows.Forms.TextBox();
             this.panel_AjouterType = new System.Windows.Forms.Panel();
             this.buttonValider = new System.Windows.Forms.Button();
             this.label_Libelle = new System.Windows.Forms.Label();
@@ -1124,7 +1124,7 @@ namespace DashBoard_Stive
             // 
             // panel17
             // 
-            this.panel17.Controls.Add(this.textBox1);
+            this.panel17.Controls.Add(this.textBoxChProd);
             this.panel17.Controls.Add(this.panel_AjouterType);
             this.panel17.Controls.Add(this.buttonAjouterType);
             this.panel17.Controls.Add(this.label_List_TypProduit);
@@ -1137,13 +1137,13 @@ namespace DashBoard_Stive
             this.panel17.Size = new System.Drawing.Size(601, 734);
             this.panel17.TabIndex = 7;
             // 
-            // textBox1
+            // textBoxChProd
             // 
-            this.textBox1.Location = new System.Drawing.Point(423, 31);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(150, 20);
-            this.textBox1.TabIndex = 55;
-            this.textBox1.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            this.textBoxChProd.Location = new System.Drawing.Point(423, 31);
+            this.textBoxChProd.Name = "textBoxChProd";
+            this.textBoxChProd.Size = new System.Drawing.Size(150, 20);
+            this.textBoxChProd.TabIndex = 55;
+            this.textBoxChProd.TextChanged += new System.EventHandler(this.textBoxChProd_TextChanged);
             // 
             // panel_AjouterType
             // 
@@ -3221,12 +3221,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
-            this.Controls.Add(this.panelProduit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -3505,7 +3505,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox textBox_Libelle;
         private System.Windows.Forms.Button buttonValider;
         private System.Windows.Forms.Label label_Pro_Id;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox textBoxChProd;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
