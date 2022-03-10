@@ -71,5 +71,9 @@ namespace DashBoard_Stive
         public string Mail { get => Uti_MailContact; }
 
         public string Uti_DateCreation { get; set; }
+
+       
+
+            
     }
 }

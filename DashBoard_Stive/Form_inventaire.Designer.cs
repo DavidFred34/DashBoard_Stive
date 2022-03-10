@@ -1,7 +1,7 @@
 ﻿
 namespace DashBoard_Stive
 {
-    partial class Inventaire
+    partial class Form_inventaire
     {
         /// <summary>
         /// Required designer variable.

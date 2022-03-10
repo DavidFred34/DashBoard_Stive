@@ -86,7 +86,6 @@ namespace DashBoard_Stive
             (sender as Button).ForeColor = Color.FromArgb(44, 130, 201);
         }
 
-
         //permet de renseigner les données fournisseur ds le panel 
         private void StamperFournisseur(
                         //champs fournisseur
@@ -129,7 +128,7 @@ namespace DashBoard_Stive
         }
 
         //permet de renseigner les données clients ds le panel client
-        private void StamperClient(
+        public void StamperClient(
                  //champs clients
 
                  string Nom = "",
@@ -496,6 +495,7 @@ namespace DashBoard_Stive
         }
         List<CommandeFournisseur> bdcListe;
         List<Produit> prodListe2;
+
         private void buttonAjouterfournisseur_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
@@ -1224,7 +1224,7 @@ namespace DashBoard_Stive
 
         private void buttonInventaire_Click(object sender, EventArgs e)
         {
-            Inventaire Inventaire = new Inventaire();
+            Form_inventaire Inventaire = new Form_inventaire();
             Inventaire.ShowDialog();
         }
 
