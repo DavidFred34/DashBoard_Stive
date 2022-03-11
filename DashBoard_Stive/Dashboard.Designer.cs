@@ -157,7 +157,7 @@ namespace DashBoard_Stive
             this.Uti_Cp2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Uti_Ville2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.clientBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.textBoxNom = new System.Windows.Forms.TextBox();
+            this.textBoxCherchClient = new System.Windows.Forms.TextBox();
             this.labelNom = new System.Windows.Forms.Label();
             this.panelBdc = new System.Windows.Forms.Panel();
             this.button1 = new System.Windows.Forms.Button();
@@ -1688,7 +1688,7 @@ namespace DashBoard_Stive
             // 
             this.panel16.Controls.Add(this.buttonAjouterClient);
             this.panel16.Controls.Add(this.Dv_ListClient);
-            this.panel16.Controls.Add(this.textBoxNom);
+            this.panel16.Controls.Add(this.textBoxCherchClient);
             this.panel16.Controls.Add(this.labelNom);
             this.panel16.Location = new System.Drawing.Point(8, 13);
             this.panel16.Name = "panel16";
@@ -1770,13 +1770,13 @@ namespace DashBoard_Stive
             // 
             this.clientBindingSource.DataSource = typeof(DashBoard_Stive.Client);
             // 
-            // textBoxNom
+            // textBoxCherchClient
             // 
-            this.textBoxNom.Location = new System.Drawing.Point(441, 32);
-            this.textBoxNom.Name = "textBoxNom";
-            this.textBoxNom.Size = new System.Drawing.Size(137, 20);
-            this.textBoxNom.TabIndex = 29;
-            this.textBoxNom.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
+            this.textBoxCherchClient.Location = new System.Drawing.Point(441, 32);
+            this.textBoxCherchClient.Name = "textBoxCherchClient";
+            this.textBoxCherchClient.Size = new System.Drawing.Size(137, 20);
+            this.textBoxCherchClient.TabIndex = 29;
+            this.textBoxCherchClient.TextChanged += new System.EventHandler(this.textBoxNom_TextChanged);
             // 
             // labelNom
             // 
@@ -3470,7 +3470,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox textBoxCherchFournisseur;
         private System.Windows.Forms.Label labelCherchFournisseur;
         private System.Windows.Forms.TextBox textBoxPrenom;
-        private System.Windows.Forms.TextBox textBoxNom;
+        private System.Windows.Forms.TextBox textBoxCherchClient;
         private System.Windows.Forms.Label labelPrenom;
         private System.Windows.Forms.Label labelUti_Id2;
         private System.Windows.Forms.Button buttonCreerClient;

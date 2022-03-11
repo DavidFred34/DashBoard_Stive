@@ -288,12 +288,15 @@ namespace DashBoard_Stive
             comboBoxTypeProduit.DataSource = typListe;
             comboBoxProposePar.DataSource = fourListe;
 
-
+            filtre_fourListe = fourListe;
+            filtre_prodListe = prodListe;
 
         }
         List<TypeProduit> typListe;
         List<Produit> prodListe;
         List<Fournisseur> fourListe;
+        List<Fournisseur> filtre_fourListe;
+        List<Produit> filtre_prodListe;
 
         private void buttonBdc_Click(object sender, EventArgs e)
         {
@@ -335,6 +338,7 @@ namespace DashBoard_Stive
             Dv_ListeProduit2.Visible = false;
             labelListeBdc.Visible = false;
             labelListeProduit.Visible = false;
+            textBoxCherchFournisseur.Text = "";
             StamperFournisseur(); //remet les champs à vide
 
 
@@ -421,29 +425,29 @@ namespace DashBoard_Stive
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
             StamperFournisseur(
-                 Uti_Id: fourListe[e.RowIndex].Uti_Id.ToString(),
-                //Fou_Id: fourListe[e.RowIndex].Fou_Id.ToString(),
-                NomDomaine: fourListe[e.RowIndex].Fou_NomDomaine,
-                DateCreation: fourListe[e.RowIndex].Uti_DateCreation,
-                NomResp: fourListe[e.RowIndex].Fou_NomResp,
-                TelResp: fourListe[e.RowIndex].Fou_TelResp,
-                MailResp: fourListe[e.RowIndex].Fou_MailResp,
-                Fonction: fourListe[e.RowIndex].Fou_Fonction,
-                TelContact: fourListe[e.RowIndex].Uti_TelContact,
-                MailContact: fourListe[e.RowIndex].Uti_MailContact,
+                //Uti_Id: filtre_fourListe[e.RowIndex].Uti_Id.ToString(),
+                //Fou_Id: filtre_fourListe[e.RowIndex].Fou_Id.ToString(),
+                NomDomaine: filtre_fourListe[e.RowIndex].Fou_NomDomaine,
+                DateCreation: filtre_fourListe[e.RowIndex].Uti_DateCreation,
+                NomResp: filtre_fourListe[e.RowIndex].Fou_NomResp,
+                TelResp: filtre_fourListe[e.RowIndex].Fou_TelResp,
+                MailResp: filtre_fourListe[e.RowIndex].Fou_MailResp,
+                Fonction: filtre_fourListe[e.RowIndex].Fou_Fonction,
+                TelContact: filtre_fourListe[e.RowIndex].Uti_TelContact,
+                MailContact: filtre_fourListe[e.RowIndex].Uti_MailContact,
                 Mdp: ".......",
-                Adresse: fourListe[e.RowIndex].Uti_Adresse,
-                CompAdresse: fourListe[e.RowIndex].Uti_CompAdresse,
-                CodePostal: fourListe[e.RowIndex].Uti_Cp,
-                Ville: fourListe[e.RowIndex].Uti_Ville,
-                Pays: fourListe[e.RowIndex].Uti_Pays
+                Adresse: filtre_fourListe[e.RowIndex].Uti_Adresse,
+                CompAdresse: filtre_fourListe[e.RowIndex].Uti_CompAdresse,
+                CodePostal: filtre_fourListe[e.RowIndex].Uti_Cp,
+                Ville: filtre_fourListe[e.RowIndex].Uti_Ville,
+                Pays: filtre_fourListe[e.RowIndex].Uti_Pays
                 );
 
             //chargement liste bdc_du fournisseur
             try
             {
                 var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-                var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
+                var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + filtre_fourListe[e.RowIndex].Fou_Id;
                 var response = await
                     httpClient.GetAsync(url);// label_Fou_Id.Text);
                 response.EnsureSuccessStatusCode();
@@ -468,7 +472,7 @@ namespace DashBoard_Stive
             try
             {
                 var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
-                var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + fourListe[e.RowIndex].Fou_Id;
+                var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + filtre_fourListe[e.RowIndex].Fou_Id;
                 var response2 = await
                     httpClient2.GetAsync(url2);// label_Fou_Id.Text);
                 response2.EnsureSuccessStatusCode();
@@ -671,9 +675,9 @@ namespace DashBoard_Stive
         }*/
 
         private void textBoxCherchFournisseur_TextChanged(object sender, EventArgs e)
-        {
-            List<Fournisseur> filtre = fourListe.Where(x => x.Fou_NomDomaine.ToLower().Contains(textBoxCherchFournisseur.Text.ToLower())).ToList();
-            Dv_fournisseur.DataSource = filtre;
+        {           
+            filtre_fourListe = fourListe.Where(x => x.Fou_NomDomaine.ToLower().Contains(textBoxCherchFournisseur.Text.ToLower())).ToList();
+            Dv_fournisseur.DataSource = filtre_fourListe;
         }
 
         private async void buttonClients_Click(object sender, EventArgs e)
@@ -688,7 +692,7 @@ namespace DashBoard_Stive
             buttonMajClient.Visible = false;
             buttonSuppClient.Visible = false;
             labelListCommande.Visible = false;
-
+            textBoxCherchClient.Text = "";
 
             buttonClients.Tag = 1;
 
@@ -750,11 +754,10 @@ namespace DashBoard_Stive
 
             var content = await response.Content.ReadAsStringAsync();
             cliListe = JsonConvert.DeserializeObject<List<Client>>(content);
-
+            filtre_cliListe = cliListe;
 
 
             //MessageBox.Show(content);  //controle du json
-            //MessageBox.Show(cliListe);
             //declaration des colonnes de la grid
 
             //if (textBoxNom.Text != "") { Dv_ListClient.DataSource = filtre; } else { Dv_ListClient.DataSource = cliListe; }
@@ -768,7 +771,8 @@ namespace DashBoard_Stive
 
         }
         List<Client> cliListe;
-        List<Client> filtre;
+        List<Client> filtre_cliListe;
+        
         private void Dv_ListClient_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //gestion affichage
@@ -778,25 +782,26 @@ namespace DashBoard_Stive
             buttonAjouterClient.Visible = true;
             buttonMajClient.Visible = true;
             buttonSuppClient.Visible = true;
-         
+
+
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
            // if (textBoxNom.Text != "") { Dv_ListClient.DataSource = filtre; } else { Dv_ListClient.DataSource = cliListe; }
             StamperClient(
-                Uti_Id2: cliListe[e.RowIndex].Uti_Id.ToString(),
-                Nom: cliListe[e.RowIndex].Cli_Nom,
-                Prenom: cliListe[e.RowIndex].Cli_Prenom,
-                DateInscription: cliListe[e.RowIndex].Uti_DateCreation,
-                DateNaissance: cliListe[e.RowIndex].Cli_DateNaissance,
+                Uti_Id2: filtre_cliListe[e.RowIndex].Uti_Id.ToString(),
+                Nom: filtre_cliListe[e.RowIndex].Cli_Nom,
+                Prenom: filtre_cliListe[e.RowIndex].Cli_Prenom,
+                DateInscription: filtre_cliListe[e.RowIndex].Uti_DateCreation,
+                DateNaissance: filtre_cliListe[e.RowIndex].Cli_DateNaissance,
 
-                TelContact: cliListe[e.RowIndex].Uti_TelContact,
-                MailContact: cliListe[e.RowIndex].Uti_MailContact,
+                TelContact: filtre_cliListe[e.RowIndex].Uti_TelContact,
+                MailContact: filtre_cliListe[e.RowIndex].Uti_MailContact,
                 Mdp2: ".......",
-                Adresse2: cliListe[e.RowIndex].Uti_Adresse,
-                CompAdresse2: cliListe[e.RowIndex].Uti_CompAdresse,
-                CP: cliListe[e.RowIndex].Uti_Cp,
-                City: cliListe[e.RowIndex].Uti_Ville,
-                Country: cliListe[e.RowIndex].Uti_Pays
+                Adresse2: filtre_cliListe[e.RowIndex].Uti_Adresse,
+                CompAdresse2: filtre_cliListe[e.RowIndex].Uti_CompAdresse,
+                CP: filtre_cliListe[e.RowIndex].Uti_Cp,
+                City: filtre_cliListe[e.RowIndex].Uti_Ville,
+                Country: filtre_cliListe[e.RowIndex].Uti_Pays
                 );
 
 
@@ -919,9 +924,8 @@ namespace DashBoard_Stive
 
         public void textBoxNom_TextChanged(object sender, EventArgs e)
         {
-            List<Client> filtre = cliListe.Where(x => x.Cli_Nom.ToLower().Contains(textBoxNom.Text.ToLower())).ToList();
-            //cliListe = filtre;
-            Dv_ListClient.DataSource = filtre;
+            filtre_cliListe = cliListe.Where(x => x.Cli_Nom.ToLower().Contains(textBoxCherchClient.Text.ToLower())).ToList();
+            Dv_ListClient.DataSource = filtre_cliListe;
         }
 
         public void buttonProduit_Click(object sender, EventArgs e)
@@ -941,7 +945,7 @@ namespace DashBoard_Stive
             textBox_Libelle.Visible = false;
             buttonValider.Visible = false;
             StamperProduit(); //remet les champs à vide;
-
+            textBoxChProd.Text = "";
 
 
 
@@ -994,24 +998,24 @@ namespace DashBoard_Stive
 
             //comboBoxTypeProduit.DataSource = typListe;
             StamperProduit(
-                NomProduit: prodListe[e.RowIndex].Pro_Nom,
-                Domaine: prodListe[e.RowIndex].Fou_NomDomaine,
-                Pro_Ref: prodListe[e.RowIndex].Pro_Ref,
-                Pro_Cepage: prodListe[e.RowIndex].Pro_Cepage,
-                Pro_Annee: prodListe[e.RowIndex].Pro_Annee.ToString(),
-                Pro_Prix: prodListe[e.RowIndex].Pro_Prix.ToString(),
-                Pro_PrixLitre: prodListe[e.RowIndex].Pro_PrixLitre.ToString(),
-                Pro_Quantite: prodListe[e.RowIndex].Pro_Quantite.ToString(),
-                Pro_SeuilAlerte: prodListe[e.RowIndex].Pro_SeuilAlerte.ToString(),
+                NomProduit: filtre_prodListe[e.RowIndex].Pro_Nom,
+                Domaine: filtre_prodListe[e.RowIndex].Fou_NomDomaine,
+                Pro_Ref: filtre_prodListe[e.RowIndex].Pro_Ref,
+                Pro_Cepage: filtre_prodListe[e.RowIndex].Pro_Cepage,
+                Pro_Annee: filtre_prodListe[e.RowIndex].Pro_Annee.ToString(),
+                Pro_Prix: filtre_prodListe[e.RowIndex].Pro_Prix.ToString(),
+                Pro_PrixLitre: filtre_prodListe[e.RowIndex].Pro_PrixLitre.ToString(),
+                Pro_Quantite: filtre_prodListe[e.RowIndex].Pro_Quantite.ToString(),
+                Pro_SeuilAlerte: filtre_prodListe[e.RowIndex].Pro_SeuilAlerte.ToString(),
 
-                Pro_CommandeAuto: prodListe[e.RowIndex].Pro_CommandeAuto,
-                Pro_Volume: prodListe[e.RowIndex].Pro_Volume.ToString(),
-                Pro_Description: prodListe[e.RowIndex].Pro_Description,
-                Typ_Libelle: prodListe[e.RowIndex].Typ_Libelle.ToString(),//prodListe[e.RowIndex].Pro_Typ_Id.ToString(),
-                Pro_Typ_Id: prodListe[e.RowIndex].Pro_Typ_Id.ToString(),//((comboBoxTypeProduit.SelectedIndex)+1).ToString(),
-                Pro_Fou_Id: prodListe[e.RowIndex].Pro_Fou_Id.ToString(),
-                Pro_Uti_Id: prodListe[e.RowIndex].Uti_Id.ToString(),
-                Pro_Id: prodListe[e.RowIndex].Pro_Id.ToString()
+                Pro_CommandeAuto: filtre_prodListe[e.RowIndex].Pro_CommandeAuto,
+                Pro_Volume: filtre_prodListe[e.RowIndex].Pro_Volume.ToString(),
+                Pro_Description: filtre_prodListe[e.RowIndex].Pro_Description,
+                Typ_Libelle: filtre_prodListe[e.RowIndex].Typ_Libelle.ToString(),//prodListe[e.RowIndex].Pro_Typ_Id.ToString(),
+                Pro_Typ_Id: filtre_prodListe[e.RowIndex].Pro_Typ_Id.ToString(),//((comboBoxTypeProduit.SelectedIndex)+1).ToString(),
+                Pro_Fou_Id: filtre_prodListe[e.RowIndex].Pro_Fou_Id.ToString(),
+                Pro_Uti_Id: filtre_prodListe[e.RowIndex].Uti_Id.ToString(),
+                Pro_Id: filtre_prodListe[e.RowIndex].Pro_Id.ToString()
                 );
             //MessageBox.Show(((comboBoxTypeProduit.SelectedIndex) + 1).ToString());
         }
@@ -1189,8 +1193,8 @@ namespace DashBoard_Stive
 
         private void textBoxChProd_TextChanged(object sender, EventArgs e)
         {
-            List<Produit> filtre = prodListe.Where(x => x.Pro_Nom.ToLower().Contains(textBoxChProd.Text.ToLower())).ToList();
-            Dv_ListeProduit.DataSource = filtre;
+            filtre_prodListe = prodListe.Where(x => x.Pro_Nom.ToLower().Contains(textBoxChProd.Text.ToLower())).ToList();
+            Dv_ListeProduit.DataSource = filtre_prodListe;
         }
 
         private void buttonAjouterType_Click(object sender, EventArgs e)
