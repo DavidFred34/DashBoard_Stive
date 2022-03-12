@@ -46,16 +46,16 @@ namespace DashBoard_Stive
             this.buttonCommandesWeb = new System.Windows.Forms.Button();
             this.panelAccueil = new System.Windows.Forms.Panel();
             this.buttonInventaire = new System.Windows.Forms.Button();
-            this.label19 = new System.Windows.Forms.Label();
+            this.label_valSeuil = new System.Windows.Forms.Label();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dataGridView3 = new System.Windows.Forms.DataGridView();
-            this.label18 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label_nbProduit = new System.Windows.Forms.Label();
+            this.label_nbFournisseur = new System.Windows.Forms.Label();
+            this.label_nbClient = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.label1 = new System.Windows.Forms.Label();
+            this.label_procheSeuil = new System.Windows.Forms.Label();
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label_pro_Uti_Id = new System.Windows.Forms.Label();
@@ -106,7 +106,7 @@ namespace DashBoard_Stive
             this.label_List_TypProduit = new System.Windows.Forms.Label();
             this.Dv_TypeProduit = new System.Windows.Forms.DataGridView();
             this.Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ_Libelle2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.buttonAjouterProduit = new System.Windows.Forms.Button();
             this.Dv_ListeProduit = new System.Windows.Forms.DataGridView();
             this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -538,16 +538,16 @@ namespace DashBoard_Stive
             // 
             this.panelAccueil.BackColor = System.Drawing.Color.LightGray;
             this.panelAccueil.Controls.Add(this.buttonInventaire);
-            this.panelAccueil.Controls.Add(this.label19);
+            this.panelAccueil.Controls.Add(this.label_valSeuil);
             this.panelAccueil.Controls.Add(this.dataGridView1);
             this.panelAccueil.Controls.Add(this.dataGridView2);
             this.panelAccueil.Controls.Add(this.dataGridView3);
-            this.panelAccueil.Controls.Add(this.label18);
-            this.panelAccueil.Controls.Add(this.label9);
-            this.panelAccueil.Controls.Add(this.label8);
+            this.panelAccueil.Controls.Add(this.label_nbProduit);
+            this.panelAccueil.Controls.Add(this.label_nbFournisseur);
+            this.panelAccueil.Controls.Add(this.label_nbClient);
             this.panelAccueil.Controls.Add(this.label7);
             this.panelAccueil.Controls.Add(this.label2);
-            this.panelAccueil.Controls.Add(this.label1);
+            this.panelAccueil.Controls.Add(this.label_procheSeuil);
             this.panelAccueil.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
             this.panelAccueil.Location = new System.Drawing.Point(320, 4);
             this.panelAccueil.Name = "panelAccueil";
@@ -570,17 +570,16 @@ namespace DashBoard_Stive
             this.buttonInventaire.UseVisualStyleBackColor = false;
             this.buttonInventaire.Click += new System.EventHandler(this.buttonInventaire_Click);
             // 
-            // label19
+            // label_valSeuil
             // 
-            this.label19.AutoSize = true;
-            this.label19.BackColor = System.Drawing.Color.Transparent;
-            this.label19.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.Red;
-            this.label19.Location = new System.Drawing.Point(1046, 119);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(22, 24);
-            this.label19.TabIndex = 21;
-            this.label19.Text = "8";
+            this.label_valSeuil.AutoSize = true;
+            this.label_valSeuil.BackColor = System.Drawing.Color.Transparent;
+            this.label_valSeuil.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_valSeuil.ForeColor = System.Drawing.Color.Red;
+            this.label_valSeuil.Location = new System.Drawing.Point(1046, 119);
+            this.label_valSeuil.Name = "label_valSeuil";
+            this.label_valSeuil.Size = new System.Drawing.Size(0, 24);
+            this.label_valSeuil.TabIndex = 21;
             // 
             // dataGridView1
             // 
@@ -606,38 +605,38 @@ namespace DashBoard_Stive
             this.dataGridView3.Size = new System.Drawing.Size(360, 239);
             this.dataGridView3.TabIndex = 18;
             // 
-            // label18
+            // label_nbProduit
             // 
-            this.label18.AutoSize = true;
-            this.label18.BackColor = System.Drawing.Color.Transparent;
-            this.label18.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.Location = new System.Drawing.Point(17, 15);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(233, 24);
-            this.label18.TabIndex = 14;
-            this.label18.Text = "Nombre de produits : 59";
+            this.label_nbProduit.AutoSize = true;
+            this.label_nbProduit.BackColor = System.Drawing.Color.Transparent;
+            this.label_nbProduit.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nbProduit.Location = new System.Drawing.Point(17, 15);
+            this.label_nbProduit.Name = "label_nbProduit";
+            this.label_nbProduit.Size = new System.Drawing.Size(209, 24);
+            this.label_nbProduit.TabIndex = 14;
+            this.label_nbProduit.Text = "Nombre de produits : ";
             // 
-            // label9
+            // label_nbFournisseur
             // 
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.Location = new System.Drawing.Point(17, 40);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(262, 24);
-            this.label9.TabIndex = 13;
-            this.label9.Text = "Nombre de fournisseurs : 7";
+            this.label_nbFournisseur.AutoSize = true;
+            this.label_nbFournisseur.BackColor = System.Drawing.Color.Transparent;
+            this.label_nbFournisseur.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nbFournisseur.Location = new System.Drawing.Point(17, 40);
+            this.label_nbFournisseur.Name = "label_nbFournisseur";
+            this.label_nbFournisseur.Size = new System.Drawing.Size(244, 24);
+            this.label_nbFournisseur.TabIndex = 13;
+            this.label_nbFournisseur.Text = "Nombre de fournisseurs :";
             // 
-            // label8
+            // label_nbClient
             // 
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.Location = new System.Drawing.Point(17, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(225, 24);
-            this.label8.TabIndex = 12;
-            this.label8.Text = "Nombre de clients: 152";
+            this.label_nbClient.AutoSize = true;
+            this.label_nbClient.BackColor = System.Drawing.Color.Transparent;
+            this.label_nbClient.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_nbClient.Location = new System.Drawing.Point(17, 65);
+            this.label_nbClient.Name = "label_nbClient";
+            this.label_nbClient.Size = new System.Drawing.Size(195, 24);
+            this.label_nbClient.TabIndex = 12;
+            this.label_nbClient.Text = "Nombre de clients : ";
             // 
             // label7
             // 
@@ -661,16 +660,16 @@ namespace DashBoard_Stive
             this.label2.TabIndex = 10;
             this.label2.Text = "Commandes clients en cours : 48";
             // 
-            // label1
+            // label_procheSeuil
             // 
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(709, 119);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(331, 24);
-            this.label1.TabIndex = 8;
-            this.label1.Text = "Produits proches du seuil critique :";
+            this.label_procheSeuil.AutoSize = true;
+            this.label_procheSeuil.BackColor = System.Drawing.Color.Transparent;
+            this.label_procheSeuil.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label_procheSeuil.Location = new System.Drawing.Point(709, 119);
+            this.label_procheSeuil.Name = "label_procheSeuil";
+            this.label_procheSeuil.Size = new System.Drawing.Size(337, 24);
+            this.label_procheSeuil.TabIndex = 8;
+            this.label_procheSeuil.Text = "Produits proches du seuil critique : ";
             // 
             // panelProduit
             // 
@@ -1220,7 +1219,7 @@ namespace DashBoard_Stive
             this.Dv_TypeProduit.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_TypeProduit.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.Typ_Id,
-            this.dataGridViewTextBoxColumn5});
+            this.Typ_Libelle2});
             this.Dv_TypeProduit.DataSource = this.typeProduitBindingSource;
             this.Dv_TypeProduit.Location = new System.Drawing.Point(3, 526);
             this.Dv_TypeProduit.MultiSelect = false;
@@ -1237,12 +1236,12 @@ namespace DashBoard_Stive
             this.Typ_Id.Name = "Typ_Id";
             this.Typ_Id.ReadOnly = true;
             // 
-            // dataGridViewTextBoxColumn5
+            // Typ_Libelle2
             // 
-            this.dataGridViewTextBoxColumn5.DataPropertyName = "Typ_Libelle";
-            this.dataGridViewTextBoxColumn5.HeaderText = "Libelle";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            this.dataGridViewTextBoxColumn5.ReadOnly = true;
+            this.Typ_Libelle2.DataPropertyName = "Typ_Libelle";
+            this.Typ_Libelle2.HeaderText = "Libelle";
+            this.Typ_Libelle2.Name = "Typ_Libelle2";
+            this.Typ_Libelle2.ReadOnly = true;
             // 
             // buttonAjouterProduit
             // 
@@ -3221,12 +3220,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
+            this.Controls.Add(this.panelFournisseurs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -3497,8 +3496,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label_List_TypProduit;
         private System.Windows.Forms.DataGridView Dv_TypeProduit;
         private System.Windows.Forms.BindingSource typeProduitBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
         private System.Windows.Forms.Button buttonAjouterType;
         private System.Windows.Forms.Panel panel_AjouterType;
         private System.Windows.Forms.Label label_Libelle;
@@ -3511,16 +3508,16 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
         private System.Windows.Forms.Button buttonInventaire;
-        private System.Windows.Forms.Label label19;
+        private System.Windows.Forms.Label label_valSeuil;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dataGridView3;
-        private System.Windows.Forms.Label label18;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label_nbProduit;
+        private System.Windows.Forms.Label label_nbFournisseur;
+        private System.Windows.Forms.Label label_nbClient;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label_procheSeuil;
         private System.Windows.Forms.Label label_pro_Uti_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Uti_Id;
@@ -3576,5 +3573,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateCreation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle2;
     }
 }
