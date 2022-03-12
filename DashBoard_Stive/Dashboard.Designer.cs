@@ -697,7 +697,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.labelPro_Typ_Id);
             this.panel11.Controls.Add(this.textBoxNbPiece);
             this.panel11.Controls.Add(this.comboBoxProposePar);
-            this.panel11.Controls.Add(this.buttonCreerProduit);
             this.panel11.Controls.Add(this.textBoxPrixLitre);
             this.panel11.Controls.Add(this.textBoxCepage);
             this.panel11.Controls.Add(this.textBoxRef);
@@ -728,6 +727,7 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.buttonMajProduit);
             this.panel11.Controls.Add(this.buttonSuppProduit);
             this.panel11.Controls.Add(this.label44);
+            this.panel11.Controls.Add(this.buttonCreerProduit);
             this.panel11.Location = new System.Drawing.Point(675, 12);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(601, 734);
@@ -771,7 +771,7 @@ namespace DashBoard_Stive
             // 
             // textBoxNbPiece
             // 
-            this.textBoxNbPiece.Location = new System.Drawing.Point(311, 705);
+            this.textBoxNbPiece.Location = new System.Drawing.Point(311, 675);
             this.textBoxNbPiece.Name = "textBoxNbPiece";
             this.textBoxNbPiece.Size = new System.Drawing.Size(58, 20);
             this.textBoxNbPiece.TabIndex = 52;
@@ -941,7 +941,7 @@ namespace DashBoard_Stive
             this.buttonCommanderProduit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCommanderProduit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCommanderProduit.ForeColor = System.Drawing.Color.Green;
-            this.buttonCommanderProduit.Location = new System.Drawing.Point(186, 697);
+            this.buttonCommanderProduit.Location = new System.Drawing.Point(186, 667);
             this.buttonCommanderProduit.Name = "buttonCommanderProduit";
             this.buttonCommanderProduit.Size = new System.Drawing.Size(263, 33);
             this.buttonCommanderProduit.TabIndex = 35;
@@ -1101,7 +1101,7 @@ namespace DashBoard_Stive
             this.buttonMajProduit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonMajProduit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonMajProduit.ForeColor = System.Drawing.Color.Green;
-            this.buttonMajProduit.Location = new System.Drawing.Point(473, 697);
+            this.buttonMajProduit.Location = new System.Drawing.Point(473, 667);
             this.buttonMajProduit.Name = "buttonMajProduit";
             this.buttonMajProduit.Size = new System.Drawing.Size(125, 34);
             this.buttonMajProduit.TabIndex = 7;
@@ -1115,7 +1115,7 @@ namespace DashBoard_Stive
             this.buttonSuppProduit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonSuppProduit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonSuppProduit.ForeColor = System.Drawing.Color.Red;
-            this.buttonSuppProduit.Location = new System.Drawing.Point(2, 697);
+            this.buttonSuppProduit.Location = new System.Drawing.Point(2, 667);
             this.buttonSuppProduit.Name = "buttonSuppProduit";
             this.buttonSuppProduit.Size = new System.Drawing.Size(165, 34);
             this.buttonSuppProduit.TabIndex = 8;
