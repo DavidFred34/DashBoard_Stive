@@ -24,6 +24,7 @@ namespace DashBoard_Stive
         private void Dashboard_Load(object sender, EventArgs e)
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
+            pictureBoxProduit.ImageLocation = "../../images/imgProduitDefault.png";
             //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             //pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
 
@@ -182,6 +183,7 @@ namespace DashBoard_Stive
                         string Pro_Quantite = "",
                         string Pro_SeuilAlerte = "",
                         int Pro_CommandeAuto = 0,
+                        int Pro_IsWeb = 0,
                         string Pro_Volume = "",
                         string Pro_Description = "",
                         string Typ_Libelle = ""
@@ -207,6 +209,11 @@ namespace DashBoard_Stive
                 checkBoxCommandeAuto.Checked = true;
             }
             else { checkBoxCommandeAuto.Checked = false; }
+            if (Pro_IsWeb == 1)
+            {
+                checkBox_IsWeb.Checked = true;
+            }
+            else { checkBox_IsWeb.Checked = false; }
             textBoxVolume.Text = Pro_Volume;
             textBoxDescription.Text = Pro_Description;
             comboBoxTypeProduit.Text = Typ_Libelle;
@@ -234,6 +241,8 @@ namespace DashBoard_Stive
                 var content = await response.Content.ReadAsStringAsync();
                 
                 prodListe = JsonConvert.DeserializeObject<List<Produit>>(content);
+                
+            //MessageBox.Show(content);  //controle du json
             }
             catch (Exception ex)
             {
@@ -241,7 +250,6 @@ namespace DashBoard_Stive
                 prodListe = null;
             }
 
-            //MessageBox.Show(content2);  //controle du json
 
             //Chargement liste TypeProduit
             try
@@ -299,7 +307,8 @@ namespace DashBoard_Stive
             }
             catch
             {
-
+                MessageBox.Show("Liste des clients non chargée");
+                cliListe = null;
             }
             //Affectation des listes
             Dv_TypeProduit.DataSource = typListe;
@@ -461,7 +470,7 @@ namespace DashBoard_Stive
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
             StamperFournisseur(
-                //Uti_Id: filtre_fourListe[e.RowIndex].Uti_Id.ToString(),
+                Uti_Id: filtre_fourListe[e.RowIndex].Uti_Id.ToString(),
                 //Fou_Id: filtre_fourListe[e.RowIndex].Fou_Id.ToString(),
                 NomDomaine: filtre_fourListe[e.RowIndex].Fou_NomDomaine,
                 DateCreation: filtre_fourListe[e.RowIndex].Uti_DateCreation,
@@ -493,7 +502,7 @@ namespace DashBoard_Stive
                 bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
 
                 // MessageBox.Show(debug.ToString());  //controle du json
-                // MessageBox.Show(contentCommande);
+                 MessageBox.Show(contentCommande);
             }
             catch (Exception ex)
             {
@@ -515,6 +524,7 @@ namespace DashBoard_Stive
                 var contentProduit2 = await response2.Content.ReadAsStringAsync();
                 
                 prodListe2 = JsonConvert.DeserializeObject<List<Produit>>(contentProduit2);
+                MessageBox.Show(contentProduit2);
             }
             catch (Exception ex)
             {
@@ -1010,7 +1020,7 @@ namespace DashBoard_Stive
 
               var content2 = await response2.Content.ReadAsStringAsync();
               typListe = JsonConvert.DeserializeObject<List<TypeProduit>>(content2);
-              //MessageBox.Show(content2);  //controle du json*/
+              MessageBox.Show(content2);  //controle du json*/
 
             //Dv_TypeProduit.DataSource = null;
 
@@ -1044,6 +1054,7 @@ namespace DashBoard_Stive
                 Pro_SeuilAlerte: filtre_prodListe[e.RowIndex].Pro_SeuilAlerte.ToString(),
 
                 Pro_CommandeAuto: filtre_prodListe[e.RowIndex].Pro_CommandeAuto,
+                Pro_IsWeb: filtre_prodListe[e.RowIndex].Pro_IsWeb,
                 Pro_Volume: filtre_prodListe[e.RowIndex].Pro_Volume.ToString(),
                 Pro_Description: filtre_prodListe[e.RowIndex].Pro_Description,
                 Typ_Libelle: filtre_prodListe[e.RowIndex].Typ_Libelle.ToString(),//prodListe[e.RowIndex].Pro_Typ_Id.ToString(),
@@ -1109,6 +1120,14 @@ namespace DashBoard_Stive
                 else
                 {
                     newPro.Pro_CommandeAuto = 0;
+                }
+                if (checkBox_IsWeb.Checked)
+                {
+                    newPro.Pro_IsWeb = 1;
+                }
+                else
+                {
+                    newPro.Pro_IsWeb = 0;
                 }
 
                 if (textBoxVolume.Text == "")
@@ -1222,6 +1241,14 @@ namespace DashBoard_Stive
             {
                 majPro.Pro_CommandeAuto = 0;
             }
+            if (checkBox_IsWeb.Checked)
+            {
+                majPro.Pro_IsWeb = 1;
+            }
+            else
+            {
+                majPro.Pro_IsWeb = 0;
+            }
             if (textBoxVolume.Text == "")
             {
                 majPro.Pro_Volume = 0;
@@ -1233,23 +1260,37 @@ namespace DashBoard_Stive
             //majPro.Img_Adresse = textBoxProposePar.Text;
             //majPro.Img_Nom = textBoxProposePar.Text;
 
-            var httpClient = new HttpClient();
-            var json = JsonConvert.SerializeObject(majPro);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
-            //MessageBox.Show(json.ToString());
-            //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
-            if (response.IsSuccessStatusCode)
-            {
-                MessageBox.Show("Produit mis à jour");
-            }
-            else
-                MessageBox.Show("Erreur: pas de mise à jour du produit" + "\r\n\n" + response);
-            //recharge la liste en simulant le click sur le bouton produit
-            buttonAccueil.PerformClick();
-            buttonProduit.PerformClick();
+           
+                var httpClient = new HttpClient();
+                var json = JsonConvert.SerializeObject(majPro);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
+                MessageBox.Show(json.ToString());
+                //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Produit mis à jour");
+                    //recharge la liste en simulant le click sur le bouton produit
+                    buttonAccueil.PerformClick();
+                    buttonProduit.PerformClick();
 
-            StamperProduit();
+                    StamperProduit();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur: pas de mise à jour du produit");
+                    //recharge la liste en simulant le click sur le bouton produit
+                    buttonAccueil.PerformClick();
+                    buttonProduit.PerformClick();
+
+                    StamperProduit();
+
+            }
+
+            
+         
+            
+            
         }
 
         private void buttonCommanderProduit_Click(object sender, EventArgs e)

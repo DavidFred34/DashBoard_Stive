@@ -31,6 +31,17 @@ namespace DashBoard_Stive
         {
             this.components = new System.ComponentModel.Container();
             this.Dv_Inventaire = new System.Windows.Forms.DataGridView();
+            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Inv = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.coIInvIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coi_ProId = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coi_ProLibelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coi_ProQuantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coi_Inventaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenuInventaireBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label_Inventaire = new System.Windows.Forms.Label();
             this.panel_Inventaire = new System.Windows.Forms.Panel();
             this.Dv_Historique = new System.Windows.Forms.DataGridView();
@@ -38,24 +49,11 @@ namespace DashBoard_Stive
             this.button_SaveInventaire = new System.Windows.Forms.Button();
             this.label_Historique = new System.Windows.Forms.Label();
             this.pictureBoxLogo = new System.Windows.Forms.PictureBox();
-            this.contenuInventaireBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fou_NomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Inv = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coIInvIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coiDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.coiDateMajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coi_ProId = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coi_ProLibelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coi_ProQuantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Coi_Inventaire = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contenuInventaireBindingSource)).BeginInit();
             this.panel_Inventaire.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contenuInventaireBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // Dv_Inventaire
@@ -71,8 +69,6 @@ namespace DashBoard_Stive
             this.Pro_Quantite,
             this.Inv,
             this.coIInvIdDataGridViewTextBoxColumn,
-            this.coiDateCreationDataGridViewTextBoxColumn,
-            this.coiDateMajDataGridViewTextBoxColumn,
             this.Coi_ProId,
             this.Coi_ProLibelle,
             this.Coi_ProQuantite,
@@ -83,6 +79,78 @@ namespace DashBoard_Stive
             this.Dv_Inventaire.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.CellSelect;
             this.Dv_Inventaire.Size = new System.Drawing.Size(516, 540);
             this.Dv_Inventaire.TabIndex = 20;
+            // 
+            // Pro_Nom
+            // 
+            this.Pro_Nom.DataPropertyName = "Pro_Nom";
+            this.Pro_Nom.HeaderText = "Produit";
+            this.Pro_Nom.Name = "Pro_Nom";
+            this.Pro_Nom.ReadOnly = true;
+            // 
+            // Typ_Libelle
+            // 
+            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
+            this.Typ_Libelle.HeaderText = "Type";
+            this.Typ_Libelle.Name = "Typ_Libelle";
+            this.Typ_Libelle.ReadOnly = true;
+            // 
+            // Fou_NomDomaine
+            // 
+            this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine.HeaderText = "Fournisseur";
+            this.Fou_NomDomaine.Name = "Fou_NomDomaine";
+            this.Fou_NomDomaine.ReadOnly = true;
+            // 
+            // Pro_Quantite
+            // 
+            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
+            this.Pro_Quantite.HeaderText = "Stock";
+            this.Pro_Quantite.Name = "Pro_Quantite";
+            this.Pro_Quantite.ReadOnly = true;
+            // 
+            // Inv
+            // 
+            this.Inv.HeaderText = "Inventaire";
+            this.Inv.Name = "Inv";
+            // 
+            // coIInvIdDataGridViewTextBoxColumn
+            // 
+            this.coIInvIdDataGridViewTextBoxColumn.DataPropertyName = "CoI_Inv_Id";
+            this.coIInvIdDataGridViewTextBoxColumn.HeaderText = "CoI_Inv_Id";
+            this.coIInvIdDataGridViewTextBoxColumn.Name = "coIInvIdDataGridViewTextBoxColumn";
+            this.coIInvIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // Coi_ProId
+            // 
+            this.Coi_ProId.DataPropertyName = "Coi_ProId";
+            this.Coi_ProId.HeaderText = "Coi_ProId";
+            this.Coi_ProId.Name = "Coi_ProId";
+            this.Coi_ProId.Visible = false;
+            // 
+            // Coi_ProLibelle
+            // 
+            this.Coi_ProLibelle.DataPropertyName = "Coi_ProLibelle";
+            this.Coi_ProLibelle.HeaderText = "Coi_ProLibelle";
+            this.Coi_ProLibelle.Name = "Coi_ProLibelle";
+            this.Coi_ProLibelle.Visible = false;
+            // 
+            // Coi_ProQuantite
+            // 
+            this.Coi_ProQuantite.DataPropertyName = "Coi_ProQuantite";
+            this.Coi_ProQuantite.HeaderText = "Coi_ProQuantite";
+            this.Coi_ProQuantite.Name = "Coi_ProQuantite";
+            this.Coi_ProQuantite.Visible = false;
+            // 
+            // Coi_Inventaire
+            // 
+            this.Coi_Inventaire.DataPropertyName = "Coi_Inventaire";
+            this.Coi_Inventaire.HeaderText = "Coi_Inventaire";
+            this.Coi_Inventaire.Name = "Coi_Inventaire";
+            this.Coi_Inventaire.Visible = false;
+            // 
+            // contenuInventaireBindingSource
+            // 
+            this.contenuInventaireBindingSource.DataSource = typeof(DashBoard_Stive.ContenuInventaire);
             // 
             // label_Inventaire
             // 
@@ -112,9 +180,13 @@ namespace DashBoard_Stive
             // 
             // Dv_Historique
             // 
+            this.Dv_Historique.AllowUserToAddRows = false;
+            this.Dv_Historique.AllowUserToResizeColumns = false;
             this.Dv_Historique.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_Historique.Location = new System.Drawing.Point(744, 35);
             this.Dv_Historique.Name = "Dv_Historique";
+            this.Dv_Historique.ReadOnly = true;
+            this.Dv_Historique.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dv_Historique.Size = new System.Drawing.Size(313, 158);
             this.Dv_Historique.TabIndex = 25;
             // 
@@ -168,107 +240,21 @@ namespace DashBoard_Stive
             this.pictureBoxLogo.TabIndex = 20;
             this.pictureBoxLogo.TabStop = false;
             // 
-            // contenuInventaireBindingSource
-            // 
-            this.contenuInventaireBindingSource.DataSource = typeof(DashBoard_Stive.ContenuInventaire);
-            // 
-            // Pro_Nom
-            // 
-            this.Pro_Nom.DataPropertyName = "Pro_Nom";
-            this.Pro_Nom.HeaderText = "Produit";
-            this.Pro_Nom.Name = "Pro_Nom";
-            this.Pro_Nom.ReadOnly = true;
-            // 
-            // Typ_Libelle
-            // 
-            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
-            this.Typ_Libelle.HeaderText = "Type";
-            this.Typ_Libelle.Name = "Typ_Libelle";
-            this.Typ_Libelle.ReadOnly = true;
-            // 
-            // Fou_NomDomaine
-            // 
-            this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
-            this.Fou_NomDomaine.HeaderText = "Fournisseur";
-            this.Fou_NomDomaine.Name = "Fou_NomDomaine";
-            this.Fou_NomDomaine.ReadOnly = true;
-            // 
-            // Pro_Quantite
-            // 
-            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
-            this.Pro_Quantite.HeaderText = "Stock";
-            this.Pro_Quantite.Name = "Pro_Quantite";
-            this.Pro_Quantite.ReadOnly = true;
-            // 
-            // Inv
-            // 
-            this.Inv.HeaderText = "Inventaire";
-            this.Inv.Name = "Inv";
-            // 
-            // coIInvIdDataGridViewTextBoxColumn
-            // 
-            this.coIInvIdDataGridViewTextBoxColumn.DataPropertyName = "CoI_Inv_Id";
-            this.coIInvIdDataGridViewTextBoxColumn.HeaderText = "CoI_Inv_Id";
-            this.coIInvIdDataGridViewTextBoxColumn.Name = "coIInvIdDataGridViewTextBoxColumn";
-            this.coIInvIdDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // coiDateCreationDataGridViewTextBoxColumn
-            // 
-            this.coiDateCreationDataGridViewTextBoxColumn.DataPropertyName = "Coi_DateCreation";
-            this.coiDateCreationDataGridViewTextBoxColumn.HeaderText = "Coi_DateCreation";
-            this.coiDateCreationDataGridViewTextBoxColumn.Name = "coiDateCreationDataGridViewTextBoxColumn";
-            this.coiDateCreationDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // coiDateMajDataGridViewTextBoxColumn
-            // 
-            this.coiDateMajDataGridViewTextBoxColumn.DataPropertyName = "Coi_DateMaj";
-            this.coiDateMajDataGridViewTextBoxColumn.HeaderText = "Coi_DateMaj";
-            this.coiDateMajDataGridViewTextBoxColumn.Name = "coiDateMajDataGridViewTextBoxColumn";
-            this.coiDateMajDataGridViewTextBoxColumn.Visible = false;
-            // 
-            // Coi_ProId
-            // 
-            this.Coi_ProId.DataPropertyName = "Coi_ProId";
-            this.Coi_ProId.HeaderText = "Coi_ProId";
-            this.Coi_ProId.Name = "Coi_ProId";
-            this.Coi_ProId.Visible = false;
-            // 
-            // Coi_ProLibelle
-            // 
-            this.Coi_ProLibelle.DataPropertyName = "Coi_ProLibelle";
-            this.Coi_ProLibelle.HeaderText = "Coi_ProLibelle";
-            this.Coi_ProLibelle.Name = "Coi_ProLibelle";
-            this.Coi_ProLibelle.Visible = false;
-            // 
-            // Coi_ProQuantite
-            // 
-            this.Coi_ProQuantite.DataPropertyName = "Coi_ProQuantite";
-            this.Coi_ProQuantite.HeaderText = "Coi_ProQuantite";
-            this.Coi_ProQuantite.Name = "Coi_ProQuantite";
-            this.Coi_ProQuantite.Visible = false;
-            // 
-            // Coi_Inventaire
-            // 
-            this.Coi_Inventaire.DataPropertyName = "Coi_Inventaire";
-            this.Coi_Inventaire.HeaderText = "Coi_Inventaire";
-            this.Coi_Inventaire.Name = "Coi_Inventaire";
-            this.Coi_Inventaire.Visible = false;
-            // 
-            // Inventaire
+            // Form_inventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1116, 601);
             this.Controls.Add(this.panel_Inventaire);
-            this.Name = "Inventaire";
+            this.Name = "Form_inventaire";
             this.Text = "Inventaire";
             this.Load += new System.EventHandler(this.Inventaire_Load);
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.contenuInventaireBindingSource)).EndInit();
             this.panel_Inventaire.ResumeLayout(false);
             this.panel_Inventaire.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxLogo)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.contenuInventaireBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }

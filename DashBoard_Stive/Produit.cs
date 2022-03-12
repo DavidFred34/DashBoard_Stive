@@ -21,6 +21,7 @@ namespace DashBoard_Stive
         public float Pro_Quantite { get; set; }
         public float Pro_SeuilAlerte { get; set; }
         public int Pro_CommandeAuto { get; set; }
+        public int Pro_IsWeb { get; set; }
         public float Pro_Volume { get; set; }
         public string Pro_Description { get; set; }
         public string Typ_Libelle { get; set; }
