@@ -203,7 +203,7 @@ namespace DashBoard_Stive
             this.buttonSaveAndMajInventaire.TabIndex = 24;
             this.buttonSaveAndMajInventaire.Text = "Mettre  à jour le stock";
             this.buttonSaveAndMajInventaire.UseVisualStyleBackColor = false;
-            this.buttonSaveAndMajInventaire.Click += new System.EventHandler(this.buttonSaveAndMajInventaire_Click);
+            this.buttonSaveAndMajInventaire.Click += new System.EventHandler(this.Btn_SaveAndMajInventaire_Click);
             // 
             // button_SaveInventaire
             // 
@@ -217,7 +217,7 @@ namespace DashBoard_Stive
             this.button_SaveInventaire.TabIndex = 23;
             this.button_SaveInventaire.Text = "Enregistrer l\'inventaire";
             this.button_SaveInventaire.UseVisualStyleBackColor = true;
-            this.button_SaveInventaire.Click += new System.EventHandler(this.button_SaveInventaire_Click);
+            this.button_SaveInventaire.Click += new System.EventHandler(this.Btn_SaveInventaire_Click);
             // 
             // label_Historique
             // 

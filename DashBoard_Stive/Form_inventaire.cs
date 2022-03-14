@@ -51,7 +51,7 @@ namespace DashBoard_Stive
        
         }
         List<Produit> prodListe3;
-        public async void button_SaveInventaire_Click(object sender, EventArgs e)
+        public async void Btn_SaveInventaire_Click(object sender, EventArgs e)
         {
           /*  foreach (DataGridViewRow dr in Dv_Inventaire.Rows) {
            ContenuInventaire newInv = new ContenuInventaire();
@@ -84,7 +84,7 @@ namespace DashBoard_Stive
             this.Close();
         }
 
-        private void buttonSaveAndMajInventaire_Click(object sender, EventArgs e)
+        private void Btn_SaveAndMajInventaire_Click(object sender, EventArgs e)
         {
             MessageBox.Show("La mise à jour du stock n'a pas pu se faire, contactez l'assistance");
             this.Close();

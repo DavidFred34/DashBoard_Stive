@@ -34,7 +34,7 @@ namespace DashBoard_Stive
         public string Fou_DateCreation { get; set; }
         public string Fou_Role { get; set; }
 
-        public int Uti_Id { get; set; }
+        public int Fou_Uti_Id { get; set; }
 
         //[JsonProperty(PropertyName = "Adresse")]
         public string Uti_Adresse { get; set; }
@@ -72,8 +72,8 @@ namespace DashBoard_Stive
 
         public string Uti_DateCreation { get; set; }
 
-       
+      
 
-            
+
     }
 }

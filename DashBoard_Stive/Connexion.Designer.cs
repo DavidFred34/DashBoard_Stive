@@ -1,7 +1,7 @@
 ﻿
 namespace DashBoard_Stive
 {
-    partial class Form1
+    partial class Connexion
     {
         /// <summary>
         /// Required designer variable.
@@ -29,11 +29,11 @@ namespace DashBoard_Stive
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Connexion));
             this.panel1 = new System.Windows.Forms.Panel();
-            this.button1 = new System.Windows.Forms.Button();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.Btn_Connexion = new System.Windows.Forms.Button();
+            this.Txb_Mp = new System.Windows.Forms.TextBox();
+            this.Txb_Login = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.panel2 = new System.Windows.Forms.Panel();
@@ -46,9 +46,9 @@ namespace DashBoard_Stive
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.White;
-            this.panel1.Controls.Add(this.button1);
-            this.panel1.Controls.Add(this.textBox2);
-            this.panel1.Controls.Add(this.textBox1);
+            this.panel1.Controls.Add(this.Btn_Connexion);
+            this.panel1.Controls.Add(this.Txb_Mp);
+            this.panel1.Controls.Add(this.Txb_Login);
             this.panel1.Controls.Add(this.label1);
             this.panel1.Controls.Add(this.label3);
             this.panel1.Controls.Add(this.panel2);
@@ -58,44 +58,44 @@ namespace DashBoard_Stive
             this.panel1.Size = new System.Drawing.Size(604, 794);
             this.panel1.TabIndex = 0;
             // 
-            // button1
+            // button_Connexion
             // 
-            this.button1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
-            this.button1.FlatAppearance.BorderSize = 0;
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.button1.Location = new System.Drawing.Point(227, 652);
-            this.button1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(146, 37);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Se connecter";
-            this.button1.UseVisualStyleBackColor = false;
-            this.button1.Click += new System.EventHandler(this.button1_Click);
-            this.button1.MouseEnter += new System.EventHandler(this.button1_MouseEnter);
-            this.button1.MouseLeave += new System.EventHandler(this.button1_MouseLeave);
+            this.Btn_Connexion.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(137)))), ((int)(((byte)(196)))), ((int)(((byte)(244)))));
+            this.Btn_Connexion.FlatAppearance.BorderSize = 0;
+            this.Btn_Connexion.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Connexion.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Connexion.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Btn_Connexion.Location = new System.Drawing.Point(227, 652);
+            this.Btn_Connexion.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Btn_Connexion.Name = "button_Connexion";
+            this.Btn_Connexion.Size = new System.Drawing.Size(146, 37);
+            this.Btn_Connexion.TabIndex = 7;
+            this.Btn_Connexion.Text = "Se connecter";
+            this.Btn_Connexion.UseVisualStyleBackColor = false;
+            this.Btn_Connexion.Click += new System.EventHandler(this.Btn_Connexion_Click);
+            this.Btn_Connexion.MouseEnter += new System.EventHandler(this.Btn_Connexion_MouseEnter);
+            this.Btn_Connexion.MouseLeave += new System.EventHandler(this.Btn_Connexion_MouseLeave);
             // 
-            // textBox2
+            // textBox_Mp
             // 
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox2.Location = new System.Drawing.Point(189, 512);
-            this.textBox2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(158, 22);
-            this.textBox2.TabIndex = 6;
-            this.textBox2.Text = "*********";
+            this.Txb_Mp.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txb_Mp.Location = new System.Drawing.Point(189, 512);
+            this.Txb_Mp.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Txb_Mp.Name = "textBox_Mp";
+            this.Txb_Mp.Size = new System.Drawing.Size(158, 22);
+            this.Txb_Mp.TabIndex = 6;
+            this.Txb_Mp.Text = "Admin";
             // 
-            // textBox1
+            // textBox_Login
             // 
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
-            this.textBox1.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(189, 373);
-            this.textBox1.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(225, 20);
-            this.textBox1.TabIndex = 5;
-            this.textBox1.Text = "frederic.david@cariforefoccitanie.fr";
+            this.Txb_Login.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
+            this.Txb_Login.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Txb_Login.Location = new System.Drawing.Point(189, 373);
+            this.Txb_Login.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
+            this.Txb_Login.Name = "textBox_Login";
+            this.Txb_Login.Size = new System.Drawing.Size(225, 20);
+            this.Txb_Login.TabIndex = 5;
+            this.Txb_Login.Text = "admin@admin.fr";
             // 
             // label1
             // 
@@ -131,15 +131,16 @@ namespace DashBoard_Stive
             // 
             // pictureBoxLogo2
             // 
+            this.pictureBoxLogo2.Image = global::DashBoard_Stive.Properties.Resources.logoStive;
             this.pictureBoxLogo2.Location = new System.Drawing.Point(220, 0);
             this.pictureBoxLogo2.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.pictureBoxLogo2.Name = "pictureBoxLogo2";
-            this.pictureBoxLogo2.Size = new System.Drawing.Size(195, 274);
+            this.pictureBoxLogo2.Size = new System.Drawing.Size(199, 274);
             this.pictureBoxLogo2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBoxLogo2.TabIndex = 0;
             this.pictureBoxLogo2.TabStop = false;
             // 
-            // Form1
+            // Connexion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -149,10 +150,10 @@ namespace DashBoard_Stive
             this.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
-            this.Name = "Form1";
+            this.Name = "Connexion";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Connexion";
-            this.Load += new System.EventHandler(this.Form1_Load);
+            this.Load += new System.EventHandler(this.Connexion_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panel2.ResumeLayout(false);
@@ -166,10 +167,10 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.Panel panel2;
         private System.Windows.Forms.PictureBox pictureBoxLogo2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox Txb_Login;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.TextBox Txb_Mp;
+        private System.Windows.Forms.Button Btn_Connexion;
     }
 }
