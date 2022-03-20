@@ -397,6 +397,7 @@ namespace DashBoard_Stive
                 }
             }
             Dv_BdcEnCours.DataSource = bdcEnCoursListe;
+            filtre_bdcListe = bdcListe;
             Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
 
             //affichage des prduits proches du seulAlerte
@@ -427,6 +428,7 @@ namespace DashBoard_Stive
         List<Client> cliListe;
         List<Client> filtre_cliListe;
         List<CommandeFournisseur> bdcListe;
+        List<CommandeFournisseur> filtre_bdcListe;
         List<CommandeFournisseur> bdcEnCoursListe;
         List<Produit> alerte;
 
@@ -438,10 +440,60 @@ namespace DashBoard_Stive
             Btn_Bdc.ForeColor = Color.FromArgb(255, 255, 255);
             panelBdc.Visible = true;
             Btn_Bdc.Tag = 1;
+            Btn_CreerBdc.Visible = true;
+            Btn_MajBdc.Visible = false;
+            Btn_AjouterBdc.Visible = false;
+            Tbx_CherchBdc.Text = "";
+            Rbt_Tous.Checked = true;
 
-            MessageBox.Show("Fonctionnalité en cours de développement");
+            // StamperContenuBdc(); //remet les champs à vide
+           
+            Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Dv_CommandeFournisseur.DataSource = bdcListe;
+        }
+        private void radioButtons_CheckedChanged(object sender, EventArgs e)
+        {
+            RadioButton radioButton = sender as RadioButton;
+
+            if (Rbt_Tous.Checked)
+            {
+                filtre_bdcListe = bdcListe;
+                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            }
+            else if (Rbt_Avalider.Checked)
+            {
+                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 2 || x.Cof_Eta_Id == 5).ToList();
+                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            }
+            else if (Rbt_Livre.Checked)
+            {
+                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 3).ToList();
+                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            }
+            else if (Rbt_Autre.Checked)
+            {
+                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 1 || x.Cof_Eta_Id == 4).ToList();
+                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            }
         }
 
+        private void Txb_CherchBdc_TextChanged(object sender, EventArgs e)
+        {
+            filtre_bdcListe = bdcListe.Where(x => x.Cof_Fou_Id.ToString().ToLower().Contains(Tbx_CherchBdc.Text.ToLower())).ToList();
+            Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            if (Tbx_CherchBdc.Text != "")
+            {
+                Gbx_FiltreEtat.Enabled = false;
+            }
+            else
+            {
+                Gbx_FiltreEtat.Enabled = true;
+            };
+
+        }
         private void Btn_CommandesWeb_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -1469,6 +1521,14 @@ namespace DashBoard_Stive
                 if (libelle.Typ_Libelle.ToUpper() == Txb_Libelle.Text.ToUpper())
                 {
                     exist += 1;
+
+                }
+                if (Txb_Libelle.Text == "")
+                {
+                    exist += 1;
+                    MessageBox.Show("Le libellé n'est pas rempli");
+                    Btn_Valider.Visible = true;
+                    return;
 
                 }
             }

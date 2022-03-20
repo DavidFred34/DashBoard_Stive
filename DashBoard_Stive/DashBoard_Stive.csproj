@@ -68,6 +68,7 @@
     <Compile Include="Client.cs" />
     <Compile Include="CommandeFournisseur.cs" />
     <Compile Include="Class\Connect.cs" />
+    <Compile Include="ContenuCommandeFournisseur.cs" />
     <Compile Include="ContenuInventaire.cs" />
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
