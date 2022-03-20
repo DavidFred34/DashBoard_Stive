@@ -119,10 +119,20 @@ namespace DashBoard_Stive
             Txb_NomDomaine.Text = NomDomaine;
             Lbl_DateCreation.Text = "Créé le " + DateCreation;
             Txb_NomResp.Text = NomResp;
-            Txb_TelResp.Text = TelResp;
+            //Txb_TelResp.Text = TelResp;
+            if (TelResp == "")
+            {
+                Txb_TelResp.Text = "";
+            }
+            else { Txb_TelResp.Text = "0" + TelResp; }
             Txb_MailResp.Text = MailResp;
             Txb_Fonction.Text = Fonction;
             Txb_TelContact.Text = TelContact;
+            if (TelContact == "")
+            {
+                Txb_TelContact.Text = "";
+            }
+            else { Txb_TelContact.Text = "0" + TelContact; }
             Txb_MailContact.Text = MailContact;
             Txb_Mdp.Text = Mdp;
             Txb_Adresse.Text = Adresse;
@@ -160,7 +170,12 @@ namespace DashBoard_Stive
             Txb_Prenom.Text = Prenom;
             Lbl_Inscription.Text = "Inscrit le " + DateInscription;
             //labelDateNaiss.Text = "né le " + DateNaissance;
-            Txb_Tel.Text = TelContact;
+            if (TelContact == "") 
+            {
+                Txb_Tel.Text = "";
+            }
+            else { Txb_Tel.Text = "0" + TelContact; }
+                
             Txb_Mail.Text = MailContact;
             Txb_Mdp2.Text = Mdp2;
             Txb_Adresse2.Text = Adresse2;
@@ -326,6 +341,28 @@ namespace DashBoard_Stive
                 MessageBox.Show("Liste des clients non chargée");
                 cliListe = null;
             }
+
+            //chargement liste bdc
+            try
+            {
+                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+               
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirTous.php");// label_Fou_Id.Text);
+                response.EnsureSuccessStatusCode();
+
+                var contentCommande = await response.Content.ReadAsStringAsync();
+
+                bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
+
+                // MessageBox.Show(debug.ToString());  //controle du json
+                //MessageBox.Show(contentCommande);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                bdcListe = null;
+            }
             //Affectation des listes
             Dv_TypeProduit.DataSource = typListe;
             Dv_fournisseur.DataSource = fourListe;
@@ -343,13 +380,44 @@ namespace DashBoard_Stive
             Lbl_nbClient.Text = "Nombre de Clients : " + cliListe.Count.ToString();
             Lbl_nbFournisseur.Text = "Nombre de Fournisseur : " + fourListe.Count.ToString();
             Lbl_nbProduit.Text = "Nombre de produits : " + prodListe.Count.ToString();
+            
+            int count = 0;
+            bdcEnCoursListe = null;
+            //var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
+            bdcEnCoursListe = new List<CommandeFournisseur>();
+            foreach (CommandeFournisseur bdc in bdcListe)
+            {
+                if (bdc.Cof_Eta_Id == 2 || bdc.Cof_Eta_Id == 5)
+                {
+                    count ++;
+                    bdcEnCoursListe.Add(bdc);
+                    //MessageBox.Show(bdcEnCoursListe.Count().ToString());
+                    //MessageBox.Show(bdcEnCoursListe.ToString());
+
+                }
+            }
+            Dv_BdcEnCours.DataSource = bdcEnCoursListe;
+            Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
 
             //affichage des prduits proches du seulAlerte
-            var alerte = from alert in prodListe
-                         where (alert.Pro_Quantite / 2) < alert.Pro_SeuilAlerte
-                         select alert.Pro_Id;
+            List<Produit> prodSeuilListe = new List<Produit>();
+            int count2 = 0;
+            foreach (Produit prod in prodListe)
+            {
+                if (prod.Pro_Quantite/2 < prod.Pro_SeuilAlerte)
+                {
+                    count2++;
+                    prodSeuilListe.Add(prod);
+                    //MessageBox.Show(bdcEnCoursListe.Count().ToString());
+                    //MessageBox.Show(bdcEnCoursListe.ToString());
 
-            Lbl_valSeuil.Text = alerte.Count().ToString();
+                }
+            }
+            /*alerte = from alert in prodListe
+                         where (alert.Pro_Quantite / 2) < alert.Pro_SeuilAlerte
+                         select alert.Pro_Id;*/
+            Dv_procheSeuil.DataSource = prodSeuilListe;
+            Lbl_valSeuil.Text = count2.ToString();
         }
         List<TypeProduit> typListe;
         List<Produit> prodListe;
@@ -358,6 +426,9 @@ namespace DashBoard_Stive
         List<Produit> filtre_prodListe;
         List<Client> cliListe;
         List<Client> filtre_cliListe;
+        List<CommandeFournisseur> bdcListe;
+        List<CommandeFournisseur> bdcEnCoursListe;
+        List<Produit> alerte;
 
         private void Btn_Bdc_Click(object sender, EventArgs e)
         {
@@ -493,7 +564,7 @@ namespace DashBoard_Stive
 
                 DateCreation: AfficheDate(DateTime.Parse(filtre_fourListe[e.RowIndex].Uti_DateCreation)),
                 NomResp: filtre_fourListe[e.RowIndex].Fou_NomResp,
-                TelResp: filtre_fourListe[e.RowIndex].Fou_TelResp,
+                TelResp:filtre_fourListe[e.RowIndex].Fou_TelResp,
                 MailResp: filtre_fourListe[e.RowIndex].Fou_MailResp,
                 Fonction: filtre_fourListe[e.RowIndex].Fou_Fonction,
                 TelContact: filtre_fourListe[e.RowIndex].Uti_TelContact,
@@ -517,7 +588,7 @@ namespace DashBoard_Stive
 
                 var contentCommande = await response.Content.ReadAsStringAsync();
 
-                bdcListe = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
+                bdcListeFournisseur = JsonConvert.DeserializeObject<List<CommandeFournisseur>>(contentCommande);
 
                 // MessageBox.Show(debug.ToString());  //controle du json
                 //MessageBox.Show(contentCommande);
@@ -525,9 +596,9 @@ namespace DashBoard_Stive
             catch (Exception ex)
             {
                 //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                bdcListe = null;
+                bdcListeFournisseur = null;
             }
-            Dv_ListeBdc.DataSource = bdcListe;
+            Dv_ListeBdc.DataSource = bdcListeFournisseur;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
 
@@ -556,12 +627,12 @@ namespace DashBoard_Stive
             //controle du json
             // MessageBox.Show(contentProduit2);
 
-            Dv_ListeBdc.DataSource = bdcListe;
+            Dv_ListeBdc.DataSource = bdcListeFournisseur;
             Dv_ListeProduit2.DataSource = prodListe2;
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
                 return;
         }
-        List<CommandeFournisseur> bdcListe;
+        List<CommandeFournisseur> bdcListeFournisseur;
         List<Produit> prodListe2;
 
         private void Btn_Ajouterfournisseur_Click(object sender, EventArgs e)
@@ -591,7 +662,6 @@ namespace DashBoard_Stive
             Lbl_ListeBdc.Visible = false;
             Lbl_ListeProduit.Visible = false;
         }
-
 
         private async void Btn_CreerFournisseur_Click(object sender, EventArgs e)
         {
@@ -725,13 +795,13 @@ namespace DashBoard_Stive
             majFour.Fou_Uti_Id = Convert.ToInt32(Lbl_Uti_Id.Text);
 
 
-            string token = Class.Globales.token.tokenRequete();
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
+            string token = Class.Globales.token.tokenRequete();  //recup du token
+            var httpClient  = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
             var json = JsonConvert.SerializeObject(majFour);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
-            StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/modifier.php", data);
             if (response.IsSuccessStatusCode)
             {
@@ -745,8 +815,6 @@ namespace DashBoard_Stive
             //StamperFournisseur();
 
         }
-
-
 
         private void Txb_CherchFournisseur_TextChanged(object sender, EventArgs e)
         {
@@ -1346,8 +1414,9 @@ namespace DashBoard_Stive
 
             var httpClient = new HttpClient();
             var json = JsonConvert.SerializeObject(suppPro);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/supprimer.php", data);
+            //var data = new StringContent(json, Encoding.UTF8, "application/json");
+            var url = "https://apistive.azurewebsites.net/API/controlers/Produit/supprimer.php?Pro_Id=" + suppPro.Pro_Id;
+            var response = await httpClient.DeleteAsync(url);
             StamperProduit(Pro_Id: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
@@ -1359,7 +1428,7 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: produit non supprimé" + "\r\n\n" + response);
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
-            Btn_Fournisseurs.PerformClick();
+            Btn_Produit.PerformClick();
             StamperFournisseur();
         }
 
@@ -1560,14 +1629,6 @@ namespace DashBoard_Stive
             }
         }
 
-        private void Txb_TelContact_KeyPress_1(object sender, KeyPressEventArgs e)
-        {
-            if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
-            {
-                e.Handled = true;
-            }
-        }
-
         private void Txb_TelResp_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar))
@@ -1652,6 +1713,7 @@ namespace DashBoard_Stive
         {
             MessageBox.Show("Fonctionnalité non développée");
         }
+
 
     }
 }

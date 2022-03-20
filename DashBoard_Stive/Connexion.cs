@@ -54,9 +54,9 @@ namespace DashBoard_Stive
                 var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/login/login.php", data);
                 var content = await response.Content.ReadAsStringAsync();
                 Globales.token = JsonConvert.DeserializeObject<Connect>(content);
-                MessageBox.Show(content);  //controle du json
+               // MessageBox.Show(content);  //controle du json
                 newCon.defToken(Globales.token.tokenRequete());
-                MessageBox.Show(newCon.tokenRequete());
+               // MessageBox.Show(newCon.tokenRequete());
                 Dashboard Dashboard = new Dashboard();
                 Dashboard.ShowDialog();
                 this.Close();

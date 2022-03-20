@@ -18,10 +18,10 @@ namespace DashBoard_Stive
         //[JsonProperty(PropertyName = "NomResp")]
         public string Fou_NomResp { get; set; }
         public string NomResp { get => Fou_NomResp;}
-
+        string fou_TelResp;
         //[JsonProperty(PropertyName = "TelResp")]
         public string Fou_TelResp { get; set; }
-        public string TelResp { get => Fou_TelResp;}
+        public string Fou_TelRespString { get => "0" + Fou_TelResp;}
 
         //[JsonProperty(PropertyName = "MailResp")]
         public string Fou_MailResp { get; set; }
@@ -72,8 +72,8 @@ namespace DashBoard_Stive
 
         public string Uti_DateCreation { get; set; }
 
-      
 
+      
 
     }
 }
