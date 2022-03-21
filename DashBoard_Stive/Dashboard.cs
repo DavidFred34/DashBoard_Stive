@@ -239,6 +239,23 @@ namespace DashBoard_Stive
             Cbx_TypeProduit.Text = Typ_Libelle;
 
         }
+        private void StamperContenuBdc(
+            
+                        string Date = "",
+                        string DateMaj = "",
+                        string Etat = "",
+                        string ProposePar = "",
+                        string NomProduit = "",
+                        string Domaine = ""
+                        )
+        {
+            Lbl_ProposePar.Text = ProposePar;
+            Lbl_DateCreationBdc.Text = Date;
+
+            Lbl_DateMajBdc.Text = DateMaj;
+            Cbx_EtatBdc.Text = Etat.ToString();
+
+        }
         public static string AfficheDate(DateTime dateAConvertir)
         {
             var annee = dateAConvertir.Year;
@@ -439,6 +456,8 @@ namespace DashBoard_Stive
             Btn_Bdc.BackColor = Color.FromArgb(44, 130, 201);
             Btn_Bdc.ForeColor = Color.FromArgb(255, 255, 255);
             panelBdc.Visible = true;
+            Panel_InfoBdc.Visible = false;
+            Panel_CreerBdc.Visible = true;
             Btn_Bdc.Tag = 1;
             Btn_CreerBdc.Visible = true;
             Btn_MajBdc.Visible = false;
@@ -448,6 +467,27 @@ namespace DashBoard_Stive
 
             // StamperContenuBdc(); //remet les champs à vide
            
+            Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Dv_CommandeFournisseur.DataSource = bdcListe;
+        }
+        private void Btn_AjouterBdc_Click(object sender, EventArgs e)
+        {
+            //gestion affichage
+            Btn_CreerBdc.Visible = true;
+            Btn_MajBdc.Visible = false;
+            Btn_AjouterBdc.Visible = false;
+            Panel_CreerBdc.Visible = true;
+            Panel_InfoBdc.Visible = false;
+            List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
+            newContenuBdcListe = null;
+            Dv_DetailCommandeFournisseur.DataSource = newContenuBdcListe;
+            //Rbt_Tous.Checked = true;
+
+            //StamperContenuBdc(); //remet les champs à vide
+
             Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
@@ -493,6 +533,51 @@ namespace DashBoard_Stive
                 Gbx_FiltreEtat.Enabled = true;
             };
 
+        }
+        public async void Dv_CommandeFournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
+        {
+            //gestion affichage
+            Btn_AjouterBdc.Visible = true;
+            Btn_CreerBdc.Visible = false;
+            Btn_MajBdc.Visible = true;
+            Panel_InfoBdc.Visible = true;
+            Panel_CreerBdc.Visible = false;
+            
+            //chargement liste contenuBdc_du bdc
+            List<ContenuCommandeFournisseur> contenuBdcListe = new List<ContenuCommandeFournisseur>();
+            try
+             {
+                 var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                 var url = "https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ObtenirTous.php?Ccf_Id=" + filtre_bdcListe[e.RowIndex].Cof_Id;
+                 var response = await
+                 httpClient.GetAsync(url);// label_Fou_Id.Text);
+                 response.EnsureSuccessStatusCode();
+
+                 var contentCommande = await response.Content.ReadAsStringAsync();
+                 contenuBdcListe = JsonConvert.DeserializeObject<List<ContenuCommandeFournisseur>>(contentCommande);
+
+                 // MessageBox.Show(debug.ToString());  //controle du json
+                 //MessageBox.Show(contentCommande);
+             }
+             catch (Exception ex)
+             {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                contenuBdcListe = null;
+             }
+
+            if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
+                return;
+            if (contenuBdcListe != null) { StamperContenuBdc(
+                   Date: AfficheDate(DateTime.Parse(contenuBdcListe[e.RowIndex].Cof_DateCreation)),
+                   DateMaj: AfficheDate(DateTime.Parse(contenuBdcListe[e.RowIndex].Cof_DateMaj)),
+                   ProposePar: contenuBdcListe[e.RowIndex].Fou_NomDomaine,
+                   Etat: contenuBdcListe[e.RowIndex].Cof_Eta_Id.ToString()
+                );
+            };
+
+           
+            Dv_ListeBdc.DataSource = bdcListeFournisseur;
+            Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
         }
         private void Btn_CommandesWeb_Click(object sender, EventArgs e)
         {
@@ -1774,6 +1859,7 @@ namespace DashBoard_Stive
             MessageBox.Show("Fonctionnalité non développée");
         }
 
+      
 
     }
 }

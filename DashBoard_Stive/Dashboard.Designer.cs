@@ -193,14 +193,21 @@ namespace DashBoard_Stive
             this.panel22 = new System.Windows.Forms.Panel();
             this.Btn_CreerBdc = new System.Windows.Forms.Button();
             this.Btn_MajBdc = new System.Windows.Forms.Button();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.labelDateMajBdc = new System.Windows.Forms.Label();
-            this.labelDateCreationBdc = new System.Windows.Forms.Label();
-            this.labelEtatBdc = new System.Windows.Forms.Label();
-            this.button21 = new System.Windows.Forms.Button();
             this.labelDetailBdc = new System.Windows.Forms.Label();
             this.Dv_DetailCommandeFournisseur = new System.Windows.Forms.DataGridView();
             this.labelNumBdc = new System.Windows.Forms.Label();
+            this.Panel_InfoBdc = new System.Windows.Forms.Panel();
+            this.Lbl_ProposePar = new System.Windows.Forms.Label();
+            this.Lbl_DateCreationBdc = new System.Windows.Forms.Label();
+            this.Cbx_EtatBdc = new System.Windows.Forms.ComboBox();
+            this.Lbl_EtatBdc = new System.Windows.Forms.Label();
+            this.Lbl_DateMajBdc = new System.Windows.Forms.Label();
+            this.Panel_CreerBdc = new System.Windows.Forms.Panel();
+            this.Btn_ValiderProduit = new System.Windows.Forms.Button();
+            this.Tbx_qte = new System.Windows.Forms.TextBox();
+            this.Cbx_Produit = new System.Windows.Forms.ComboBox();
+            this.Lbl_Produit = new System.Windows.Forms.Label();
+            this.Lbl_Qte = new System.Windows.Forms.Label();
             this.panelCommandesWeb = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -357,6 +364,8 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.Dv_CommandeFournisseur)).BeginInit();
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).BeginInit();
+            this.Panel_InfoBdc.SuspendLayout();
+            this.Panel_CreerBdc.SuspendLayout();
             this.panelCommandesWeb.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -2036,6 +2045,7 @@ namespace DashBoard_Stive
             this.Btn_AjouterBdc.TabIndex = 36;
             this.Btn_AjouterBdc.Text = "Créer un bon de commande";
             this.Btn_AjouterBdc.UseVisualStyleBackColor = true;
+            this.Btn_AjouterBdc.Click += new System.EventHandler(this.Btn_AjouterBdc_Click);
             // 
             // Tbx_CherchBdc
             // 
@@ -2065,6 +2075,7 @@ namespace DashBoard_Stive
             this.Dv_CommandeFournisseur.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dv_CommandeFournisseur.Size = new System.Drawing.Size(575, 541);
             this.Dv_CommandeFournisseur.TabIndex = 6;
+            this.Dv_CommandeFournisseur.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_CommandeFournisseur_CellMouseClick);
             // 
             // cofIdDataGridViewTextBoxColumn
             // 
@@ -2126,14 +2137,11 @@ namespace DashBoard_Stive
             // 
             this.panel22.Controls.Add(this.Btn_CreerBdc);
             this.panel22.Controls.Add(this.Btn_MajBdc);
-            this.panel22.Controls.Add(this.comboBox2);
-            this.panel22.Controls.Add(this.labelDateMajBdc);
-            this.panel22.Controls.Add(this.labelDateCreationBdc);
-            this.panel22.Controls.Add(this.labelEtatBdc);
-            this.panel22.Controls.Add(this.button21);
             this.panel22.Controls.Add(this.labelDetailBdc);
             this.panel22.Controls.Add(this.Dv_DetailCommandeFournisseur);
             this.panel22.Controls.Add(this.labelNumBdc);
+            this.panel22.Controls.Add(this.Panel_InfoBdc);
+            this.panel22.Controls.Add(this.Panel_CreerBdc);
             this.panel22.Location = new System.Drawing.Point(674, 12);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(601, 719);
@@ -2166,60 +2174,6 @@ namespace DashBoard_Stive
             this.Btn_MajBdc.Text = "Mettre à jour";
             this.Btn_MajBdc.UseVisualStyleBackColor = true;
             // 
-            // comboBox2
-            // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Location = new System.Drawing.Point(55, 73);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 35;
-            // 
-            // labelDateMajBdc
-            // 
-            this.labelDateMajBdc.AutoSize = true;
-            this.labelDateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelDateMajBdc.Location = new System.Drawing.Point(4, 54);
-            this.labelDateMajBdc.Name = "labelDateMajBdc";
-            this.labelDateMajBdc.Size = new System.Drawing.Size(104, 19);
-            this.labelDateMajBdc.TabIndex = 30;
-            this.labelDateMajBdc.Text = "Date de MAJ";
-            // 
-            // labelDateCreationBdc
-            // 
-            this.labelDateCreationBdc.AutoSize = true;
-            this.labelDateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelDateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelDateCreationBdc.Location = new System.Drawing.Point(4, 34);
-            this.labelDateCreationBdc.Name = "labelDateCreationBdc";
-            this.labelDateCreationBdc.Size = new System.Drawing.Size(133, 19);
-            this.labelDateCreationBdc.TabIndex = 29;
-            this.labelDateCreationBdc.Text = "Date de creation";
-            // 
-            // labelEtatBdc
-            // 
-            this.labelEtatBdc.AutoSize = true;
-            this.labelEtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.labelEtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelEtatBdc.Location = new System.Drawing.Point(4, 73);
-            this.labelEtatBdc.Name = "labelEtatBdc";
-            this.labelEtatBdc.Size = new System.Drawing.Size(39, 19);
-            this.labelEtatBdc.TabIndex = 28;
-            this.labelEtatBdc.Text = "Etat";
-            // 
-            // button21
-            // 
-            this.button21.FlatAppearance.BorderSize = 0;
-            this.button21.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button21.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button21.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.button21.Location = new System.Drawing.Point(404, -2);
-            this.button21.Name = "button21";
-            this.button21.Size = new System.Drawing.Size(198, 31);
-            this.button21.TabIndex = 8;
-            this.button21.Text = "Commandé chez Max";
-            this.button21.UseVisualStyleBackColor = true;
-            // 
             // labelDetailBdc
             // 
             this.labelDetailBdc.AutoSize = true;
@@ -2244,11 +2198,137 @@ namespace DashBoard_Stive
             this.labelNumBdc.AutoSize = true;
             this.labelNumBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelNumBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.labelNumBdc.Location = new System.Drawing.Point(4, 10);
+            this.labelNumBdc.Location = new System.Drawing.Point(4, 177);
             this.labelNumBdc.Name = "labelNumBdc";
             this.labelNumBdc.Size = new System.Drawing.Size(128, 19);
             this.labelNumBdc.TabIndex = 7;
             this.labelNumBdc.Text = "Numero de Bdc";
+            // 
+            // Panel_InfoBdc
+            // 
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_ProposePar);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateCreationBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Cbx_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateMajBdc);
+            this.Panel_InfoBdc.Location = new System.Drawing.Point(1, 4);
+            this.Panel_InfoBdc.Name = "Panel_InfoBdc";
+            this.Panel_InfoBdc.Size = new System.Drawing.Size(588, 109);
+            this.Panel_InfoBdc.TabIndex = 41;
+            // 
+            // Lbl_ProposePar
+            // 
+            this.Lbl_ProposePar.AutoSize = true;
+            this.Lbl_ProposePar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ProposePar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_ProposePar.Location = new System.Drawing.Point(388, 3);
+            this.Lbl_ProposePar.Name = "Lbl_ProposePar";
+            this.Lbl_ProposePar.Size = new System.Drawing.Size(117, 19);
+            this.Lbl_ProposePar.TabIndex = 43;
+            this.Lbl_ProposePar.Text = "Proposé par : ";
+            // 
+            // Lbl_DateCreationBdc
+            // 
+            this.Lbl_DateCreationBdc.AutoSize = true;
+            this.Lbl_DateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateCreationBdc.Location = new System.Drawing.Point(12, 3);
+            this.Lbl_DateCreationBdc.Name = "Lbl_DateCreationBdc";
+            this.Lbl_DateCreationBdc.Size = new System.Drawing.Size(133, 19);
+            this.Lbl_DateCreationBdc.TabIndex = 29;
+            this.Lbl_DateCreationBdc.Text = "Date de creation";
+            // 
+            // Cbx_EtatBdc
+            // 
+            this.Cbx_EtatBdc.FormattingEnabled = true;
+            this.Cbx_EtatBdc.Location = new System.Drawing.Point(55, 43);
+            this.Cbx_EtatBdc.Name = "Cbx_EtatBdc";
+            this.Cbx_EtatBdc.Size = new System.Drawing.Size(121, 21);
+            this.Cbx_EtatBdc.TabIndex = 35;
+            // 
+            // Lbl_EtatBdc
+            // 
+            this.Lbl_EtatBdc.AutoSize = true;
+            this.Lbl_EtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_EtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_EtatBdc.Location = new System.Drawing.Point(12, 42);
+            this.Lbl_EtatBdc.Name = "Lbl_EtatBdc";
+            this.Lbl_EtatBdc.Size = new System.Drawing.Size(39, 19);
+            this.Lbl_EtatBdc.TabIndex = 28;
+            this.Lbl_EtatBdc.Text = "Etat";
+            // 
+            // Lbl_DateMajBdc
+            // 
+            this.Lbl_DateMajBdc.AutoSize = true;
+            this.Lbl_DateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateMajBdc.Location = new System.Drawing.Point(12, 23);
+            this.Lbl_DateMajBdc.Name = "Lbl_DateMajBdc";
+            this.Lbl_DateMajBdc.Size = new System.Drawing.Size(104, 19);
+            this.Lbl_DateMajBdc.TabIndex = 30;
+            this.Lbl_DateMajBdc.Text = "Date de MAJ";
+            // 
+            // Panel_CreerBdc
+            // 
+            this.Panel_CreerBdc.Controls.Add(this.Btn_ValiderProduit);
+            this.Panel_CreerBdc.Controls.Add(this.Tbx_qte);
+            this.Panel_CreerBdc.Controls.Add(this.Cbx_Produit);
+            this.Panel_CreerBdc.Controls.Add(this.Lbl_Produit);
+            this.Panel_CreerBdc.Controls.Add(this.Lbl_Qte);
+            this.Panel_CreerBdc.Location = new System.Drawing.Point(6, 4);
+            this.Panel_CreerBdc.Name = "Panel_CreerBdc";
+            this.Panel_CreerBdc.Size = new System.Drawing.Size(586, 106);
+            this.Panel_CreerBdc.TabIndex = 42;
+            // 
+            // Btn_ValiderProduit
+            // 
+            this.Btn_ValiderProduit.FlatAppearance.BorderSize = 0;
+            this.Btn_ValiderProduit.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ValiderProduit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ValiderProduit.ForeColor = System.Drawing.Color.Green;
+            this.Btn_ValiderProduit.Location = new System.Drawing.Point(451, 31);
+            this.Btn_ValiderProduit.Name = "Btn_ValiderProduit";
+            this.Btn_ValiderProduit.Size = new System.Drawing.Size(119, 31);
+            this.Btn_ValiderProduit.TabIndex = 42;
+            this.Btn_ValiderProduit.Text = "Valider";
+            this.Btn_ValiderProduit.UseVisualStyleBackColor = true;
+            // 
+            // Tbx_qte
+            // 
+            this.Tbx_qte.Location = new System.Drawing.Point(376, 36);
+            this.Tbx_qte.Name = "Tbx_qte";
+            this.Tbx_qte.Size = new System.Drawing.Size(66, 20);
+            this.Tbx_qte.TabIndex = 42;
+            // 
+            // Cbx_Produit
+            // 
+            this.Cbx_Produit.FormattingEnabled = true;
+            this.Cbx_Produit.Location = new System.Drawing.Point(100, 36);
+            this.Cbx_Produit.Name = "Cbx_Produit";
+            this.Cbx_Produit.Size = new System.Drawing.Size(187, 21);
+            this.Cbx_Produit.TabIndex = 44;
+            // 
+            // Lbl_Produit
+            // 
+            this.Lbl_Produit.AutoSize = true;
+            this.Lbl_Produit.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Produit.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_Produit.Location = new System.Drawing.Point(29, 37);
+            this.Lbl_Produit.Name = "Lbl_Produit";
+            this.Lbl_Produit.Size = new System.Drawing.Size(65, 19);
+            this.Lbl_Produit.TabIndex = 44;
+            this.Lbl_Produit.Text = "Produit";
+            // 
+            // Lbl_Qte
+            // 
+            this.Lbl_Qte.AutoSize = true;
+            this.Lbl_Qte.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Qte.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_Qte.Location = new System.Drawing.Point(303, 37);
+            this.Lbl_Qte.Name = "Lbl_Qte";
+            this.Lbl_Qte.Size = new System.Drawing.Size(73, 19);
+            this.Lbl_Qte.TabIndex = 45;
+            this.Lbl_Qte.Text = "Quantité";
             // 
             // panelCommandesWeb
             // 
@@ -3529,6 +3609,10 @@ namespace DashBoard_Stive
             this.panel22.ResumeLayout(false);
             this.panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).EndInit();
+            this.Panel_InfoBdc.ResumeLayout(false);
+            this.Panel_InfoBdc.PerformLayout();
+            this.Panel_CreerBdc.ResumeLayout(false);
+            this.Panel_CreerBdc.PerformLayout();
             this.panelCommandesWeb.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
@@ -3666,10 +3750,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label58;
         private System.Windows.Forms.Button button20;
         private System.Windows.Forms.Panel panel22;
-        private System.Windows.Forms.Label labelDateMajBdc;
-        private System.Windows.Forms.Label labelDateCreationBdc;
-        private System.Windows.Forms.Label labelEtatBdc;
-        private System.Windows.Forms.Button button21;
         private System.Windows.Forms.Label labelDetailBdc;
         private System.Windows.Forms.DataGridView Dv_DetailCommandeFournisseur;
         private System.Windows.Forms.Label labelNumBdc;
@@ -3840,9 +3920,7 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn2;
         private System.Windows.Forms.RadioButton Rbt_Tous;
         private System.Windows.Forms.Button Lbl_afficherBdc;
-        private System.Windows.Forms.Button Btn_AjouterBdc;
         private System.Windows.Forms.Button Btn_MajBdc;
-        private System.Windows.Forms.ComboBox comboBox2;
         private System.Windows.Forms.RadioButton Rbt_Avalider;
         private System.Windows.Forms.RadioButton Rbt_Livre;
         private System.Windows.Forms.RadioButton Rbt_Autre;
@@ -3856,5 +3934,18 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn cofEtaIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.Button Btn_AjouterBdc;
+        private System.Windows.Forms.Panel Panel_InfoBdc;
+        private System.Windows.Forms.Panel Panel_CreerBdc;
+        private System.Windows.Forms.Label Lbl_ProposePar;
+        private System.Windows.Forms.Label Lbl_DateMajBdc;
+        private System.Windows.Forms.Label Lbl_DateCreationBdc;
+        private System.Windows.Forms.ComboBox Cbx_EtatBdc;
+        private System.Windows.Forms.Label Lbl_EtatBdc;
+        private System.Windows.Forms.Label Lbl_Produit;
+        private System.Windows.Forms.Label Lbl_Qte;
+        private System.Windows.Forms.Button Btn_ValiderProduit;
+        private System.Windows.Forms.TextBox Tbx_qte;
+        private System.Windows.Forms.ComboBox Cbx_Produit;
     }
 }
