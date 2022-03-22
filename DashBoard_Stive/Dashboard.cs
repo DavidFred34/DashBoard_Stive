@@ -657,7 +657,7 @@ namespace DashBoard_Stive
         {
             try
             {
-                MessageBox.Show(Convert.ToInt32(Cbx_Four.SelectedValue).ToString());
+                //MessageBox.Show(Convert.ToInt32(Cbx_Four.SelectedValue).ToString());
                
                 Cbx_Four.Enabled = false;
                 ContenuCommandeFournisseur newCont = new ContenuCommandeFournisseur();
@@ -668,7 +668,8 @@ namespace DashBoard_Stive
 
                 var tt = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
                 newCont.Pro_Ref = tt.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
-                newCont.Fou_NomDomaine = Cbx_Four.SelectedValue.ToString();
+                MessageBox.Show(Cbx_Four.SelectedValue.ToString());
+                newCont.Fou_NomDomaine = (string)Cbx_Four.SelectedItem.ToString();
                 newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
                 newContenuBdcListe.Add(newCont);
                 //Dv_DetailCommandeFournisseur.Rows.Clear();
