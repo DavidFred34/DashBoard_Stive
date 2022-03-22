@@ -57,8 +57,16 @@ namespace DashBoard_Stive
                // MessageBox.Show(content);  //controle du json
                 newCon.defToken(Globales.token.tokenRequete());
                // MessageBox.Show(newCon.tokenRequete());
-                Dashboard Dashboard = new Dashboard();
-                Dashboard.ShowDialog();
+                try
+                {
+                    Dashboard Dashboard = new Dashboard();
+                    Dashboard.ShowDialog();
+                }
+                catch
+                {
+                    MessageBox.Show("Ce catch là");
+                }
+                
                 this.Close();
             }
             catch

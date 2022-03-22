@@ -10,7 +10,7 @@ namespace DashBoard_Stive
     {
         public int Cof_Id { get; set; }
         public string Cof_DateCreation { get; set; }
-        public String Cof_DateMaj { get; set; }
+        public string Cof_DateMaj { get; set; }
         public int Cof_Fou_Id { get; set; }
         public int Uti_Id { get; set; }
         public string Fou_NomDomaine { get; set; }
