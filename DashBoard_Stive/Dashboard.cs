@@ -25,8 +25,8 @@ namespace DashBoard_Stive
 
         private void Dashboard_Load(object sender, EventArgs e)
         {
-            pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
-            pictureBoxProduit.ImageLocation = "../../images/imgProduitDefault.png";
+            pictureBoxLogo.ImageLocation = "../../images/logoStive.png";  //logo panneau gauche
+            pictureBoxProduit.ImageLocation = "../../images/imgProduitDefault.png";   // image produit par defaut
             //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
             //pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
 
@@ -239,8 +239,9 @@ namespace DashBoard_Stive
             Cbx_TypeProduit.Text = Typ_Libelle;
 
         }
+        //permet de renseigner les données  ds le panel produit
         private void StamperContenuBdc(
-            
+
                         string Date = "",
                         string DateMaj = "",
                         string Etat = "",
@@ -256,6 +257,8 @@ namespace DashBoard_Stive
             Cbx_EtatBdc.Text = Etat.ToString();
 
         }
+
+        // gestion de l'affichage de la date
         public static string AfficheDate(DateTime dateAConvertir)
         {
             var annee = dateAConvertir.Year;
@@ -267,7 +270,7 @@ namespace DashBoard_Stive
             string result2 = dateAConvertir.ToString("MM/dd/yyyy HH:mm");
             return result.Replace(':', 'h');
         }
-
+        
         //gestion du clic des boutons du menu et remplissagge des grid
         public async void Btn_Accueil_Click(object sender, EventArgs e)
         {
@@ -278,14 +281,14 @@ namespace DashBoard_Stive
             panelAccueil.Visible = true;
             Btn_Accueil.Tag = 1;
 
-            //chargement liste etat
+            //Création liste etat
             IList<string> newEtatList = new List<string>();
                 
             newEtatList.Add("En création");
             newEtatList.Add("En attente");
             newEtatList.Add("Livrée");
             newEtatList.Add("Annulée");
-            newEtatList.Add("Auto");
+            newEtatList.Add("En attente - Auto");
                 
             etatListe = newEtatList;
             /* // boucle de controle 
@@ -293,7 +296,9 @@ namespace DashBoard_Stive
             //Chargement liste produit
             try
             {
-                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
                 var response = await
                     httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
                 response.EnsureSuccessStatusCode();
@@ -314,7 +319,9 @@ namespace DashBoard_Stive
             //Chargement liste TypeProduit
             try
             {
-                var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient2 = new HttpClient();
+                httpClient2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
                 var response2 = await
                     httpClient2.GetAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/obtenirTous.php");
                 response2.EnsureSuccessStatusCode();
@@ -332,7 +339,9 @@ namespace DashBoard_Stive
             //chargement liste fournisseur
             try
             {
-                var httpClient3 = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient3 = new HttpClient();
+                httpClient3.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
                 var response3 = await
                     httpClient3.GetAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/obtenirTous.php");
                 response3.EnsureSuccessStatusCode();
@@ -351,7 +360,9 @@ namespace DashBoard_Stive
             //chargement list clients
             try
             {
-                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
                 var response = await
                 httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Client/obtenirTous.php");
                 response.EnsureSuccessStatusCode();
@@ -374,8 +385,10 @@ namespace DashBoard_Stive
             //chargement liste bdc
             try
             {
-                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
-               
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                 var response = await
                     httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirTous.php");// label_Fou_Id.Text);
                 response.EnsureSuccessStatusCode();
@@ -403,6 +416,7 @@ namespace DashBoard_Stive
             filtre_fourListe = fourListe;
             filtre_cliListe = cliListe;
             filtre_prodListe = prodListe;
+            Cbx_Four.SelectedItem = null;
             //MessageBox.Show(fourListe.Count.ToString());
 
             //Affichage stats accueil
@@ -476,9 +490,10 @@ namespace DashBoard_Stive
             Btn_AjouterBdc.Visible = false;
             Tbx_CherchBdc.Text = "";
             Rbt_Tous.Checked = true;
+            Cbx_Four.Enabled = true;
 
             // StamperContenuBdc(); //remet les champs à vide
-           
+
             Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
@@ -486,6 +501,8 @@ namespace DashBoard_Stive
             Dv_CommandeFournisseur.DataSource = bdcListe;
             //Cbx_Produit.DataSource = prodListe;
             Cbx_Four.DataSource = filtre_fourListe;
+            Cbx_Four.SelectedItem = null;
+
         }
         private void Btn_AjouterBdc_Click(object sender, EventArgs e)
         {
@@ -556,9 +573,11 @@ namespace DashBoard_Stive
             Btn_MajBdc.Visible = true;
             Panel_InfoBdc.Visible = true;
             Panel_CreerBdc.Visible = false;
-            
+            Cbx_Four.Enabled = true;
+            //Cbx_Four.SelectedItem = null;
+
             //chargement liste contenuBdc_du bdc
-            
+
             try
              {
                 string token = Class.Globales.token.tokenRequete();  //recup du token
@@ -606,13 +625,14 @@ namespace DashBoard_Stive
             //var emailAdd = statesToEmailDictionary.FirstOrDefault(x => x.Value.Where(y => y.Contains(state))).Key;
             Cbx_EtatBdc.DataSource = etatListe;//.FirstOrDefault().Value;//.Select(kvp => kvp.Value.ToString());
             Cbx_EtatBdc.SelectedIndex = filtre_bdcListe[e.RowIndex].Cof_Eta_Id-1;
-            //MessageBox.Show(Cbx_EtatBdc.SelectedItem.ToString());
+            MessageBox.Show(Cbx_EtatBdc.SelectedItem.ToString());
             //Cbx_EtatBdc.DisplayMember = etatListe;
             Dv_ListeBdc.DataSource = bdcListeFournisseur;
             Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
         }
         private async void Btn_MajBdcClick(object sender, EventArgs e)
         {
+            Btn_MajBdc.Enabled = false; //pb clics serie
             int nbLigne = Dv_DetailCommandeFournisseur.RowCount;
             List<ContenuCommandeFournisseur> majBdcListe = new List<ContenuCommandeFournisseur>();
             //majBdcListe = null;
@@ -646,6 +666,8 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: pas de mise à jour de la Commande" + "\r\n\n" + response);
+
+            Btn_MajBdc.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Bdc.PerformClick();
@@ -655,11 +677,11 @@ namespace DashBoard_Stive
         }
         private void Btn_ValiderProduit_Click(object sender, EventArgs e)
         {
+            Cbx_Four.Enabled = false;
             try
             {
                 //MessageBox.Show(Convert.ToInt32(Cbx_Four.SelectedValue).ToString());
                
-                Cbx_Four.Enabled = false;
                 ContenuCommandeFournisseur newCont = new ContenuCommandeFournisseur();
 
                 newCont.Ccf_Pro_Id = Convert.ToInt32(Cbx_Produit.SelectedValue);
@@ -668,23 +690,25 @@ namespace DashBoard_Stive
 
                 var tt = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
                 newCont.Pro_Ref = tt.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
-                MessageBox.Show(Cbx_Four.SelectedValue.ToString());
+                //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
                 newCont.Fou_NomDomaine = (string)Cbx_Four.SelectedItem.ToString();
                 newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
                 newContenuBdcListe.Add(newCont);
-                //Dv_DetailCommandeFournisseur.Rows.Clear();
-               // List<ContenuCommandeFournisseur> newContenuBdcListe2 = new List<ContenuCommandeFournisseur>();
-                //newContenuBdcListe2 = newContenuBdcListe;
-                Dv_DetailCommandeFournisseur.DataSource = newContenuBdcListe;
+
+                List<ContenuCommandeFournisseur> majNewContenuBdcListe = new List<ContenuCommandeFournisseur>();
+                majNewContenuBdcListe = newContenuBdcListe;
+                
+                Dv_DetailCommandeFournisseur.DataSource = majNewContenuBdcListe;
             }
             catch
             {
                 MessageBox.Show("pbbbbb");
             }
+            Btn_ValiderProduit.Enabled = true;  //pb clic fin
             //Cbx_Produit.DataSource = prodListe3;
             //Cbx_Four.Enabled = false;
             //List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
-           // int ref = Convert.ToInt32(Cbx_Produit.SelectedItem);
+            // int ref = Convert.ToInt32(Cbx_Produit.SelectedItem);
             //newCont.Ccf_Cof_Id= Cbx
             /*
             newCont.Ccf_Pro_Id = Convert.ToInt32(Cbx_Produit.SelectedItem);
@@ -693,7 +717,7 @@ namespace DashBoard_Stive
            // newCont.Fou_NomDomaine = bdcListe;
            // newCont.Uti_Id = Cof_;
             newContenuBdcListe.Add(newCont);*/
-            
+
         }
           
             List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
@@ -725,6 +749,7 @@ namespace DashBoard_Stive
         }
         private async void Btn_CreerBdc_Click(object sender, EventArgs e)
         {
+            Btn_CreerBdc.Enabled = false; //pb clics serie
             int nbLigne = Dv_DetailCommandeFournisseur.RowCount;
             //List<ContenuCommandeFournisseur> majBdcListe = new List<ContenuCommandeFournisseur>();
             //majBdcListe = null;
@@ -743,8 +768,9 @@ namespace DashBoard_Stive
                 newBdc.Uti_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[5].Value);
                 majBdcListe.Add(newBdc);
             }*/
-            MessageBox.Show(nbLigne.ToString());
-            MessageBox.Show(newContenuBdcListe.Count.ToString());
+            //MessageBox.Show(nbLigne.ToString());
+            //MessageBox.Show(newContenuBdcListe.Count.ToString());
+            
             string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
@@ -759,6 +785,8 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: Commande non créée" + "\r\n\n" + response);
+
+            Btn_CreerBdc.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Bdc.PerformClick();
@@ -903,7 +931,10 @@ namespace DashBoard_Stive
             //chargement liste bdc_du fournisseur
             try
             {
-                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                 var url = "https://apistive.azurewebsites.net/API/controlers/CommandeFournisseur/ObtenirByIdFournisseur.php?Cof_Fou_Id=" + filtre_fourListe[e.RowIndex].Fou_Id;
                 var response = await
                     httpClient.GetAsync(url);// label_Fou_Id.Text);
@@ -928,7 +959,10 @@ namespace DashBoard_Stive
             //chargement liste produit_du fournisseur  
             try
             {
-                var httpClient2 = new HttpClient();   //connexion à la bdd Stive sur azure 
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient2 = new HttpClient();
+                httpClient2.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+                                                                                                                 //connexion à la bdd Stive sur azure 
                 var url2 = "https://apistive.azurewebsites.net/API/controlers/Produit/obtenir.php?Pro_Fou_Id=" + filtre_fourListe[e.RowIndex].Fou_Id;
                 var response2 = await
                     httpClient2.GetAsync(url2);// label_Fou_Id.Text);
@@ -988,6 +1022,7 @@ namespace DashBoard_Stive
 
         private async void Btn_CreerFournisseur_Click(object sender, EventArgs e)
         {
+            Btn_CreerFournisseur.Enabled = false; //pb clic serie
             string bt_fournisseur = //bouchon test
                       @" {   
                         Fou_NomDomaine: """ + Txb_NomDomaine.Text + @""", 
@@ -1027,7 +1062,7 @@ namespace DashBoard_Stive
             newFour.Uti_Mdp = Txb_Mdp.Text;
             newFour.Uti_MailContact = Txb_MailContact.Text;
 
-            Btn_CreerFournisseur.Visible = false;   //on empeche les clics en serie
+ 
             int exist = 0;
             foreach (var four in fourListe)  //on empeche la creation si le mail du fournisseur existe deja
             {
@@ -1041,12 +1076,12 @@ namespace DashBoard_Stive
 
             if (exist == 0)
             {
-                // MessageBox.Show(newCon.tokenRequete());
+                string token = Class.Globales.token.tokenRequete();  //recup du token
                 var httpClient = new HttpClient();
-                string token = Class.Globales.token.tokenRequete();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
 
                 MessageBox.Show(token);
-                //httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue(token);
                 var json = JsonConvert.SerializeObject(newFour);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
@@ -1065,7 +1100,7 @@ namespace DashBoard_Stive
             {
                 MessageBox.Show("il existe deja un fournisseur avec ce mail");
             }
-            Btn_CreerFournisseur.Visible = true;
+            Btn_CreerFournisseur.Enabled = true; //pb clic serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Fournisseurs.PerformClick();
@@ -1075,11 +1110,15 @@ namespace DashBoard_Stive
 
         private async void Btn_SuppFournisseur_Click(object sender, EventArgs e)
         {
+            Btn_SuppFournisseur.Enabled = false; //pb clics serie
             Fournisseur suppFour = new Fournisseur();
             //string v = label_Uti_Id.Text.ToString();
             suppFour.Fou_Uti_Id = int.Parse(Lbl_Uti_Id.Text);
 
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(suppFour);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
@@ -1092,6 +1131,8 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
+            Btn_SuppFournisseur.Enabled = true; //pb clics serie, fin
+
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Fournisseurs.PerformClick();
@@ -1100,6 +1141,7 @@ namespace DashBoard_Stive
     
         private async void Btn_MajFournisseur_Click(object sender, EventArgs e)
         {
+            Btn_MajFournisseur.Enabled = false; //pb clics serie
             Fournisseur majFour = new Fournisseur();
             majFour.Fou_NomDomaine = Txb_NomDomaine.Text;
             majFour.Fou_NomResp = Txb_NomResp.Text;
@@ -1132,6 +1174,8 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: pas de mise à jour du fournisseur" + "\r\n\n" + response);
+
+            Btn_MajFournisseur.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Fournisseurs.PerformClick();
@@ -1289,6 +1333,7 @@ namespace DashBoard_Stive
 
         private async void Btn_CreerClient_Click(object sender, EventArgs e)
         {
+            Btn_CreerClient.Enabled = false; //pb clic serie
             Client newCli = new Client();
             newCli.Cli_Nom = Txb_Nom2.Text;
             newCli.Cli_Prenom = Txb_Prenom.Text;
@@ -1303,7 +1348,7 @@ namespace DashBoard_Stive
             newCli.Uti_TelContact = Txb_Tel.Text;
             newCli.Uti_Mdp = Txb_Mdp2.Text;
             newCli.Uti_MailContact = Txb_Mail.Text;
-            Btn_AjouterClient.Visible = false;  //on empeche les clic en serie
+            
 
             int exist = 0;  //pas de creation si le mail est en base
             foreach (var mail in cliListe)
@@ -1317,7 +1362,10 @@ namespace DashBoard_Stive
 
             if (exist == 0)
             {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
                 var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                 var json = JsonConvert.SerializeObject(newCli);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
@@ -1331,7 +1379,7 @@ namespace DashBoard_Stive
                     MessageBox.Show("Erreur: Client non créé" + "\r\n\n" + response);
             }
             //recharge la liste en simulant le click sur le bouton fournisseur
-            Btn_AjouterClient.Visible = true;
+            Btn_CreerClient.Enabled = true; //pb clic serie, fin
             Btn_Accueil.PerformClick();
             Btn_Clients.PerformClick();
             StamperClient();
@@ -1340,6 +1388,7 @@ namespace DashBoard_Stive
 
         private async void Btn_MajClient_Click(object sender, EventArgs e)
         {
+            Btn_MajClient.Enabled = false; //evite clic en serie
             Client majCli = new Client();
             majCli.Cli_Nom = Txb_Nom2.Text;
             majCli.Cli_Prenom = Txb_Prenom.Text;
@@ -1356,7 +1405,10 @@ namespace DashBoard_Stive
             majCli.Uti_MailContact = Txb_Mail.Text;
             majCli.Uti_Id = int.Parse(Lbl_Uti_Id2.Text);
 
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(majCli);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Client/modifier.php", data);
@@ -1368,6 +1420,7 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: pas de mise à jour du Client" + "\r\n\n" + response);
+            Btn_MajClient.Enabled = true; //evite clic en serie, fin
             //recharge la liste en simulant le click sur le bouton client
             Btn_Accueil.PerformClick();
             Btn_Clients.PerformClick();
@@ -1377,11 +1430,15 @@ namespace DashBoard_Stive
 
         private async void Btn_SuppClient_Click(object sender, EventArgs e)
         {
+            Btn_SuppClient.Enabled = false; // pb clis serie
             Client suppCli = new Client();
             suppCli.Uti_Id = Convert.ToInt32(Lbl_Uti_Id2.Text);
 
 
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(suppCli);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             // MessageBox.Show(json);
@@ -1398,6 +1455,7 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: client non supprimé" + "\r\n\n" + response);
+            Btn_SuppClient.Enabled = true; // pb clis serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Clients.PerformClick();
@@ -1428,6 +1486,7 @@ namespace DashBoard_Stive
             Btn_Valider.Visible = false;
             StamperProduit(); //remet les champs à vide;
             Txb_ChProd.Text = "";
+            Cbx_TypeProduit.SelectedItem = null;
 
 
 
@@ -1462,8 +1521,6 @@ namespace DashBoard_Stive
             //Dv_TypeProduit.DataSource = null;
 
         }
-
-
 
         public void Dv_Produit_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -1519,6 +1576,7 @@ namespace DashBoard_Stive
 
         private async void Btn_CreerProduit_Click(object sender, EventArgs e)
         {
+            Btn_CreerProduit.Enabled = false;  //on empeche les clics en serie
             Produit newPro = new Produit();
 
             try
@@ -1583,7 +1641,7 @@ namespace DashBoard_Stive
                 //newPro.Img_Nom = textBoxProposePar.Text;
                 //MessageBox.Show(comboBoxTypeProduit.SelectedValue.ToString());
 
-                Btn_CreerProduit.Visible = false;  //on empeche les clics en serie
+                
                 int exist = 0;
                 foreach (var prod in prodListe)  //on empeche la creation si le nom du produit et le fournisseur existent deja
                 {
@@ -1596,7 +1654,10 @@ namespace DashBoard_Stive
 
                 if (exist == 0)
                 {
+                    string token = Class.Globales.token.tokenRequete();  //recup du token
                     var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                     var json = JsonConvert.SerializeObject(newPro);
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
                     var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/ajouter.php", data);
@@ -1613,13 +1674,13 @@ namespace DashBoard_Stive
                     Btn_Accueil.PerformClick();
                     Btn_Produit.PerformClick();
                     StamperProduit();
-                    Btn_CreerProduit.Visible = true;
+                    
                 }
                 else
                 {
                     MessageBox.Show("Ce fournisseur propose deja ce produit");
                     StamperProduit();
-                    Btn_CreerProduit.Visible = true;
+                    
                 }
             }
 
@@ -1635,10 +1696,11 @@ namespace DashBoard_Stive
                                 );
                 StamperProduit();
             }
+            Btn_CreerProduit.Enabled = true;  //on empeche les clics en serie  --fin
         }
         public async void Btn_MajProduit_Click(object sender, EventArgs e2)
         {
-
+            Btn_MajProduit.Enabled = false;  // pb clics en serie
             Produit majPro = new Produit();
 
             majPro.Pro_Id = Convert.ToInt32(Lbl_Pro_Id.Text);
@@ -1698,7 +1760,10 @@ namespace DashBoard_Stive
             //majPro.Img_Nom = textBoxProposePar.Text;
 
 
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(majPro);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
@@ -1723,19 +1788,20 @@ namespace DashBoard_Stive
                 StamperProduit();
 
             }
-
-
-
-
+            Btn_MajProduit.Enabled = true;  // pb clics en serie, fin
 
         }
 
         private async void Btn_SuppProduit_Click(object sender, EventArgs e)
         {
+            Btn_SuppProduit.Enabled = false;  // on empeche les clics en serie
             Produit suppPro = new Produit();
             suppPro.Pro_Id = int.Parse(Lbl_Pro_Id.Text);
 
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(suppPro);
             //var data = new StringContent(json, Encoding.UTF8, "application/json");
             var url = "https://apistive.azurewebsites.net/API/controlers/Produit/supprimer.php?Pro_Id=" + suppPro.Pro_Id;
@@ -1749,6 +1815,8 @@ namespace DashBoard_Stive
             }
             else
                 MessageBox.Show("Erreur: produit non supprimé" + "\r\n\n" + response);
+            
+            Btn_SuppProduit.Enabled = true; // pb clics, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Produit.PerformClick();
@@ -1757,6 +1825,7 @@ namespace DashBoard_Stive
 
         private void Btn_CommanderProduit_Click(object sender, EventArgs e)
         {
+            Btn_CommanderProduit.Enabled = false; //pb clic serie
             /* CommandeFournisseur newBdc = new CommandeFournisseur();
 
              newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
@@ -1764,6 +1833,7 @@ namespace DashBoard_Stive
              newBdc.Cof_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
              newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);*/
             MessageBox.Show("Fonctionnalité en cours de developpement");
+            Btn_CommanderProduit.Enabled = true; //pb clic serie, fin
         }
 
         private void Txb_ChProd_TextChanged(object sender, EventArgs e)
@@ -1783,9 +1853,9 @@ namespace DashBoard_Stive
 
         private async void Btn_Valider_Click(object sender, EventArgs e)
         {
+            Btn_Valider.Enabled = false; // evite le pb du clic serie
             TypeProduit newTyp = new TypeProduit();
             newTyp.Typ_Libelle = Txb_Libelle.Text;
-            Btn_Valider.Visible = false;
             int exist = 0;
             foreach (var libelle in typListe)
             {
@@ -1798,7 +1868,7 @@ namespace DashBoard_Stive
                 {
                     exist += 1;
                     MessageBox.Show("Le libellé n'est pas rempli");
-                    Btn_Valider.Visible = true;
+                    
                     return;
 
                 }
@@ -1806,7 +1876,10 @@ namespace DashBoard_Stive
 
             if (exist == 0)
             {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
                 var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                 var json = JsonConvert.SerializeObject(newTyp);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/TypeProduit/ajouter.php", data);
@@ -1821,15 +1894,15 @@ namespace DashBoard_Stive
                 //recharge la liste en simulant le click sur le bouton produit
                 Btn_Accueil.PerformClick();
                 Btn_Produit.PerformClick();
-                Btn_Valider.Visible = true;
+                
             }
             else
             {
                 MessageBox.Show("ce type existe déja");
                 Txb_Libelle.Text = "";
-                Btn_Valider.Visible = true;
+                
             }
-
+            Btn_Valider.Enabled = true;// evite le pb du clic serie, fin
         }
 
 

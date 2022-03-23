@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Newtonsoft.Json;
 using System.Net.Http;
-
+using System.Net.Http.Headers;
 
 namespace DashBoard_Stive
 {
@@ -32,7 +32,10 @@ namespace DashBoard_Stive
             //Chargement liste produit
             try
             {
-                var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
                 var response = await
                     httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Produit/obtenirTous.php");
                 response.EnsureSuccessStatusCode();

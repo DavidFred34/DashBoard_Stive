@@ -69,6 +69,9 @@ namespace DashBoard_Stive
             this.label_procheSeuil = new System.Windows.Forms.Label();
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
             this.Lbl_Pro_Uti_Id = new System.Windows.Forms.Label();
             this.Lbl_Pro_Id = new System.Windows.Forms.Label();
             this.Lbl_Pro_Typ_Id = new System.Windows.Forms.Label();
@@ -80,7 +83,6 @@ namespace DashBoard_Stive
             this.Txb_Ref = new System.Windows.Forms.TextBox();
             this.Txb_Millesime = new System.Windows.Forms.TextBox();
             this.Txb_Volume = new System.Windows.Forms.TextBox();
-            this.label17 = new System.Windows.Forms.Label();
             this.Txb_EnStock = new System.Windows.Forms.TextBox();
             this.Cbx_TypeProduit = new System.Windows.Forms.ComboBox();
             this.typeProduitBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -205,12 +207,6 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenuCommandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelNumBdc = new System.Windows.Forms.Label();
-            this.Panel_InfoBdc = new System.Windows.Forms.Panel();
-            this.Lbl_ProposePar = new System.Windows.Forms.Label();
-            this.Lbl_DateCreationBdc = new System.Windows.Forms.Label();
-            this.Cbx_EtatBdc = new System.Windows.Forms.ComboBox();
-            this.Lbl_EtatBdc = new System.Windows.Forms.Label();
-            this.Lbl_DateMajBdc = new System.Windows.Forms.Label();
             this.Panel_CreerBdc = new System.Windows.Forms.Panel();
             this.Cbx_Four = new System.Windows.Forms.ComboBox();
             this.Lbl_Four = new System.Windows.Forms.Label();
@@ -219,6 +215,12 @@ namespace DashBoard_Stive
             this.Cbx_Produit = new System.Windows.Forms.ComboBox();
             this.Lbl_Produit = new System.Windows.Forms.Label();
             this.Lbl_Qte = new System.Windows.Forms.Label();
+            this.Panel_InfoBdc = new System.Windows.Forms.Panel();
+            this.Lbl_ProposePar = new System.Windows.Forms.Label();
+            this.Lbl_DateCreationBdc = new System.Windows.Forms.Label();
+            this.Cbx_EtatBdc = new System.Windows.Forms.ComboBox();
+            this.Lbl_EtatBdc = new System.Windows.Forms.Label();
+            this.Lbl_DateMajBdc = new System.Windows.Forms.Label();
             this.panelCommandesWeb = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -377,8 +379,8 @@ namespace DashBoard_Stive
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeFournisseurBindingSource)).BeginInit();
-            this.Panel_InfoBdc.SuspendLayout();
             this.Panel_CreerBdc.SuspendLayout();
+            this.Panel_InfoBdc.SuspendLayout();
             this.panelCommandesWeb.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -827,6 +829,9 @@ namespace DashBoard_Stive
             // 
             // panel11
             // 
+            this.panel11.Controls.Add(this.textBox1);
+            this.panel11.Controls.Add(this.label1);
+            this.panel11.Controls.Add(this.label2);
             this.panel11.Controls.Add(this.Lbl_Pro_Uti_Id);
             this.panel11.Controls.Add(this.Lbl_Pro_Id);
             this.panel11.Controls.Add(this.Lbl_Pro_Typ_Id);
@@ -837,7 +842,6 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.Txb_Ref);
             this.panel11.Controls.Add(this.Txb_Millesime);
             this.panel11.Controls.Add(this.Txb_Volume);
-            this.panel11.Controls.Add(this.label17);
             this.panel11.Controls.Add(this.Txb_EnStock);
             this.panel11.Controls.Add(this.Cbx_TypeProduit);
             this.panel11.Controls.Add(this.label14);
@@ -863,10 +867,44 @@ namespace DashBoard_Stive
             this.panel11.Controls.Add(this.Btn_SuppProduit);
             this.panel11.Controls.Add(this.label44);
             this.panel11.Controls.Add(this.Btn_CreerProduit);
+            this.panel11.Font = new System.Drawing.Font("Arial", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.panel11.Location = new System.Drawing.Point(675, 12);
             this.panel11.Name = "panel11";
             this.panel11.Size = new System.Drawing.Size(601, 734);
             this.panel11.TabIndex = 8;
+            // 
+            // textBox1
+            // 
+            this.textBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.textBox1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.textBox1.Location = new System.Drawing.Point(363, 108);
+            this.textBox1.MaxLength = 5;
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(10, 60);
+            this.textBox1.TabIndex = 58;
+            // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label1.Location = new System.Drawing.Point(459, 147);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(122, 19);
+            this.label1.TabIndex = 57;
+            this.label1.Text = "euros / L ou kg";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label2.Location = new System.Drawing.Point(459, 110);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(106, 19);
+            this.label2.TabIndex = 56;
+            this.label2.Text = "euros / piece";
             // 
             // Lbl_Pro_Uti_Id
             // 
@@ -919,7 +957,7 @@ namespace DashBoard_Stive
             this.Cbx_ProposePar.FormattingEnabled = true;
             this.Cbx_ProposePar.Location = new System.Drawing.Point(343, 36);
             this.Cbx_ProposePar.Name = "Cbx_ProposePar";
-            this.Cbx_ProposePar.Size = new System.Drawing.Size(243, 21);
+            this.Cbx_ProposePar.Size = new System.Drawing.Size(243, 22);
             this.Cbx_ProposePar.TabIndex = 49;
             this.Cbx_ProposePar.ValueMember = "Fou_Id";
             // 
@@ -972,17 +1010,6 @@ namespace DashBoard_Stive
             this.Txb_Volume.TabIndex = 44;
             this.Txb_Volume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_Volume_KeyPress);
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label17.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label17.Location = new System.Drawing.Point(278, 146);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(100, 19);
-            this.label17.TabIndex = 43;
-            this.label17.Text = "Prix/L ou kg";
-            // 
             // Txb_EnStock
             // 
             this.Txb_EnStock.Location = new System.Drawing.Point(106, 193);
@@ -1001,7 +1028,7 @@ namespace DashBoard_Stive
             this.Cbx_TypeProduit.FormattingEnabled = true;
             this.Cbx_TypeProduit.Location = new System.Drawing.Point(382, 71);
             this.Cbx_TypeProduit.Name = "Cbx_TypeProduit";
-            this.Cbx_TypeProduit.Size = new System.Drawing.Size(204, 21);
+            this.Cbx_TypeProduit.Size = new System.Drawing.Size(204, 22);
             this.Cbx_TypeProduit.TabIndex = 41;
             this.Cbx_TypeProduit.ValueMember = "Typ_Id";
             this.Cbx_TypeProduit.SelectedValueChanged += new System.EventHandler(this.Cbx_TypeProduit_SelectedValueChanged);
@@ -1196,11 +1223,10 @@ namespace DashBoard_Stive
             // label36
             // 
             this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label36.Location = new System.Drawing.Point(278, 109);
+            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(310, 129);
             this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(39, 19);
+            this.label36.Size = new System.Drawing.Size(35, 18);
             this.label36.TabIndex = 21;
             this.label36.Text = "Prix";
             // 
@@ -2151,8 +2177,8 @@ namespace DashBoard_Stive
             this.panel22.Controls.Add(this.labelDetailBdc);
             this.panel22.Controls.Add(this.Dv_DetailCommandeFournisseur);
             this.panel22.Controls.Add(this.labelNumBdc);
-            this.panel22.Controls.Add(this.Panel_InfoBdc);
             this.panel22.Controls.Add(this.Panel_CreerBdc);
+            this.panel22.Controls.Add(this.Panel_InfoBdc);
             this.panel22.Location = new System.Drawing.Point(674, 12);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(601, 719);
@@ -2293,70 +2319,6 @@ namespace DashBoard_Stive
             this.labelNumBdc.TabIndex = 7;
             this.labelNumBdc.Text = "Numero de Bdc";
             // 
-            // Panel_InfoBdc
-            // 
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_ProposePar);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateCreationBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Cbx_EtatBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_EtatBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateMajBdc);
-            this.Panel_InfoBdc.Location = new System.Drawing.Point(1, 4);
-            this.Panel_InfoBdc.Name = "Panel_InfoBdc";
-            this.Panel_InfoBdc.Size = new System.Drawing.Size(588, 109);
-            this.Panel_InfoBdc.TabIndex = 41;
-            // 
-            // Lbl_ProposePar
-            // 
-            this.Lbl_ProposePar.AutoSize = true;
-            this.Lbl_ProposePar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_ProposePar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_ProposePar.Location = new System.Drawing.Point(8, 3);
-            this.Lbl_ProposePar.Name = "Lbl_ProposePar";
-            this.Lbl_ProposePar.Size = new System.Drawing.Size(117, 19);
-            this.Lbl_ProposePar.TabIndex = 43;
-            this.Lbl_ProposePar.Text = "Proposé par : ";
-            // 
-            // Lbl_DateCreationBdc
-            // 
-            this.Lbl_DateCreationBdc.AutoSize = true;
-            this.Lbl_DateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_DateCreationBdc.Location = new System.Drawing.Point(8, 38);
-            this.Lbl_DateCreationBdc.Name = "Lbl_DateCreationBdc";
-            this.Lbl_DateCreationBdc.Size = new System.Drawing.Size(133, 19);
-            this.Lbl_DateCreationBdc.TabIndex = 29;
-            this.Lbl_DateCreationBdc.Text = "Date de creation";
-            // 
-            // Cbx_EtatBdc
-            // 
-            this.Cbx_EtatBdc.FormattingEnabled = true;
-            this.Cbx_EtatBdc.Location = new System.Drawing.Point(446, 5);
-            this.Cbx_EtatBdc.Name = "Cbx_EtatBdc";
-            this.Cbx_EtatBdc.Size = new System.Drawing.Size(121, 21);
-            this.Cbx_EtatBdc.TabIndex = 35;
-            // 
-            // Lbl_EtatBdc
-            // 
-            this.Lbl_EtatBdc.AutoSize = true;
-            this.Lbl_EtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_EtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_EtatBdc.Location = new System.Drawing.Point(403, 4);
-            this.Lbl_EtatBdc.Name = "Lbl_EtatBdc";
-            this.Lbl_EtatBdc.Size = new System.Drawing.Size(39, 19);
-            this.Lbl_EtatBdc.TabIndex = 28;
-            this.Lbl_EtatBdc.Text = "Etat";
-            // 
-            // Lbl_DateMajBdc
-            // 
-            this.Lbl_DateMajBdc.AutoSize = true;
-            this.Lbl_DateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_DateMajBdc.Location = new System.Drawing.Point(8, 58);
-            this.Lbl_DateMajBdc.Name = "Lbl_DateMajBdc";
-            this.Lbl_DateMajBdc.Size = new System.Drawing.Size(104, 19);
-            this.Lbl_DateMajBdc.TabIndex = 30;
-            this.Lbl_DateMajBdc.Text = "Date de MAJ";
-            // 
             // Panel_CreerBdc
             // 
             this.Panel_CreerBdc.Controls.Add(this.Cbx_Four);
@@ -2451,6 +2413,70 @@ namespace DashBoard_Stive
             this.Lbl_Qte.Size = new System.Drawing.Size(73, 19);
             this.Lbl_Qte.TabIndex = 45;
             this.Lbl_Qte.Text = "Quantité";
+            // 
+            // Panel_InfoBdc
+            // 
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_ProposePar);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateCreationBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Cbx_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateMajBdc);
+            this.Panel_InfoBdc.Location = new System.Drawing.Point(1, 4);
+            this.Panel_InfoBdc.Name = "Panel_InfoBdc";
+            this.Panel_InfoBdc.Size = new System.Drawing.Size(588, 109);
+            this.Panel_InfoBdc.TabIndex = 41;
+            // 
+            // Lbl_ProposePar
+            // 
+            this.Lbl_ProposePar.AutoSize = true;
+            this.Lbl_ProposePar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ProposePar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_ProposePar.Location = new System.Drawing.Point(8, 3);
+            this.Lbl_ProposePar.Name = "Lbl_ProposePar";
+            this.Lbl_ProposePar.Size = new System.Drawing.Size(117, 19);
+            this.Lbl_ProposePar.TabIndex = 43;
+            this.Lbl_ProposePar.Text = "Proposé par : ";
+            // 
+            // Lbl_DateCreationBdc
+            // 
+            this.Lbl_DateCreationBdc.AutoSize = true;
+            this.Lbl_DateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateCreationBdc.Location = new System.Drawing.Point(8, 38);
+            this.Lbl_DateCreationBdc.Name = "Lbl_DateCreationBdc";
+            this.Lbl_DateCreationBdc.Size = new System.Drawing.Size(133, 19);
+            this.Lbl_DateCreationBdc.TabIndex = 29;
+            this.Lbl_DateCreationBdc.Text = "Date de creation";
+            // 
+            // Cbx_EtatBdc
+            // 
+            this.Cbx_EtatBdc.FormattingEnabled = true;
+            this.Cbx_EtatBdc.Location = new System.Drawing.Point(446, 5);
+            this.Cbx_EtatBdc.Name = "Cbx_EtatBdc";
+            this.Cbx_EtatBdc.Size = new System.Drawing.Size(121, 21);
+            this.Cbx_EtatBdc.TabIndex = 35;
+            // 
+            // Lbl_EtatBdc
+            // 
+            this.Lbl_EtatBdc.AutoSize = true;
+            this.Lbl_EtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_EtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_EtatBdc.Location = new System.Drawing.Point(403, 4);
+            this.Lbl_EtatBdc.Name = "Lbl_EtatBdc";
+            this.Lbl_EtatBdc.Size = new System.Drawing.Size(39, 19);
+            this.Lbl_EtatBdc.TabIndex = 28;
+            this.Lbl_EtatBdc.Text = "Etat";
+            // 
+            // Lbl_DateMajBdc
+            // 
+            this.Lbl_DateMajBdc.AutoSize = true;
+            this.Lbl_DateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateMajBdc.Location = new System.Drawing.Point(8, 58);
+            this.Lbl_DateMajBdc.Name = "Lbl_DateMajBdc";
+            this.Lbl_DateMajBdc.Size = new System.Drawing.Size(104, 19);
+            this.Lbl_DateMajBdc.TabIndex = 30;
+            this.Lbl_DateMajBdc.Text = "Date de MAJ";
             // 
             // panelCommandesWeb
             // 
@@ -3681,12 +3707,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelAccueil);
+            this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
-            this.Controls.Add(this.panelAccueil);
-            this.Controls.Add(this.panelCommandesWeb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -3736,10 +3762,10 @@ namespace DashBoard_Stive
             this.panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeFournisseurBindingSource)).EndInit();
-            this.Panel_InfoBdc.ResumeLayout(false);
-            this.Panel_InfoBdc.PerformLayout();
             this.Panel_CreerBdc.ResumeLayout(false);
             this.Panel_CreerBdc.PerformLayout();
+            this.Panel_InfoBdc.ResumeLayout(false);
+            this.Panel_InfoBdc.PerformLayout();
             this.panelCommandesWeb.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
@@ -3942,7 +3968,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.ComboBox Cbx_TypeProduit;
         private System.Windows.Forms.TextBox Txb_EnStock;
-        private System.Windows.Forms.Label label17;
         private System.Windows.Forms.TextBox Txb_PrixLitre;
         private System.Windows.Forms.TextBox Txb_Cepage;
         private System.Windows.Forms.TextBox Txb_Ref;
@@ -4096,5 +4121,8 @@ namespace DashBoard_Stive
         private System.Windows.Forms.ComboBox Cbx_Four;
         private System.Windows.Forms.Label Lbl_Four;
         private System.Windows.Forms.BindingSource contenuCommandeFournisseurBindingSource1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
     }
 }

@@ -22,7 +22,7 @@ namespace DashBoard_Stive
 
         private void Connexion_Load(object sender, EventArgs e)
         {
-            pictureBoxLogo2.ImageLocation = "../../images/logoStive.png";
+            pictureBoxLogo2.ImageLocation = "../../images/logoStive.png";  //affichage du logo du form connexion
        
         }
 
@@ -40,6 +40,7 @@ namespace DashBoard_Stive
 
         public  async void Btn_Connexion_Click(object sender, EventArgs e)
         {
+            Btn_Connexion.Enabled = false;
             Connect newCon = new Connect(Txb_Login.Text, Txb_Mp.Text);
             
             //MessageBox.Show(newCon.tokenRequete());
@@ -57,21 +58,17 @@ namespace DashBoard_Stive
                // MessageBox.Show(content);  //controle du json
                 newCon.defToken(Globales.token.tokenRequete());
                // MessageBox.Show(newCon.tokenRequete());
-                try
-                {
+
                     Dashboard Dashboard = new Dashboard();
                     Dashboard.ShowDialog();
-                }
-                catch
-                {
-                    MessageBox.Show("Ce catch là");
-                }
-                
+
+                Btn_Connexion.Enabled = true;
                 this.Close();
             }
             catch
             {
                 MessageBox.Show("Connexion refusée");
+                Btn_Connexion.Enabled = true;
             }
         }
         
