@@ -207,6 +207,13 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenuCommandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelNumBdc = new System.Windows.Forms.Label();
+            this.Panel_InfoBdc = new System.Windows.Forms.Panel();
+            this.Tbx_Json = new System.Windows.Forms.TextBox();
+            this.Lbl_ProposePar = new System.Windows.Forms.Label();
+            this.Lbl_DateCreationBdc = new System.Windows.Forms.Label();
+            this.Cbx_EtatBdc = new System.Windows.Forms.ComboBox();
+            this.Lbl_EtatBdc = new System.Windows.Forms.Label();
+            this.Lbl_DateMajBdc = new System.Windows.Forms.Label();
             this.Panel_CreerBdc = new System.Windows.Forms.Panel();
             this.Cbx_Four = new System.Windows.Forms.ComboBox();
             this.Lbl_Four = new System.Windows.Forms.Label();
@@ -215,12 +222,6 @@ namespace DashBoard_Stive
             this.Cbx_Produit = new System.Windows.Forms.ComboBox();
             this.Lbl_Produit = new System.Windows.Forms.Label();
             this.Lbl_Qte = new System.Windows.Forms.Label();
-            this.Panel_InfoBdc = new System.Windows.Forms.Panel();
-            this.Lbl_ProposePar = new System.Windows.Forms.Label();
-            this.Lbl_DateCreationBdc = new System.Windows.Forms.Label();
-            this.Cbx_EtatBdc = new System.Windows.Forms.ComboBox();
-            this.Lbl_EtatBdc = new System.Windows.Forms.Label();
-            this.Lbl_DateMajBdc = new System.Windows.Forms.Label();
             this.panelCommandesWeb = new System.Windows.Forms.Panel();
             this.button20 = new System.Windows.Forms.Button();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -379,8 +380,8 @@ namespace DashBoard_Stive
             this.panel22.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeFournisseurBindingSource)).BeginInit();
-            this.Panel_CreerBdc.SuspendLayout();
             this.Panel_InfoBdc.SuspendLayout();
+            this.Panel_CreerBdc.SuspendLayout();
             this.panelCommandesWeb.SuspendLayout();
             this.panel19.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView5)).BeginInit();
@@ -1069,7 +1070,6 @@ namespace DashBoard_Stive
             this.Lbl_Pro_Fou_Id.Size = new System.Drawing.Size(97, 19);
             this.Lbl_Pro_Fou_Id.TabIndex = 36;
             this.Lbl_Pro_Fou_Id.Text = "pro_Fou_Id";
-            this.Lbl_Pro_Fou_Id.Visible = false;
             // 
             // label16
             // 
@@ -2177,8 +2177,8 @@ namespace DashBoard_Stive
             this.panel22.Controls.Add(this.labelDetailBdc);
             this.panel22.Controls.Add(this.Dv_DetailCommandeFournisseur);
             this.panel22.Controls.Add(this.labelNumBdc);
-            this.panel22.Controls.Add(this.Panel_CreerBdc);
             this.panel22.Controls.Add(this.Panel_InfoBdc);
+            this.panel22.Controls.Add(this.Panel_CreerBdc);
             this.panel22.Location = new System.Drawing.Point(674, 12);
             this.panel22.Name = "panel22";
             this.panel22.Size = new System.Drawing.Size(601, 719);
@@ -2319,6 +2319,78 @@ namespace DashBoard_Stive
             this.labelNumBdc.TabIndex = 7;
             this.labelNumBdc.Text = "Numero de Bdc";
             // 
+            // Panel_InfoBdc
+            // 
+            this.Panel_InfoBdc.Controls.Add(this.Tbx_Json);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_ProposePar);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateCreationBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Cbx_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_EtatBdc);
+            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateMajBdc);
+            this.Panel_InfoBdc.Location = new System.Drawing.Point(1, 4);
+            this.Panel_InfoBdc.Name = "Panel_InfoBdc";
+            this.Panel_InfoBdc.Size = new System.Drawing.Size(588, 109);
+            this.Panel_InfoBdc.TabIndex = 41;
+            // 
+            // Tbx_Json
+            // 
+            this.Tbx_Json.Location = new System.Drawing.Point(197, 48);
+            this.Tbx_Json.Name = "Tbx_Json";
+            this.Tbx_Json.Size = new System.Drawing.Size(200, 20);
+            this.Tbx_Json.TabIndex = 42;
+            // 
+            // Lbl_ProposePar
+            // 
+            this.Lbl_ProposePar.AutoSize = true;
+            this.Lbl_ProposePar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_ProposePar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_ProposePar.Location = new System.Drawing.Point(8, 3);
+            this.Lbl_ProposePar.Name = "Lbl_ProposePar";
+            this.Lbl_ProposePar.Size = new System.Drawing.Size(117, 19);
+            this.Lbl_ProposePar.TabIndex = 43;
+            this.Lbl_ProposePar.Text = "Proposé par : ";
+            // 
+            // Lbl_DateCreationBdc
+            // 
+            this.Lbl_DateCreationBdc.AutoSize = true;
+            this.Lbl_DateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateCreationBdc.Location = new System.Drawing.Point(8, 38);
+            this.Lbl_DateCreationBdc.Name = "Lbl_DateCreationBdc";
+            this.Lbl_DateCreationBdc.Size = new System.Drawing.Size(133, 19);
+            this.Lbl_DateCreationBdc.TabIndex = 29;
+            this.Lbl_DateCreationBdc.Text = "Date de creation";
+            // 
+            // Cbx_EtatBdc
+            // 
+            this.Cbx_EtatBdc.FormattingEnabled = true;
+            this.Cbx_EtatBdc.Location = new System.Drawing.Point(446, 5);
+            this.Cbx_EtatBdc.Name = "Cbx_EtatBdc";
+            this.Cbx_EtatBdc.Size = new System.Drawing.Size(121, 21);
+            this.Cbx_EtatBdc.TabIndex = 35;
+            // 
+            // Lbl_EtatBdc
+            // 
+            this.Lbl_EtatBdc.AutoSize = true;
+            this.Lbl_EtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_EtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_EtatBdc.Location = new System.Drawing.Point(403, 4);
+            this.Lbl_EtatBdc.Name = "Lbl_EtatBdc";
+            this.Lbl_EtatBdc.Size = new System.Drawing.Size(39, 19);
+            this.Lbl_EtatBdc.TabIndex = 28;
+            this.Lbl_EtatBdc.Text = "Etat";
+            // 
+            // Lbl_DateMajBdc
+            // 
+            this.Lbl_DateMajBdc.AutoSize = true;
+            this.Lbl_DateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_DateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_DateMajBdc.Location = new System.Drawing.Point(8, 58);
+            this.Lbl_DateMajBdc.Name = "Lbl_DateMajBdc";
+            this.Lbl_DateMajBdc.Size = new System.Drawing.Size(104, 19);
+            this.Lbl_DateMajBdc.TabIndex = 30;
+            this.Lbl_DateMajBdc.Text = "Date de MAJ";
+            // 
             // Panel_CreerBdc
             // 
             this.Panel_CreerBdc.Controls.Add(this.Cbx_Four);
@@ -2413,70 +2485,6 @@ namespace DashBoard_Stive
             this.Lbl_Qte.Size = new System.Drawing.Size(73, 19);
             this.Lbl_Qte.TabIndex = 45;
             this.Lbl_Qte.Text = "Quantité";
-            // 
-            // Panel_InfoBdc
-            // 
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_ProposePar);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateCreationBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Cbx_EtatBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_EtatBdc);
-            this.Panel_InfoBdc.Controls.Add(this.Lbl_DateMajBdc);
-            this.Panel_InfoBdc.Location = new System.Drawing.Point(1, 4);
-            this.Panel_InfoBdc.Name = "Panel_InfoBdc";
-            this.Panel_InfoBdc.Size = new System.Drawing.Size(588, 109);
-            this.Panel_InfoBdc.TabIndex = 41;
-            // 
-            // Lbl_ProposePar
-            // 
-            this.Lbl_ProposePar.AutoSize = true;
-            this.Lbl_ProposePar.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_ProposePar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_ProposePar.Location = new System.Drawing.Point(8, 3);
-            this.Lbl_ProposePar.Name = "Lbl_ProposePar";
-            this.Lbl_ProposePar.Size = new System.Drawing.Size(117, 19);
-            this.Lbl_ProposePar.TabIndex = 43;
-            this.Lbl_ProposePar.Text = "Proposé par : ";
-            // 
-            // Lbl_DateCreationBdc
-            // 
-            this.Lbl_DateCreationBdc.AutoSize = true;
-            this.Lbl_DateCreationBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DateCreationBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_DateCreationBdc.Location = new System.Drawing.Point(8, 38);
-            this.Lbl_DateCreationBdc.Name = "Lbl_DateCreationBdc";
-            this.Lbl_DateCreationBdc.Size = new System.Drawing.Size(133, 19);
-            this.Lbl_DateCreationBdc.TabIndex = 29;
-            this.Lbl_DateCreationBdc.Text = "Date de creation";
-            // 
-            // Cbx_EtatBdc
-            // 
-            this.Cbx_EtatBdc.FormattingEnabled = true;
-            this.Cbx_EtatBdc.Location = new System.Drawing.Point(446, 5);
-            this.Cbx_EtatBdc.Name = "Cbx_EtatBdc";
-            this.Cbx_EtatBdc.Size = new System.Drawing.Size(121, 21);
-            this.Cbx_EtatBdc.TabIndex = 35;
-            // 
-            // Lbl_EtatBdc
-            // 
-            this.Lbl_EtatBdc.AutoSize = true;
-            this.Lbl_EtatBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_EtatBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_EtatBdc.Location = new System.Drawing.Point(403, 4);
-            this.Lbl_EtatBdc.Name = "Lbl_EtatBdc";
-            this.Lbl_EtatBdc.Size = new System.Drawing.Size(39, 19);
-            this.Lbl_EtatBdc.TabIndex = 28;
-            this.Lbl_EtatBdc.Text = "Etat";
-            // 
-            // Lbl_DateMajBdc
-            // 
-            this.Lbl_DateMajBdc.AutoSize = true;
-            this.Lbl_DateMajBdc.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_DateMajBdc.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.Lbl_DateMajBdc.Location = new System.Drawing.Point(8, 58);
-            this.Lbl_DateMajBdc.Name = "Lbl_DateMajBdc";
-            this.Lbl_DateMajBdc.Size = new System.Drawing.Size(104, 19);
-            this.Lbl_DateMajBdc.TabIndex = 30;
-            this.Lbl_DateMajBdc.Text = "Date de MAJ";
             // 
             // panelCommandesWeb
             // 
@@ -3707,12 +3715,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -3762,10 +3770,10 @@ namespace DashBoard_Stive
             this.panel22.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailCommandeFournisseur)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeFournisseurBindingSource)).EndInit();
-            this.Panel_CreerBdc.ResumeLayout(false);
-            this.Panel_CreerBdc.PerformLayout();
             this.Panel_InfoBdc.ResumeLayout(false);
             this.Panel_InfoBdc.PerformLayout();
+            this.Panel_CreerBdc.ResumeLayout(false);
+            this.Panel_CreerBdc.PerformLayout();
             this.panelCommandesWeb.ResumeLayout(false);
             this.panel19.ResumeLayout(false);
             this.panel19.PerformLayout();
@@ -4124,5 +4132,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.TextBox Tbx_Json;
     }
 }

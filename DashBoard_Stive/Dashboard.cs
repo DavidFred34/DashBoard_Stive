@@ -247,12 +247,13 @@ namespace DashBoard_Stive
                         string Etat = "",
                         string ProposePar = "",
                         string NomProduit = "",
+                        string Json= "",
                         string Domaine = ""
                         )
         {
             Lbl_ProposePar.Text = ProposePar;
             Lbl_DateCreationBdc.Text = Date;
-
+            Tbx_Json.Text = Json;
             Lbl_DateMajBdc.Text = DateMaj;
             Cbx_EtatBdc.Text = Etat.ToString();
 
@@ -271,7 +272,7 @@ namespace DashBoard_Stive
             return result.Replace(':', 'h');
         }
         
-        //gestion du clic des boutons du menu et remplissagge des grid
+        /////////////////////////////////gestion du clic des boutons du menu et remplissagge des grid
         public async void Btn_Accueil_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -417,6 +418,7 @@ namespace DashBoard_Stive
             filtre_cliListe = cliListe;
             filtre_prodListe = prodListe;
             Cbx_Four.SelectedItem = null;
+            
             //MessageBox.Show(fourListe.Count.ToString());
 
             //Affichage stats accueil
@@ -502,6 +504,7 @@ namespace DashBoard_Stive
             //Cbx_Produit.DataSource = prodListe;
             Cbx_Four.DataSource = filtre_fourListe;
             Cbx_Four.SelectedItem = null;
+            contenuBdcListe = null;
 
         }
         private void Btn_AjouterBdc_Click(object sender, EventArgs e)
@@ -599,7 +602,7 @@ namespace DashBoard_Stive
              catch (Exception ex)
              {
                 //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                contenuBdcListe = null;
+                
              }
 
             if (e.RowIndex == -1) //pour ne pas avoir d'erreur en cliquant sur l'entete
@@ -641,24 +644,26 @@ namespace DashBoard_Stive
                 //MessageBox.Show(Cbx_EtatBdc.SelectedIndex.ToString());
                 ContenuCommandeFournisseur majBdc = new ContenuCommandeFournisseur();
                 majBdc.Ccf_Cof_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[0].Value);
+                majBdc.Cof_Fou_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[0].Value);
                 majBdc.Ccf_Pro_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[3].Value);
                 majBdc.Ccf_Quantite = (int)Dv_DetailCommandeFournisseur.Rows[i].Cells[4].Value;
                 majBdc.Pro_Nom = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value;
                 majBdc.Pro_Ref = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[2].Value;
                 majBdc.Fou_NomDomaine = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[6].Value;
-                majBdc.Eta_Id = Cbx_EtatBdc.SelectedIndex;  //Convert.ToInt32(Cbx_EtatBdc.SelectedValue);
+                majBdc.Eta_Id = Cbx_EtatBdc.SelectedIndex + 1;  //Convert.ToInt32(Cbx_EtatBdc.SelectedValue);
                 majBdc.Eta_Libelle = (string)Cbx_EtatBdc.SelectedItem;//(string)Dv_DetailCommandeFournisseur.Rows[i].Cells[8].Value;
                 majBdc.Uti_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[5].Value);
                 majBdcListe.Add(majBdc);
             }
-            MessageBox.Show(majBdcListe.Count.ToString());
+            //MessageBox.Show(majBdcListe.Count.ToString());
             string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
             var json = JsonConvert.SerializeObject(majBdcListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
-            //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            
+            StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
             var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/modifier.php", data);
             if (response.IsSuccessStatusCode)
             {
@@ -669,9 +674,11 @@ namespace DashBoard_Stive
 
             Btn_MajBdc.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
-            Btn_Accueil.PerformClick();
-            Btn_Bdc.PerformClick();
-            
+            contenuBdcListe = null;
+            //Btn_Accueil.PerformClick();
+            //Btn_Bdc.PerformClick();
+            // Dv_DetailCommandeFournisseur = null;
+            Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
             //StamperFournisseur();
 
         }
@@ -688,11 +695,13 @@ namespace DashBoard_Stive
                 newCont.Ccf_Quantite = Convert.ToInt32(Tbx_qte.Text);
                 newCont.Pro_Nom = Cbx_Produit.Text;
 
-                var tt = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
-                newCont.Pro_Ref = tt.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
+                var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
+                var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Uti_Id.ToString());
+                newCont.Pro_Ref = refe.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
                 //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
-                newCont.Fou_NomDomaine = (string)Cbx_Four.SelectedItem.ToString();
+                newCont.Fou_NomDomaine = (string)Cbx_Four.Text.ToString();
                 newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
+                newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
                 newContenuBdcListe.Add(newCont);
 
                 List<ContenuCommandeFournisseur> majNewContenuBdcListe = new List<ContenuCommandeFournisseur>();
@@ -749,36 +758,42 @@ namespace DashBoard_Stive
         }
         private async void Btn_CreerBdc_Click(object sender, EventArgs e)
         {
+            //en fait on créé un nouveau contenu, l'api se charge de créer le bdc
+
             Btn_CreerBdc.Enabled = false; //pb clics serie
             int nbLigne = Dv_DetailCommandeFournisseur.RowCount;
-            //List<ContenuCommandeFournisseur> majBdcListe = new List<ContenuCommandeFournisseur>();
-            //majBdcListe = null;
-            /*for (int i = 0; i < nbLigne; i++)
+            int nbLigne2 = newContenuBdcListe.Count;
+            //MessageBox.Show(nbLigne + "  :  " + nbLigne2);
+            List <ContenuCommandeFournisseur> newContListe = new List<ContenuCommandeFournisseur>();
+
+            foreach(ContenuCommandeFournisseur newCont in newContenuBdcListe)
             {
-                ContenuCommandeFournisseur newBdc = new ContenuCommandeFournisseur();
+                ContenuCommandeFournisseur newContenu = new ContenuCommandeFournisseur();
                 //MessageBox.Show((string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value);
-                newBdc.Ccf_Cof_Id = newContenuBdcListe.Where(x=>x.Ccf_Cof_Id == );
-                newBdc.Ccf_Pro_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[3].Value);
-                newBdc.Ccf_Quantite = (int)Dv_DetailCommandeFournisseur.Rows[i].Cells[4].Value;
-                newBdc.Pro_Nom = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value;
-                newBdc.Pro_Ref = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[2].Value;
-                newBdc.Fou_NomDomaine = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[6].Value;
-                newBdc.Eta_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[7].Value);
-                newBdc.Eta_Libelle = (string)Dv_DetailCommandeFournisseur.Rows[i].Cells[8].Value;
-                newBdc.Uti_Id = Convert.ToInt32(Dv_DetailCommandeFournisseur.Rows[i].Cells[5].Value);
-                majBdcListe.Add(newBdc);
-            }*/
+                //newCont.Ccf_Cof_Id = newContenuBdcListe.Where(x=>x.Ccf_Cof_Id == );
+                newCont.Ccf_Pro_Id = newCont.Ccf_Pro_Id;
+                newContenu.Cof_Fou_Id = newCont.Cof_Fou_Id;
+                newContenu.Ccf_Quantite = newCont.Ccf_Quantite;
+                newContenu.Pro_Nom = newCont.Pro_Nom;
+                newContenu.Pro_Ref = newCont.Pro_Ref;
+                newContenu.Fou_NomDomaine = newCont.Fou_NomDomaine;
+                newContenu.Eta_Id = newCont.Eta_Id;
+                newContenu.Eta_Libelle = newCont.Eta_Libelle;
+                newContenu.Uti_Id = newCont.Uti_Id;
+              
+                newContListe.Add(newContenu);
+            }
             //MessageBox.Show(nbLigne.ToString());
             //MessageBox.Show(newContenuBdcListe.Count.ToString());
             
             string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-            var json = JsonConvert.SerializeObject(newContenuBdcListe);
+            var json = JsonConvert.SerializeObject(newContListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
             //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Commande Créée");
@@ -790,6 +805,7 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Bdc.PerformClick();
+            newContListe = null;
             Cbx_Four.Enabled = true;
         }
         List<ContenuCommandeFournisseur> contenuBdcListe;
@@ -1111,26 +1127,61 @@ namespace DashBoard_Stive
         private async void Btn_SuppFournisseur_Click(object sender, EventArgs e)
         {
             Btn_SuppFournisseur.Enabled = false; //pb clics serie
+            int exist = 0;
             Fournisseur suppFour = new Fournisseur();
             //string v = label_Uti_Id.Text.ToString();
             suppFour.Fou_Uti_Id = int.Parse(Lbl_Uti_Id.Text);
 
-            string token = Class.Globales.token.tokenRequete();  //recup du token
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-            var json = JsonConvert.SerializeObject(suppFour);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
-            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-            if (response.IsSuccessStatusCode)
+            foreach (var idFou in bdcListe) // on ne supprime pas les fournisseurs qui ont un produit dans une commandeFournisseur ou client, quelque soit l'etat de la commande
             {
-                //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
-                MessageBox.Show("Fournisseur supprimé");
+                if (idFou.Cof_Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))  //recherche dans bdc
+                {
+                    exist += 1;
+                    MessageBox.Show("Ce fournisseur possede au moins un produit lié à une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce fournisseur est annulée");
+                    break;
+                }
+                else
+                {
+                    /*foreach (var idFou2 in commandeClientListListe)
+                    {
+                        if (idFou2.Coc_Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))  //recherche dans commande web
+                        {
+                            if (exist == 0)
+                            {
+                                MessageBox.Show("Ce fournisseur possede au moins un produit lié à une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce fournisseur est annulée");
+                            }
+                            exist += 1;
+                            break;
+                        }
+                    }*/
+                }
+            }
 
+            if (exist == 0)
+            {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                var json = JsonConvert.SerializeObject(suppFour);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
+                //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
+                    MessageBox.Show("Fournisseur supprimé");
+
+                }
+                else
+                    MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
             }
             else
-                MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
+            {
+                Btn_SuppFournisseur.Enabled = true;
+                return;
+            }
+
             Btn_SuppFournisseur.Enabled = true; //pb clics serie, fin
 
             //recharge la liste en simulant le click sur le bouton fournisseur
@@ -1823,17 +1874,44 @@ namespace DashBoard_Stive
             StamperFournisseur();
         }
 
-        private void Btn_CommanderProduit_Click(object sender, EventArgs e)
+        private async void Btn_CommanderProduit_Click(object sender, EventArgs e)
         {
             Btn_CommanderProduit.Enabled = false; //pb clic serie
-            /* CommandeFournisseur newBdc = new CommandeFournisseur();
+            try
+            {
+                ContenuCommandeFournisseur newCcf = new ContenuCommandeFournisseur();
+                newCcf.Ccf_Pro_Id = Convert.ToInt32(Lbl_Pro_Id.Text);
+                newCcf.Pro_Nom = Txb_NomProduit.Text;
+                newCcf.Ccf_Quantite = Convert.ToInt32(Txb_NbPiece.Text);
+                //var tt = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
+                newCcf.Pro_Ref = Txb_Ref.Text;
+                newCcf.Fou_NomDomaine = (string)Cbx_ProposePar.SelectedValue.ToString();
+                newCcf.Cof_Fou_Id = Convert.ToInt32(Lbl_Pro_Fou_Id.Text);
+                newCcf.Uti_Id = Convert.ToInt32(Lbl_Pro_Uti_Id.Text);
 
-             newBdc.CoF_Pro_Id = Convert.ToInt32(label_Pro_Id.Text);
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-             newBdc.Cof_Fou_Id = Convert.ToInt32(comboBoxProposePar.SelectedValue);
-             newBdc.Cof_Eta_Id = int.Parse(label_pro_Uti_Id.Text);*/
-            MessageBox.Show("Fonctionnalité en cours de developpement");
+                //si le produit est dans une commandeFournisseur en attente/Auto : MAJ sinon creation
+                // a voir avec charley qui gere
+
+                var json = JsonConvert.SerializeObject(newCcf);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
+                MessageBox.Show(json.ToString());
+                MessageBox.Show("Commande Créé");
+                Btn_Accueil.PerformClick();
+                Btn_Produit.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("un probleme est survenu, la commande n'a pas été créé");
+            }
+            
             Btn_CommanderProduit.Enabled = true; //pb clic serie, fin
+            Btn_Accueil.PerformClick();
+            Btn_Produit.PerformClick();
         }
 
         private void Txb_ChProd_TextChanged(object sender, EventArgs e)
