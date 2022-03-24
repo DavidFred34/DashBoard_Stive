@@ -406,6 +406,30 @@ namespace DashBoard_Stive
                 //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
                 bdcListe = null;
             }
+
+            //chargement liste contenusbdc
+            try
+            {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ObtenirTous.php");// label_Fou_Id.Text);
+                response.EnsureSuccessStatusCode();
+
+                var contentCommande = await response.Content.ReadAsStringAsync();
+
+                contBdcListe = JsonConvert.DeserializeObject<List<ContenuCommandeFournisseur>>(contentCommande);
+
+                //MessageBox.Show(contentCommande.ToString());  //controle du json
+                //MessageBox.Show(contentCommande);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                bdcListe = null;
+            }
             //Affectation des listes
             Dv_TypeProduit.DataSource = typListe;
             Dv_fournisseur.DataSource = fourListe;
@@ -476,7 +500,7 @@ namespace DashBoard_Stive
         List<CommandeFournisseur> filtre_bdcListe;
         List<CommandeFournisseur> bdcEnCoursListe;
         IList<string> etatListe;
-
+        List<ContenuCommandeFournisseur> contBdcListe;
         private void Btn_Bdc_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -1848,8 +1872,67 @@ namespace DashBoard_Stive
             Btn_SuppProduit.Enabled = false;  // on empeche les clics en serie
             Produit suppPro = new Produit();
             suppPro.Pro_Id = int.Parse(Lbl_Pro_Id.Text);
+            
+            int exist = 0;
+            foreach (var idPro in contBdcListe) // on ne supprime pas les produits qui sont présent dans une commandeFournisseur ou client, quelque soit l'etat de la commande
+            {
+                if (idPro.Ccf_Pro_Id == Convert.ToInt32(Lbl_Pro_Id.Text))  //recherche dans bdc
+                {
+                    exist += 1;
+                    MessageBox.Show("Ce Produit est présent dans au moins une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce Produit est annulée");
+                    break;
+                }
+                else
+                {
+                    /*foreach (var idPro2 in commandeClientListListe)  // recherche ds commande client
+                    {
+                        if (idFou2.Coc_Fou_Id == Convert.ToInt32(Lbl_Pro_Id.Text))  //recherche dans commande web
+                        {
+                            if (exist == 0)
+                            {
+                                MessageBox.Show("Ce Produit est présent dans au moins une commande fournisseur ou client" + Environment.NewLine + "La produit de ce fournisseur est annulée");
+                            }
+                            exist += 1;
+                            break;
+                        }
+                    }*/
+                }
+            }
 
-            string token = Class.Globales.token.tokenRequete();  //recup du token
+            if (exist == 0)
+            {
+                var url = "https://apistive.azurewebsites.net/API/controlers/Produit/supprimer.php?Pro_Id=" + suppPro.Pro_Id;
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                var json = JsonConvert.SerializeObject(suppPro);
+                //var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.DeleteAsync(url);
+                //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
+                    MessageBox.Show("Produit supprimé");
+
+                }
+                else
+                    MessageBox.Show("Erreur: produit non supprimé" + "\r\n\n" + response);
+            }
+            else
+            {
+                Btn_SuppProduit.Enabled = true;
+                return;
+            }
+
+            Btn_SuppProduit.Enabled = true; //pb clics serie, fin
+
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            Btn_Accueil.PerformClick();
+            Btn_Produit.PerformClick();
+            StamperProduit();
+
+            /*string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
@@ -1865,13 +1948,13 @@ namespace DashBoard_Stive
 
             }
             else
-                MessageBox.Show("Erreur: produit non supprimé" + "\r\n\n" + response);
+                MessageBox.Show("Erreur: produit non supprimé" + "\r\n\n" + response);*/
             
-            Btn_SuppProduit.Enabled = true; // pb clics, fin
+            /*Btn_SuppProduit.Enabled = true; // pb clics, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_Produit.PerformClick();
-            StamperFournisseur();
+            StamperFournisseur();*/
         }
 
         private async void Btn_CommanderProduit_Click(object sender, EventArgs e)
