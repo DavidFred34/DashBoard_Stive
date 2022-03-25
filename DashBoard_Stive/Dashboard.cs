@@ -247,7 +247,7 @@ namespace DashBoard_Stive
                         string Etat = "",
                         string ProposePar = "",
                         string NomProduit = "",
-                        string Json= "",
+                        string Json = "",
                         string Domaine = ""
                         )
         {
@@ -641,18 +641,18 @@ namespace DashBoard_Stive
 
 
             //   MessageBox.Show(eta2);
-            StamperContenuBdc(
+           StamperContenuBdc(
                 Date: "Créé le : " + AfficheDate(DateTime.Parse(filtre_bdcListe[e.RowIndex].Cof_DateCreation)),
                 DateMaj: "Mis à jour le : " + AfficheDate(DateTime.Parse(filtre_bdcListe[e.RowIndex].Cof_DateMaj)),
                 ProposePar: "Commandé chez : " + filtre_bdcListe[e.RowIndex].Fou_NomDomaine
                 //Etat: filtre_bdcListe[e.RowIndex].Cof_Eta_Id.ToString()
      //           Etat: etatListe[eta].
-            ) ;
+            ) ;    
             //      foreach (var et in etatListe) { MessageBox.Show(et.Key.ToString() + " : " + et.Value); }
             //var emailAdd = statesToEmailDictionary.FirstOrDefault(x => x.Value.Where(y => y.Contains(state))).Key;
             Cbx_EtatBdc.DataSource = etatListe;//.FirstOrDefault().Value;//.Select(kvp => kvp.Value.ToString());
             Cbx_EtatBdc.SelectedIndex = filtre_bdcListe[e.RowIndex].Cof_Eta_Id-1;
-            MessageBox.Show(Cbx_EtatBdc.SelectedItem.ToString());
+            //MessageBox.Show(Cbx_EtatBdc.SelectedItem.ToString());
             //Cbx_EtatBdc.DisplayMember = etatListe;
             Dv_ListeBdc.DataSource = bdcListeFournisseur;
             Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
@@ -727,11 +727,18 @@ namespace DashBoard_Stive
                 newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
                 newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
                 newContenuBdcListe.Add(newCont);
+                MessageBox.Show("produit ajouté");
 
-                List<ContenuCommandeFournisseur> majNewContenuBdcListe = new List<ContenuCommandeFournisseur>();
+                /*var index = Dv_DetailCommandeFournisseur.Rows.Add();
+                Dv_DetailCommandeFournisseur.Rows[index].Cells["Produit"].Value = newCont.Pro_Nom;
+                Dv_DetailCommandeFournisseur.Rows[index].Cells[2].Value = newCont.Pro_Ref;
+                Dv_DetailCommandeFournisseur.Rows[index].Cells[3].Value = newCont.Ccf_Quantite;
+                Dv_DetailCommandeFournisseur.Rows[index].Cells[4].Value = newCont.Fou_NomDomaine;*/
+ 
+
+               /* List<ContenuCommandeFournisseur> majNewContenuBdcListe = new List<ContenuCommandeFournisseur>();
                 majNewContenuBdcListe = newContenuBdcListe;
-                
-                Dv_DetailCommandeFournisseur.DataSource = majNewContenuBdcListe;
+                Dv_DetailCommandeFournisseur.DataSource = majNewContenuBdcListe;*/
             }
             catch
             {
@@ -753,8 +760,8 @@ namespace DashBoard_Stive
 
         }
           
-            List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
-            List<Produit> prodListe3 = new List<Produit>();
+         List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
+         List<Produit> prodListe3 = new List<Produit>();
         private void Cbx_Four_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
@@ -795,7 +802,7 @@ namespace DashBoard_Stive
                 ContenuCommandeFournisseur newContenu = new ContenuCommandeFournisseur();
                 //MessageBox.Show((string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value);
                 //newCont.Ccf_Cof_Id = newContenuBdcListe.Where(x=>x.Ccf_Cof_Id == );
-                newCont.Ccf_Pro_Id = newCont.Ccf_Pro_Id;
+                newContenu.Ccf_Pro_Id = newCont.Ccf_Pro_Id;
                 newContenu.Cof_Fou_Id = newCont.Cof_Fou_Id;
                 newContenu.Ccf_Quantite = newCont.Ccf_Quantite;
                 newContenu.Pro_Nom = newCont.Pro_Nom;
@@ -816,7 +823,9 @@ namespace DashBoard_Stive
             var json = JsonConvert.SerializeObject(newContListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
-            //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+            //Tbx_Json.Visible = true;
+            
+            StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
@@ -1121,7 +1130,7 @@ namespace DashBoard_Stive
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
 
-                MessageBox.Show(token);
+                //MessageBox.Show(token);
                 var json = JsonConvert.SerializeObject(newFour);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
@@ -1154,7 +1163,8 @@ namespace DashBoard_Stive
             int exist = 0;
             Fournisseur suppFour = new Fournisseur();
             //string v = label_Uti_Id.Text.ToString();
-            suppFour.Fou_Uti_Id = int.Parse(Lbl_Uti_Id.Text);
+            //MessageBox.Show(Lbl_Uti_Id.Text.ToString());
+            suppFour.Fou_Uti_Id = Convert.ToInt32(Lbl_Uti_Id.Text);
 
             foreach (var idFou in bdcListe) // on ne supprime pas les fournisseurs qui ont un produit dans une commandeFournisseur ou client, quelque soit l'etat de la commande
             {
@@ -1444,7 +1454,7 @@ namespace DashBoard_Stive
                 var json = JsonConvert.SerializeObject(newCli);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
-                //MessageBox.Show(json.ToString());
+                MessageBox.Show(json.ToString());
                 //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
                 if (response.IsSuccessStatusCode)
                 {

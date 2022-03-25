@@ -11,6 +11,6 @@ namespace DashBoard_Stive
         public int Inv_Id { get; set; }
         public DateTime Inv_DateCreation { get; set; }
         public DateTime Inv_DateMaj { get; set; }
-        public Boolean Inv_StockRegul { get; set; }
+        public int Inv_StockRegul { get; set; }
     }
 }

@@ -61,7 +61,7 @@ namespace DashBoard_Stive
 
                     Dashboard Dashboard = new Dashboard();
                     Dashboard.ShowDialog();
-
+                
                 Btn_Connexion.Enabled = true;
                 this.Close();
             }

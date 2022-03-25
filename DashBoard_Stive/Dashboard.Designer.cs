@@ -70,6 +70,10 @@ namespace DashBoard_Stive
             this.panelProduit = new System.Windows.Forms.Panel();
             this.panel11 = new System.Windows.Forms.Panel();
             this.label1 = new System.Windows.Forms.Label();
+            this.Txb_PrixLitre = new System.Windows.Forms.TextBox();
+            this.Txb_Volume = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
+            this.label36 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.Lbl_Pro_Uti_Id = new System.Windows.Forms.Label();
             this.Lbl_Pro_Id = new System.Windows.Forms.Label();
@@ -77,11 +81,9 @@ namespace DashBoard_Stive
             this.Txb_NbPiece = new System.Windows.Forms.TextBox();
             this.Cbx_ProposePar = new System.Windows.Forms.ComboBox();
             this.fournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
-            this.Txb_PrixLitre = new System.Windows.Forms.TextBox();
             this.Txb_Cepage = new System.Windows.Forms.TextBox();
             this.Txb_Ref = new System.Windows.Forms.TextBox();
             this.Txb_Millesime = new System.Windows.Forms.TextBox();
-            this.Txb_Volume = new System.Windows.Forms.TextBox();
             this.Txb_EnStock = new System.Windows.Forms.TextBox();
             this.Cbx_TypeProduit = new System.Windows.Forms.ComboBox();
             this.typeProduitBindingSource = new System.Windows.Forms.BindingSource(this.components);
@@ -94,7 +96,6 @@ namespace DashBoard_Stive
             this.Cbx_CommandeAuto = new System.Windows.Forms.CheckBox();
             this.label39 = new System.Windows.Forms.Label();
             this.Txb_Description = new System.Windows.Forms.TextBox();
-            this.label38 = new System.Windows.Forms.Label();
             this.label37 = new System.Windows.Forms.Label();
             this.Txb_NomProduit = new System.Windows.Forms.TextBox();
             this.pictureBoxProduit = new System.Windows.Forms.PictureBox();
@@ -102,7 +103,6 @@ namespace DashBoard_Stive
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.Txb_Prix = new System.Windows.Forms.TextBox();
-            this.label36 = new System.Windows.Forms.Label();
             this.label42 = new System.Windows.Forms.Label();
             this.Btn_MajProduit = new System.Windows.Forms.Button();
             this.Btn_SuppProduit = new System.Windows.Forms.Button();
@@ -884,6 +884,49 @@ namespace DashBoard_Stive
             this.label1.Text = "euros / L ou kg";
             this.label1.Visible = false;
             // 
+            // Txb_PrixLitre
+            // 
+            this.Txb_PrixLitre.Location = new System.Drawing.Point(123, 460);
+            this.Txb_PrixLitre.MaxLength = 5;
+            this.Txb_PrixLitre.Name = "Txb_PrixLitre";
+            this.Txb_PrixLitre.Size = new System.Drawing.Size(67, 20);
+            this.Txb_PrixLitre.TabIndex = 48;
+            this.Txb_PrixLitre.Visible = false;
+            this.Txb_PrixLitre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_PrixLitre_KeyPress);
+            // 
+            // Txb_Volume
+            // 
+            this.Txb_Volume.Location = new System.Drawing.Point(123, 494);
+            this.Txb_Volume.MaxLength = 5;
+            this.Txb_Volume.Name = "Txb_Volume";
+            this.Txb_Volume.Size = new System.Drawing.Size(67, 20);
+            this.Txb_Volume.TabIndex = 44;
+            this.Txb_Volume.Visible = false;
+            this.Txb_Volume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_Volume_KeyPress);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label38.Location = new System.Drawing.Point(19, 496);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(65, 19);
+            this.label38.TabIndex = 30;
+            this.label38.Text = "volume";
+            this.label38.Visible = false;
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label36.Location = new System.Drawing.Point(51, 460);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(35, 18);
+            this.label36.TabIndex = 21;
+            this.label36.Text = "Prix";
+            this.label36.Visible = false;
+            // 
             // label2
             // 
             this.label2.AutoSize = true;
@@ -954,16 +997,6 @@ namespace DashBoard_Stive
             // 
             this.fournisseurBindingSource.DataSource = typeof(DashBoard_Stive.Fournisseur);
             // 
-            // Txb_PrixLitre
-            // 
-            this.Txb_PrixLitre.Location = new System.Drawing.Point(123, 460);
-            this.Txb_PrixLitre.MaxLength = 5;
-            this.Txb_PrixLitre.Name = "Txb_PrixLitre";
-            this.Txb_PrixLitre.Size = new System.Drawing.Size(67, 20);
-            this.Txb_PrixLitre.TabIndex = 48;
-            this.Txb_PrixLitre.Visible = false;
-            this.Txb_PrixLitre.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_PrixLitre_KeyPress);
-            // 
             // Txb_Cepage
             // 
             this.Txb_Cepage.Location = new System.Drawing.Point(382, 255);
@@ -990,16 +1023,6 @@ namespace DashBoard_Stive
             this.Txb_Millesime.Size = new System.Drawing.Size(67, 20);
             this.Txb_Millesime.TabIndex = 45;
             this.Txb_Millesime.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_Millesime_KeyPress);
-            // 
-            // Txb_Volume
-            // 
-            this.Txb_Volume.Location = new System.Drawing.Point(123, 494);
-            this.Txb_Volume.MaxLength = 5;
-            this.Txb_Volume.Name = "Txb_Volume";
-            this.Txb_Volume.Size = new System.Drawing.Size(67, 20);
-            this.Txb_Volume.TabIndex = 44;
-            this.Txb_Volume.Visible = false;
-            this.Txb_Volume.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_Volume_KeyPress);
             // 
             // Txb_EnStock
             // 
@@ -1132,18 +1155,6 @@ namespace DashBoard_Stive
             this.Txb_Description.Size = new System.Drawing.Size(592, 240);
             this.Txb_Description.TabIndex = 31;
             // 
-            // label38
-            // 
-            this.label38.AutoSize = true;
-            this.label38.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label38.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label38.Location = new System.Drawing.Point(19, 496);
-            this.label38.Name = "label38";
-            this.label38.Size = new System.Drawing.Size(65, 19);
-            this.label38.TabIndex = 30;
-            this.label38.Text = "volume";
-            this.label38.Visible = false;
-            // 
             // label37
             // 
             this.label37.AutoSize = true;
@@ -1211,17 +1222,6 @@ namespace DashBoard_Stive
             this.Txb_Prix.Size = new System.Drawing.Size(67, 20);
             this.Txb_Prix.TabIndex = 22;
             this.Txb_Prix.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.Txb_Prix_KeyPress);
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label36.Location = new System.Drawing.Point(51, 460);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(35, 18);
-            this.label36.TabIndex = 21;
-            this.label36.Text = "Prix";
-            this.label36.Visible = false;
             // 
             // label42
             // 
@@ -2327,10 +2327,12 @@ namespace DashBoard_Stive
             // 
             // Tbx_Json
             // 
-            this.Tbx_Json.Location = new System.Drawing.Point(197, 48);
+            this.Tbx_Json.Location = new System.Drawing.Point(16, 80);
+            this.Tbx_Json.Multiline = true;
             this.Tbx_Json.Name = "Tbx_Json";
             this.Tbx_Json.Size = new System.Drawing.Size(200, 20);
             this.Tbx_Json.TabIndex = 42;
+            this.Tbx_Json.Visible = false;
             // 
             // Lbl_ProposePar
             // 
@@ -3708,12 +3710,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
+            this.Controls.Add(this.panelFournisseurs);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

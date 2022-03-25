@@ -29,9 +29,15 @@ namespace DashBoard_Stive
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
 
+            List<Produit> prod_List;
+            List<Inventaire> inv_List;
+            List<ContenuInventaire> contInv_List;
+         
+
             //Chargement liste produit
             try
             {
+                
                 string token = Class.Globales.token.tokenRequete();  //recup du token
                 var httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
@@ -41,19 +47,39 @@ namespace DashBoard_Stive
                 response.EnsureSuccessStatusCode();
 
                 var content = await response.Content.ReadAsStringAsync();
-                prodListe3 = JsonConvert.DeserializeObject<List<Produit>>(content);
+                prod_List = JsonConvert.DeserializeObject<List<Produit>>(content);
 
                 //MessageBox.Show(content.ToString());  //controle du json
             }
             catch (Exception ex)
             {
                 //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                prodListe3 = null;
+                prod_List = null;
             }
-            Dv_Inventaire.DataSource = prodListe3;
+
+            //alimentation de la liste inv_List
+            contInv_List = null;
+            List<ContenuInventaire> contInvList = new List<ContenuInventaire>();
+           foreach(Produit prod in prod_List)
+            {
+                //List<ContenuInventaire> contInv_List = new List<ContenuInventaire>();
+                ContenuInventaire newContInv = new ContenuInventaire();
+
+                newContInv.Coi_Pro_Id = prod.Pro_Id;
+                newContInv.Coi_Pro_Nom = prod.Pro_Nom;
+                newContInv.Coi_Pro_Quantite = (int)prod.Pro_Quantite;
+                newContInv.Coi_Typ_Libelle = prod.Typ_Libelle;
+                newContInv.Coi_Fou_NomDomaine = prod.Fou_NomDomaine;
+                newContInv.Inv_StockRegul = 0;
+                contInvList.Add(newContInv);
+                
+           
+
+            }
+            contInv_List = contInvList;
+            Dv_Inventaire.DataSource = contInv_List;
        
         }
-        List<Produit> prodListe3;
         public async void Btn_SaveInventaire_Click(object sender, EventArgs e)
         {
           /*  foreach (DataGridViewRow dr in Dv_Inventaire.Rows) {
