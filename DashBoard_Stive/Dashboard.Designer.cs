@@ -2412,7 +2412,6 @@ namespace DashBoard_Stive
             this.Cbx_Four.TabIndex = 46;
             this.Cbx_Four.ValueMember = "Fou_Id";
             this.Cbx_Four.SelectionChangeCommitted += new System.EventHandler(this.Cbx_Four_SelectionChangeCommitted);
-            this.Cbx_Four.SelectedValueChanged += new System.EventHandler(this.Cbx_Four_SelectedValueChanged);
             // 
             // Lbl_Four
             // 
@@ -2457,7 +2456,6 @@ namespace DashBoard_Stive
             this.Cbx_Produit.Size = new System.Drawing.Size(187, 21);
             this.Cbx_Produit.TabIndex = 44;
             this.Cbx_Produit.ValueMember = "Pro_Id";
-            this.Cbx_Produit.SelectedIndexChanged += new System.EventHandler(this.Cbx_Produit_SelectedIndexChanged);
             // 
             // Lbl_Produit
             // 
@@ -3710,12 +3708,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelAccueil);
-            this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
+            this.Controls.Add(this.panelAccueil);
+            this.Controls.Add(this.panelCommandesWeb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

@@ -64,6 +64,21 @@ namespace DashBoard_Stive
         }
 
 
+
+        List<TypeProduit> typListe;
+        List<Produit> prodListe;
+        List<Fournisseur> fourListe;
+        List<Fournisseur> filtre_fourListe;
+        List<Produit> filtre_prodListe;
+        List<Client> cliListe;
+        List<Client> filtre_cliListe;
+        List<CommandeFournisseur> bdcListe;
+        List<CommandeFournisseur> filtre_bdcListe;
+        List<CommandeFournisseur> bdcEnCoursListe;
+        IList<string> etatListe;
+        List<ContenuCommandeFournisseur> contBdcListe;
+
+        #region //Gestion affichage btn menu, stamper et methode affichage
         //gestion du survol de la souris des btn du menu
         private void Btn_Menu_MouseEnter(object sender, EventArgs e)
         {
@@ -271,8 +286,9 @@ namespace DashBoard_Stive
             string result2 = dateAConvertir.ToString("MM/dd/yyyy HH:mm");
             return result.Replace(':', 'h');
         }
-        
-        /////////////////////////////////gestion du clic des boutons du menu et remplissagge des grid
+        #endregion
+
+        #region //Gestion accueil
         public async void Btn_Accueil_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -489,18 +505,16 @@ namespace DashBoard_Stive
             Dv_procheSeuil.DataSource = prodSeuilListe;
             Lbl_valSeuil.Text = count2.ToString();
         }
-        List<TypeProduit> typListe;
-        List<Produit> prodListe;
-        List<Fournisseur> fourListe;
-        List<Fournisseur> filtre_fourListe;
-        List<Produit> filtre_prodListe;
-        List<Client> cliListe;
-        List<Client> filtre_cliListe;
-        List<CommandeFournisseur> bdcListe;
-        List<CommandeFournisseur> filtre_bdcListe;
-        List<CommandeFournisseur> bdcEnCoursListe;
-        IList<string> etatListe;
-        List<ContenuCommandeFournisseur> contBdcListe;
+
+        private void Btn_Inventaire_Click(object sender, EventArgs e)
+        {
+            Form_inventaire Inventaire = new Form_inventaire();
+            Inventaire.Show();
+        }
+
+        #endregion
+
+        #region  //Gestion Bdc
         private void Btn_Bdc_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -531,6 +545,7 @@ namespace DashBoard_Stive
             contenuBdcListe = null;
 
         }
+        
         private void Btn_AjouterBdc_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -552,6 +567,7 @@ namespace DashBoard_Stive
             Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Dv_CommandeFournisseur.DataSource = bdcListe;
         }
+        
         private void radioButtons_CheckedChanged(object sender, EventArgs e)
         {
             RadioButton radioButton = sender as RadioButton;
@@ -592,6 +608,7 @@ namespace DashBoard_Stive
             };
 
         }
+       
         public async void Dv_CommandeFournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //gestion affichage
@@ -657,6 +674,7 @@ namespace DashBoard_Stive
             Dv_ListeBdc.DataSource = bdcListeFournisseur;
             Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
         }
+       
         private async void Btn_MajBdcClick(object sender, EventArgs e)
         {
             Btn_MajBdc.Enabled = false; //pb clics serie
@@ -706,6 +724,7 @@ namespace DashBoard_Stive
             //StamperFournisseur();
 
         }
+       
         private void Btn_ValiderProduit_Click(object sender, EventArgs e)
         {
             Cbx_Four.Enabled = false;
@@ -759,9 +778,9 @@ namespace DashBoard_Stive
             newContenuBdcListe.Add(newCont);*/
 
         }
-          
          List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
          List<Produit> prodListe3 = new List<Produit>();
+       
         private void Cbx_Four_SelectionChangeCommitted(object sender, EventArgs e)
         {
 
@@ -776,17 +795,7 @@ namespace DashBoard_Stive
                 MessageBox.Show("Pb");
             }
         }
-        private void Cbx_Four_SelectedValueChanged(object sender, EventArgs e)
-        {/*
-            List<Produit> prodListe3 = new List<Produit>();
-            prodListe3 = prodListe.Where(x => x.Pro_Fou_Id == Convert.ToInt32(Cbx_Four.ValueMember)).ToList();
-            Cbx_Produit.DataSource = prodListe3;*/
-           // Cbx_Four.Enabled = false;
-        }
-        private void Cbx_Produit_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //Cbx_Four.Enabled = false;
-        }
+       
         private async void Btn_CreerBdc_Click(object sender, EventArgs e)
         {
             //en fait on créé un nouveau contenu, l'api se charge de créer le bdc
@@ -842,6 +851,9 @@ namespace DashBoard_Stive
             Cbx_Four.Enabled = true;
         }
         List<ContenuCommandeFournisseur> contenuBdcListe;
+        #endregion
+
+        #region//Gestion Commande web
         private void Btn_CommandesWeb_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -853,7 +865,9 @@ namespace DashBoard_Stive
 
             MessageBox.Show("Fonctionnalité non développée");
         }
+        #endregion
 
+        #region//Gestion fournisseur
         public void Btn_Fournisseurs_Click(object sender, EventArgs e)
         {
 
@@ -938,9 +952,6 @@ namespace DashBoard_Stive
             //Dv_fournisseur.Columns["Fou_NomResp"].Visible = false;
             //Dv_fournisseur.Columns.Add("Uti_Pays", "Pays");*/
         }
-
-
-
         public async void Dv_fournisseur_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
             //gestion affichage
@@ -1040,7 +1051,7 @@ namespace DashBoard_Stive
         }
         List<CommandeFournisseur> bdcListeFournisseur;
         List<Produit> prodListe2;
-
+       
         private void Btn_Ajouterfournisseur_Click(object sender, EventArgs e)
         {
             //on propose une fiche vide
@@ -1273,7 +1284,9 @@ namespace DashBoard_Stive
             filtre_fourListe = fourListe.Where(x => x.Fou_NomDomaine.ToLower().Contains(Txb_CherchFournisseur.Text.ToLower())).ToList();
             Dv_fournisseur.DataSource = filtre_fourListe;
         }
+        #endregion
 
+        #region//Gestion client
         private void Btn_Clients_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -1552,7 +1565,9 @@ namespace DashBoard_Stive
             filtre_cliListe = cliListe.Where(x => x.Cli_Nom.ToLower().Contains(Txb_CherchClient.Text.ToLower())).ToList();
             Dv_ListClient.DataSource = filtre_cliListe;
         }
+        #endregion
 
+        #region//Gestion Produit
         public void Btn_Produit_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -2076,7 +2091,6 @@ namespace DashBoard_Stive
             Btn_Valider.Enabled = true;// evite le pb du clic serie, fin
         }
 
-
         public void Cbx_TypeProduit_SelectedValueChanged(object sender, EventArgs e)
         {
             //buttonAccueil.PerformClick();
@@ -2088,16 +2102,12 @@ namespace DashBoard_Stive
             // MessageBox.Show(labelPro_Typ_Id.Text);
             //prodListe.Uti_Id.ToString();
         }
-
-        private void Btn_Inventaire_Click(object sender, EventArgs e)
-        {
-            Form_inventaire Inventaire = new Form_inventaire();
-            Inventaire.ShowDialog();
-        }
+        #endregion
 
 
+        ///////////////////////////////////////////////////
 
-        /////////////////////////////////////////gestion de la sasie numeric des textBox
+        #region//Gestion de la sasie numeric des textBox
         private void Txb_TelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&
@@ -2227,10 +2237,9 @@ namespace DashBoard_Stive
                 e.Handled = true;
             }
         }
+        #endregion
 
-
-
-        ////////////////////////////////////Gestion format mail etfonctionnalités non dev
+        #region//Gestion format mail etfonctionnalités non dev
         private void Txb_MailContact_Leave(object sender, EventArgs e)
         {
             Regex mRegxExpression;
@@ -2276,9 +2285,6 @@ namespace DashBoard_Stive
             }
         }
 
-
-
-
         private void Txb_2_TextChanged(object sender, EventArgs e)
         {
             MessageBox.Show("Fonctionnalité non développée");
@@ -2288,7 +2294,7 @@ namespace DashBoard_Stive
         {
             MessageBox.Show("Fonctionnalité non développée");
         }
-
+        #endregion
 
     }
 }
