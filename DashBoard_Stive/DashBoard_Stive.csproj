@@ -66,8 +66,10 @@
   <ItemGroup>
     <Compile Include="Class\Globales.cs" />
     <Compile Include="Client.cs" />
+    <Compile Include="CommandeClient.cs" />
     <Compile Include="CommandeFournisseur.cs" />
     <Compile Include="Class\Connect.cs" />
+    <Compile Include="ContenuCommandeClient.cs" />
     <Compile Include="ContenuCommandeFournisseur.cs" />
     <Compile Include="ContenuInventaire.cs" />
     <Compile Include="Dashboard.cs">

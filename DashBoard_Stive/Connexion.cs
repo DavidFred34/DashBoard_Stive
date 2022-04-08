@@ -42,34 +42,32 @@ namespace DashBoard_Stive
         {
             Btn_Connexion.Enabled = false;
             Connect newCon = new Connect(Txb_Login.Text, Txb_Mp.Text);
-            
-            //MessageBox.Show(newCon.tokenRequete());
-            
-            try
-            {
-                var httpClient = new HttpClient();
-                var json = JsonConvert.SerializeObject(newCon);
-               // MessageBox.Show(json.ToString());
+          
+                try
+                {
+                    var httpClient = new HttpClient();
+                    var json = JsonConvert.SerializeObject(newCon);
+                    //MessageBox.Show(json.ToString());
 
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/login/login.php", data);
-                var content = await response.Content.ReadAsStringAsync();
-                Globales.token = JsonConvert.DeserializeObject<Connect>(content);
-               // MessageBox.Show(content);  //controle du json
-                newCon.defToken(Globales.token.tokenRequete());
-               // MessageBox.Show(newCon.tokenRequete());
+                    var data = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/login/login.php", data);
+                    var content = await response.Content.ReadAsStringAsync();
+                    Globales.token = JsonConvert.DeserializeObject<Connect>(content);
+                    //MessageBox.Show(content);  //controle du json  
+                    newCon.defToken(Globales.token.tokenRequete());
+                    // MessageBox.Show(newCon.tokenRequete());
 
-                    Dashboard Dashboard = new Dashboard();
-                    Dashboard.ShowDialog();
-                
-                Btn_Connexion.Enabled = true;
-                this.Close();
-            }
-            catch
-            {
-                MessageBox.Show("Connexion refusée");
-                Btn_Connexion.Enabled = true;
-            }
+                        Dashboard Dashboard = new Dashboard();
+                        Dashboard.ShowDialog();
+
+                    Btn_Connexion.Enabled = true;
+                    this.Close();
+                }
+                catch
+                {
+                    MessageBox.Show("Connexion refusée");
+                    Btn_Connexion.Enabled = true;
+                }  
         }
         
     }
