@@ -2153,7 +2153,8 @@ namespace DashBoard_Stive
             //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
             if (response.IsSuccessStatusCode)
             {
-                MessageBox.Show("Produit mis à jour");
+                string title = "Info Stive";
+                MessageBox.Show("Produit mis à jour",title);
                 //recharge la liste en simulant le click sur le bouton produit
                 Btn_Accueil.PerformClick();
                 Btn_Produit.PerformClick();
