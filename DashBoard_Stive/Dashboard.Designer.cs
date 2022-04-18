@@ -3524,6 +3524,7 @@ namespace DashBoard_Stive
             this.Txb_Pays.Name = "Txb_Pays";
             this.Txb_Pays.Size = new System.Drawing.Size(100, 20);
             this.Txb_Pays.TabIndex = 18;
+            this.Txb_Pays.Text = "France";
             // 
             // label28
             // 
@@ -4082,12 +4083,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;

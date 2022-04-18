@@ -129,7 +129,7 @@ namespace DashBoard_Stive
                         string CompAdresse = "",
                         string CodePostal = "",
                         string Ville = "",
-                        string Pays = ""
+                        string Pays = "France"
                         )
         {
 
@@ -177,7 +177,7 @@ namespace DashBoard_Stive
                  string CompAdresse2 = "",
                  string CP = "",
                  string City = "",
-                 string Country = "",
+                 string Country = "France",
                  string TelContact = "",
                  string MailContact = "",
                  string Mdp2 = ""
@@ -1345,65 +1345,89 @@ namespace DashBoard_Stive
                     }";
 
             Fournisseur newFour = new Fournisseur();
-            newFour.Fou_NomDomaine = Txb_NomDomaine.Text;
-            newFour.Fou_NomResp = Txb_NomResp.Text;
-            newFour.Fou_TelResp = Txb_TelResp.Text;
-            newFour.Fou_MailResp = Txb_MailResp.Text;
-            newFour.Fou_Fonction = Txb_Fonction.Text;
-            newFour.Fou_Role = "3";
-            newFour.Uti_Adresse = Txb_Adresse.Text;
-            newFour.Uti_CompAdresse = Txb_CompAdresse.Text;
-            newFour.Uti_Cp = Txb_CodePostal.Text;
-            newFour.Uti_Ville = Txb_Ville.Text;
-            newFour.Uti_Pays = Txb_Pays.Text;
-            newFour.Uti_TelContact = Txb_TelContact.Text;
-            newFour.Uti_Mdp = Txb_Mdp.Text;
-            newFour.Uti_MailContact = Txb_MailContact.Text;
 
- 
-            int exist = 0;
-            foreach (var four in fourListe)  //on empeche la creation si le mail du fournisseur existe deja
+            try
             {
-                if (four.Uti_MailContact.ToUpper() == Txb_MailContact.Text.ToUpper())
+                newFour.Fou_NomDomaine = Txb_NomDomaine.Text;
+                newFour.Fou_NomResp = Txb_NomResp.Text;
+                newFour.Fou_TelResp = Txb_TelResp.Text;
+                newFour.Fou_MailResp = Txb_MailResp.Text;
+                newFour.Fou_Fonction = Txb_Fonction.Text;
+                newFour.Fou_Role = "3";
+                newFour.Uti_Adresse = Txb_Adresse.Text;
+                newFour.Uti_CompAdresse = Txb_CompAdresse.Text;
+                newFour.Uti_Cp = Txb_CodePostal.Text;
+                newFour.Uti_Ville = Txb_Ville.Text;
+                newFour.Uti_Pays = Txb_Pays.Text;
+                newFour.Uti_TelContact = Txb_TelContact.Text;
+                newFour.Uti_Mdp = Txb_Mdp.Text;
+                newFour.Uti_MailContact = Txb_MailContact.Text;
+
+                if (
+                    Txb_NomDomaine.Text == "" || Txb_NomResp.Text =="" || Txb_TelResp.Text == "" || Txb_MailResp.Text == "" ||
+                    Txb_Adresse.Text == "" || Txb_CodePostal.Text == "" || Txb_Ville.Text == "" || Txb_Pays.Text == "" ||
+                    Txb_TelContact.Text == "" || Txb_Mdp.Text == "" || Txb_MailContact.Text == ""
+                    )
                 {
-                    exist += 1;
+                    throw new Exception();
+                }
+                
+
+                int exist = 0;
+                foreach (var four in fourListe)  //on empeche la creation si le mail du fournisseur existe deja
+                {
+                    if (four.Uti_MailContact.ToUpper() == Txb_MailContact.Text.ToUpper())
+                    {
+                        exist += 1;
+
+                    }
 
                 }
 
-            }
-
-            if (exist == 0)
-            {
-                string token = Class.Globales.token.tokenRequete();  //recup du token
-                var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-
-                //MessageBox.Show(token);
-                var json = JsonConvert.SerializeObject(newFour);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
-                //MessageBox.Show(json.ToString());
-               // StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-                if (response.IsSuccessStatusCode)
+                if (exist == 0)
                 {
-                    MessageBox.Show("Fournisseur créé");
+                    string token = Class.Globales.token.tokenRequete();  //recup du token
+                    var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+
+                    //MessageBox.Show(token);
+                    var json = JsonConvert.SerializeObject(newFour);
+                    var data = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/ajouter.php", data);
+                    //MessageBox.Show(json.ToString());
+                    // StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Fournisseur créé");
+                    }
+                    else
+                    {
+                        MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response);
+                    }
                 }
                 else
                 {
-                    MessageBox.Show("Erreur: fournisseur non créé" + "\r\n\n" + response);
+                    MessageBox.Show("il existe deja un fournisseur avec ce mail");
                 }
+                //recharge la liste en simulant le click sur le bouton fournisseur
+                Btn_Accueil.PerformClick();
+                Btn_Fournisseurs.PerformClick();
+                StamperFournisseur();
+                //buttonAjouterfournisseur.PerformClick();
             }
-            else
+
+            catch
             {
-                MessageBox.Show("il existe deja un fournisseur avec ce mail");
+                MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                                + "     - Le nom du fournisseur (Nom domaine)" + Environment.NewLine
+                                + "     - L'adresse, le code postal, la ville et le pays" + Environment.NewLine
+                                + "     - Le nom, le téléphone et le mail du responsable" + Environment.NewLine
+                                + "     - Le téléphone, le mail et le mot de passe du contact"
+                                );
             }
+            
             Btn_CreerFournisseur.Enabled = true; //pb clic serie, fin
-            //recharge la liste en simulant le click sur le bouton fournisseur
-            Btn_Accueil.PerformClick();
-            Btn_Fournisseurs.PerformClick();
-            StamperFournisseur();
-            //buttonAjouterfournisseur.PerformClick();
         }
 
         private async void Btn_SuppFournisseur_Click(object sender, EventArgs e)
@@ -1442,22 +1466,47 @@ namespace DashBoard_Stive
 
             if (exist == 0)
             {
-                string token = Class.Globales.token.tokenRequete();  //recup du token
-                var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-                var json = JsonConvert.SerializeObject(suppFour);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
-                //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-                if (response.IsSuccessStatusCode)
+                int count = 0;
+                foreach(var idFou in prodListe)  //on compte les produits du fournisseur
                 {
-                    //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
-                    MessageBox.Show("Fournisseur supprimé");
-
+                    if(idFou.Pro_Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))
+                    {
+                        count += 1;
+                    }
                 }
-                else
-                    MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
+                if(count > 0)  // on alerte sur le fait que les produits vont etre supprimés et on donne la possibilité d'annuler
+                {
+                    MessageBoxButtons buttons = MessageBoxButtons.YesNo;
+                    string message = "Ce fournisseur possede " + count + " produit(s)" + Environment.NewLine +
+                                    "La suppression du fournisseur entrainera la suppression du ou des produits" + Environment.NewLine +
+                                    "Voulez vous continuer ?";
+                    DialogResult result = MessageBox.Show(message,"Info Stive", buttons);
+                    if (result == DialogResult.Yes)
+                    {
+                        string token = Class.Globales.token.tokenRequete();  //recup du token
+                        var httpClient = new HttpClient();
+                        httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                        var json = JsonConvert.SerializeObject(suppFour);
+                        var data = new StringContent(json, Encoding.UTF8, "application/json");
+                        var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/supprimer.php", data);
+                        //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                        if (response.IsSuccessStatusCode)
+                        {
+                            //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
+                            MessageBox.Show("Fournisseur supprimé");
+
+                        }
+                        else
+                            MessageBox.Show("Erreur: fournisseur non supprimé" + "\r\n\n" + response);
+
+                    }
+                    else
+                    {
+                        this.Close();
+                       
+                    }
+                }
             }
             else
             {
@@ -1493,27 +1542,46 @@ namespace DashBoard_Stive
             majFour.Uti_MailContact = Txb_MailContact.Text;
             majFour.Fou_Uti_Id = Convert.ToInt32(Lbl_Uti_Id.Text);
 
-
-            string token = Class.Globales.token.tokenRequete();  //recup du token
-            var httpClient  = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-            var json = JsonConvert.SerializeObject(majFour);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-           // MessageBox.Show(json.ToString());
-            //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-           var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/modifier.php", data);
-            if (response.IsSuccessStatusCode)
+            try
             {
-                MessageBox.Show("Fournisseur mis à jour");
-            }
-            else
-                MessageBox.Show("Erreur: pas de mise à jour du fournisseur" + "\r\n\n" + response);
+                if 
+                (
+                Txb_NomDomaine.Text == "" || Txb_NomResp.Text == "" || Txb_TelResp.Text == "" || Txb_MailResp.Text == "" ||
+                Txb_Adresse.Text == "" || Txb_CodePostal.Text == "" || Txb_Ville.Text == "" || Txb_Pays.Text == "" ||
+                Txb_TelContact.Text == "" || Txb_Mdp.Text == "" || Txb_MailContact.Text == ""
+                )
+                {
+                    throw new Exception();
+                }
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+                var json = JsonConvert.SerializeObject(majFour);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                // MessageBox.Show(json.ToString());
+                //StamperFournisseur(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Fournisseur/modifier.php", data);
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Fournisseur mis à jour");
+                }
+                else
+                    MessageBox.Show("Erreur: pas de mise à jour du fournisseur" + "\r\n\n" + response);
 
+                //recharge la liste en simulant le click sur le bouton fournisseur
+                Btn_Accueil.PerformClick();
+                Btn_Fournisseurs.PerformClick();
+            }
+            catch
+            {
+                MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                + "     - Le nom du fournisseur (Nom domaine)" + Environment.NewLine
+                + "     - L'adresse, le code postal, la ville et le pays" + Environment.NewLine
+                + "     - Le nom, le téléphone et le mail du responsable" + Environment.NewLine
+                + "     - Le téléphone, le mail et le mot de passe du contact"
+                );
+            }
             Btn_MajFournisseur.Enabled = true; //pb clics serie, fin
-            //recharge la liste en simulant le click sur le bouton fournisseur
-            Btn_Accueil.PerformClick();
-            Btn_Fournisseurs.PerformClick();
-            //StamperFournisseur();
 
         }
 
@@ -1705,54 +1773,79 @@ namespace DashBoard_Stive
         {
             Btn_CreerClient.Enabled = false; //pb clic serie
             Client newCli = new Client();
-            newCli.Cli_Nom = Txb_Nom2.Text;
-            newCli.Cli_Prenom = Txb_Prenom.Text;
-            //newCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 
-            newCli.Cli_Role = "1";
-            newCli.Uti_Adresse = Txb_Adresse2.Text;
-            newCli.Uti_CompAdresse = Txb_CompAdresse2.Text;
-            newCli.Uti_Cp = Txb_CP.Text;
-            newCli.Uti_Ville = Txb_City.Text;
-            newCli.Uti_Pays = Txb_Country.Text;
-            newCli.Uti_TelContact = Txb_Tel.Text;
-            newCli.Uti_Mdp = Txb_Mdp2.Text;
-            newCli.Uti_MailContact = Txb_Mail.Text;
-            
-
-            int exist = 0;  //pas de creation si le mail est en base
-            foreach (var mail in cliListe)
+            try
             {
-                if (mail.Uti_MailContact.ToUpper() == Txb_Mail.Text.ToUpper())
-                {
-                    exist += 1;
+                newCli.Cli_Nom = Txb_Nom2.Text;
+                newCli.Cli_Prenom = Txb_Prenom.Text;
+                //newCli.Cli_DateNaissance = textBoxDateNaissance.Text;
 
+                newCli.Cli_Role = "1";
+                newCli.Uti_Adresse = Txb_Adresse2.Text;
+                newCli.Uti_CompAdresse = Txb_CompAdresse2.Text;
+                newCli.Uti_Cp = Txb_CP.Text;
+                newCli.Uti_Ville = Txb_City.Text;
+                newCli.Uti_Pays = Txb_Country.Text;
+                newCli.Uti_TelContact = Txb_Tel.Text;
+                newCli.Uti_Mdp = Txb_Mdp2.Text;
+                newCli.Uti_MailContact = Txb_Mail.Text;
+
+                if
+                (
+                    Txb_Nom2.Text == "" || Txb_Prenom.Text == "" || Txb_Adresse2.Text == "" || Txb_CP.Text == "" || Txb_City.Text == "" || 
+                    Txb_Country.Text == "" ||  Txb_Tel.Text == "" || Txb_Mdp2.Text == "" || Txb_Mail.Text == ""
+                )
+                {
+                    throw new Exception();
                 }
-            }
 
-            if (exist == 0)
-            {
-                string token = Class.Globales.token.tokenRequete();  //recup du token
-                var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-                var json = JsonConvert.SerializeObject(newCli);
-                var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
-                MessageBox.Show(json.ToString());
-                //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
-                if (response.IsSuccessStatusCode)
+                int exist = 0;  //pas de creation si le mail est en base
+                foreach (var mail in cliListe)
                 {
-                    MessageBox.Show("Client créé");
+                    if (mail.Uti_MailContact.ToUpper() == Txb_Mail.Text.ToUpper())
+                    {
+                        exist += 1;
+
+                    }
+                }
+
+                if (exist == 0)
+                {
+                    string token = Class.Globales.token.tokenRequete();  //recup du token
+                    var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                    var json = JsonConvert.SerializeObject(newCli);
+                    var data = new StringContent(json, Encoding.UTF8, "application/json");
+                    var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
+                    MessageBox.Show(json.ToString());
+                    //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
+                    if (response.IsSuccessStatusCode)
+                    {
+                        MessageBox.Show("Client créé");
+                    }
+                    else
+                        MessageBox.Show("Erreur: Client non créé" + "\r\n\n" + response);
                 }
                 else
-                    MessageBox.Show("Erreur: Client non créé" + "\r\n\n" + response);
+                {
+                    MessageBox.Show("il existe deja un client avec ce mail");
+                }
+                Btn_Accueil.PerformClick();
+                Btn_Clients.PerformClick();
+                StamperClient();
+
             }
-            //recharge la liste en simulant le click sur le bouton fournisseur
+            catch
+            {
+                MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                               + "     - Le nom et le prénom du client" + Environment.NewLine
+                               + "     - L'adresse, le code postal, la ville et le pays" + Environment.NewLine
+                               + "     - Le téléphone, le mail et le mot de passe"
+                               );
+            }
+            
             Btn_CreerClient.Enabled = true; //pb clic serie, fin
-            Btn_Accueil.PerformClick();
-            Btn_Clients.PerformClick();
-            StamperClient();
 
         }
 
@@ -1775,26 +1868,46 @@ namespace DashBoard_Stive
             majCli.Uti_MailContact = Txb_Mail.Text;
             majCli.Uti_Id = int.Parse(Lbl_Uti_Id2.Text);
 
-            string token = Class.Globales.token.tokenRequete();  //recup du token
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-            var json = JsonConvert.SerializeObject(majCli);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Client/modifier.php", data);
-            //MessageBox.Show(json.ToString());
-            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-            if (response.IsSuccessStatusCode)
+            try
             {
-                MessageBox.Show("Client mis à jour");
+                if
+                (
+                    Txb_Nom2.Text == "" || Txb_Prenom.Text == "" || Txb_Adresse2.Text == "" || Txb_CP.Text == "" || Txb_City.Text == "" ||
+                    Txb_Country.Text == "" || Txb_Tel.Text == "" || Txb_Mdp2.Text == "" || Txb_Mail.Text == ""
+                )
+                {
+                    throw new Exception();
+                }
+
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                var json = JsonConvert.SerializeObject(majCli);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Client/modifier.php", data);
+                //MessageBox.Show(json.ToString());
+                //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    MessageBox.Show("Client mis à jour");
+                }
+                else
+                    MessageBox.Show("Erreur: pas de mise à jour du Client" + "\r\n\n" + response);
+                //recharge la liste en simulant le click sur le bouton client
+                Btn_Accueil.PerformClick();
+                Btn_Clients.PerformClick();
+                StamperClient();
             }
-            else
-                MessageBox.Show("Erreur: pas de mise à jour du Client" + "\r\n\n" + response);
+            catch
+            {
+                MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                       + "     - Le nom et le prénom du client" + Environment.NewLine
+                       + "     - L'adresse, le code postal, la ville et le pays" + Environment.NewLine
+                       + "     - Le téléphone, le mail et le mot de passe"
+                       );
+            }
             Btn_MajClient.Enabled = true; //evite clic en serie, fin
-            //recharge la liste en simulant le click sur le bouton client
-            Btn_Accueil.PerformClick();
-            Btn_Clients.PerformClick();
-            StamperClient();
 
         }
 
@@ -1959,17 +2072,28 @@ namespace DashBoard_Stive
 
             try
             {
+                if (Txb_NomProduit.Text == "")
+                {
+                    throw new Exception();
+                }
+                else
+                {
                 newPro.Pro_Nom = Txb_NomProduit.Text;
-                //cbo.SelectedItem.Value;
+                }
+
                 if (Txb_Ref.Text == "")
                 {
                     throw new Exception();
                 }
-                newPro.Pro_Ref = Txb_Ref.Text;
+                else
+                {
+                    newPro.Pro_Ref = Txb_Ref.Text;
+                }
                 newPro.Pro_Fou_Id = Convert.ToInt32(Cbx_ProposePar.SelectedValue);
                 //newPro.Pro_Fou_Id = Convert.ToInt32((Dv_TypeProduit.SelectedRow.Select.Typ_Id));
                 // MessageBox.Show(comboBoxProposePar.SelectedValue.ToString());
                 newPro.Pro_Cepage = Txb_Cepage.Text;
+
                 if (Txb_Millesime.Text == "")
                 {
                     newPro.Pro_Annee = null;
@@ -1979,11 +2103,16 @@ namespace DashBoard_Stive
                     newPro.Pro_Annee = Convert.ToInt32(Txb_Millesime.Text);
                 }
                 newPro.Pro_Prix = (float)Convert.ToDouble(Txb_Prix.Text.Replace(".", ","));
+
                 if (Txb_PrixLitre.Text == "")
                 {
                     newPro.Pro_PrixLitre = 0;
                 }
-                else { newPro.Pro_PrixLitre = (float)Convert.ToDouble(Txb_PrixLitre.Text.Replace(".", ",")); }
+                else 
+                { 
+                    newPro.Pro_PrixLitre = (float)Convert.ToDouble(Txb_PrixLitre.Text.Replace(".", ",")); 
+                }
+
                 newPro.Pro_Quantite = (float)Convert.ToDouble(Txb_EnStock.Text.Replace(".", ","));
                 newPro.Pro_SeuilAlerte = (float)Convert.ToDouble(Txb_SeuilAlerte.Text.Replace(".", ","));
 
@@ -2080,96 +2209,128 @@ namespace DashBoard_Stive
             }
             Btn_CreerProduit.Enabled = true;  //on empeche les clics en serie  --fin
         }
+       
         public async void Btn_MajProduit_Click(object sender, EventArgs e2)
         {
             Btn_MajProduit.Enabled = false;  // pb clics en serie
             Produit majPro = new Produit();
 
-            majPro.Pro_Id = Convert.ToInt32(Lbl_Pro_Id.Text);
+            try
+            {
+                majPro.Pro_Id = Convert.ToInt32(Lbl_Pro_Id.Text);
 
-            majPro.Pro_Typ_Id = Convert.ToInt32(Cbx_TypeProduit.SelectedValue);
-            majPro.Uti_Id = int.Parse(Lbl_Pro_Uti_Id.Text);
-            majPro.Pro_Nom = Txb_NomProduit.Text;
-            majPro.Pro_Ref = Txb_Ref.Text; ;
-            majPro.Pro_Fou_Id = Convert.ToInt32(Cbx_ProposePar.SelectedValue);
-            majPro.Pro_Cepage = Txb_Cepage.Text;
-            if (Txb_Millesime.Text == "")
-            {
-                majPro.Pro_Annee = 0;
-            }
-            else
-            {
-                majPro.Pro_Annee = Convert.ToInt32(Txb_Millesime.Text);
-            }
+                majPro.Pro_Typ_Id = Convert.ToInt32(Cbx_TypeProduit.SelectedValue);
+                majPro.Uti_Id = int.Parse(Lbl_Pro_Uti_Id.Text);
+                if(Txb_NomProduit.Text == "")
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                majPro.Pro_Nom = Txb_NomProduit.Text;
+                }
 
-            majPro.Pro_Prix = (float)Convert.ToDouble(Txb_Prix.Text.Replace(".", ","));
-            if (Txb_PrixLitre.Text == "")
-            {
-                majPro.Pro_PrixLitre = 0;
-            }
-            else
-            {
-                majPro.Pro_PrixLitre = (float)Convert.ToDouble(Txb_PrixLitre.Text.Replace(".", ","));
-            }
+                if(Txb_Ref.Text == "")
+                {
+                    throw new Exception();
+                }
+                else
+                {
+                majPro.Pro_Ref = Txb_Ref.Text; 
+                }
+                majPro.Pro_Fou_Id = Convert.ToInt32(Cbx_ProposePar.SelectedValue);
+                majPro.Pro_Cepage = Txb_Cepage.Text;
+                if (Txb_Millesime.Text == "")
+                {
+                    majPro.Pro_Annee = 0;
+                }
+                else
+                {
+                    majPro.Pro_Annee = Convert.ToInt32(Txb_Millesime.Text);
+                }
 
-            majPro.Pro_Quantite = (float)Convert.ToDouble(Txb_EnStock.Text.Replace(".", ","));
-            majPro.Pro_SeuilAlerte = (float)Convert.ToDouble(Txb_SeuilAlerte.Text.Replace(".", ","));
-            if (Cbx_CommandeAuto.Checked)
-            {
-                majPro.Pro_CommandeAuto = 1;
-            }
-            else
-            {
-                majPro.Pro_CommandeAuto = 0;
-            }
-            if (checkBox_IsWeb.Checked)
-            {
-                majPro.Pro_IsWeb = 1;
-            }
-            else
-            {
-                majPro.Pro_IsWeb = 0;
-            }
-            if (Txb_Volume.Text == "")
-            {
-                majPro.Pro_Volume = 0;
-            }
-            else { majPro.Pro_Volume = (float)Convert.ToDouble(Txb_Volume.Text.Replace(".", ",")); }
-            majPro.Pro_Description = Txb_Description.Text;
-            majPro.Fou_NomDomaine = Cbx_ProposePar.Text;
-            majPro.Typ_Libelle = Cbx_TypeProduit.Text;
-            //majPro.Img_Adresse = textBoxProposePar.Text;
-            //majPro.Img_Nom = textBoxProposePar.Text;
+                majPro.Pro_Prix = (float)Convert.ToDouble(Txb_Prix.Text.Replace(".", ","));
+                if (Txb_PrixLitre.Text == "")
+                {
+                    majPro.Pro_PrixLitre = 0;
+                }
+                else
+                {
+                    majPro.Pro_PrixLitre = (float)Convert.ToDouble(Txb_PrixLitre.Text.Replace(".", ","));
+                }
+
+                majPro.Pro_Quantite = (float)Convert.ToDouble(Txb_EnStock.Text.Replace(".", ","));
+                majPro.Pro_SeuilAlerte = (float)Convert.ToDouble(Txb_SeuilAlerte.Text.Replace(".", ","));
+                if (Cbx_CommandeAuto.Checked)
+                {
+                    majPro.Pro_CommandeAuto = 1;
+                }
+                else
+                {
+                    majPro.Pro_CommandeAuto = 0;
+                }
+                if (checkBox_IsWeb.Checked)
+                {
+                    majPro.Pro_IsWeb = 1;
+                }
+                else
+                {
+                    majPro.Pro_IsWeb = 0;
+                }
+                if (Txb_Volume.Text == "")
+                {
+                    majPro.Pro_Volume = 0;
+                }
+                else { majPro.Pro_Volume = (float)Convert.ToDouble(Txb_Volume.Text.Replace(".", ",")); }
+                majPro.Pro_Description = Txb_Description.Text;
+                majPro.Fou_NomDomaine = Cbx_ProposePar.Text;
+                majPro.Typ_Libelle = Cbx_TypeProduit.Text;
+                //majPro.Img_Adresse = textBoxProposePar.Text;
+                //majPro.Img_Nom = textBoxProposePar.Text;
 
 
-            string token = Class.Globales.token.tokenRequete();  //recup du token
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-            var json = JsonConvert.SerializeObject(majPro);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
-            //MessageBox.Show(json.ToString());
-            //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
-            if (response.IsSuccessStatusCode)
-            {
-                string title = "Info Stive";
-                MessageBox.Show("Produit mis à jour",title);
-                //recharge la liste en simulant le click sur le bouton produit
-                Btn_Accueil.PerformClick();
-                Btn_Produit.PerformClick();
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                StamperProduit();
+                var json = JsonConvert.SerializeObject(majPro);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Produit/modifier.php", data);
+                //MessageBox.Show(json.ToString());
+                //StamperProduit(Pro_Ref: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    string title = "Info Stive";
+                    MessageBox.Show("Produit mis à jour", title);
+                    //recharge la liste en simulant le click sur le bouton produit
+                    Btn_Accueil.PerformClick();
+                    Btn_Produit.PerformClick();
+
+                    StamperProduit();
+                }
+                else
+                {
+                    MessageBox.Show("Erreur: pas de mise à jour du produit");
+                    //recharge la liste en simulant le click sur le bouton produit
+                    Btn_Accueil.PerformClick();
+                    Btn_Produit.PerformClick();
+
+                    StamperProduit();
+
+                }
             }
-            else
+            catch
             {
-                MessageBox.Show("Erreur: pas de mise à jour du produit");
-                //recharge la liste en simulant le click sur le bouton produit
-                Btn_Accueil.PerformClick();
-                Btn_Produit.PerformClick();
-
-                StamperProduit();
-
+                MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                + "     - Le nom du produit" + Environment.NewLine
+                + "     - Le nom du fournisseur" + Environment.NewLine
+                + "     - Le prix" + Environment.NewLine
+                + "     - La quantite" + Environment.NewLine
+                + "     - Le seuil d'alerte" + Environment.NewLine
+                + "     - Le type produit" + Environment.NewLine
+                + "     - La référence du produit" + Environment.NewLine
+                );
             }
             Btn_MajProduit.Enabled = true;  // pb clics en serie, fin
 
@@ -2290,8 +2451,8 @@ namespace DashBoard_Stive
                 var json = JsonConvert.SerializeObject(newCcf);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
                 var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
-                MessageBox.Show(json.ToString());
-                MessageBox.Show("Commande Créé");
+                //MessageBox.Show(json.ToString());
+                MessageBox.Show("Commande Créée");
                 Btn_Accueil.PerformClick();
                 Btn_Produit.PerformClick();
             }
