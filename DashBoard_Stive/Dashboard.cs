@@ -583,7 +583,7 @@ namespace DashBoard_Stive
             filtre_comWebListe = comWebListe;
             Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count2.ToString();
     */
-            //affichage des prduits proches du seulAlerte
+            //affichage des prduits proches du seuilAlerte
             List<Produit> prodSeuilListe = new List<Produit>();
             int count3 = 0;
             foreach (Produit prod in prodListe)
@@ -602,6 +602,9 @@ namespace DashBoard_Stive
                          select alert.Pro_Id;*/
             Dv_procheSeuil.DataSource = prodSeuilListe;
             Lbl_valSeuil.Text = count3.ToString();
+
+            //affichage date du dernier inventaire
+            Lbl_LastInventaire.Text = "Aucun inventaire n'a encore été réalisé";
         }
 
         private void Btn_Inventaire_Click(object sender, EventArgs e)
@@ -640,7 +643,10 @@ namespace DashBoard_Stive
             //Cbx_Produit.DataSource = prodListe;
             Cbx_Four.DataSource = filtre_fourListe;
             Cbx_Four.SelectedItem = null;
+            Cbx_Produit.SelectedItem = null;
+            Tbx_qte.Text = "";
             contenuBdcListe = null;
+            List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
 
         }
         
@@ -654,10 +660,13 @@ namespace DashBoard_Stive
             Panel_InfoBdc.Visible = false;
             List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
             Dv_DetailCommandeFournisseur.DataSource = newContenuBdcListe;
+
             //newContenuBdcListe = null;
             //Rbt_Tous.Checked = true;
-            
 
+            Cbx_Four.SelectedItem = null;
+            Cbx_Produit.SelectedItem = null;
+            Tbx_qte.Text = "";
 
             Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
@@ -824,8 +833,8 @@ namespace DashBoard_Stive
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
             
-            StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
-            var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/modifier.php", data);
+            //StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Commande mise à jour");
@@ -849,52 +858,50 @@ namespace DashBoard_Stive
             Cbx_Four.Enabled = false;
             try
             {
-                //MessageBox.Show(Convert.ToInt32(Cbx_Four.SelectedValue).ToString());
-               
-                ContenuCommandeFournisseur newCont = new ContenuCommandeFournisseur();
+                int val = Convert.ToInt32(Cbx_Produit.SelectedValue);
+                if (val == 0) { throw new Exception(); }
+                try
+                {
+                    ContenuCommandeFournisseur newCont = new ContenuCommandeFournisseur();
 
-                newCont.Ccf_Pro_Id = Convert.ToInt32(Cbx_Produit.SelectedValue);
-                newCont.Ccf_Quantite = Convert.ToInt32(Tbx_qte.Text);
-                newCont.Pro_Nom = Cbx_Produit.Text;
 
-                var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
-                var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Uti_Id.ToString());
-                newCont.Pro_Ref = refe.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
-                //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
-                newCont.Fou_NomDomaine = (string)Cbx_Four.Text.ToString();
-                newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
-                newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
-                newContenuBdcListe.Add(newCont);
-                MessageBox.Show("produit ajouté");
+                    newCont.Ccf_Pro_Id = Convert.ToInt32(Cbx_Produit.SelectedValue);
+                    newCont.Ccf_Quantite = Convert.ToInt32(Tbx_qte.Text);
+                    newCont.Pro_Nom = Cbx_Produit.Text;
 
-                /*var index = Dv_DetailCommandeFournisseur.Rows.Add();
-                Dv_DetailCommandeFournisseur.Rows[index].Cells["Produit"].Value = newCont.Pro_Nom;
-                Dv_DetailCommandeFournisseur.Rows[index].Cells[2].Value = newCont.Pro_Ref;
-                Dv_DetailCommandeFournisseur.Rows[index].Cells[3].Value = newCont.Ccf_Quantite;
-                Dv_DetailCommandeFournisseur.Rows[index].Cells[4].Value = newCont.Fou_NomDomaine;*/
- 
+                    var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Pro_Ref.ToString());
+                    var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit.SelectedValue) select p.Uti_Id.ToString());
+                    newCont.Pro_Ref = refe.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
+                    //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
+                    newCont.Fou_NomDomaine = (string)Cbx_Four.Text.ToString();
+                    newCont.Cof_Fou_Id = Convert.ToInt32(Cbx_Four.SelectedValue);
+                    newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
 
-               /* List<ContenuCommandeFournisseur> majNewContenuBdcListe = new List<ContenuCommandeFournisseur>();
-                majNewContenuBdcListe = newContenuBdcListe;
-                Dv_DetailCommandeFournisseur.DataSource = majNewContenuBdcListe;*/
+                    newContenuBdcListe.Add(newCont);
+                    MessageBox.Show("produit ajouté");
+
+                    Dv_DetailCommandeFournisseur.DataSource = null;
+                   // Dv_DetailCommandeFournisseur.Update();
+                    Dv_DetailCommandeFournisseur.Refresh();
+                    Dv_DetailCommandeFournisseur.DataSource = newContenuBdcListe;
+
+                }
+                catch
+                {
+                    MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                   + "     - Le  produit" + Environment.NewLine
+                   + "     - La quantité"
+                   );
+                }
             }
             catch
             {
-                MessageBox.Show("pbbbbb");
+                MessageBox.Show("Le fournisseur n'est pas selectionné");
+                Cbx_Four.Enabled = true;
             }
             Btn_ValiderProduit.Enabled = true;  //pb clic fin
-            //Cbx_Produit.DataSource = prodListe3;
-            //Cbx_Four.Enabled = false;
-            //List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
-            // int ref = Convert.ToInt32(Cbx_Produit.SelectedItem);
-            //newCont.Ccf_Cof_Id= Cbx
-            /*
-            newCont.Ccf_Pro_Id = Convert.ToInt32(Cbx_Produit.SelectedItem);
-            newCont.Ccf_Quantite = Convert.ToInt32(Tbx_qte);
-            newCont.Pro_Nom = Cbx_Produit.Text;
-           // newCont.Fou_NomDomaine = bdcListe;
-           // newCont.Uti_Id = Cof_;
-            newContenuBdcListe.Add(newCont);*/
+            Cbx_Produit.DataSource = prodListe3;
+
 
         }
          List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
