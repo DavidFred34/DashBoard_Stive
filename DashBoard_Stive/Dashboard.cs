@@ -633,21 +633,27 @@ namespace DashBoard_Stive
             Rbt_Tous.Checked = true;
             Cbx_Four.Enabled = true;
 
-            // StamperContenuBdc(); //remet les champs à vide
+
 
             Rbt_Tous.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Dv_CommandeFournisseur.DataSource = bdcListe;
-            //Cbx_Produit.DataSource = prodListe;
+
             Cbx_Four.DataSource = filtre_fourListe;
+            //Cbx_Produit.DataSource = null;
+            prodListe3.Clear();
+            Cbx_Produit.DataSource = prodListe3;
+            Cbx_Produit.Enabled = false;
             Cbx_Four.SelectedItem = null;
             Cbx_Produit.SelectedItem = null;
             Tbx_qte.Text = "";
             contenuBdcListe = null;
-            List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
-
+            
+            //List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
+            newContenuBdcListe.Clear();
+            Dv_DetailCommandeFournisseur.DataSource = null;
         }
         
         private void Btn_AjouterBdc_Click(object sender, EventArgs e)
@@ -658,12 +664,16 @@ namespace DashBoard_Stive
             Btn_AjouterBdc.Visible = false;
             Panel_CreerBdc.Visible = true;
             Panel_InfoBdc.Visible = false;
-            List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
+            //List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
+            newContenuBdcListe.Clear();
+            prodListe3.Clear();
             Dv_DetailCommandeFournisseur.DataSource = newContenuBdcListe;
 
             //newContenuBdcListe = null;
             //Rbt_Tous.Checked = true;
-
+            Cbx_Four.DataSource = filtre_fourListe;
+            Cbx_Produit.DataSource = prodListe3;
+            Cbx_Produit.Enabled = false;
             Cbx_Four.SelectedItem = null;
             Cbx_Produit.SelectedItem = null;
             Tbx_qte.Text = "";
@@ -856,6 +866,7 @@ namespace DashBoard_Stive
         private void Btn_ValiderProduit_Click(object sender, EventArgs e)
         {
             Cbx_Four.Enabled = false;
+            
             try
             {
                 int val = Convert.ToInt32(Cbx_Produit.SelectedValue);
@@ -904,11 +915,12 @@ namespace DashBoard_Stive
 
 
         }
-         List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>();
-         List<Produit> prodListe3 = new List<Produit>();
+         List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>(); 
+          List<Produit> prodListe3 = new List<Produit>();
        
         private void Cbx_Four_SelectionChangeCommitted(object sender, EventArgs e)
         {
+            Cbx_Produit.Enabled = true;
 
             try
             {
@@ -974,6 +986,7 @@ namespace DashBoard_Stive
             Btn_Accueil.PerformClick();
             Btn_Bdc.PerformClick();
             newContListe = null;
+            newContenuBdcListe.Clear();
             Cbx_Four.Enabled = true;
         }
         List<ContenuCommandeFournisseur> contenuBdcListe;
