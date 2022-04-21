@@ -81,6 +81,7 @@ namespace DashBoard_Stive
         List<CommandeClient> filtre_comWebListe;
         List<CommandeClient> comWebEnCoursListe;
         List<ContenuCommandeClient> contComWebListe;
+        List<Inventaire> invListe;
 
         #region //Gestion affichage btn menu, stamper et methode affichage
         //gestion du survol de la souris des btn du menu
@@ -473,53 +474,75 @@ namespace DashBoard_Stive
             }
 
             //chargement liste comWeb
-        /*    try
-            {
-                string token = Class.Globales.token.tokenRequete();  //recup du token
-                var httpClient = new HttpClient();
-                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            /*    try
+                {
+                    string token = Class.Globales.token.tokenRequete();  //recup du token
+                    var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                var response = await
-                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ObtenirTous.php");
-                response.EnsureSuccessStatusCode();
+                    var response = await
+                        httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ObtenirTous.php");
+                    response.EnsureSuccessStatusCode();
 
-                var contentCommande = await response.Content.ReadAsStringAsync();
+                    var contentCommande = await response.Content.ReadAsStringAsync();
 
-                comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
+                    comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
 
-                //MessageBox.Show(contentCommande.ToString());  //controle du json
-                //MessageBox.Show(contentCommande);
-            }
-            catch (Exception ex)
-            {
-                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                comWebListe = null;
-            }
+                    //MessageBox.Show(contentCommande.ToString());  //controle du json
+                    //MessageBox.Show(contentCommande);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                    comWebListe = null;
+                }
 
-            //chargement liste contenusComWeb
+                //chargement liste contenusComWeb
+                try
+                {
+                    string token = Class.Globales.token.tokenRequete();  //recup du token
+                    var httpClient = new HttpClient();
+                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
+                    var response = await
+                        httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ObtenirTous.php");
+                    response.EnsureSuccessStatusCode();
+
+                    var contentCommande = await response.Content.ReadAsStringAsync();
+
+                    contComWebListe = JsonConvert.DeserializeObject<List<ContenuCommandeClient>>(contentCommande);
+
+                    //MessageBox.Show(contentCommande.ToString());  //controle du json
+                    //MessageBox.Show(contentCommande);
+                }
+                catch (Exception ex)
+                {
+                    //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                    comWebListe = null;
+                }
+            */
+
+            //Chargement liste inventaire
             try
             {
                 string token = Class.Globales.token.tokenRequete();  //recup du token
                 var httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
                 var response = await
-                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ObtenirTous.php");
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/Inventaire/obtenirTous.php");
                 response.EnsureSuccessStatusCode();
 
-                var contentCommande = await response.Content.ReadAsStringAsync();
+                var content = await response.Content.ReadAsStringAsync();
 
-                contComWebListe = JsonConvert.DeserializeObject<List<ContenuCommandeClient>>(contentCommande);
+                invListe = JsonConvert.DeserializeObject<List<Inventaire>>(content);
 
-                //MessageBox.Show(contentCommande.ToString());  //controle du json
-                //MessageBox.Show(contentCommande);
+                //MessageBox.Show(content);  //controle du json
             }
             catch (Exception ex)
             {
-                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                comWebListe = null;
+                MessageBox.Show("Liste inventaire non chargée");
+                invListe = null;
             }
-        */
             //////////////////////////Affectation des listes
             Dv_TypeProduit.DataSource = typListe;
             Dv_fournisseur.DataSource = fourListe;
@@ -602,9 +625,26 @@ namespace DashBoard_Stive
                          select alert.Pro_Id;*/
             Dv_procheSeuil.DataSource = prodSeuilListe;
             Lbl_valSeuil.Text = count3.ToString();
-
+            
+            
             //affichage date du dernier inventaire
+            if(invListe == null)
+            {
             Lbl_LastInventaire.Text = "Aucun inventaire n'a encore été réalisé";
+            }
+            else
+            {
+                /*var id = fourListe.OrderByDescending(x =>x.Fou_DateCreation).Select(s =>s.Fou_DateCreation).FirstOrDefault();
+                MessageBox.Show(id.ToString());
+                MessageBox.Show(AfficheDate(DateTime.Parse(id)));
+                Lbl_LastInventaire.Text = " Date du dernier inventaire : " + AfficheDate(DateTime.Parse(id));*/
+               
+                var lastDateInv = invListe.OrderByDescending(x => x.Inv_DateCreation).Select(s => s.Inv_DateCreation).FirstOrDefault();
+                //MessageBox.Show(lastDateInv.ToString());
+                //MessageBox.Show(AfficheDate((lastDateInv)));
+                Lbl_LastInventaire.Text = " Date du dernier inventaire : " + AfficheDate((lastDateInv));
+
+            }
         }
 
         private void Btn_Inventaire_Click(object sender, EventArgs e)
@@ -1933,7 +1973,7 @@ namespace DashBoard_Stive
 
         private async void Btn_SuppClient_Click(object sender, EventArgs e)
         {
-            Btn_SuppClient.Enabled = false; // pb clis serie
+            Btn_SuppClient.Enabled = false; // pb clic serie
             Client suppCli = new Client();
             suppCli.Uti_Id = Convert.ToInt32(Lbl_Uti_Id2.Text);
 

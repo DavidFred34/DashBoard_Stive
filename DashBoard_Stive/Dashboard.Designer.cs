@@ -645,9 +645,8 @@ namespace DashBoard_Stive
             this.Lbl_LastInventaire.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_LastInventaire.Location = new System.Drawing.Point(626, 492);
             this.Lbl_LastInventaire.Name = "Lbl_LastInventaire";
-            this.Lbl_LastInventaire.Size = new System.Drawing.Size(264, 24);
+            this.Lbl_LastInventaire.Size = new System.Drawing.Size(0, 24);
             this.Lbl_LastInventaire.TabIndex = 41;
-            this.Lbl_LastInventaire.Text = "Date du dernier inventaire :";
             // 
             // buttonInventaire
             // 
@@ -4093,12 +4092,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelAccueil);
+            this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
-            this.Controls.Add(this.panelAccueil);
-            this.Controls.Add(this.panelCommandesWeb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
