@@ -55,6 +55,7 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.coiProIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenuInventaireBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.Btn_Quitter = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Inventaire)).BeginInit();
             this.panel_Inventaire.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_Historique)).BeginInit();
@@ -101,6 +102,7 @@ namespace DashBoard_Stive
             // 
             // panel_Inventaire
             // 
+            this.panel_Inventaire.Controls.Add(this.Btn_Quitter);
             this.panel_Inventaire.Controls.Add(this.Dv_Historique);
             this.panel_Inventaire.Controls.Add(this.Btn_MajStock);
             this.panel_Inventaire.Controls.Add(this.Btn_SaveInventaire);
@@ -148,6 +150,7 @@ namespace DashBoard_Stive
             this.Btn_MajStock.Text = "Mettre  à jour le stock";
             this.Btn_MajStock.UseVisualStyleBackColor = false;
             this.Btn_MajStock.Visible = false;
+            this.Btn_MajStock.Click += new System.EventHandler(this.Btn_MajStock_Click);
             // 
             // Btn_SaveInventaire
             // 
@@ -307,6 +310,20 @@ namespace DashBoard_Stive
             // 
             this.contenuInventaireBindingSource.DataSource = typeof(DashBoard_Stive.ContenuInventaire);
             // 
+            // Btn_Quitter
+            // 
+            this.Btn_Quitter.FlatAppearance.BorderSize = 0;
+            this.Btn_Quitter.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_Quitter.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_Quitter.ForeColor = System.Drawing.Color.Green;
+            this.Btn_Quitter.Location = new System.Drawing.Point(984, 526);
+            this.Btn_Quitter.Name = "Btn_Quitter";
+            this.Btn_Quitter.Size = new System.Drawing.Size(115, 34);
+            this.Btn_Quitter.TabIndex = 38;
+            this.Btn_Quitter.Text = "Fermer";
+            this.Btn_Quitter.UseVisualStyleBackColor = true;
+            this.Btn_Quitter.Click += new System.EventHandler(this.Btn_Quitter_Click);
+            // 
             // Form_inventaire
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -361,5 +378,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn invStockRegulDataGridViewTextBoxColumn1;
         private System.Windows.Forms.BindingSource inventaireBindingSource;
         private System.Windows.Forms.Button Btn_AjouterInventaire;
+        private System.Windows.Forms.Button Btn_Quitter;
     }
 }

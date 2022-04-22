@@ -31,7 +31,7 @@ namespace DashBoard_Stive
         public async void Inventaire_Load(object sender, EventArgs e)
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
-            
+            Btn_AjouterInventaire.Visible = false;
 
 
             //Chargement liste produit
@@ -114,6 +114,7 @@ namespace DashBoard_Stive
         }
         private async void Dv_Historique_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
+            Btn_AjouterInventaire.Visible = true;
             try
             {
                 string token = Class.Globales.token.tokenRequete();  //recup du token
@@ -258,8 +259,8 @@ namespace DashBoard_Stive
                 var httpClient = new HttpClient();
                 var json = JsonConvert.SerializeObject(majContInv_List);
                 var data = new StringContent(json, Encoding.UTF8, "application/json");
-                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuInventaire/ajouter.php", data);
-                MessageBox.Show(json.ToString());
+                var response = await httpClient.PutAsync("https://apistive.azurewebsites.net/API/controlers/Inventaire/update.php", data);
+               // MessageBox.Show(json.ToString());
 
                 if (response.IsSuccessStatusCode)
                 {
@@ -280,13 +281,21 @@ namespace DashBoard_Stive
                 this.Close();
 
             }
-            reloadform();
-            this.Close();
+            else
+            {
+                MessageBox.Show("La mise à jour du stock a déja été faite");
+            }
+
         }
 
         private void Btn_AjouterInventaire_Click(object sender, EventArgs e)
         {
             reloadform();
+            this.Close();
+        }
+
+        private void Btn_Quitter_Click(object sender, EventArgs e)
+        {
             this.Close();
         }
     }
