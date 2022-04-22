@@ -1046,7 +1046,7 @@ namespace DashBoard_Stive
             // Txb_Cepage
             // 
             this.Txb_Cepage.Location = new System.Drawing.Point(382, 255);
-            this.Txb_Cepage.MaxLength = 100;
+            this.Txb_Cepage.MaxLength = 500;
             this.Txb_Cepage.Multiline = true;
             this.Txb_Cepage.Name = "Txb_Cepage";
             this.Txb_Cepage.Size = new System.Drawing.Size(206, 76);

@@ -2204,7 +2204,15 @@ namespace DashBoard_Stive
                 {
                     newPro.Pro_Volume = (float)Convert.ToDouble(Txb_Volume.Text.Replace(".", ","));
                 }
+                if (Txb_Description.Text.Length > 32700)
+                {
+                    MessageBox.Show("le texte ne doit pas dépasser 32700 caracteres");
+                }
+                else
+                {
+
                 newPro.Pro_Description = Txb_Description.Text;
+                }
                 newPro.Pro_Typ_Id = Convert.ToInt32(Cbx_TypeProduit.SelectedValue);
                 newPro.Typ_Libelle = Cbx_TypeProduit.Text;
                 newPro.Fou_NomDomaine = Cbx_ProposePar.Text;
