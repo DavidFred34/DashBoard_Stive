@@ -304,6 +304,7 @@ namespace DashBoard_Stive
             var annee = dateAConvertir.Year;
             var jour = dateAConvertir.Day;
             var mois = dateAConvertir.Month;
+            var heure = dateAConvertir.Hour;
 
 
             string result = dateAConvertir.ToString("dd/MM/yyyy") + " à " + dateAConvertir.ToString("HH:mm");
