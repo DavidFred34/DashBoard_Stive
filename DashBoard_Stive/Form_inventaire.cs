@@ -90,9 +90,11 @@ namespace DashBoard_Stive
                 response.EnsureSuccessStatusCode();
 
                 var content = await response.Content.ReadAsStringAsync();
-                inv_List = JsonConvert.DeserializeObject<List<Inventaire>>(content);
-
                 
+                inv_List = JsonConvert.DeserializeObject<List<Inventaire>>(content);
+                inv_List = inv_List.OrderByDescending(x => x.Inv_Id).ToList();
+            
+
             }
             catch (Exception ex)
             {
@@ -108,6 +110,7 @@ namespace DashBoard_Stive
             Form Form_inventaire= new Form_inventaire();
             Form_inventaire.Show();
             Form_inventaire.BringToFront();
+            Lbl_Info.Text = "";
         }
         private async void Dv_Historique_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -117,7 +120,7 @@ namespace DashBoard_Stive
                 var httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                var url = "https://apistive.azurewebsites.net/API/controlers/ContenuInventaire/ObtenirByIdInventaire.php?Coi_Inv_Id=" + inv_List[e.RowIndex].Inv_Id;
+                var url = "https://apistive.azurewebsites.net/API/controlers/Inventaire/obtenir.php?Inv_Id=" + inv_List[e.RowIndex].Inv_Id;
                 var response = await
                     httpClient.GetAsync(url);// label_Fou_Id.Text);
                 response.EnsureSuccessStatusCode();
@@ -127,8 +130,8 @@ namespace DashBoard_Stive
                 List<ContenuInventaire> contInvById = new List<ContenuInventaire>();
                 contInvById = JsonConvert.DeserializeObject<List<ContenuInventaire>>(contentCommande);
 
-                // MessageBox.Show(debug.ToString());  //controle du json
-                //MessageBox.Show(contentCommande);
+                //MessageBox.Show(debug.ToString());  //controle du json
+               // MessageBox.Show(contentCommande);
                 
                 Dv_Inventaire.DataSource = contInvById;
 
@@ -136,9 +139,19 @@ namespace DashBoard_Stive
                 if (inv_List[e.RowIndex].Inv_Id == inv_List.Select(x => x.Inv_Id).Max())
                 {
                     Btn_MajStock.Visible = true;
+                    Btn_SaveInventaire.Visible = true;
+                    Lbl_Info.Text = "";
                 }
-                else return;
-               
+                else 
+                {
+                    Btn_MajStock.Visible = false;
+                    Btn_SaveInventaire.Visible = false;
+                    Lbl_Info.Text = "La mise à jour de l'inventaire et du stock n'est possible que sur le dernier inventaire";
+                }
+                    
+
+
+                label_Inventaire.Text = "Inventaire du " + Dashboard.AfficheDate(Convert.ToDateTime(inv_List[e.RowIndex].Inv_DateCreation)).ToString();
             }
             catch (Exception ex)
             {
@@ -152,6 +165,14 @@ namespace DashBoard_Stive
             foreach (DataGridViewRow dr in Dv_Inventaire.Rows)
             {
                 ContenuInventaire newInv = new ContenuInventaire();
+                if (dr.Cells[7].Value != null)
+                {
+                    newInv.Coi_Inv_Id = Convert.ToInt32(dr.Cells[7].Value);
+                }
+                else
+                {
+                    newInv.Coi_Inv_Id = null;
+                }
                 newInv.Coi_Pro_Id = Convert.ToInt32(dr.Cells[9].Value);
                 newInv.Coi_Pro_Nom = dr.Cells[0].Value.ToString();
                 newInv.Coi_Pro_Quantite = Convert.ToInt32(dr.Cells[3].Value);
@@ -166,17 +187,22 @@ namespace DashBoard_Stive
                 {//MessageBox.Show(newInv.Coi_Inventaire.ToString() + "_catch");
                     newInv.Coi_Inventaire = null;
                 }
+                newInv.Coi_Fou_NomDomaine = dr.Cells[2].Value.ToString();
+                newInv.Coi_Typ_Libelle = dr.Cells[1].Value.ToString();
 
                 saveContInv_List.Add(newInv);
             }
 
-      
+
             //envoi pour la creation de l'inventaire
+            string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+
             var json = JsonConvert.SerializeObject(saveContInv_List);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuInventaire/ajouter.php", data);
-            MessageBox.Show(json.ToString());
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Inventaire/ajouter.php", data);
+            //MessageBox.Show(json.ToString());
 
             if (response.IsSuccessStatusCode)
             {
