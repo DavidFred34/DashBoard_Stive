@@ -31,7 +31,7 @@ namespace DashBoard_Stive
         public async void Inventaire_Load(object sender, EventArgs e)
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";
-
+            
 
 
             //Chargement liste produit
@@ -110,7 +110,7 @@ namespace DashBoard_Stive
             Form Form_inventaire= new Form_inventaire();
             Form_inventaire.Show();
             Form_inventaire.BringToFront();
-            Lbl_Info.Text = "";
+            
         }
         private async void Dv_Historique_CellMouseClick(object sender, DataGridViewCellMouseEventArgs e)
         {
@@ -140,13 +140,13 @@ namespace DashBoard_Stive
                 {
                     Btn_MajStock.Visible = true;
                     Btn_SaveInventaire.Visible = true;
-                    Lbl_Info.Text = "";
+                    
                 }
                 else 
                 {
                     Btn_MajStock.Visible = false;
                     Btn_SaveInventaire.Visible = false;
-                    Lbl_Info.Text = "La mise à jour de l'inventaire et du stock n'est possible que sur le dernier inventaire";
+                    MessageBox.Show( "La mise à jour de l'inventaire et du stock n'est possible que sur le dernier inventaire");
                 }
                     
 
