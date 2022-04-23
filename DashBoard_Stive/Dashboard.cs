@@ -301,15 +301,19 @@ namespace DashBoard_Stive
         // gestion de l'affichage de la date
         public static string AfficheDate(DateTime dateAConvertir)
         {
+            //dateAConvertir = getdate();// dateadd(HOUR, 2, ateAConvertir)
             var annee = dateAConvertir.Year;
             var jour = dateAConvertir.Day;
             var mois = dateAConvertir.Month;
-            var heure = dateAConvertir.Hour;
+            var heure = dateAConvertir.Hour + 2;
+            var minute = dateAConvertir.Minute;
+            //MessageBox.Show(heure.ToString());
 
 
             string result = dateAConvertir.ToString("dd/MM/yyyy") + " à " + dateAConvertir.ToString("HH:mm");
-            string result2 = dateAConvertir.ToString("MM/dd/yyyy HH:mm");
+            //string result2 = dateAConvertir.ToString("dd/MM/yyyy") + " à " + heure.ToString() + ":"+ minute.ToString();
             return result.Replace(':', 'h');
+            //return result2;
         }
         #endregion
 
@@ -475,7 +479,7 @@ namespace DashBoard_Stive
             }
 
             //chargement liste comWeb
-            /*    try
+               try
                 {
                     string token = Class.Globales.token.tokenRequete();  //recup du token
                     var httpClient = new HttpClient();
@@ -521,7 +525,7 @@ namespace DashBoard_Stive
                     //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
                     comWebListe = null;
                 }
-            */
+            
 
             //Chargement liste inventaire
             try
@@ -665,8 +669,10 @@ namespace DashBoard_Stive
             Btn_Bdc.ForeColor = Color.FromArgb(255, 255, 255);
             panelBdc.Visible = true;
             Panel_InfoBdc.Visible = false;
-            Panel_CreerBdc.Visible = true;
             Btn_Bdc.Tag = 1;
+
+            Panel_CreerBdc.Visible = true;
+
             Btn_CreerBdc.Visible = true;
             Btn_MajBdc.Visible = false;
             Btn_AjouterBdc.Visible = false;
@@ -683,7 +689,7 @@ namespace DashBoard_Stive
             Dv_CommandeFournisseur.DataSource = bdcListe;
 
             Cbx_Four.DataSource = filtre_fourListe;
-            //Cbx_Produit.DataSource = null;
+           
             prodListe3.Clear();
             Cbx_Produit.DataSource = prodListe3;
             Cbx_Produit.Enabled = false;
@@ -956,8 +962,8 @@ namespace DashBoard_Stive
 
 
         }
-         List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>(); 
-          List<Produit> prodListe3 = new List<Produit>();
+        List<ContenuCommandeFournisseur> newContenuBdcListe = new List<ContenuCommandeFournisseur>(); 
+        List<Produit> prodListe3 = new List<Produit>();
        
         private void Cbx_Four_SelectionChangeCommitted(object sender, EventArgs e)
         {
@@ -1030,8 +1036,8 @@ namespace DashBoard_Stive
             newContenuBdcListe.Clear();
             Cbx_Four.Enabled = true;
         }
-        List<ContenuCommandeFournisseur> contenuBdcListe;
         #endregion
+        List<ContenuCommandeFournisseur> contenuBdcListe;
 
         #region//Gestion Commande web
         private void Btn_CommandesWeb_Click(object sender, EventArgs e)
@@ -1041,8 +1047,10 @@ namespace DashBoard_Stive
             Btn_CommandesWeb.BackColor = Color.FromArgb(44, 130, 201);
             Btn_CommandesWeb.ForeColor = Color.FromArgb(255, 255, 255);
             panelCommandesWeb.Visible = true;
+            Panel_InfoComWeb.Visible = false;
             Btn_CommandesWeb.Tag = 1;
 
+            Panel_CreerComWeb.Visible = true;
 
             Btn_CreerComWeb.Visible = true;
             Btn_MajComWeb.Visible = false;
@@ -1051,19 +1059,26 @@ namespace DashBoard_Stive
             Rbt_Tous2.Checked = true;
             Cbx_Four2.Enabled = true;
 
-            // StamperContenuBdc(); //remet les champs à vide
+           
 
             Rbt_Tous2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_EnAttente2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Dv_ComWeb.DataSource = comWebListe;
-            //Cbx_Produit.DataSource = prodListe;
-            Cbx_Four2.DataSource = filtre_comWebListe;
-            Cbx_Four2.SelectedItem = null;
-            contenuComWebListe = null;
-        }
+      
+            Cbx_Four2.DataSource = filtre_fourListe;
 
+            prodListe3.Clear();
+            Cbx_Produit2.DataSource = prodListe3;
+            Cbx_Produit2.Enabled = false;
+            Cbx_Four2.SelectedItem = null;
+            Tbx_qte2.Text = "";
+            contenuComWebListe = null;
+
+            newContenuBdcListe.Clear();
+            Dv_DetailComWeb.DataSource = null;
+        }
         private void Btn_AjouterComWeb_Click(object sender, EventArgs e)
         {
             //gestion affichage
@@ -1072,11 +1087,18 @@ namespace DashBoard_Stive
             Btn_AjouterComWeb.Visible = false;
             Panel_CreerComWeb.Visible = true;
             Panel_InfoComWeb.Visible = false;
-            List<ContenuCommandeClient> newContenuComWebListe = new List<ContenuCommandeClient>();
+            //List<ContenuCommandeClient> newContenuComWebListe = new List<ContenuCommandeClient>();
+            newContenuComWebListe.Clear();
+            prodListe3.Clear();
             Dv_DetailComWeb.DataSource = newContenuComWebListe;
             //newContenuBdcListe = null;
             //Rbt_Tous.Checked = true;
-
+            Cbx_Four2.DataSource = filtre_fourListe;
+            Cbx_Produit2.DataSource = prodListe3;
+            Cbx_Produit2.Enabled = false;
+            Cbx_Four2.SelectedItem = null;
+            Cbx_Produit2.SelectedItem = null;
+            Tbx_qte2.Text = "";
 
 
             Rbt_Tous2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
@@ -1164,6 +1186,178 @@ namespace DashBoard_Stive
             Dv_DetailComWeb.DataSource = contenuComWebListe;
         }
 
+        private async void Btn_MajComWeb_Click(object sender, EventArgs e)
+        {
+            Btn_MajComWeb.Enabled = false; //pb clics serie
+            int nbLigne = Dv_DetailComWeb.RowCount;
+            List<ContenuCommandeClient> majComWebListe = new List<ContenuCommandeClient>();
+            //majBdcListe = null;
+            for (int i = 0; i < nbLigne; i++)
+            {
+                //MessageBox.Show(Cbx_EtatBdc.SelectedIndex.ToString());
+                ContenuCommandeClient majComWeb = new ContenuCommandeClient();
+                majComWeb.Coc_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[0].Value);
+                majComWeb.Coc_Fou_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[0].Value);
+                majComWeb.Ccc_Pro_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[3].Value);
+                majComWeb.Ccc_Quantite = (int)Dv_DetailComWeb.Rows[i].Cells[4].Value;
+                majComWeb.Pro_Nom = (string)Dv_DetailComWeb.Rows[i].Cells[1].Value;
+                majComWeb.Pro_Ref = (string)Dv_DetailComWeb.Rows[i].Cells[2].Value;
+                majComWeb.Fou_NomDomaine = (string)Dv_DetailComWeb.Rows[i].Cells[6].Value;
+                majComWeb.Eta_Id = Cbx_EtatComWeb.SelectedIndex + 1;  //Convert.ToInt32(Cbx_EtatBdc.SelectedValue);
+                majComWeb.Eta_Libelle = (string)Cbx_EtatComWeb.SelectedItem;//(string)Dv_DetailCommandeFournisseur.Rows[i].Cells[8].Value;
+                majComWeb.Uti_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[5].Value);
+                majComWebListe.Add(majComWeb);
+            }
+            //MessageBox.Show(majBdcListe.Count.ToString());
+            string token = Class.Globales.token.tokenRequete();  //recup du token
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            var json = JsonConvert.SerializeObject(majComWebListe);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            MessageBox.Show(json.ToString());
+
+            //StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeCkient/ajouter.php", data);
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Commande mise à jour");
+            }
+            else
+                MessageBox.Show("Erreur: pas de mise à jour de la Commande" + "\r\n\n" + response);
+
+            Btn_MajComWeb.Enabled = true; //pb clics serie, fin
+            //recharge la liste en simulant le click sur le bouton client
+            contenuComWebListe = null;
+            //Btn_Accueil.PerformClick();
+            //Btn_Bdc.PerformClick();
+            // Dv_DetailCommandeFournisseur = null;
+            Dv_DetailComWeb.DataSource = contenuComWebListe;
+            //StamperFournisseur();
+        }
+
+        private void Btn_ValiderProduit2_Click(object sender, EventArgs e)
+        {
+            Cbx_Four2.Enabled = false;
+
+            try
+            {
+                int val = Convert.ToInt32(Cbx_Produit2.SelectedValue);
+                if (val == 0) { throw new Exception(); }
+                try
+                {
+                    ContenuCommandeClient newCont = new ContenuCommandeClient();
+
+
+                    newCont.Ccc_Pro_Id = Convert.ToInt32(Cbx_Produit2.SelectedValue);
+                    newCont.Ccc_Quantite = Convert.ToInt32(Tbx_qte2.Text);
+                    newCont.Pro_Nom = Cbx_Produit2.Text;
+
+                    var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Pro_Ref.ToString());
+                    var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString());
+                    newCont.Pro_Ref = refe.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
+                    //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
+                    newCont.Fou_NomDomaine = (string)Cbx_Four2.Text.ToString();
+                    newCont.Coc_Fou_Id = Convert.ToInt32(Cbx_Four2.SelectedValue);
+                    newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
+
+                    newContenuComWebListe.Add(newCont);
+                    MessageBox.Show("produit ajouté");
+
+                    Dv_DetailComWeb.DataSource = null;
+                    // Dv_DetailCommandeFournisseur.Update();
+                    Dv_DetailComWeb.Refresh();
+                    Dv_DetailComWeb.DataSource = newContenuComWebListe;
+
+                }
+                catch
+                {
+                    MessageBox.Show("Les informations suivantes sont obligatoires: " + Environment.NewLine
+                   + "     - Le  produit" + Environment.NewLine
+                   + "     - La quantité"
+                   );
+                }
+            }
+            catch
+            {
+                MessageBox.Show("Le fournisseur n'est pas selectionné");
+                Cbx_Four2.Enabled = true;
+            }
+            Btn_ValiderProduit2.Enabled = true;  //pb clic fin
+            Cbx_Produit2.DataSource = prodListe3;
+        }
+        List<ContenuCommandeClient> newContenuComWebListe = new List<ContenuCommandeClient>();
+
+        private void Cbx_Four2_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            Cbx_Produit2.Enabled = true;
+
+            try
+            {
+                //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
+                prodListe3 = prodListe.Where(x => x.Pro_Fou_Id == Convert.ToInt32(Cbx_Four2.SelectedValue.ToString())).ToList();
+                Cbx_Produit2.DataSource = prodListe3;
+            }
+            catch
+            {
+                MessageBox.Show("Pb");
+            }
+        }
+        
+        private async void Btn_CreerComWeb_Click(object sender, EventArgs e)
+        {
+            //en fait on créé un nouveau contenu, l'api se charge de créer la commande
+
+            Btn_CreerComWeb.Enabled = false; //pb clics serie
+            int nbLigne = Dv_DetailComWeb.RowCount;
+            int nbLigne2 = newContenuComWebListe.Count;
+            //MessageBox.Show(nbLigne + "  :  " + nbLigne2);
+            List<ContenuCommandeClient> newContListe = new List<ContenuCommandeClient>();
+
+            foreach (ContenuCommandeClient newCont in newContenuComWebListe)
+            {
+                ContenuCommandeClient newContenu = new ContenuCommandeClient();
+                //MessageBox.Show((string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value);
+                //newCont.Ccf_Cof_Id = newContenuBdcListe.Where(x=>x.Ccf_Cof_Id == );
+                newContenu.Ccc_Pro_Id = newCont.Ccc_Pro_Id;
+                newContenu.Coc_Cli_Id = newCont.Coc_Cli_Id;
+                newContenu.Ccc_Quantite = newCont.Ccc_Quantite;
+                newContenu.Pro_Nom = newCont.Pro_Nom;
+                newContenu.Pro_Ref = newCont.Pro_Ref;
+                newContenu.Fou_NomDomaine = newCont.Fou_NomDomaine;
+                newContenu.Eta_Id = newCont.Eta_Id;
+                newContenu.Eta_Libelle = newCont.Eta_Libelle;
+                newContenu.Uti_Id = newCont.Uti_Id;
+
+                newContListe.Add(newContenu);
+            }
+            //MessageBox.Show(nbLigne.ToString());
+            //MessageBox.Show(newContenuBdcListe.Count.ToString());
+
+            string token = Class.Globales.token.tokenRequete();  //recup du token
+            var httpClient = new HttpClient();
+            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            var json = JsonConvert.SerializeObject(newContListe);
+            var data = new StringContent(json, Encoding.UTF8, "application/json");
+            MessageBox.Show(json.ToString());
+            //Tbx_Json.Visible = true;
+
+            StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ajouter.php", data);
+            if (response.IsSuccessStatusCode)
+            {
+                MessageBox.Show("Commande Créée");
+            }
+            else
+                MessageBox.Show("Erreur: Commande non créée" + "\r\n\n" + response);
+
+            Btn_CreerComWeb.Enabled = true; //pb clics serie, fin
+            //recharge la liste en simulant le click sur le bouton fournisseur
+            Btn_Accueil.PerformClick();
+            Btn_CommandesWeb.PerformClick();
+            newContListe = null;
+            newContenuComWebListe.Clear();
+            Cbx_Four2.Enabled = true;
+        }
         #endregion
         List<ContenuCommandeClient> contenuComWebListe;
         #region//Gestion fournisseur

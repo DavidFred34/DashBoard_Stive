@@ -2759,6 +2759,7 @@ namespace DashBoard_Stive
             this.Btn_CreerComWeb.TabIndex = 40;
             this.Btn_CreerComWeb.Text = "créer commande";
             this.Btn_CreerComWeb.UseVisualStyleBackColor = false;
+            this.Btn_CreerComWeb.Click += new System.EventHandler(this.Btn_CreerComWeb_Click);
             // 
             // Btn_MajComWeb
             // 
@@ -2772,6 +2773,7 @@ namespace DashBoard_Stive
             this.Btn_MajComWeb.TabIndex = 37;
             this.Btn_MajComWeb.Text = "Mettre à jour";
             this.Btn_MajComWeb.UseVisualStyleBackColor = true;
+            this.Btn_MajComWeb.Click += new System.EventHandler(this.Btn_MajComWeb_Click);
             // 
             // label5
             // 
@@ -2998,6 +3000,7 @@ namespace DashBoard_Stive
             this.Btn_ValiderProduit2.TabIndex = 42;
             this.Btn_ValiderProduit2.Text = "Ajouter à la commande";
             this.Btn_ValiderProduit2.UseVisualStyleBackColor = true;
+            this.Btn_ValiderProduit2.Click += new System.EventHandler(this.Btn_ValiderProduit2_Click);
             // 
             // Tbx_qte2
             // 
@@ -4092,12 +4095,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelProduit);
-            this.Controls.Add(this.panelFournisseurs);
-            this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
+            this.Controls.Add(this.panelProduit);
+            this.Controls.Add(this.panelFournisseurs);
+            this.Controls.Add(this.panelAccueil);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
