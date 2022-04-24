@@ -9,7 +9,7 @@ namespace DashBoard_Stive
     class ContenuCommandeClient
     {
         public int Coc_Id { get; set; }
-
+        public int Ccc_Coc_Id { get; set; }
         public DateTime Ccc_DateCreation { get; set; }
         public DateTime Ccc_DateMaj { get; set; }
         public int Ccc_Pro_Id { get; set; }

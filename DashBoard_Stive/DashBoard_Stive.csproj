@@ -120,7 +120,9 @@
     <None Include="ClassDiagram1.cd" />
     <None Include="packages.config" />
     <None Include="Properties\DataSources\Client.datasource" />
+    <None Include="Properties\DataSources\CommandeClient.datasource" />
     <None Include="Properties\DataSources\CommandeFournisseur.datasource" />
+    <None Include="Properties\DataSources\ContenuCommandeClient.datasource" />
     <None Include="Properties\DataSources\ContenuCommandeFournisseur.datasource" />
     <None Include="Properties\DataSources\ContenuInventaire.datasource" />
     <None Include="Properties\DataSources\Fournisseur.datasource" />

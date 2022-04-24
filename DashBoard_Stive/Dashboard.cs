@@ -469,7 +469,7 @@ namespace DashBoard_Stive
 
                 contBdcListe = JsonConvert.DeserializeObject<List<ContenuCommandeFournisseur>>(contentCommande);
 
-                //MessageBox.Show(contentCommande.ToString());  //controle du json
+                MessageBox.Show(contentCommande.ToString());  //controle du json
                 //MessageBox.Show(contentCommande);
             }
             catch (Exception ex)
@@ -479,52 +479,52 @@ namespace DashBoard_Stive
             }
 
             //chargement liste comWeb
-               try
-                {
-                    string token = Class.Globales.token.tokenRequete();  //recup du token
-                    var httpClient = new HttpClient();
-                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            try
+            {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                    var response = await
-                        httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ObtenirTous.php");
-                    response.EnsureSuccessStatusCode();
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/obtenir.php");
+                response.EnsureSuccessStatusCode();
 
-                    var contentCommande = await response.Content.ReadAsStringAsync();
+                var contentCommande = await response.Content.ReadAsStringAsync();
 
-                    comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
+                comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
 
-                    //MessageBox.Show(contentCommande.ToString());  //controle du json
-                    //MessageBox.Show(contentCommande);
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                    comWebListe = null;
-                }
+                MessageBox.Show(contentCommande.ToString());  //controle du json
+                //MessageBox.Show(contentCommande);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                comWebListe = null;
+            }
 
-                //chargement liste contenusComWeb
-                try
-                {
-                    string token = Class.Globales.token.tokenRequete();  //recup du token
-                    var httpClient = new HttpClient();
-                    httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            //chargement liste contenusComWeb
+            try
+            {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                    var response = await
-                        httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ObtenirTous.php");
-                    response.EnsureSuccessStatusCode();
+                var response = await
+                    httpClient.GetAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/obtenir.php");
+                response.EnsureSuccessStatusCode();
 
-                    var contentCommande = await response.Content.ReadAsStringAsync();
+                var contentCommande = await response.Content.ReadAsStringAsync();
 
-                    contComWebListe = JsonConvert.DeserializeObject<List<ContenuCommandeClient>>(contentCommande);
+                contComWebListe = JsonConvert.DeserializeObject<List<ContenuCommandeClient>>(contentCommande);
 
-                    //MessageBox.Show(contentCommande.ToString());  //controle du json
-                    //MessageBox.Show(contentCommande);
-                }
-                catch (Exception ex)
-                {
-                    //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
-                    comWebListe = null;
-                }
+                //MessageBox.Show(contentCommande.ToString());  //controle du json
+                //MessageBox.Show(contentCommande);
+            }
+            catch (Exception ex)
+            {
+                //MessageBox.Show("Ce fournisseur n'a pas de bon de commande");
+                comWebListe = null;
+            }
             
 
             //Chargement liste inventaire
@@ -566,12 +566,14 @@ namespace DashBoard_Stive
             //////////////////////////////Affichage stats accueil
             Lbl_nbClient.Text = "Nombre de Clients : " + cliListe.Count.ToString();
             Lbl_nbFournisseur.Text = "Nombre de Fournisseur : " + fourListe.Count.ToString();
-            Lbl_nbProduit.Text = "Nombre de produits : " + prodListe.Count.ToString();
-            
+            Lbl_nbProduit.Text = "Nombre total de produits : " + prodListe.Count.ToString();
+            var isWeb = from c in prodListe where c.Pro_IsWeb == 1 select c.Pro_Id;
+            var isWeb2 = isWeb.Count();
+            Lbl_IsWeb.Text = "Nombre de produits sur Négosud : " + isWeb2.ToString();
             //affichage des bdc en cours
             int count = 0;
             bdcEnCoursListe = null;
-            //var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
+            var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
             bdcEnCoursListe = new List<CommandeFournisseur>();
             foreach (CommandeFournisseur bdc in bdcListe)
             {
@@ -589,12 +591,12 @@ namespace DashBoard_Stive
             filtre_bdcListe = bdcListe;
             Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
 
-    /*        //affichage des commandes en cours
+           //affichage des commandes en cours
             int count2 = 0;
             comWebEnCoursListe = null;
-            //var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
+            var cc2 = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
             comWebEnCoursListe = new List<CommandeClient>();
-            foreach (CommandeClient comweb in comWebListe)
+           foreach (CommandeClient comweb in comWebListe)
             {
                 if (comweb.Coc_Eta_Id == 2 || comweb.Coc_Eta_Id == 5)
                 {
@@ -609,8 +611,8 @@ namespace DashBoard_Stive
 
             Dv_ComWebEnCours.DataSource = comWebEnCoursListe;
             filtre_comWebListe = comWebListe;
-            Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count2.ToString();
-    */
+            label_CommandeEnCours.Text = "Commandes clients en cours : " + count2.ToString();
+    
             //affichage des prduits proches du seuilAlerte
             List<Produit> prodSeuilListe = new List<Produit>();
             int count3 = 0;
@@ -959,6 +961,7 @@ namespace DashBoard_Stive
             }
             Btn_ValiderProduit.Enabled = true;  //pb clic fin
             Cbx_Produit.DataSource = prodListe3;
+            Tbx_qte.Text = "";
 
 
         }
@@ -1076,7 +1079,7 @@ namespace DashBoard_Stive
             Tbx_qte2.Text = "";
             contenuComWebListe = null;
 
-            newContenuBdcListe.Clear();
+            newContenuComWebListe.Clear();
             Dv_DetailComWeb.DataSource = null;
         }
         private void Btn_AjouterComWeb_Click(object sender, EventArgs e)
@@ -1267,6 +1270,11 @@ namespace DashBoard_Stive
                     // Dv_DetailCommandeFournisseur.Update();
                     Dv_DetailComWeb.Refresh();
                     Dv_DetailComWeb.DataSource = newContenuComWebListe;
+                    Cbx_Four2.Enabled = true;
+                    prodListe3.Clear();
+                    Cbx_Four2.SelectedItem = null;
+                    Cbx_Produit2.SelectedItem = null;
+                    Cbx_Produit2.DataSource = prodListe3;
 
                 }
                 catch
@@ -1280,10 +1288,9 @@ namespace DashBoard_Stive
             catch
             {
                 MessageBox.Show("Le fournisseur n'est pas selectionné");
-                Cbx_Four2.Enabled = true;
             }
             Btn_ValiderProduit2.Enabled = true;  //pb clic fin
-            Cbx_Produit2.DataSource = prodListe3;
+            Tbx_qte2.Text = "";
         }
         List<ContenuCommandeClient> newContenuComWebListe = new List<ContenuCommandeClient>();
 

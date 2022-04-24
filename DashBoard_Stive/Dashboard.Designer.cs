@@ -58,6 +58,15 @@ namespace DashBoard_Stive
             this.fouNomDomaineDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv_ComWebEnCours = new System.Windows.Forms.DataGridView();
+            this.cocIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Coc_DateCreation = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cocFouIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fouNomDomaineDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.commandeClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv_BdcEnCours = new System.Windows.Forms.DataGridView();
             this.cofDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -246,23 +255,25 @@ namespace DashBoard_Stive
             this.Btn_MajComWeb = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
             this.Dv_DetailComWeb = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn20 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn21 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn26 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn27 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cocIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cccDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cccDateMajDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cccProIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cccQuantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proNomDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.proRefDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.fouNomDomaineDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cocFouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.cocCliIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn19 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn22 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.contenuCommandeClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
-            this.Panel_InfoComWeb = new System.Windows.Forms.Panel();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.Lbl_CommandePar = new System.Windows.Forms.Label();
-            this.Lbl_DateCreationComWeb = new System.Windows.Forms.Label();
-            this.Cbx_EtatComWeb = new System.Windows.Forms.ComboBox();
-            this.label9 = new System.Windows.Forms.Label();
-            this.Lbl_DateMajComWeb = new System.Windows.Forms.Label();
             this.Panel_CreerComWeb = new System.Windows.Forms.Panel();
             this.Cbx_Four2 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -271,6 +282,13 @@ namespace DashBoard_Stive
             this.Cbx_Produit2 = new System.Windows.Forms.ComboBox();
             this.label19 = new System.Windows.Forms.Label();
             this.label22 = new System.Windows.Forms.Label();
+            this.Panel_InfoComWeb = new System.Windows.Forms.Panel();
+            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.Lbl_CommandePar = new System.Windows.Forms.Label();
+            this.Lbl_DateCreationComWeb = new System.Windows.Forms.Label();
+            this.Cbx_EtatComWeb = new System.Windows.Forms.ComboBox();
+            this.label9 = new System.Windows.Forms.Label();
+            this.Lbl_DateMajComWeb = new System.Windows.Forms.Label();
             this.panelFournisseurs = new System.Windows.Forms.Panel();
             this.panel13 = new System.Windows.Forms.Panel();
             this.Lbl_Fou_Id = new System.Windows.Forms.Label();
@@ -379,6 +397,7 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Lbl_IsWeb = new System.Windows.Forms.Label();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -388,6 +407,7 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.Dv_procheSeuil)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ComWebEnCours)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeClientBindingSource)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_BdcEnCours)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandeFournisseurBindingSource)).BeginInit();
             this.panelProduit.SuspendLayout();
@@ -420,8 +440,9 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ComWeb)).BeginInit();
             this.panel3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailComWeb)).BeginInit();
-            this.Panel_InfoComWeb.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeClientBindingSource)).BeginInit();
             this.Panel_CreerComWeb.SuspendLayout();
+            this.Panel_InfoComWeb.SuspendLayout();
             this.panelFournisseurs.SuspendLayout();
             this.panel13.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ListeProduit2)).BeginInit();
@@ -619,6 +640,7 @@ namespace DashBoard_Stive
             // panelAccueil
             // 
             this.panelAccueil.BackColor = System.Drawing.Color.LightGray;
+            this.panelAccueil.Controls.Add(this.Lbl_IsWeb);
             this.panelAccueil.Controls.Add(this.Lbl_LastInventaire);
             this.panelAccueil.Controls.Add(this.buttonInventaire);
             this.panelAccueil.Controls.Add(this.Lbl_valSeuil);
@@ -754,13 +776,89 @@ namespace DashBoard_Stive
             // 
             // Dv_ComWebEnCours
             // 
+            this.Dv_ComWebEnCours.AutoGenerateColumns = false;
             this.Dv_ComWebEnCours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.Dv_ComWebEnCours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.cocIdDataGridViewTextBoxColumn1,
+            this.Coc_DateCreation,
+            this.dataGridViewTextBoxColumn23,
+            this.dataGridViewTextBoxColumn24,
+            this.cocFouIdDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn25,
+            this.fouNomDomaineDataGridViewTextBoxColumn4,
+            this.dataGridViewTextBoxColumn28});
+            this.Dv_ComWebEnCours.DataSource = this.commandeClientBindingSource;
             this.Dv_ComWebEnCours.Location = new System.Drawing.Point(21, 445);
             this.Dv_ComWebEnCours.Name = "Dv_ComWebEnCours";
             this.Dv_ComWebEnCours.ReadOnly = true;
             this.Dv_ComWebEnCours.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.Dv_ComWebEnCours.Size = new System.Drawing.Size(360, 239);
             this.Dv_ComWebEnCours.TabIndex = 19;
+            // 
+            // cocIdDataGridViewTextBoxColumn1
+            // 
+            this.cocIdDataGridViewTextBoxColumn1.DataPropertyName = "Coc_Id";
+            this.cocIdDataGridViewTextBoxColumn1.HeaderText = "Coc_Id";
+            this.cocIdDataGridViewTextBoxColumn1.Name = "cocIdDataGridViewTextBoxColumn1";
+            this.cocIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cocIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // Coc_DateCreation
+            // 
+            this.Coc_DateCreation.DataPropertyName = "Coc_DateCreation";
+            this.Coc_DateCreation.HeaderText = "Date";
+            this.Coc_DateCreation.Name = "Coc_DateCreation";
+            this.Coc_DateCreation.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn23
+            // 
+            this.dataGridViewTextBoxColumn23.DataPropertyName = "Cli_Nom";
+            this.dataGridViewTextBoxColumn23.HeaderText = "Nom";
+            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
+            this.dataGridViewTextBoxColumn23.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn24
+            // 
+            this.dataGridViewTextBoxColumn24.DataPropertyName = "Cli_Prenom";
+            this.dataGridViewTextBoxColumn24.HeaderText = "Prenom";
+            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
+            this.dataGridViewTextBoxColumn24.ReadOnly = true;
+            // 
+            // cocFouIdDataGridViewTextBoxColumn1
+            // 
+            this.cocFouIdDataGridViewTextBoxColumn1.DataPropertyName = "Coc_Fou_Id";
+            this.cocFouIdDataGridViewTextBoxColumn1.HeaderText = "Coc_Fou_Id";
+            this.cocFouIdDataGridViewTextBoxColumn1.Name = "cocFouIdDataGridViewTextBoxColumn1";
+            this.cocFouIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cocFouIdDataGridViewTextBoxColumn1.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn25
+            // 
+            this.dataGridViewTextBoxColumn25.DataPropertyName = "Uti_Id";
+            this.dataGridViewTextBoxColumn25.HeaderText = "Uti_Id";
+            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
+            this.dataGridViewTextBoxColumn25.ReadOnly = true;
+            this.dataGridViewTextBoxColumn25.Visible = false;
+            // 
+            // fouNomDomaineDataGridViewTextBoxColumn4
+            // 
+            this.fouNomDomaineDataGridViewTextBoxColumn4.DataPropertyName = "Fou_NomDomaine";
+            this.fouNomDomaineDataGridViewTextBoxColumn4.HeaderText = "Fou_NomDomaine";
+            this.fouNomDomaineDataGridViewTextBoxColumn4.Name = "fouNomDomaineDataGridViewTextBoxColumn4";
+            this.fouNomDomaineDataGridViewTextBoxColumn4.ReadOnly = true;
+            this.fouNomDomaineDataGridViewTextBoxColumn4.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
+            this.dataGridViewTextBoxColumn28.Visible = false;
+            // 
+            // commandeClientBindingSource
+            // 
+            this.commandeClientBindingSource.DataSource = typeof(DashBoard_Stive.CommandeClient);
             // 
             // Dv_BdcEnCours
             // 
@@ -770,7 +868,7 @@ namespace DashBoard_Stive
             this.cofDateCreationDataGridViewTextBoxColumn,
             this.dataGridViewTextBoxColumn8});
             this.Dv_BdcEnCours.DataSource = this.commandeFournisseurBindingSource;
-            this.Dv_BdcEnCours.Location = new System.Drawing.Point(21, 146);
+            this.Dv_BdcEnCours.Location = new System.Drawing.Point(21, 152);
             this.Dv_BdcEnCours.Name = "Dv_BdcEnCours";
             this.Dv_BdcEnCours.ReadOnly = true;
             this.Dv_BdcEnCours.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
@@ -802,16 +900,16 @@ namespace DashBoard_Stive
             this.Lbl_nbProduit.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.Lbl_nbProduit.Location = new System.Drawing.Point(17, 15);
             this.Lbl_nbProduit.Name = "Lbl_nbProduit";
-            this.Lbl_nbProduit.Size = new System.Drawing.Size(209, 24);
+            this.Lbl_nbProduit.Size = new System.Drawing.Size(255, 24);
             this.Lbl_nbProduit.TabIndex = 14;
-            this.Lbl_nbProduit.Text = "Nombre de produits : ";
+            this.Lbl_nbProduit.Text = "Nombre total de produits : ";
             // 
             // Lbl_nbFournisseur
             // 
             this.Lbl_nbFournisseur.AutoSize = true;
             this.Lbl_nbFournisseur.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_nbFournisseur.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_nbFournisseur.Location = new System.Drawing.Point(17, 40);
+            this.Lbl_nbFournisseur.Location = new System.Drawing.Point(17, 60);
             this.Lbl_nbFournisseur.Name = "Lbl_nbFournisseur";
             this.Lbl_nbFournisseur.Size = new System.Drawing.Size(244, 24);
             this.Lbl_nbFournisseur.TabIndex = 13;
@@ -822,7 +920,7 @@ namespace DashBoard_Stive
             this.Lbl_nbClient.AutoSize = true;
             this.Lbl_nbClient.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_nbClient.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_nbClient.Location = new System.Drawing.Point(17, 65);
+            this.Lbl_nbClient.Location = new System.Drawing.Point(17, 85);
             this.Lbl_nbClient.Name = "Lbl_nbClient";
             this.Lbl_nbClient.Size = new System.Drawing.Size(195, 24);
             this.Lbl_nbClient.TabIndex = 12;
@@ -833,7 +931,7 @@ namespace DashBoard_Stive
             this.Lbl_BdcEnCours.AutoSize = true;
             this.Lbl_BdcEnCours.BackColor = System.Drawing.Color.Transparent;
             this.Lbl_BdcEnCours.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Lbl_BdcEnCours.Location = new System.Drawing.Point(17, 119);
+            this.Lbl_BdcEnCours.Location = new System.Drawing.Point(17, 125);
             this.Lbl_BdcEnCours.Name = "Lbl_BdcEnCours";
             this.Lbl_BdcEnCours.Size = new System.Drawing.Size(352, 24);
             this.Lbl_BdcEnCours.TabIndex = 11;
@@ -2739,8 +2837,8 @@ namespace DashBoard_Stive
             this.panel3.Controls.Add(this.label5);
             this.panel3.Controls.Add(this.Dv_DetailComWeb);
             this.panel3.Controls.Add(this.label6);
-            this.panel3.Controls.Add(this.Panel_InfoComWeb);
             this.panel3.Controls.Add(this.Panel_CreerComWeb);
+            this.panel3.Controls.Add(this.Panel_InfoComWeb);
             this.panel3.Location = new System.Drawing.Point(668, 17);
             this.panel3.Name = "panel3";
             this.panel3.Size = new System.Drawing.Size(601, 719);
@@ -2791,28 +2889,28 @@ namespace DashBoard_Stive
             this.Dv_DetailComWeb.AutoGenerateColumns = false;
             this.Dv_DetailComWeb.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_DetailComWeb.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn19,
             this.dataGridViewTextBoxColumn20,
             this.dataGridViewTextBoxColumn21,
-            this.dataGridViewTextBoxColumn22,
-            this.dataGridViewTextBoxColumn23,
-            this.dataGridViewTextBoxColumn24,
-            this.dataGridViewTextBoxColumn25,
             this.dataGridViewTextBoxColumn26,
-            this.dataGridViewTextBoxColumn27});
-            this.Dv_DetailComWeb.DataSource = this.contenuCommandeFournisseurBindingSource;
+            this.dataGridViewTextBoxColumn27,
+            this.cocIdDataGridViewTextBoxColumn,
+            this.cccDateCreationDataGridViewTextBoxColumn,
+            this.cccDateMajDataGridViewTextBoxColumn,
+            this.cccProIdDataGridViewTextBoxColumn,
+            this.cccQuantiteDataGridViewTextBoxColumn,
+            this.proNomDataGridViewTextBoxColumn2,
+            this.proRefDataGridViewTextBoxColumn2,
+            this.fouNomDomaineDataGridViewTextBoxColumn3,
+            this.cocFouIdDataGridViewTextBoxColumn,
+            this.cocCliIdDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn19,
+            this.etaIdDataGridViewTextBoxColumn,
+            this.dataGridViewTextBoxColumn22});
+            this.Dv_DetailComWeb.DataSource = this.contenuCommandeClientBindingSource;
             this.Dv_DetailComWeb.Location = new System.Drawing.Point(3, 146);
             this.Dv_DetailComWeb.Name = "Dv_DetailComWeb";
             this.Dv_DetailComWeb.Size = new System.Drawing.Size(585, 513);
             this.Dv_DetailComWeb.TabIndex = 7;
-            // 
-            // dataGridViewTextBoxColumn19
-            // 
-            this.dataGridViewTextBoxColumn19.DataPropertyName = "Ccf_Cof_Id";
-            this.dataGridViewTextBoxColumn19.HeaderText = "Ccf_Cof_Id";
-            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
-            this.dataGridViewTextBoxColumn19.ReadOnly = true;
-            this.dataGridViewTextBoxColumn19.Visible = false;
             // 
             // dataGridViewTextBoxColumn20
             // 
@@ -2825,32 +2923,6 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn21.DataPropertyName = "Pro_Ref";
             this.dataGridViewTextBoxColumn21.HeaderText = "Ref";
             this.dataGridViewTextBoxColumn21.Name = "dataGridViewTextBoxColumn21";
-            // 
-            // dataGridViewTextBoxColumn22
-            // 
-            this.dataGridViewTextBoxColumn22.DataPropertyName = "Ccf_Pro_Id";
-            this.dataGridViewTextBoxColumn22.HeaderText = "Ccf_Pro_Id";
-            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
-            this.dataGridViewTextBoxColumn22.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn23
-            // 
-            this.dataGridViewTextBoxColumn23.DataPropertyName = "Ccf_Quantite";
-            this.dataGridViewTextBoxColumn23.HeaderText = "Quantite";
-            this.dataGridViewTextBoxColumn23.Name = "dataGridViewTextBoxColumn23";
-            // 
-            // dataGridViewTextBoxColumn24
-            // 
-            this.dataGridViewTextBoxColumn24.DataPropertyName = "Uti_Id";
-            this.dataGridViewTextBoxColumn24.HeaderText = "Uti_Id";
-            this.dataGridViewTextBoxColumn24.Name = "dataGridViewTextBoxColumn24";
-            this.dataGridViewTextBoxColumn24.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn25
-            // 
-            this.dataGridViewTextBoxColumn25.DataPropertyName = "Fou_NomDomaine";
-            this.dataGridViewTextBoxColumn25.HeaderText = "Fournisseur";
-            this.dataGridViewTextBoxColumn25.Name = "dataGridViewTextBoxColumn25";
             // 
             // dataGridViewTextBoxColumn26
             // 
@@ -2866,6 +2938,99 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn27.Name = "dataGridViewTextBoxColumn27";
             this.dataGridViewTextBoxColumn27.Visible = false;
             // 
+            // cocIdDataGridViewTextBoxColumn
+            // 
+            this.cocIdDataGridViewTextBoxColumn.DataPropertyName = "Coc_Id";
+            this.cocIdDataGridViewTextBoxColumn.HeaderText = "Coc_Id";
+            this.cocIdDataGridViewTextBoxColumn.Name = "cocIdDataGridViewTextBoxColumn";
+            this.cocIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cccDateCreationDataGridViewTextBoxColumn
+            // 
+            this.cccDateCreationDataGridViewTextBoxColumn.DataPropertyName = "Ccc_DateCreation";
+            this.cccDateCreationDataGridViewTextBoxColumn.HeaderText = "Ccc_DateCreation";
+            this.cccDateCreationDataGridViewTextBoxColumn.Name = "cccDateCreationDataGridViewTextBoxColumn";
+            this.cccDateCreationDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cccDateMajDataGridViewTextBoxColumn
+            // 
+            this.cccDateMajDataGridViewTextBoxColumn.DataPropertyName = "Ccc_DateMaj";
+            this.cccDateMajDataGridViewTextBoxColumn.HeaderText = "Ccc_DateMaj";
+            this.cccDateMajDataGridViewTextBoxColumn.Name = "cccDateMajDataGridViewTextBoxColumn";
+            this.cccDateMajDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cccProIdDataGridViewTextBoxColumn
+            // 
+            this.cccProIdDataGridViewTextBoxColumn.DataPropertyName = "Ccc_Pro_Id";
+            this.cccProIdDataGridViewTextBoxColumn.HeaderText = "Ccc_Pro_Id";
+            this.cccProIdDataGridViewTextBoxColumn.Name = "cccProIdDataGridViewTextBoxColumn";
+            this.cccProIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cccQuantiteDataGridViewTextBoxColumn
+            // 
+            this.cccQuantiteDataGridViewTextBoxColumn.DataPropertyName = "Ccc_Quantite";
+            this.cccQuantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
+            this.cccQuantiteDataGridViewTextBoxColumn.Name = "cccQuantiteDataGridViewTextBoxColumn";
+            // 
+            // proNomDataGridViewTextBoxColumn2
+            // 
+            this.proNomDataGridViewTextBoxColumn2.DataPropertyName = "Pro_Nom";
+            this.proNomDataGridViewTextBoxColumn2.HeaderText = "Pro_Nom";
+            this.proNomDataGridViewTextBoxColumn2.Name = "proNomDataGridViewTextBoxColumn2";
+            this.proNomDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // proRefDataGridViewTextBoxColumn2
+            // 
+            this.proRefDataGridViewTextBoxColumn2.DataPropertyName = "Pro_Ref";
+            this.proRefDataGridViewTextBoxColumn2.HeaderText = "Pro_Ref";
+            this.proRefDataGridViewTextBoxColumn2.Name = "proRefDataGridViewTextBoxColumn2";
+            this.proRefDataGridViewTextBoxColumn2.Visible = false;
+            // 
+            // fouNomDomaineDataGridViewTextBoxColumn3
+            // 
+            this.fouNomDomaineDataGridViewTextBoxColumn3.DataPropertyName = "Fou_NomDomaine";
+            this.fouNomDomaineDataGridViewTextBoxColumn3.HeaderText = "Fournisseur";
+            this.fouNomDomaineDataGridViewTextBoxColumn3.Name = "fouNomDomaineDataGridViewTextBoxColumn3";
+            // 
+            // cocFouIdDataGridViewTextBoxColumn
+            // 
+            this.cocFouIdDataGridViewTextBoxColumn.DataPropertyName = "Coc_Fou_Id";
+            this.cocFouIdDataGridViewTextBoxColumn.HeaderText = "Coc_Fou_Id";
+            this.cocFouIdDataGridViewTextBoxColumn.Name = "cocFouIdDataGridViewTextBoxColumn";
+            this.cocFouIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // cocCliIdDataGridViewTextBoxColumn
+            // 
+            this.cocCliIdDataGridViewTextBoxColumn.DataPropertyName = "Coc_Cli_Id";
+            this.cocCliIdDataGridViewTextBoxColumn.HeaderText = "Coc_Cli_Id";
+            this.cocCliIdDataGridViewTextBoxColumn.Name = "cocCliIdDataGridViewTextBoxColumn";
+            this.cocCliIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn19
+            // 
+            this.dataGridViewTextBoxColumn19.DataPropertyName = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn19.HeaderText = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn19.Name = "dataGridViewTextBoxColumn19";
+            this.dataGridViewTextBoxColumn19.Visible = false;
+            // 
+            // etaIdDataGridViewTextBoxColumn
+            // 
+            this.etaIdDataGridViewTextBoxColumn.DataPropertyName = "Eta_Id";
+            this.etaIdDataGridViewTextBoxColumn.HeaderText = "Eta_Id";
+            this.etaIdDataGridViewTextBoxColumn.Name = "etaIdDataGridViewTextBoxColumn";
+            this.etaIdDataGridViewTextBoxColumn.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn22
+            // 
+            this.dataGridViewTextBoxColumn22.DataPropertyName = "Uti_Id";
+            this.dataGridViewTextBoxColumn22.HeaderText = "Uti_Id";
+            this.dataGridViewTextBoxColumn22.Name = "dataGridViewTextBoxColumn22";
+            this.dataGridViewTextBoxColumn22.Visible = false;
+            // 
+            // contenuCommandeClientBindingSource
+            // 
+            this.contenuCommandeClientBindingSource.DataSource = typeof(DashBoard_Stive.ContenuCommandeClient);
+            // 
             // label6
             // 
             this.label6.AutoSize = true;
@@ -2876,6 +3041,99 @@ namespace DashBoard_Stive
             this.label6.Size = new System.Drawing.Size(128, 19);
             this.label6.TabIndex = 7;
             this.label6.Text = "Numero de Bdc";
+            // 
+            // Panel_CreerComWeb
+            // 
+            this.Panel_CreerComWeb.Controls.Add(this.Cbx_Four2);
+            this.Panel_CreerComWeb.Controls.Add(this.label18);
+            this.Panel_CreerComWeb.Controls.Add(this.Btn_ValiderProduit2);
+            this.Panel_CreerComWeb.Controls.Add(this.Tbx_qte2);
+            this.Panel_CreerComWeb.Controls.Add(this.Cbx_Produit2);
+            this.Panel_CreerComWeb.Controls.Add(this.label19);
+            this.Panel_CreerComWeb.Controls.Add(this.label22);
+            this.Panel_CreerComWeb.Location = new System.Drawing.Point(6, 4);
+            this.Panel_CreerComWeb.Name = "Panel_CreerComWeb";
+            this.Panel_CreerComWeb.Size = new System.Drawing.Size(586, 106);
+            this.Panel_CreerComWeb.TabIndex = 42;
+            // 
+            // Cbx_Four2
+            // 
+            this.Cbx_Four2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
+            this.Cbx_Four2.DataSource = this.fournisseurBindingSource;
+            this.Cbx_Four2.DisplayMember = "Fou_NomDomaine";
+            this.Cbx_Four2.FormattingEnabled = true;
+            this.Cbx_Four2.Location = new System.Drawing.Point(136, 6);
+            this.Cbx_Four2.Name = "Cbx_Four2";
+            this.Cbx_Four2.Size = new System.Drawing.Size(187, 21);
+            this.Cbx_Four2.TabIndex = 46;
+            this.Cbx_Four2.ValueMember = "Fou_Id";
+            this.Cbx_Four2.SelectionChangeCommitted += new System.EventHandler(this.Cbx_Four2_SelectionChangeCommitted);
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label18.Location = new System.Drawing.Point(29, 7);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(102, 19);
+            this.label18.TabIndex = 47;
+            this.label18.Text = "Fournisseur";
+            // 
+            // Btn_ValiderProduit2
+            // 
+            this.Btn_ValiderProduit2.FlatAppearance.BorderSize = 0;
+            this.Btn_ValiderProduit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.Btn_ValiderProduit2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Btn_ValiderProduit2.ForeColor = System.Drawing.Color.Green;
+            this.Btn_ValiderProduit2.Location = new System.Drawing.Point(451, 17);
+            this.Btn_ValiderProduit2.Name = "Btn_ValiderProduit2";
+            this.Btn_ValiderProduit2.Size = new System.Drawing.Size(119, 59);
+            this.Btn_ValiderProduit2.TabIndex = 42;
+            this.Btn_ValiderProduit2.Text = "Ajouter à la commande";
+            this.Btn_ValiderProduit2.UseVisualStyleBackColor = true;
+            this.Btn_ValiderProduit2.Click += new System.EventHandler(this.Btn_ValiderProduit2_Click);
+            // 
+            // Tbx_qte2
+            // 
+            this.Tbx_qte2.Location = new System.Drawing.Point(376, 36);
+            this.Tbx_qte2.Name = "Tbx_qte2";
+            this.Tbx_qte2.Size = new System.Drawing.Size(66, 20);
+            this.Tbx_qte2.TabIndex = 42;
+            // 
+            // Cbx_Produit2
+            // 
+            this.Cbx_Produit2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
+            this.Cbx_Produit2.DataSource = this.produitBindingSource;
+            this.Cbx_Produit2.DisplayMember = "Pro_Nom";
+            this.Cbx_Produit2.FormattingEnabled = true;
+            this.Cbx_Produit2.Location = new System.Drawing.Point(100, 36);
+            this.Cbx_Produit2.Name = "Cbx_Produit2";
+            this.Cbx_Produit2.Size = new System.Drawing.Size(187, 21);
+            this.Cbx_Produit2.TabIndex = 44;
+            this.Cbx_Produit2.ValueMember = "Pro_Id";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label19.Location = new System.Drawing.Point(29, 37);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(65, 19);
+            this.label19.TabIndex = 44;
+            this.label19.Text = "Produit";
+            // 
+            // label22
+            // 
+            this.label22.AutoSize = true;
+            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.label22.Location = new System.Drawing.Point(303, 37);
+            this.label22.Name = "label22";
+            this.label22.Size = new System.Drawing.Size(73, 19);
+            this.label22.TabIndex = 45;
+            this.label22.Text = "Quantité";
             // 
             // Panel_InfoComWeb
             // 
@@ -2950,98 +3208,6 @@ namespace DashBoard_Stive
             this.Lbl_DateMajComWeb.Size = new System.Drawing.Size(104, 19);
             this.Lbl_DateMajComWeb.TabIndex = 30;
             this.Lbl_DateMajComWeb.Text = "Date de MAJ";
-            // 
-            // Panel_CreerComWeb
-            // 
-            this.Panel_CreerComWeb.Controls.Add(this.Cbx_Four2);
-            this.Panel_CreerComWeb.Controls.Add(this.label18);
-            this.Panel_CreerComWeb.Controls.Add(this.Btn_ValiderProduit2);
-            this.Panel_CreerComWeb.Controls.Add(this.Tbx_qte2);
-            this.Panel_CreerComWeb.Controls.Add(this.Cbx_Produit2);
-            this.Panel_CreerComWeb.Controls.Add(this.label19);
-            this.Panel_CreerComWeb.Controls.Add(this.label22);
-            this.Panel_CreerComWeb.Location = new System.Drawing.Point(6, 4);
-            this.Panel_CreerComWeb.Name = "Panel_CreerComWeb";
-            this.Panel_CreerComWeb.Size = new System.Drawing.Size(586, 106);
-            this.Panel_CreerComWeb.TabIndex = 42;
-            // 
-            // Cbx_Four2
-            // 
-            this.Cbx_Four2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
-            this.Cbx_Four2.DataSource = this.fournisseurBindingSource;
-            this.Cbx_Four2.DisplayMember = "Fou_NomDomaine";
-            this.Cbx_Four2.FormattingEnabled = true;
-            this.Cbx_Four2.Location = new System.Drawing.Point(136, 6);
-            this.Cbx_Four2.Name = "Cbx_Four2";
-            this.Cbx_Four2.Size = new System.Drawing.Size(187, 21);
-            this.Cbx_Four2.TabIndex = 46;
-            this.Cbx_Four2.ValueMember = "Fou_Id";
-            // 
-            // label18
-            // 
-            this.label18.AutoSize = true;
-            this.label18.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label18.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label18.Location = new System.Drawing.Point(29, 7);
-            this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(102, 19);
-            this.label18.TabIndex = 47;
-            this.label18.Text = "Fournisseur";
-            // 
-            // Btn_ValiderProduit2
-            // 
-            this.Btn_ValiderProduit2.FlatAppearance.BorderSize = 0;
-            this.Btn_ValiderProduit2.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.Btn_ValiderProduit2.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.Btn_ValiderProduit2.ForeColor = System.Drawing.Color.Green;
-            this.Btn_ValiderProduit2.Location = new System.Drawing.Point(451, 17);
-            this.Btn_ValiderProduit2.Name = "Btn_ValiderProduit2";
-            this.Btn_ValiderProduit2.Size = new System.Drawing.Size(119, 59);
-            this.Btn_ValiderProduit2.TabIndex = 42;
-            this.Btn_ValiderProduit2.Text = "Ajouter à la commande";
-            this.Btn_ValiderProduit2.UseVisualStyleBackColor = true;
-            this.Btn_ValiderProduit2.Click += new System.EventHandler(this.Btn_ValiderProduit2_Click);
-            // 
-            // Tbx_qte2
-            // 
-            this.Tbx_qte2.Location = new System.Drawing.Point(376, 36);
-            this.Tbx_qte2.Name = "Tbx_qte2";
-            this.Tbx_qte2.Size = new System.Drawing.Size(66, 20);
-            this.Tbx_qte2.TabIndex = 42;
-            // 
-            // Cbx_Produit2
-            // 
-            this.Cbx_Produit2.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
-            this.Cbx_Produit2.DataSource = this.produitBindingSource;
-            this.Cbx_Produit2.DisplayMember = "Pro_Nom";
-            this.Cbx_Produit2.FormattingEnabled = true;
-            this.Cbx_Produit2.Location = new System.Drawing.Point(100, 36);
-            this.Cbx_Produit2.Name = "Cbx_Produit2";
-            this.Cbx_Produit2.Size = new System.Drawing.Size(187, 21);
-            this.Cbx_Produit2.TabIndex = 44;
-            this.Cbx_Produit2.ValueMember = "Pro_Id";
-            // 
-            // label19
-            // 
-            this.label19.AutoSize = true;
-            this.label19.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label19.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label19.Location = new System.Drawing.Point(29, 37);
-            this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(65, 19);
-            this.label19.TabIndex = 44;
-            this.label19.Text = "Produit";
-            // 
-            // label22
-            // 
-            this.label22.AutoSize = true;
-            this.label22.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label22.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
-            this.label22.Location = new System.Drawing.Point(303, 37);
-            this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(73, 19);
-            this.label22.TabIndex = 45;
-            this.label22.Text = "Quantité";
             // 
             // panelFournisseurs
             // 
@@ -4088,6 +4254,17 @@ namespace DashBoard_Stive
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
             // 
+            // Lbl_IsWeb
+            // 
+            this.Lbl_IsWeb.AutoSize = true;
+            this.Lbl_IsWeb.BackColor = System.Drawing.Color.Transparent;
+            this.Lbl_IsWeb.Font = new System.Drawing.Font("Arial", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_IsWeb.Location = new System.Drawing.Point(17, 38);
+            this.Lbl_IsWeb.Name = "Lbl_IsWeb";
+            this.Lbl_IsWeb.Size = new System.Drawing.Size(332, 24);
+            this.Lbl_IsWeb.TabIndex = 42;
+            this.Lbl_IsWeb.Text = "Nombre de produits sur Negosud : ";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4095,12 +4272,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
-            this.Controls.Add(this.panelAccueil);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4118,6 +4295,7 @@ namespace DashBoard_Stive
             ((System.ComponentModel.ISupportInitialize)(this.Dv_procheSeuil)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.produitBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_ComWebEnCours)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.commandeClientBindingSource)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_BdcEnCours)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.commandeFournisseurBindingSource)).EndInit();
             this.panelProduit.ResumeLayout(false);
@@ -4163,10 +4341,11 @@ namespace DashBoard_Stive
             this.panel3.ResumeLayout(false);
             this.panel3.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.Dv_DetailComWeb)).EndInit();
-            this.Panel_InfoComWeb.ResumeLayout(false);
-            this.Panel_InfoComWeb.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.contenuCommandeClientBindingSource)).EndInit();
             this.Panel_CreerComWeb.ResumeLayout(false);
             this.Panel_CreerComWeb.PerformLayout();
+            this.Panel_InfoComWeb.ResumeLayout(false);
+            this.Panel_InfoComWeb.PerformLayout();
             this.panelFournisseurs.ResumeLayout(false);
             this.panel13.ResumeLayout(false);
             this.panel13.PerformLayout();
@@ -4432,13 +4611,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pro_IsWeb;
         private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proNomDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proRefDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proQuantiteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proSeuilAlerteDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn proCommandeAutoDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn typLibelleDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn2;
         private System.Windows.Forms.RadioButton Rbt_Tous;
         private System.Windows.Forms.Button Lbl_afficherBdc;
         private System.Windows.Forms.Button Btn_MajBdc;
@@ -4462,8 +4634,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.ComboBox Cbx_Produit;
         private System.Windows.Forms.BindingSource contenuCommandeFournisseurBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn cofFouIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateCreationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
         private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn DateMaj;
@@ -4515,15 +4685,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button Btn_MajComWeb;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.DataGridView Dv_DetailComWeb;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Panel Panel_CreerComWeb;
         private System.Windows.Forms.ComboBox Cbx_Four2;
@@ -4550,5 +4711,42 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn FouNomDomaine;
         private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
+        private System.Windows.Forms.BindingSource contenuCommandeClientBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn21;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn26;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn27;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cccDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cccDateMajDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cccProIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cccQuantiteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proNomDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proRefDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocFouIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocCliIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn19;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etaIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn22;
+        private System.Windows.Forms.BindingSource commandeClientBindingSource;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proNomDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proRefDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proQuantiteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proSeuilAlerteDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn proCommandeAutoDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn typLibelleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Coc_DateCreation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocFouIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.Label Lbl_IsWeb;
     }
 }
