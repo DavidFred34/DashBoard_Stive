@@ -292,7 +292,7 @@ namespace DashBoard_Stive
                         )
         {
             Lbl_CommandePar.Text = CommandePar;
-            Lbl_DateCreationBdc.Text = Date;
+            Lbl_DateCreationComWeb.Text = Date;
             Tbx_Json.Text = Json;
             Lbl_DateMajComWeb.Text = DateMaj;
             Cbx_EtatComWeb.Text = Etat.ToString();
@@ -301,7 +301,8 @@ namespace DashBoard_Stive
         // gestion de l'affichage de la date
         public static string AfficheDate(DateTime dateAConvertir)
         {
-            //dateAConvertir = getdate();// dateadd(HOUR, 2, ateAConvertir)
+
+            DateTime d2 = dateAConvertir.AddHours(2);
             var annee = dateAConvertir.Year;
             var jour = dateAConvertir.Day;
             var mois = dateAConvertir.Month;
@@ -310,7 +311,7 @@ namespace DashBoard_Stive
             //MessageBox.Show(heure.ToString());
 
 
-            string result = dateAConvertir.ToString("dd/MM/yyyy") + " à " + dateAConvertir.ToString("HH:mm");
+            string result = d2.ToString("dd/MM/yyyy") + " à " + d2.ToString("HH:mm");
             //string result2 = dateAConvertir.ToString("dd/MM/yyyy") + " à " + heure.ToString() + ":"+ minute.ToString();
             return result.Replace(':', 'h');
             //return result2;
@@ -493,7 +494,7 @@ namespace DashBoard_Stive
 
                 comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
 
-                MessageBox.Show(contentCommande.ToString());  //controle du json
+                //MessageBox.Show(contentCommande.ToString());  //controle du json
                 //MessageBox.Show(contentCommande);
             }
             catch (Exception ex)
@@ -1005,7 +1006,7 @@ namespace DashBoard_Stive
                 newContenu.Pro_Nom = newCont.Pro_Nom;
                 newContenu.Pro_Ref = newCont.Pro_Ref;
                 newContenu.Fou_NomDomaine = newCont.Fou_NomDomaine;
-                newContenu.Eta_Id = newCont.Eta_Id;
+                newContenu.Eta_Id = 2;
                 newContenu.Eta_Libelle = newCont.Eta_Libelle;
                 newContenu.Uti_Id = newCont.Uti_Id;
               
@@ -1144,7 +1145,7 @@ namespace DashBoard_Stive
 
                 var httpClient = new HttpClient();   //connexion à la bdd Stive sur azure
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-                var url = "https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ObtenirTousByCommande.php?Ccc_Coc_Id=" + filtre_comWebListe[e.RowIndex].Coc_Id;
+                var url = "https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/obtenir.php?Ccc_Coc_Id=" + filtre_comWebListe[e.RowIndex].Coc_Id;
                 // MessageBox.Show(url);
                 var response = await
                 httpClient.GetAsync(url);//
@@ -1199,7 +1200,7 @@ namespace DashBoard_Stive
             {
                 //MessageBox.Show(Cbx_EtatBdc.SelectedIndex.ToString());
                 ContenuCommandeClient majComWeb = new ContenuCommandeClient();
-                majComWeb.Coc_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[0].Value);
+             /*   majComWeb.Coc_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[0].Value);
                 majComWeb.Coc_Fou_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[0].Value);
                 majComWeb.Ccc_Pro_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[3].Value);
                 majComWeb.Ccc_Quantite = (int)Dv_DetailComWeb.Rows[i].Cells[4].Value;
@@ -1209,18 +1210,40 @@ namespace DashBoard_Stive
                 majComWeb.Eta_Id = Cbx_EtatComWeb.SelectedIndex + 1;  //Convert.ToInt32(Cbx_EtatBdc.SelectedValue);
                 majComWeb.Eta_Libelle = (string)Cbx_EtatComWeb.SelectedItem;//(string)Dv_DetailCommandeFournisseur.Rows[i].Cells[8].Value;
                 majComWeb.Uti_Id = Convert.ToInt32(Dv_DetailComWeb.Rows[i].Cells[5].Value);
+                var cc2 = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;*/
+                majComWeb.Uti_Adresse = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_Adresse"].Value;
+                majComWeb.Uti_CompAdresse = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_CompAdresse"].Value;
+                majComWeb.Uti_Cp = (string)Dv_DetailComWeb.Rows[i].Cells["Cp"].Value;
+                majComWeb.Uti_Ville = (string)Dv_DetailComWeb.Rows[i].Cells["Ville"].Value;
+                majComWeb.Uti_Pays = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_Pays"].Value;
+                majComWeb.Uti_TelContact = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_TelContact"].Value;
+                majComWeb.Uti_Mdp = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_Mdp"].Value;
+                majComWeb.Uti_MailContact = (string)Dv_DetailComWeb.Rows[i].Cells["Uti_MailContact"].Value;
+                //majComWeb.Eta_Id = (int)Dv_DetailComWeb.Rows[i].Cells["Eta_Id"].Value;
+                //majComWeb.Eta_Libelle = (string)Dv_DetailComWeb.Rows[i].Cells["Eta_Libelle"].Value;
+               // majComWeb.Pro_Nom = (string)Dv_DetailComWeb.Rows[i].Cells["Pro_Nom"].Value;
+                majComWeb.Cli_Nom = (string)Dv_DetailComWeb.Rows[i].Cells["Nom"].Value;
+                majComWeb.Cli_Prenom = (string)Dv_DetailComWeb.Rows[i].Cells["Prenom"].Value;
+                majComWeb.Coc_Id = (int)Dv_DetailComWeb.Rows[i].Cells["CocId"].Value;
+                majComWeb.Coc_Cli_Id = (int)Dv_DetailComWeb.Rows[i].Cells["Coc_Cli_Id"].Value;
+                majComWeb.Coc_Eta_Id = Cbx_EtatComWeb.SelectedIndex + 1;
+                majComWeb.Pro_Id = (int)Dv_DetailComWeb.Rows[i].Cells["Ccc_Pro_Id"].Value;
+                majComWeb.Pro_Quantite = (int)Dv_DetailComWeb.Rows[i].Cells["Ccc_Quantite"].Value;
+       
+
                 majComWebListe.Add(majComWeb);
             }
             //MessageBox.Show(majBdcListe.Count.ToString());
             string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
+            var url = "https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php?Ccc_Coc_Id=" + majComWebListe.FirstOrDefault().Coc_Id;
             var json = JsonConvert.SerializeObject(majComWebListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
             MessageBox.Show(json.ToString());
 
             //StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeCkient/ajouter.php", data);
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Commande mise à jour");
@@ -1231,8 +1254,8 @@ namespace DashBoard_Stive
             Btn_MajComWeb.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton client
             contenuComWebListe = null;
-            //Btn_Accueil.PerformClick();
-            //Btn_Bdc.PerformClick();
+            Btn_Accueil.PerformClick();
+            Btn_CommandesWeb.PerformClick();
             // Dv_DetailCommandeFournisseur = null;
             Dv_DetailComWeb.DataSource = contenuComWebListe;
             //StamperFournisseur();
@@ -1274,6 +1297,7 @@ namespace DashBoard_Stive
                     prodListe3.Clear();
                     Cbx_Four2.SelectedItem = null;
                     Cbx_Produit2.SelectedItem = null;
+                    Cbx_Produit2.Enabled = false;
                     Cbx_Produit2.DataSource = prodListe3;
 
                 }
@@ -1331,9 +1355,11 @@ namespace DashBoard_Stive
                 newContenu.Pro_Nom = newCont.Pro_Nom;
                 newContenu.Pro_Ref = newCont.Pro_Ref;
                 newContenu.Fou_NomDomaine = newCont.Fou_NomDomaine;
-                newContenu.Eta_Id = newCont.Eta_Id;
+                newContenu.Eta_Id = 2;
                 newContenu.Eta_Libelle = newCont.Eta_Libelle;
                 newContenu.Uti_Id = newCont.Uti_Id;
+
+
 
                 newContListe.Add(newContenu);
             }
@@ -1985,7 +2011,7 @@ namespace DashBoard_Stive
                 var httpClient = new HttpClient();
                 httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
-                var url = "https://apistive.azurewebsites.net/API/controlers/CommandeClient/ObtenirByIdClient.php?Coc_Cli_Id=" + filtre_cliListe[e.RowIndex].Cli_Id;
+                var url = "https://apistive.azurewebsites.net/API/controlers/CommandeClient/obtenir.php?Coc_Cli_Id=" + filtre_cliListe[e.RowIndex].Cli_Id;
                 var response = await
                     httpClient.GetAsync(url);// label_Fou_Id.Text);
                 response.EnsureSuccessStatusCode();
