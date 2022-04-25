@@ -16,7 +16,7 @@ namespace DashBoard_Stive
         public string Pro_Nom { get; set; }
         public string Pro_Ref { get; set; }
         public string Fou_NomDomaine { get; set; }
-        public int Coc_Fou_Id { get; set; }
+        public int Fou_Id { get; set; }
         public string Eta_Libelle { get; set; }
         public int Eta_Id { get; set; }
         public int Uti_Id { get; set; }

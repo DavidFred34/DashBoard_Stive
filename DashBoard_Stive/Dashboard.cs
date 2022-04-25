@@ -166,7 +166,7 @@ namespace DashBoard_Stive
         //permet de renseigner les données clients ds le panel client
         public void StamperClient(
                  //champs clients
-
+                 string Cli_Id2 = "",
                  string Nom = "",
                  string Prenom = "",
                  string DateNaissance = "",
@@ -186,6 +186,7 @@ namespace DashBoard_Stive
                  )
         {
             Lbl_Uti_Id2.Text = Uti_Id2;
+            Lbl_Cli_Id.Text = Cli_Id2;
             Txb_Nom2.Text = Nom;
             Txb_Prenom.Text = Prenom;
             Lbl_Inscription.Text = "Inscrit le " + DateInscription;
@@ -1287,7 +1288,7 @@ namespace DashBoard_Stive
                     newCont.Pro_Ref = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Pro_Ref.ToString()).FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
                     //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
                     newCont.Fou_NomDomaine = (string)Cbx_Four2.Text.ToString();
-                    newCont.Coc_Fou_Id = Convert.ToInt32(Cbx_Four2.SelectedValue);
+                    newCont.Fou_Id = Convert.ToInt32(Cbx_Four2.SelectedValue);
                     newCont.Uti_Id = Convert.ToInt32((from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString()).FirstOrDefault());
 
                     newCont.Uti_Adresse = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Adresse.ToString()).FirstOrDefault();
@@ -1406,7 +1407,7 @@ namespace DashBoard_Stive
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
             var json = JsonConvert.SerializeObject(newContListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            MessageBox.Show(json.ToString());
+           // MessageBox.Show(json.ToString());
             //Tbx_Json.Visible = true;
 
             //StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
@@ -1767,23 +1768,14 @@ namespace DashBoard_Stive
                 if (idFou.Cof_Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))  //recherche dans bdc
                 {
                     exist += 1;
-                    MessageBox.Show("Ce fournisseur possede au moins un produit lié à une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce fournisseur est annulée");
-                    break;
-                }
-                else
+                } 
+            }
+
+            foreach (var idFou2 in contComWebListe)
+            {
+                if (idFou2.Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))  //recherche dans commande web
                 {
-                    /*foreach (var idFou2 in commandeClientListListe)
-                    {
-                        if (idFou2.Coc_Fou_Id == Convert.ToInt32(Lbl_Fou_Id.Text))  //recherche dans commande web
-                        {
-                            if (exist == 0)
-                            {
-                                MessageBox.Show("Ce fournisseur possede au moins un produit lié à une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce fournisseur est annulée");
-                            }
-                            exist += 1;
-                            break;
-                        }
-                    }*/
+                    exist += 1;
                 }
             }
 
@@ -1833,6 +1825,9 @@ namespace DashBoard_Stive
             }
             else
             {
+                MessageBox.Show("Ce fournisseur possède au moins un produit dans une commande fournisseur ou dans une commande client" + Environment.NewLine
+                                    + "La suppression est annulée");
+                
                 Btn_SuppFournisseur.Enabled = true;
                 return;
             }
@@ -2023,6 +2018,7 @@ namespace DashBoard_Stive
                 return;
             // if (textBoxNom.Text != "") { Dv_ListClient.DataSource = filtre; } else { Dv_ListClient.DataSource = cliListe; }
             StamperClient(
+                Cli_Id2 : filtre_cliListe[e.RowIndex].Cli_Id.ToString(),
                 Uti_Id2: filtre_cliListe[e.RowIndex].Uti_Id.ToString(),
                 Nom: filtre_cliListe[e.RowIndex].Cli_Nom,
                 Prenom: filtre_cliListe[e.RowIndex].Cli_Prenom,
@@ -2141,7 +2137,7 @@ namespace DashBoard_Stive
                     var json = JsonConvert.SerializeObject(newCli);
                     var data = new StringContent(json, Encoding.UTF8, "application/json");
                     var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/ajouter.php", data);
-                    MessageBox.Show(json.ToString());
+                    //MessageBox.Show(json.ToString());
                     //StamperClient(Nom: json.ToString()); //permet de recup le json pour le copier
                     if (response.IsSuccessStatusCode)
                     {
@@ -2237,30 +2233,44 @@ namespace DashBoard_Stive
         private async void Btn_SuppClient_Click(object sender, EventArgs e)
         {
             Btn_SuppClient.Enabled = false; // pb clic serie
+            int exist = 0;
             Client suppCli = new Client();
             suppCli.Uti_Id = Convert.ToInt32(Lbl_Uti_Id2.Text);
 
-
-            string token = Class.Globales.token.tokenRequete();  //recup du token
-            var httpClient = new HttpClient();
-            httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-
-            var json = JsonConvert.SerializeObject(suppCli);
-            var data = new StringContent(json, Encoding.UTF8, "application/json");
-            // MessageBox.Show(json);
-            //MessageBox.Show(data.ToString());
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/supprimer.php", data);
-
-
-            //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
-            if (response.IsSuccessStatusCode)
+            foreach (var idCli in contComWebListe)  // on ne supprime pas le client s'il y a une commande client
             {
-                //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
-                MessageBox.Show("Client supprimé");
+                if (idCli.Coc_Cli_Id == Convert.ToInt32(Lbl_Cli_Id.Text))  //recherche dans commande web
+                {
+                    exist += 1;
+                }
+            }
+            if (exist == 0)
+            {
+                string token = Class.Globales.token.tokenRequete();  //recup du token
+                var httpClient = new HttpClient();
+                httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
 
+                var json = JsonConvert.SerializeObject(suppCli);
+                var data = new StringContent(json, Encoding.UTF8, "application/json");
+                // MessageBox.Show(json);
+                //MessageBox.Show(data.ToString());
+                var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/Client/supprimer.php", data);
+
+
+                //Stamper(NomDomaine: json.ToString()); //permet de recup le json pour le copier
+                if (response.IsSuccessStatusCode)
+                {
+                    //DialogResult dialogResult = MessageBox.Show("Fournisseur supprimé", MessageBoxIcon.Information) ; 
+                    MessageBox.Show("Client supprimé");
+
+                }
+                else
+                    MessageBox.Show("Erreur: client non supprimé" + "\r\n\n" + response);
             }
             else
-                MessageBox.Show("Erreur: client non supprimé" + "\r\n\n" + response);
+            {
+                MessageBox.Show("Il y a au moins une commande pour ce client" + Environment.NewLine + "La suppression est annulée");
+            }
             Btn_SuppClient.Enabled = true; // pb clis serie, fin
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
@@ -2674,28 +2684,19 @@ namespace DashBoard_Stive
             suppPro.Pro_Id = int.Parse(Lbl_Pro_Id.Text);
             
             int exist = 0;
-            foreach (var idPro in contBdcListe) // on ne supprime pas les produits qui sont présent dans une commandeFournisseur ou client, quelque soit l'etat de la commande
+            foreach (var idPro in contBdcListe) // on ne supprime pas les produits qui sont dans une commande fournisseur ou client, quelque soit l'etat de la commande
             {
                 if (idPro.Ccf_Pro_Id == Convert.ToInt32(Lbl_Pro_Id.Text))  //recherche dans bdc
                 {
                     exist += 1;
-                    MessageBox.Show("Ce Produit est présent dans au moins une commande fournisseur ou client" + Environment.NewLine + "La suppression de ce Produit est annulée");
-                    break;
                 }
-                else
+            }
+
+            foreach (var idPro2 in contComWebListe)
+            {
+                if (idPro2.Ccc_Pro_Id == Convert.ToInt32(Lbl_Pro_Id.Text))  //recherche dans commande web
                 {
-                    /*foreach (var idPro2 in commandeClientListListe)  // recherche ds commande client
-                    {
-                        if (idFou2.Coc_Fou_Id == Convert.ToInt32(Lbl_Pro_Id.Text))  //recherche dans commande web
-                        {
-                            if (exist == 0)
-                            {
-                                MessageBox.Show("Ce Produit est présent dans au moins une commande fournisseur ou client" + Environment.NewLine + "La produit de ce fournisseur est annulée");
-                            }
-                            exist += 1;
-                            break;
-                        }
-                    }*/
+                    exist += 1;
                 }
             }
 
@@ -2721,6 +2722,8 @@ namespace DashBoard_Stive
             }
             else
             {
+                MessageBox.Show("Le produit est present dans au moins une commande Fournisseur ou une commande client" + Environment.NewLine
+                                + "La suppression est annulée");
                 Btn_SuppProduit.Enabled = true;
                 return;
             }

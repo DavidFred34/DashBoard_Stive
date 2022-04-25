@@ -139,17 +139,10 @@ namespace DashBoard_Stive
             this.Typ_Libelle2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_AjouterProduit = new System.Windows.Forms.Button();
             this.Dv_ListeProduit = new System.Windows.Forms.DataGridView();
-            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_CommandeAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fou_NomDomaine2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_IsWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button18 = new System.Windows.Forms.Button();
             this.panelClients = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
+            this.Lbl_Cli_Id = new System.Windows.Forms.Label();
             this.Txb_Nom2 = new System.Windows.Forms.TextBox();
             this.label21 = new System.Windows.Forms.Label();
             this.Txb_Mdp2 = new System.Windows.Forms.TextBox();
@@ -296,7 +289,6 @@ namespace DashBoard_Stive
             this.proNomDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.proRefDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.cocFouIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coc_Cli_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn29 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Coc_Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -304,6 +296,7 @@ namespace DashBoard_Stive
             this.contenuCommandeClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.label6 = new System.Windows.Forms.Label();
             this.Panel_CreerComWeb = new System.Windows.Forms.Panel();
+            this.Cbx_Client = new System.Windows.Forms.ComboBox();
             this.Lbl_Client = new System.Windows.Forms.Label();
             this.Cbx_Four2 = new System.Windows.Forms.ComboBox();
             this.label18 = new System.Windows.Forms.Label();
@@ -428,7 +421,14 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Cbx_Client = new System.Windows.Forms.ComboBox();
+            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_CommandeAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_NomDomaine2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_IsWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -1688,63 +1688,6 @@ namespace DashBoard_Stive
             this.Dv_ListeProduit.TabIndex = 6;
             this.Dv_ListeProduit.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_Produit_CellMouseClick);
             // 
-            // Pro_Nom
-            // 
-            this.Pro_Nom.DataPropertyName = "Pro_Nom";
-            this.Pro_Nom.HeaderText = "Pro_Nom";
-            this.Pro_Nom.Name = "Pro_Nom";
-            this.Pro_Nom.ReadOnly = true;
-            // 
-            // Pro_Typ_Id
-            // 
-            this.Pro_Typ_Id.DataPropertyName = "Pro_Typ_Id";
-            this.Pro_Typ_Id.HeaderText = "Pro_Typ_Id";
-            this.Pro_Typ_Id.Name = "Pro_Typ_Id";
-            this.Pro_Typ_Id.ReadOnly = true;
-            this.Pro_Typ_Id.Visible = false;
-            // 
-            // Pro_Quantite
-            // 
-            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
-            this.Pro_Quantite.HeaderText = "Pro_Quantite";
-            this.Pro_Quantite.Name = "Pro_Quantite";
-            this.Pro_Quantite.ReadOnly = true;
-            // 
-            // Pro_SeuilAlerte
-            // 
-            this.Pro_SeuilAlerte.DataPropertyName = "Pro_SeuilAlerte";
-            this.Pro_SeuilAlerte.HeaderText = "SeuilAlerte";
-            this.Pro_SeuilAlerte.Name = "Pro_SeuilAlerte";
-            this.Pro_SeuilAlerte.ReadOnly = true;
-            // 
-            // Pro_CommandeAuto
-            // 
-            this.Pro_CommandeAuto.DataPropertyName = "Pro_CommandeAuto";
-            this.Pro_CommandeAuto.HeaderText = "Pro_CommandeAuto";
-            this.Pro_CommandeAuto.Name = "Pro_CommandeAuto";
-            this.Pro_CommandeAuto.ReadOnly = true;
-            // 
-            // Typ_Libelle
-            // 
-            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
-            this.Typ_Libelle.HeaderText = "Typ_Libelle";
-            this.Typ_Libelle.Name = "Typ_Libelle";
-            this.Typ_Libelle.ReadOnly = true;
-            // 
-            // Fou_NomDomaine2
-            // 
-            this.Fou_NomDomaine2.DataPropertyName = "Fou_NomDomaine";
-            this.Fou_NomDomaine2.HeaderText = "Fou_NomDomaine";
-            this.Fou_NomDomaine2.Name = "Fou_NomDomaine2";
-            this.Fou_NomDomaine2.ReadOnly = true;
-            // 
-            // Pro_IsWeb
-            // 
-            this.Pro_IsWeb.DataPropertyName = "Pro_IsWeb";
-            this.Pro_IsWeb.HeaderText = "IsWeb";
-            this.Pro_IsWeb.Name = "Pro_IsWeb";
-            this.Pro_IsWeb.ReadOnly = true;
-            // 
             // button18
             // 
             this.button18.FlatAppearance.BorderSize = 0;
@@ -1772,6 +1715,7 @@ namespace DashBoard_Stive
             // 
             // panel15
             // 
+            this.panel15.Controls.Add(this.Lbl_Cli_Id);
             this.panel15.Controls.Add(this.Txb_Nom2);
             this.panel15.Controls.Add(this.label21);
             this.panel15.Controls.Add(this.Txb_Mdp2);
@@ -1804,6 +1748,18 @@ namespace DashBoard_Stive
             this.panel15.Name = "panel15";
             this.panel15.Size = new System.Drawing.Size(601, 740);
             this.panel15.TabIndex = 4;
+            // 
+            // Lbl_Cli_Id
+            // 
+            this.Lbl_Cli_Id.AutoSize = true;
+            this.Lbl_Cli_Id.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.Lbl_Cli_Id.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(44)))), ((int)(((byte)(130)))), ((int)(((byte)(201)))));
+            this.Lbl_Cli_Id.Location = new System.Drawing.Point(295, 181);
+            this.Lbl_Cli_Id.Name = "Lbl_Cli_Id";
+            this.Lbl_Cli_Id.Size = new System.Drawing.Size(52, 19);
+            this.Lbl_Cli_Id.TabIndex = 44;
+            this.Lbl_Cli_Id.Text = "Cli_Id";
+            this.Lbl_Cli_Id.Visible = false;
             // 
             // Txb_Nom2
             // 
@@ -2021,7 +1977,7 @@ namespace DashBoard_Stive
             // Txb_Adresse2
             // 
             this.Txb_Adresse2.Location = new System.Drawing.Point(110, 91);
-            this.Txb_Adresse2.MaxLength = 100;
+            this.Txb_Adresse2.MaxLength = 1000;
             this.Txb_Adresse2.Name = "Txb_Adresse2";
             this.Txb_Adresse2.Size = new System.Drawing.Size(127, 20);
             this.Txb_Adresse2.TabIndex = 12;
@@ -3106,7 +3062,6 @@ namespace DashBoard_Stive
             this.proNomDataGridViewTextBoxColumn2,
             this.proRefDataGridViewTextBoxColumn2,
             this.fouNomDomaineDataGridViewTextBoxColumn3,
-            this.cocFouIdDataGridViewTextBoxColumn,
             this.Coc_Cli_Id,
             this.dataGridViewTextBoxColumn29,
             this.Coc_Eta_Id,
@@ -3271,13 +3226,6 @@ namespace DashBoard_Stive
             this.fouNomDomaineDataGridViewTextBoxColumn3.Name = "fouNomDomaineDataGridViewTextBoxColumn3";
             this.fouNomDomaineDataGridViewTextBoxColumn3.ReadOnly = true;
             // 
-            // cocFouIdDataGridViewTextBoxColumn
-            // 
-            this.cocFouIdDataGridViewTextBoxColumn.DataPropertyName = "Coc_Fou_Id";
-            this.cocFouIdDataGridViewTextBoxColumn.HeaderText = "Coc_Fou_Id";
-            this.cocFouIdDataGridViewTextBoxColumn.Name = "cocFouIdDataGridViewTextBoxColumn";
-            this.cocFouIdDataGridViewTextBoxColumn.Visible = false;
-            // 
             // Coc_Cli_Id
             // 
             this.Coc_Cli_Id.DataPropertyName = "Coc_Cli_Id";
@@ -3336,6 +3284,18 @@ namespace DashBoard_Stive
             this.Panel_CreerComWeb.Name = "Panel_CreerComWeb";
             this.Panel_CreerComWeb.Size = new System.Drawing.Size(586, 106);
             this.Panel_CreerComWeb.TabIndex = 42;
+            // 
+            // Cbx_Client
+            // 
+            this.Cbx_Client.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
+            this.Cbx_Client.DataSource = this.clientBindingSource;
+            this.Cbx_Client.DisplayMember = "Cli_Nom";
+            this.Cbx_Client.FormattingEnabled = true;
+            this.Cbx_Client.Location = new System.Drawing.Point(136, 11);
+            this.Cbx_Client.Name = "Cbx_Client";
+            this.Cbx_Client.Size = new System.Drawing.Size(187, 21);
+            this.Cbx_Client.TabIndex = 48;
+            this.Cbx_Client.ValueMember = "Cli_Id";
             // 
             // Lbl_Client
             // 
@@ -4557,17 +4517,63 @@ namespace DashBoard_Stive
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
             // 
-            // Cbx_Client
+            // Pro_Nom
             // 
-            this.Cbx_Client.DataBindings.Add(new System.Windows.Forms.Binding("SelectedValue", this.produitBindingSource, "Pro_Nom", true));
-            this.Cbx_Client.DataSource = this.clientBindingSource;
-            this.Cbx_Client.DisplayMember = "Cli_Nom";
-            this.Cbx_Client.FormattingEnabled = true;
-            this.Cbx_Client.Location = new System.Drawing.Point(136, 11);
-            this.Cbx_Client.Name = "Cbx_Client";
-            this.Cbx_Client.Size = new System.Drawing.Size(187, 21);
-            this.Cbx_Client.TabIndex = 48;
-            this.Cbx_Client.ValueMember = "Cli_Id";
+            this.Pro_Nom.DataPropertyName = "Pro_Nom";
+            this.Pro_Nom.HeaderText = "Nom";
+            this.Pro_Nom.Name = "Pro_Nom";
+            this.Pro_Nom.ReadOnly = true;
+            // 
+            // Pro_Typ_Id
+            // 
+            this.Pro_Typ_Id.DataPropertyName = "Pro_Typ_Id";
+            this.Pro_Typ_Id.HeaderText = "Pro_Typ_Id";
+            this.Pro_Typ_Id.Name = "Pro_Typ_Id";
+            this.Pro_Typ_Id.ReadOnly = true;
+            this.Pro_Typ_Id.Visible = false;
+            // 
+            // Pro_Quantite
+            // 
+            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
+            this.Pro_Quantite.HeaderText = "Quantite";
+            this.Pro_Quantite.Name = "Pro_Quantite";
+            this.Pro_Quantite.ReadOnly = true;
+            // 
+            // Pro_SeuilAlerte
+            // 
+            this.Pro_SeuilAlerte.DataPropertyName = "Pro_SeuilAlerte";
+            this.Pro_SeuilAlerte.HeaderText = "Seuil Alerte";
+            this.Pro_SeuilAlerte.Name = "Pro_SeuilAlerte";
+            this.Pro_SeuilAlerte.ReadOnly = true;
+            // 
+            // Pro_CommandeAuto
+            // 
+            this.Pro_CommandeAuto.DataPropertyName = "Pro_CommandeAuto";
+            this.Pro_CommandeAuto.HeaderText = "Commande Auto";
+            this.Pro_CommandeAuto.Name = "Pro_CommandeAuto";
+            this.Pro_CommandeAuto.ReadOnly = true;
+            // 
+            // Typ_Libelle
+            // 
+            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
+            this.Typ_Libelle.HeaderText = "Type";
+            this.Typ_Libelle.Name = "Typ_Libelle";
+            this.Typ_Libelle.ReadOnly = true;
+            // 
+            // Fou_NomDomaine2
+            // 
+            this.Fou_NomDomaine2.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine2.HeaderText = "Fournisseur";
+            this.Fou_NomDomaine2.Name = "Fou_NomDomaine2";
+            this.Fou_NomDomaine2.ReadOnly = true;
+            // 
+            // Pro_IsWeb
+            // 
+            this.Pro_IsWeb.DataPropertyName = "Pro_IsWeb";
+            this.Pro_IsWeb.HeaderText = "IsWeb";
+            this.Pro_IsWeb.Name = "Pro_IsWeb";
+            this.Pro_IsWeb.ReadOnly = true;
+            this.Pro_IsWeb.Visible = false;
             // 
             // Dashboard
             // 
@@ -4576,12 +4582,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelCommandesWeb);
-            this.Controls.Add(this.panelBdc);
-            this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
+            this.Controls.Add(this.panelCommandesWeb);
+            this.Controls.Add(this.panelBdc);
+            this.Controls.Add(this.panelClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4900,14 +4906,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label21;
         private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Id;
         private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Typ_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Quantite;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_SeuilAlerte;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_CommandeAuto;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_IsWeb;
         private System.Windows.Forms.RadioButton Rbt_Tous;
         private System.Windows.Forms.Button Lbl_afficherBdc;
         private System.Windows.Forms.Button Btn_MajBdc;
@@ -5079,5 +5077,14 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn30;
         private System.Windows.Forms.Label Lbl_Client;
         private System.Windows.Forms.ComboBox Cbx_Client;
+        private System.Windows.Forms.Label Lbl_Cli_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Nom;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Typ_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Quantite;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_SeuilAlerte;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_CommandeAuto;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_IsWeb;
     }
 }
