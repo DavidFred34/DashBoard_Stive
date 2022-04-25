@@ -491,7 +491,7 @@ namespace DashBoard_Stive
                 response.EnsureSuccessStatusCode();
 
                 var contentCommande = await response.Content.ReadAsStringAsync();
-
+                comWebListe = null;
                 comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
 
                 //MessageBox.Show(contentCommande.ToString());  //controle du json
@@ -559,6 +559,7 @@ namespace DashBoard_Stive
             Cbx_EtatBdc.DataSource = etatListe;
             filtre_fourListe = fourListe;
             filtre_cliListe = cliListe;
+            Cbx_Client.DataSource = cliListe;
             filtre_prodListe = prodListe;
             Cbx_Four.SelectedItem = null;
             Cbx_Four2.SelectedItem = null;
@@ -1069,6 +1070,7 @@ namespace DashBoard_Stive
             Rbt_EnAttente2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            Dv_ComWeb.DataSource = null;
             Dv_ComWeb.DataSource = comWebListe;
       
             Cbx_Four2.DataSource = filtre_fourListe;
@@ -1237,10 +1239,10 @@ namespace DashBoard_Stive
             string token = Class.Globales.token.tokenRequete();  //recup du token
             var httpClient = new HttpClient();
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
-            var url = "https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php?Ccc_Coc_Id=" + majComWebListe.FirstOrDefault().Coc_Id;
+           // var url = "https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php?Ccc_Coc_Id=" + majComWebListe.FirstOrDefault().Coc_Id;
             var json = JsonConvert.SerializeObject(majComWebListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            MessageBox.Show(json.ToString());
+            //MessageBox.Show(json.ToString());
 
             //StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php", data);
@@ -1253,6 +1255,7 @@ namespace DashBoard_Stive
 
             Btn_MajComWeb.Enabled = true; //pb clics serie, fin
             //recharge la liste en simulant le click sur le bouton client
+            Dv_ListComWeb.Refresh() ;
             contenuComWebListe = null;
             Btn_Accueil.PerformClick();
             Btn_CommandesWeb.PerformClick();
@@ -1264,6 +1267,7 @@ namespace DashBoard_Stive
         private void Btn_ValiderProduit2_Click(object sender, EventArgs e)
         {
             Cbx_Four2.Enabled = false;
+           // Cbx_Client.DataSource = cliListe;
 
             try
             {
@@ -1273,18 +1277,33 @@ namespace DashBoard_Stive
                 {
                     ContenuCommandeClient newCont = new ContenuCommandeClient();
 
-
+                    newCont.Coc_Cli_Id = Convert.ToInt32(Cbx_Client.SelectedValue);
                     newCont.Ccc_Pro_Id = Convert.ToInt32(Cbx_Produit2.SelectedValue);
                     newCont.Ccc_Quantite = Convert.ToInt32(Tbx_qte2.Text);
                     newCont.Pro_Nom = Cbx_Produit2.Text;
 
-                    var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Pro_Ref.ToString());
-                    var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString());
-                    newCont.Pro_Ref = refe.FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
+                    //var refe = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Pro_Ref.ToString());
+                    //var utiId = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString());
+                    newCont.Pro_Ref = (from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Pro_Ref.ToString()).FirstOrDefault();// == Convert.ToInt32(Cbx_Four.SelectedValue);
                     //MessageBox.Show(Cbx_Four.SelectedValue.ToString());
                     newCont.Fou_NomDomaine = (string)Cbx_Four2.Text.ToString();
                     newCont.Coc_Fou_Id = Convert.ToInt32(Cbx_Four2.SelectedValue);
-                    newCont.Uti_Id = Convert.ToInt32(utiId.FirstOrDefault());
+                    newCont.Uti_Id = Convert.ToInt32((from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString()).FirstOrDefault());
+
+                    newCont.Uti_Adresse = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Adresse.ToString()).FirstOrDefault();
+                    newCont.Uti_CompAdresse = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_CompAdresse.ToString()).FirstOrDefault();
+                    newCont.Uti_Cp = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Cp.ToString()).FirstOrDefault();
+                    newCont.Uti_Ville = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Ville.ToString()).FirstOrDefault();
+                    newCont.Uti_Pays = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Pays.ToString()).FirstOrDefault();
+                    newCont.Uti_TelContact = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_TelContact.ToString()).FirstOrDefault();
+                    newCont.Uti_Mdp = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Mdp.ToString()).FirstOrDefault();
+                    newCont.Uti_MailContact = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_MailContact.ToString()).FirstOrDefault();
+                    newCont.Cli_Nom = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Cli_Nom.ToString()).FirstOrDefault();
+                    newCont.Cli_Prenom = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Cli_Prenom.ToString()).FirstOrDefault();
+                    newCont.Coc_Id = 0;
+                    newCont.Coc_Eta_Id = 2;
+                    newCont.Pro_Id = Convert.ToInt32(Cbx_Produit2.SelectedValue);
+                    newCont.Pro_Quantite = Convert.ToInt32(Tbx_qte2.Text);
 
                     newContenuComWebListe.Add(newCont);
                     MessageBox.Show("produit ajouté");
@@ -1350,15 +1369,31 @@ namespace DashBoard_Stive
                 //MessageBox.Show((string)Dv_DetailCommandeFournisseur.Rows[i].Cells[1].Value);
                 //newCont.Ccf_Cof_Id = newContenuBdcListe.Where(x=>x.Ccf_Cof_Id == );
                 newContenu.Ccc_Pro_Id = newCont.Ccc_Pro_Id;
-                newContenu.Coc_Cli_Id = newCont.Coc_Cli_Id;
-                newContenu.Ccc_Quantite = newCont.Ccc_Quantite;
                 newContenu.Pro_Nom = newCont.Pro_Nom;
+                newContenu.Ccc_Quantite = newCont.Ccc_Quantite;
                 newContenu.Pro_Ref = newCont.Pro_Ref;
+                newContenu.Coc_Cli_Id = newCont.Coc_Cli_Id;
+              
                 newContenu.Fou_NomDomaine = newCont.Fou_NomDomaine;
                 newContenu.Eta_Id = 2;
                 newContenu.Eta_Libelle = newCont.Eta_Libelle;
                 newContenu.Uti_Id = newCont.Uti_Id;
 
+                newContenu.Uti_Adresse = newCont.Uti_Adresse;
+                newContenu.Uti_CompAdresse = newCont.Uti_CompAdresse;
+                newContenu.Uti_Cp = newCont.Uti_Cp;
+                newContenu.Uti_Ville = newCont.Uti_Ville;
+                newContenu.Uti_Pays = newCont.Uti_Pays;
+                newContenu.Uti_TelContact = newCont.Uti_TelContact;
+                newContenu.Uti_Mdp = newCont.Uti_Mdp;
+                newContenu.Uti_MailContact = newCont.Uti_MailContact;
+                newContenu.Cli_Nom = newCont.Cli_Nom;
+                newContenu.Cli_Prenom = newCont.Cli_Prenom;
+                newContenu.Coc_Id = newCont.Coc_Id;
+                newContenu.Coc_Cli_Id = newCont.Coc_Cli_Id;
+                newContenu.Coc_Eta_Id = Cbx_EtatComWeb.SelectedIndex + 1;
+                newContenu.Pro_Id = newCont.Pro_Id;
+                newContenu.Pro_Quantite = newCont.Pro_Quantite;
 
 
                 newContListe.Add(newContenu);
@@ -1374,8 +1409,8 @@ namespace DashBoard_Stive
             MessageBox.Show(json.ToString());
             //Tbx_Json.Visible = true;
 
-            StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
-            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeClient/ajouter.php", data);
+            //StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
+            var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/CommandeClient/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
                 MessageBox.Show("Commande Créée");
