@@ -62,24 +62,24 @@ namespace DashBoard_Stive
             }
         }
 
-
-
+        IList<string> etatListe;
         List<TypeProduit> typListe;
         List<Produit> prodListe;
+        List<Produit> filtre_prodListe;
         List<Fournisseur> fourListe;
         List<Fournisseur> filtre_fourListe;
-        List<Produit> filtre_prodListe;
         List<Client> cliListe;
         List<Client> filtre_cliListe;
         List<CommandeFournisseur> bdcListe;
         List<CommandeFournisseur> filtre_bdcListe;
         List<CommandeFournisseur> bdcEnCoursListe;
-        IList<string> etatListe;
         List<ContenuCommandeFournisseur> contBdcListe;
+        List<ContenuCommandeFournisseur> contenuBdcListe;
         List<CommandeClient> comWebListe;
         List<CommandeClient> filtre_comWebListe;
         List<CommandeClient> comWebEnCoursListe;
         List<ContenuCommandeClient> contComWebListe;
+        List<ContenuCommandeClient> contenuComWebListe;
         List<Inventaire> invListe;
 
         #region //Gestion affichage btn menu, stamper et methode affichage
@@ -491,7 +491,7 @@ namespace DashBoard_Stive
                 response.EnsureSuccessStatusCode();
 
                 var contentCommande = await response.Content.ReadAsStringAsync();
-                comWebListe = null;
+                //comWebListe = null;
                 comWebListe = JsonConvert.DeserializeObject<List<CommandeClient>>(contentCommande);
 
                 //MessageBox.Show(contentCommande.ToString());  //controle du json
@@ -553,6 +553,8 @@ namespace DashBoard_Stive
             Dv_TypeProduit.DataSource = typListe;
             Dv_fournisseur.DataSource = fourListe;
             Dv_ListeProduit.DataSource = prodListe;
+            Dv_CommandeFournisseur.DataSource = bdcListe;
+            Dv_ComWeb.DataSource = comWebListe;
             Cbx_TypeProduit.DataSource = typListe;
             Cbx_ProposePar.DataSource = fourListe;
             Dv_ListClient.DataSource = cliListe;
@@ -706,8 +708,10 @@ namespace DashBoard_Stive
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
-            Dv_CommandeFournisseur.DataSource = null;
-            Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+           // Dv_CommandeFournisseur.DataSource = null;
+
+            // modif  Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+            //Dv_CommandeFournisseur.DataSource = bdcListe;
 
             Cbx_Four.DataSource = filtre_fourListe;
            
@@ -1070,7 +1074,6 @@ namespace DashBoard_Stive
             Cbx_Four.Enabled = true;
         }
         #endregion
-        List<ContenuCommandeFournisseur> contenuBdcListe;
 
         #region//Gestion Commande web
         private void Btn_CommandesWeb_Click(object sender, EventArgs e)
@@ -1098,8 +1101,8 @@ namespace DashBoard_Stive
             Rbt_EnAttente2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre2.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
-            Dv_ComWeb.DataSource = null;
-            Dv_ComWeb.DataSource = comWebListe;
+           // Dv_ComWeb.DataSource = null;
+           // Dv_ComWeb.DataSource = comWebListe;
       
             Cbx_Four2.DataSource = filtre_fourListe;
 
@@ -1465,7 +1468,6 @@ namespace DashBoard_Stive
             Cbx_Four2.Enabled = true;
         }
         #endregion
-        List<ContenuCommandeClient> contenuComWebListe;
         #region//Gestion fournisseur
         public void Btn_Fournisseurs_Click(object sender, EventArgs e)
         {
@@ -2922,7 +2924,7 @@ namespace DashBoard_Stive
 
         ///////////////////////////////////////////////////
 
-        #region//Gestion de la sasie numeric des textBox et format mail
+        #region//Gestion de la saisie numeric des textBox et format mail
         private void Txb_TelContact_KeyPress(object sender, KeyPressEventArgs e)
         {
             if (!char.IsControl(e.KeyChar) && !char.IsDigit(e.KeyChar) &&

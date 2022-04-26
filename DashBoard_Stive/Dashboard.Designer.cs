@@ -218,6 +218,15 @@ namespace DashBoard_Stive
             this.Btn_MajBdc = new System.Windows.Forms.Button();
             this.labelDetailBdc = new System.Windows.Forms.Label();
             this.Dv_DetailCommandeFournisseur = new System.Windows.Forms.DataGridView();
+            this.Ccf_Cof_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccf_Pro_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccfQuantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FouNomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenuCommandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelNumBdc = new System.Windows.Forms.Label();
             this.Panel_CreerBdc = new System.Windows.Forms.Panel();
@@ -420,15 +429,6 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccf_Cof_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccf_Pro_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccfQuantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FouNomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -2538,6 +2538,70 @@ namespace DashBoard_Stive
             this.Dv_DetailCommandeFournisseur.Size = new System.Drawing.Size(585, 513);
             this.Dv_DetailCommandeFournisseur.TabIndex = 7;
             // 
+            // Ccf_Cof_Id
+            // 
+            this.Ccf_Cof_Id.DataPropertyName = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.HeaderText = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.Name = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.ReadOnly = true;
+            this.Ccf_Cof_Id.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn6
+            // 
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pro_Nom";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Produit";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
+            // 
+            // Pro_Ref
+            // 
+            this.Pro_Ref.DataPropertyName = "Pro_Ref";
+            this.Pro_Ref.HeaderText = "Ref";
+            this.Pro_Ref.Name = "Pro_Ref";
+            this.Pro_Ref.ReadOnly = true;
+            // 
+            // Ccf_Pro_Id
+            // 
+            this.Ccf_Pro_Id.DataPropertyName = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.HeaderText = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.Name = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.Visible = false;
+            // 
+            // ccfQuantiteDataGridViewTextBoxColumn
+            // 
+            this.ccfQuantiteDataGridViewTextBoxColumn.DataPropertyName = "Ccf_Quantite";
+            this.ccfQuantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
+            this.ccfQuantiteDataGridViewTextBoxColumn.Name = "ccfQuantiteDataGridViewTextBoxColumn";
+            this.ccfQuantiteDataGridViewTextBoxColumn.ReadOnly = true;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Uti_Id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Uti_Id";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Visible = false;
+            // 
+            // FouNomDomaine
+            // 
+            this.FouNomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.FouNomDomaine.HeaderText = "Fournisseur";
+            this.FouNomDomaine.Name = "FouNomDomaine";
+            this.FouNomDomaine.ReadOnly = true;
+            // 
+            // Eta_Id
+            // 
+            this.Eta_Id.DataPropertyName = "Eta_Id";
+            this.Eta_Id.HeaderText = "Eta_Id";
+            this.Eta_Id.Name = "Eta_Id";
+            this.Eta_Id.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Visible = false;
+            // 
             // contenuCommandeFournisseurBindingSource
             // 
             this.contenuCommandeFournisseurBindingSource.DataSource = typeof(DashBoard_Stive.ContenuCommandeFournisseur);
@@ -4552,70 +4616,6 @@ namespace DashBoard_Stive
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
             // 
-            // Ccf_Cof_Id
-            // 
-            this.Ccf_Cof_Id.DataPropertyName = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.HeaderText = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.Name = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.ReadOnly = true;
-            this.Ccf_Cof_Id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pro_Nom";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Produit";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // Pro_Ref
-            // 
-            this.Pro_Ref.DataPropertyName = "Pro_Ref";
-            this.Pro_Ref.HeaderText = "Ref";
-            this.Pro_Ref.Name = "Pro_Ref";
-            this.Pro_Ref.ReadOnly = true;
-            // 
-            // Ccf_Pro_Id
-            // 
-            this.Ccf_Pro_Id.DataPropertyName = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.HeaderText = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.Name = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.Visible = false;
-            // 
-            // ccfQuantiteDataGridViewTextBoxColumn
-            // 
-            this.ccfQuantiteDataGridViewTextBoxColumn.DataPropertyName = "Ccf_Quantite";
-            this.ccfQuantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
-            this.ccfQuantiteDataGridViewTextBoxColumn.Name = "ccfQuantiteDataGridViewTextBoxColumn";
-            this.ccfQuantiteDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Uti_Id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Uti_Id";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            // 
-            // FouNomDomaine
-            // 
-            this.FouNomDomaine.DataPropertyName = "Fou_NomDomaine";
-            this.FouNomDomaine.HeaderText = "Fournisseur";
-            this.FouNomDomaine.Name = "FouNomDomaine";
-            this.FouNomDomaine.ReadOnly = true;
-            // 
-            // Eta_Id
-            // 
-            this.Eta_Id.DataPropertyName = "Eta_Id";
-            this.Eta_Id.HeaderText = "Eta_Id";
-            this.Eta_Id.Name = "Eta_Id";
-            this.Eta_Id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Visible = false;
-            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -4623,12 +4623,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelCommandesWeb);
             this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
-            this.Controls.Add(this.panelCommandesWeb);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
