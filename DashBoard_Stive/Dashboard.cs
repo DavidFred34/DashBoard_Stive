@@ -1475,7 +1475,9 @@ namespace DashBoard_Stive
             newContenuComWebListe.Clear();
             Cbx_Four2.Enabled = true;
         }
+
         #endregion
+
         #region//Gestion fournisseur
         public void Btn_Fournisseurs_Click(object sender, EventArgs e)
         {
