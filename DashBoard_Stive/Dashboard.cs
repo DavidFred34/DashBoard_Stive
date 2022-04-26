@@ -27,8 +27,7 @@ namespace DashBoard_Stive
         {
             pictureBoxLogo.ImageLocation = "../../images/logoStive.png";  //logo panneau gauche
             pictureBoxProduit.ImageLocation = "../../images/imgProduitDefault.png";   // image produit par defaut
-            //pictureBoxUser.ImageLocation = "../../images/concombres01.png";
-            //pictureBoxProduit.ImageLocation = "../../images/VinRouge.jpg";
+
 
             /* System.Data.DataTable dataTable = new System.Data.DataTable();
              dataTable.Columns.Add(supp DataColumn("Couleur", typeof(string)));
