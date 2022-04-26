@@ -759,7 +759,7 @@ namespace DashBoard_Stive
         }
         
         private void radioButtons_CheckedChanged(object sender, EventArgs e) //pour bdc et comWeb
-        {
+        {//Tbx_CherchComWeb,   Tbx_CherchBdc
             if (bdcListe != null)
             {
                 RadioButton radioButton = sender as RadioButton;
@@ -768,21 +768,25 @@ namespace DashBoard_Stive
                 {
                     filtre_bdcListe = bdcListe;
                     Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                    Tbx_CherchBdc.Enabled = true;
                 }
                 else if (Rbt_Avalider.Checked)
                 {
                     filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 2 || x.Cof_Eta_Id == 5).ToList();
                     Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                    Tbx_CherchBdc.Enabled = false;
                 }
                 else if (Rbt_Livre.Checked)
                 {
                     filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 3).ToList();
                     Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                    Tbx_CherchBdc.Enabled = false;
                 }
                 else if (Rbt_Autre.Checked)
                 {
                     filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 1 || x.Cof_Eta_Id == 4).ToList();
                     Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                    Tbx_CherchBdc.Enabled = false;
                 }
             }
             if (comWebListe != null)
@@ -792,21 +796,25 @@ namespace DashBoard_Stive
                 {
                     filtre_comWebListe = comWebListe;
                     Dv_ComWeb.DataSource = filtre_comWebListe;
+                    Tbx_CherchComWeb.Enabled = true;
                 }
                 else if (Rbt_EnAttente2.Checked)
                 {
                     filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 2 || x.Coc_Eta_Id == 5).ToList();
                     Dv_ComWeb.DataSource = filtre_comWebListe;
+                    Tbx_CherchComWeb.Enabled = false;
                 }
                 else if (Rbt_Livre2.Checked)
                 {
                     filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 3).ToList();
                     Dv_ComWeb.DataSource = filtre_comWebListe;
+                    Tbx_CherchComWeb.Enabled = false;
                 }
                 else if (Rbt_Autre2.Checked)
                 {
                     filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 1 || x.Coc_Eta_Id == 4).ToList();
                     Dv_ComWeb.DataSource = filtre_comWebListe;
+                    Tbx_CherchComWeb.Enabled = false;
                 }
             }
         }
