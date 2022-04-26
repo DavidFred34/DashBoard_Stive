@@ -60,15 +60,16 @@ namespace DashBoard_Stive
             this.produitBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv_ComWebEnCours = new System.Windows.Forms.DataGridView();
             this.cocIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn23 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn24 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cocFouIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn25 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn28 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commandeClientBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Dv_BdcEnCours = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.etaLibelleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cofIdDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cofDateCreationDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -77,7 +78,6 @@ namespace DashBoard_Stive
             this.utiIdDataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.fouNomDomaineDataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.cofEtaIdDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.etaLibelleDataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.commandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.Lbl_nbProduit = new System.Windows.Forms.Label();
             this.Lbl_nbFournisseur = new System.Windows.Forms.Label();
@@ -139,6 +139,14 @@ namespace DashBoard_Stive
             this.Typ_Libelle2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Btn_AjouterProduit = new System.Windows.Forms.Button();
             this.Dv_ListeProduit = new System.Windows.Forms.DataGridView();
+            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_CommandeAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Fou_NomDomaine2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_IsWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.button18 = new System.Windows.Forms.Button();
             this.panelClients = new System.Windows.Forms.Panel();
             this.panel15 = new System.Windows.Forms.Panel();
@@ -210,15 +218,6 @@ namespace DashBoard_Stive
             this.Btn_MajBdc = new System.Windows.Forms.Button();
             this.labelDetailBdc = new System.Windows.Forms.Label();
             this.Dv_DetailCommandeFournisseur = new System.Windows.Forms.DataGridView();
-            this.Ccf_Cof_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Ccf_Pro_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.ccfQuantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.FouNomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.contenuCommandeFournisseurBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.labelNumBdc = new System.Windows.Forms.Label();
             this.Panel_CreerBdc = new System.Windows.Forms.Panel();
@@ -421,14 +420,15 @@ namespace DashBoard_Stive
             this.Cof_Id2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Cof_DateMaj = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.Eta_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Nom = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Typ_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_Quantite = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_SeuilAlerte = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_CommandeAuto = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Typ_Libelle = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Fou_NomDomaine2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Pro_IsWeb = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccf_Cof_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Pro_Ref = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Ccf_Pro_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.ccfQuantiteDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.FouNomDomaine = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Eta_Id = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.panelMenu.SuspendLayout();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUser)).BeginInit();
@@ -822,12 +822,12 @@ namespace DashBoard_Stive
             this.Dv_ComWebEnCours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_ComWebEnCours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.cocIdDataGridViewTextBoxColumn1,
+            this.dataGridViewTextBoxColumn28,
             this.dataGridViewTextBoxColumn23,
             this.dataGridViewTextBoxColumn24,
             this.cocFouIdDataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn25,
-            this.fouNomDomaineDataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn28});
+            this.fouNomDomaineDataGridViewTextBoxColumn4});
             this.Dv_ComWebEnCours.DataSource = this.commandeClientBindingSource;
             this.Dv_ComWebEnCours.Location = new System.Drawing.Point(21, 445);
             this.Dv_ComWebEnCours.Name = "Dv_ComWebEnCours";
@@ -842,6 +842,14 @@ namespace DashBoard_Stive
             this.cocIdDataGridViewTextBoxColumn1.HeaderText = "Id";
             this.cocIdDataGridViewTextBoxColumn1.Name = "cocIdDataGridViewTextBoxColumn1";
             this.cocIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cocIdDataGridViewTextBoxColumn1.Width = 50;
+            // 
+            // dataGridViewTextBoxColumn28
+            // 
+            this.dataGridViewTextBoxColumn28.DataPropertyName = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn28.HeaderText = "Etat";
+            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
+            this.dataGridViewTextBoxColumn28.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn23
             // 
@@ -881,14 +889,6 @@ namespace DashBoard_Stive
             this.fouNomDomaineDataGridViewTextBoxColumn4.ReadOnly = true;
             this.fouNomDomaineDataGridViewTextBoxColumn4.Visible = false;
             // 
-            // dataGridViewTextBoxColumn28
-            // 
-            this.dataGridViewTextBoxColumn28.DataPropertyName = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn28.HeaderText = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn28.Name = "dataGridViewTextBoxColumn28";
-            this.dataGridViewTextBoxColumn28.ReadOnly = true;
-            this.dataGridViewTextBoxColumn28.Visible = false;
-            // 
             // commandeClientBindingSource
             // 
             this.commandeClientBindingSource.DataSource = typeof(DashBoard_Stive.CommandeClient);
@@ -899,6 +899,7 @@ namespace DashBoard_Stive
             this.Dv_BdcEnCours.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.Dv_BdcEnCours.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn8,
+            this.etaLibelleDataGridViewTextBoxColumn1,
             this.dataGridViewTextBoxColumn14,
             this.cofIdDataGridViewTextBoxColumn1,
             this.cofDateCreationDataGridViewTextBoxColumn,
@@ -906,8 +907,7 @@ namespace DashBoard_Stive
             this.cofFouIdDataGridViewTextBoxColumn,
             this.utiIdDataGridViewTextBoxColumn2,
             this.fouNomDomaineDataGridViewTextBoxColumn5,
-            this.cofEtaIdDataGridViewTextBoxColumn,
-            this.etaLibelleDataGridViewTextBoxColumn1});
+            this.cofEtaIdDataGridViewTextBoxColumn});
             this.Dv_BdcEnCours.DataSource = this.commandeFournisseurBindingSource;
             this.Dv_BdcEnCours.Location = new System.Drawing.Point(21, 152);
             this.Dv_BdcEnCours.Name = "Dv_BdcEnCours";
@@ -922,6 +922,14 @@ namespace DashBoard_Stive
             this.dataGridViewTextBoxColumn8.HeaderText = "Id";
             this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
             this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 50;
+            // 
+            // etaLibelleDataGridViewTextBoxColumn1
+            // 
+            this.etaLibelleDataGridViewTextBoxColumn1.DataPropertyName = "Eta_Libelle";
+            this.etaLibelleDataGridViewTextBoxColumn1.HeaderText = "Etat";
+            this.etaLibelleDataGridViewTextBoxColumn1.Name = "etaLibelleDataGridViewTextBoxColumn1";
+            this.etaLibelleDataGridViewTextBoxColumn1.ReadOnly = true;
             // 
             // dataGridViewTextBoxColumn14
             // 
@@ -936,6 +944,7 @@ namespace DashBoard_Stive
             this.cofIdDataGridViewTextBoxColumn1.HeaderText = "Cof_Id";
             this.cofIdDataGridViewTextBoxColumn1.Name = "cofIdDataGridViewTextBoxColumn1";
             this.cofIdDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cofIdDataGridViewTextBoxColumn1.Visible = false;
             // 
             // cofDateCreationDataGridViewTextBoxColumn
             // 
@@ -943,6 +952,7 @@ namespace DashBoard_Stive
             this.cofDateCreationDataGridViewTextBoxColumn.HeaderText = "Cof_DateCreation";
             this.cofDateCreationDataGridViewTextBoxColumn.Name = "cofDateCreationDataGridViewTextBoxColumn";
             this.cofDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cofDateCreationDataGridViewTextBoxColumn.Visible = false;
             // 
             // cofDateMajDataGridViewTextBoxColumn1
             // 
@@ -950,6 +960,7 @@ namespace DashBoard_Stive
             this.cofDateMajDataGridViewTextBoxColumn1.HeaderText = "Cof_DateMaj";
             this.cofDateMajDataGridViewTextBoxColumn1.Name = "cofDateMajDataGridViewTextBoxColumn1";
             this.cofDateMajDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cofDateMajDataGridViewTextBoxColumn1.Visible = false;
             // 
             // cofFouIdDataGridViewTextBoxColumn
             // 
@@ -957,6 +968,7 @@ namespace DashBoard_Stive
             this.cofFouIdDataGridViewTextBoxColumn.HeaderText = "Cof_Fou_Id";
             this.cofFouIdDataGridViewTextBoxColumn.Name = "cofFouIdDataGridViewTextBoxColumn";
             this.cofFouIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.cofFouIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiIdDataGridViewTextBoxColumn2
             // 
@@ -964,6 +976,7 @@ namespace DashBoard_Stive
             this.utiIdDataGridViewTextBoxColumn2.HeaderText = "Uti_Id";
             this.utiIdDataGridViewTextBoxColumn2.Name = "utiIdDataGridViewTextBoxColumn2";
             this.utiIdDataGridViewTextBoxColumn2.ReadOnly = true;
+            this.utiIdDataGridViewTextBoxColumn2.Visible = false;
             // 
             // fouNomDomaineDataGridViewTextBoxColumn5
             // 
@@ -971,6 +984,7 @@ namespace DashBoard_Stive
             this.fouNomDomaineDataGridViewTextBoxColumn5.HeaderText = "Fou_NomDomaine";
             this.fouNomDomaineDataGridViewTextBoxColumn5.Name = "fouNomDomaineDataGridViewTextBoxColumn5";
             this.fouNomDomaineDataGridViewTextBoxColumn5.ReadOnly = true;
+            this.fouNomDomaineDataGridViewTextBoxColumn5.Visible = false;
             // 
             // cofEtaIdDataGridViewTextBoxColumn
             // 
@@ -978,13 +992,7 @@ namespace DashBoard_Stive
             this.cofEtaIdDataGridViewTextBoxColumn.HeaderText = "Cof_Eta_Id";
             this.cofEtaIdDataGridViewTextBoxColumn.Name = "cofEtaIdDataGridViewTextBoxColumn";
             this.cofEtaIdDataGridViewTextBoxColumn.ReadOnly = true;
-            // 
-            // etaLibelleDataGridViewTextBoxColumn1
-            // 
-            this.etaLibelleDataGridViewTextBoxColumn1.DataPropertyName = "Eta_Libelle";
-            this.etaLibelleDataGridViewTextBoxColumn1.HeaderText = "Eta_Libelle";
-            this.etaLibelleDataGridViewTextBoxColumn1.Name = "etaLibelleDataGridViewTextBoxColumn1";
-            this.etaLibelleDataGridViewTextBoxColumn1.ReadOnly = true;
+            this.cofEtaIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // commandeFournisseurBindingSource
             // 
@@ -1643,6 +1651,7 @@ namespace DashBoard_Stive
             this.Typ_Id.HeaderText = "Id";
             this.Typ_Id.Name = "Typ_Id";
             this.Typ_Id.ReadOnly = true;
+            this.Typ_Id.Width = 50;
             // 
             // Typ_Libelle2
             // 
@@ -1650,6 +1659,7 @@ namespace DashBoard_Stive
             this.Typ_Libelle2.HeaderText = "Libelle";
             this.Typ_Libelle2.Name = "Typ_Libelle2";
             this.Typ_Libelle2.ReadOnly = true;
+            this.Typ_Libelle2.Width = 250;
             // 
             // Btn_AjouterProduit
             // 
@@ -1687,6 +1697,64 @@ namespace DashBoard_Stive
             this.Dv_ListeProduit.Size = new System.Drawing.Size(598, 367);
             this.Dv_ListeProduit.TabIndex = 6;
             this.Dv_ListeProduit.CellMouseClick += new System.Windows.Forms.DataGridViewCellMouseEventHandler(this.Dv_Produit_CellMouseClick);
+            // 
+            // Pro_Nom
+            // 
+            this.Pro_Nom.DataPropertyName = "Pro_Nom";
+            this.Pro_Nom.HeaderText = "Nom";
+            this.Pro_Nom.Name = "Pro_Nom";
+            this.Pro_Nom.ReadOnly = true;
+            // 
+            // Pro_Typ_Id
+            // 
+            this.Pro_Typ_Id.DataPropertyName = "Pro_Typ_Id";
+            this.Pro_Typ_Id.HeaderText = "Pro_Typ_Id";
+            this.Pro_Typ_Id.Name = "Pro_Typ_Id";
+            this.Pro_Typ_Id.ReadOnly = true;
+            this.Pro_Typ_Id.Visible = false;
+            // 
+            // Pro_Quantite
+            // 
+            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
+            this.Pro_Quantite.HeaderText = "Quantite";
+            this.Pro_Quantite.Name = "Pro_Quantite";
+            this.Pro_Quantite.ReadOnly = true;
+            // 
+            // Pro_SeuilAlerte
+            // 
+            this.Pro_SeuilAlerte.DataPropertyName = "Pro_SeuilAlerte";
+            this.Pro_SeuilAlerte.HeaderText = "Seuil Alerte";
+            this.Pro_SeuilAlerte.Name = "Pro_SeuilAlerte";
+            this.Pro_SeuilAlerte.ReadOnly = true;
+            // 
+            // Pro_CommandeAuto
+            // 
+            this.Pro_CommandeAuto.DataPropertyName = "Pro_CommandeAuto";
+            this.Pro_CommandeAuto.HeaderText = "Commande Auto";
+            this.Pro_CommandeAuto.Name = "Pro_CommandeAuto";
+            this.Pro_CommandeAuto.ReadOnly = true;
+            // 
+            // Typ_Libelle
+            // 
+            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
+            this.Typ_Libelle.HeaderText = "Type";
+            this.Typ_Libelle.Name = "Typ_Libelle";
+            this.Typ_Libelle.ReadOnly = true;
+            // 
+            // Fou_NomDomaine2
+            // 
+            this.Fou_NomDomaine2.DataPropertyName = "Fou_NomDomaine";
+            this.Fou_NomDomaine2.HeaderText = "Fournisseur";
+            this.Fou_NomDomaine2.Name = "Fou_NomDomaine2";
+            this.Fou_NomDomaine2.ReadOnly = true;
+            // 
+            // Pro_IsWeb
+            // 
+            this.Pro_IsWeb.DataPropertyName = "Pro_IsWeb";
+            this.Pro_IsWeb.HeaderText = "IsWeb";
+            this.Pro_IsWeb.Name = "Pro_IsWeb";
+            this.Pro_IsWeb.ReadOnly = true;
+            this.Pro_IsWeb.Visible = false;
             // 
             // button18
             // 
@@ -2469,69 +2537,6 @@ namespace DashBoard_Stive
             this.Dv_DetailCommandeFournisseur.Name = "Dv_DetailCommandeFournisseur";
             this.Dv_DetailCommandeFournisseur.Size = new System.Drawing.Size(585, 513);
             this.Dv_DetailCommandeFournisseur.TabIndex = 7;
-            // 
-            // Ccf_Cof_Id
-            // 
-            this.Ccf_Cof_Id.DataPropertyName = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.HeaderText = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.Name = "Ccf_Cof_Id";
-            this.Ccf_Cof_Id.ReadOnly = true;
-            this.Ccf_Cof_Id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pro_Nom";
-            this.dataGridViewTextBoxColumn6.HeaderText = "Produit";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            // 
-            // Pro_Ref
-            // 
-            this.Pro_Ref.DataPropertyName = "Pro_Ref";
-            this.Pro_Ref.HeaderText = "Ref";
-            this.Pro_Ref.Name = "Pro_Ref";
-            this.Pro_Ref.ReadOnly = true;
-            // 
-            // Ccf_Pro_Id
-            // 
-            this.Ccf_Pro_Id.DataPropertyName = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.HeaderText = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.Name = "Ccf_Pro_Id";
-            this.Ccf_Pro_Id.Visible = false;
-            // 
-            // ccfQuantiteDataGridViewTextBoxColumn
-            // 
-            this.ccfQuantiteDataGridViewTextBoxColumn.DataPropertyName = "Ccf_Quantite";
-            this.ccfQuantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
-            this.ccfQuantiteDataGridViewTextBoxColumn.Name = "ccfQuantiteDataGridViewTextBoxColumn";
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Uti_Id";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Uti_Id";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Visible = false;
-            // 
-            // FouNomDomaine
-            // 
-            this.FouNomDomaine.DataPropertyName = "Fou_NomDomaine";
-            this.FouNomDomaine.HeaderText = "Fournisseur";
-            this.FouNomDomaine.Name = "FouNomDomaine";
-            this.FouNomDomaine.ReadOnly = true;
-            // 
-            // Eta_Id
-            // 
-            this.Eta_Id.DataPropertyName = "Eta_Id";
-            this.Eta_Id.HeaderText = "Eta_Id";
-            this.Eta_Id.Name = "Eta_Id";
-            this.Eta_Id.Visible = false;
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Eta_Libelle";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // contenuCommandeFournisseurBindingSource
             // 
@@ -4104,6 +4109,7 @@ namespace DashBoard_Stive
             this.Cof_Id.HeaderText = "Id";
             this.Cof_Id.Name = "Cof_Id";
             this.Cof_Id.ReadOnly = true;
+            this.Cof_Id.Width = 50;
             // 
             // Etat
             // 
@@ -4252,7 +4258,7 @@ namespace DashBoard_Stive
             // 
             this.Fou_NomDomaine.DataPropertyName = "Fou_NomDomaine";
             this.Fou_NomDomaine.Frozen = true;
-            this.Fou_NomDomaine.HeaderText = "Fou_NomDomaine";
+            this.Fou_NomDomaine.HeaderText = "Fournisseur";
             this.Fou_NomDomaine.Name = "Fou_NomDomaine";
             this.Fou_NomDomaine.ReadOnly = true;
             // 
@@ -4260,7 +4266,7 @@ namespace DashBoard_Stive
             // 
             this.Fou_NomResp.DataPropertyName = "Fou_NomResp";
             this.Fou_NomResp.Frozen = true;
-            this.Fou_NomResp.HeaderText = "Fou_NomResp";
+            this.Fou_NomResp.HeaderText = "Responsable";
             this.Fou_NomResp.Name = "Fou_NomResp";
             this.Fou_NomResp.ReadOnly = true;
             // 
@@ -4268,7 +4274,7 @@ namespace DashBoard_Stive
             // 
             this.Fou_TelResp.DataPropertyName = "Fou_TelResp";
             this.Fou_TelResp.Frozen = true;
-            this.Fou_TelResp.HeaderText = "Fou_TelResp";
+            this.Fou_TelResp.HeaderText = "Tel";
             this.Fou_TelResp.Name = "Fou_TelResp";
             this.Fou_TelResp.ReadOnly = true;
             // 
@@ -4276,7 +4282,7 @@ namespace DashBoard_Stive
             // 
             this.Fou_MailResp.DataPropertyName = "Fou_MailResp";
             this.Fou_MailResp.Frozen = true;
-            this.Fou_MailResp.HeaderText = "Fou_MailResp";
+            this.Fou_MailResp.HeaderText = "Mail";
             this.Fou_MailResp.Name = "Fou_MailResp";
             this.Fou_MailResp.ReadOnly = true;
             // 
@@ -4284,7 +4290,7 @@ namespace DashBoard_Stive
             // 
             this.Uti_Cp.DataPropertyName = "Uti_Cp";
             this.Uti_Cp.Frozen = true;
-            this.Uti_Cp.HeaderText = "Uti_Cp";
+            this.Uti_Cp.HeaderText = "CP";
             this.Uti_Cp.Name = "Uti_Cp";
             this.Uti_Cp.ReadOnly = true;
             // 
@@ -4292,7 +4298,7 @@ namespace DashBoard_Stive
             // 
             this.Uti_Ville.DataPropertyName = "Uti_Ville";
             this.Uti_Ville.Frozen = true;
-            this.Uti_Ville.HeaderText = "Uti_Ville";
+            this.Uti_Ville.HeaderText = "Ville";
             this.Uti_Ville.Name = "Uti_Ville";
             this.Uti_Ville.ReadOnly = true;
             // 
@@ -4302,6 +4308,7 @@ namespace DashBoard_Stive
             this.fouIdDataGridViewTextBoxColumn.HeaderText = "Fou_Id";
             this.fouIdDataGridViewTextBoxColumn.Name = "fouIdDataGridViewTextBoxColumn";
             this.fouIdDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouIdDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouNomDomaineDataGridViewTextBoxColumn
             // 
@@ -4309,6 +4316,7 @@ namespace DashBoard_Stive
             this.fouNomDomaineDataGridViewTextBoxColumn.HeaderText = "Fou_NomDomaine";
             this.fouNomDomaineDataGridViewTextBoxColumn.Name = "fouNomDomaineDataGridViewTextBoxColumn";
             this.fouNomDomaineDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouNomDomaineDataGridViewTextBoxColumn.Visible = false;
             // 
             // nomDomaineDataGridViewTextBoxColumn
             // 
@@ -4316,6 +4324,7 @@ namespace DashBoard_Stive
             this.nomDomaineDataGridViewTextBoxColumn.HeaderText = "NomDomaine";
             this.nomDomaineDataGridViewTextBoxColumn.Name = "nomDomaineDataGridViewTextBoxColumn";
             this.nomDomaineDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomDomaineDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouNomRespDataGridViewTextBoxColumn
             // 
@@ -4323,6 +4332,7 @@ namespace DashBoard_Stive
             this.fouNomRespDataGridViewTextBoxColumn.HeaderText = "Fou_NomResp";
             this.fouNomRespDataGridViewTextBoxColumn.Name = "fouNomRespDataGridViewTextBoxColumn";
             this.fouNomRespDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouNomRespDataGridViewTextBoxColumn.Visible = false;
             // 
             // nomRespDataGridViewTextBoxColumn
             // 
@@ -4330,6 +4340,7 @@ namespace DashBoard_Stive
             this.nomRespDataGridViewTextBoxColumn.HeaderText = "NomResp";
             this.nomRespDataGridViewTextBoxColumn.Name = "nomRespDataGridViewTextBoxColumn";
             this.nomRespDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nomRespDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouTelRespDataGridViewTextBoxColumn
             // 
@@ -4337,6 +4348,7 @@ namespace DashBoard_Stive
             this.fouTelRespDataGridViewTextBoxColumn.HeaderText = "Fou_TelResp";
             this.fouTelRespDataGridViewTextBoxColumn.Name = "fouTelRespDataGridViewTextBoxColumn";
             this.fouTelRespDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouTelRespDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouMailRespDataGridViewTextBoxColumn
             // 
@@ -4344,6 +4356,7 @@ namespace DashBoard_Stive
             this.fouMailRespDataGridViewTextBoxColumn.HeaderText = "Fou_MailResp";
             this.fouMailRespDataGridViewTextBoxColumn.Name = "fouMailRespDataGridViewTextBoxColumn";
             this.fouMailRespDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouMailRespDataGridViewTextBoxColumn.Visible = false;
             // 
             // mailRespDataGridViewTextBoxColumn
             // 
@@ -4351,6 +4364,7 @@ namespace DashBoard_Stive
             this.mailRespDataGridViewTextBoxColumn.HeaderText = "MailResp";
             this.mailRespDataGridViewTextBoxColumn.Name = "mailRespDataGridViewTextBoxColumn";
             this.mailRespDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mailRespDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouFonctionDataGridViewTextBoxColumn
             // 
@@ -4358,6 +4372,7 @@ namespace DashBoard_Stive
             this.fouFonctionDataGridViewTextBoxColumn.HeaderText = "Fou_Fonction";
             this.fouFonctionDataGridViewTextBoxColumn.Name = "fouFonctionDataGridViewTextBoxColumn";
             this.fouFonctionDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouFonctionDataGridViewTextBoxColumn.Visible = false;
             // 
             // fonctionFouDataGridViewTextBoxColumn
             // 
@@ -4365,6 +4380,7 @@ namespace DashBoard_Stive
             this.fonctionFouDataGridViewTextBoxColumn.HeaderText = "FonctionFou";
             this.fonctionFouDataGridViewTextBoxColumn.Name = "fonctionFouDataGridViewTextBoxColumn";
             this.fonctionFouDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fonctionFouDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouDateCreationDataGridViewTextBoxColumn
             // 
@@ -4372,6 +4388,7 @@ namespace DashBoard_Stive
             this.fouDateCreationDataGridViewTextBoxColumn.HeaderText = "Fou_DateCreation";
             this.fouDateCreationDataGridViewTextBoxColumn.Name = "fouDateCreationDataGridViewTextBoxColumn";
             this.fouDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouDateCreationDataGridViewTextBoxColumn.Visible = false;
             // 
             // fouRoleDataGridViewTextBoxColumn
             // 
@@ -4379,6 +4396,7 @@ namespace DashBoard_Stive
             this.fouRoleDataGridViewTextBoxColumn.HeaderText = "Fou_Role";
             this.fouRoleDataGridViewTextBoxColumn.Name = "fouRoleDataGridViewTextBoxColumn";
             this.fouRoleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.fouRoleDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiAdresseDataGridViewTextBoxColumn
             // 
@@ -4386,6 +4404,7 @@ namespace DashBoard_Stive
             this.utiAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_Adresse";
             this.utiAdresseDataGridViewTextBoxColumn.Name = "utiAdresseDataGridViewTextBoxColumn";
             this.utiAdresseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiAdresseDataGridViewTextBoxColumn.Visible = false;
             // 
             // adresseDataGridViewTextBoxColumn
             // 
@@ -4393,6 +4412,7 @@ namespace DashBoard_Stive
             this.adresseDataGridViewTextBoxColumn.HeaderText = "Adresse";
             this.adresseDataGridViewTextBoxColumn.Name = "adresseDataGridViewTextBoxColumn";
             this.adresseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.adresseDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiCompAdresseDataGridViewTextBoxColumn
             // 
@@ -4400,6 +4420,7 @@ namespace DashBoard_Stive
             this.utiCompAdresseDataGridViewTextBoxColumn.HeaderText = "Uti_CompAdresse";
             this.utiCompAdresseDataGridViewTextBoxColumn.Name = "utiCompAdresseDataGridViewTextBoxColumn";
             this.utiCompAdresseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiCompAdresseDataGridViewTextBoxColumn.Visible = false;
             // 
             // compAdresseDataGridViewTextBoxColumn
             // 
@@ -4407,6 +4428,7 @@ namespace DashBoard_Stive
             this.compAdresseDataGridViewTextBoxColumn.HeaderText = "CompAdresse";
             this.compAdresseDataGridViewTextBoxColumn.Name = "compAdresseDataGridViewTextBoxColumn";
             this.compAdresseDataGridViewTextBoxColumn.ReadOnly = true;
+            this.compAdresseDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiCpDataGridViewTextBoxColumn
             // 
@@ -4414,6 +4436,7 @@ namespace DashBoard_Stive
             this.utiCpDataGridViewTextBoxColumn.HeaderText = "Uti_Cp";
             this.utiCpDataGridViewTextBoxColumn.Name = "utiCpDataGridViewTextBoxColumn";
             this.utiCpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiCpDataGridViewTextBoxColumn.Visible = false;
             // 
             // codePostalDataGridViewTextBoxColumn
             // 
@@ -4421,6 +4444,7 @@ namespace DashBoard_Stive
             this.codePostalDataGridViewTextBoxColumn.HeaderText = "CodePostal";
             this.codePostalDataGridViewTextBoxColumn.Name = "codePostalDataGridViewTextBoxColumn";
             this.codePostalDataGridViewTextBoxColumn.ReadOnly = true;
+            this.codePostalDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiVilleDataGridViewTextBoxColumn
             // 
@@ -4428,6 +4452,7 @@ namespace DashBoard_Stive
             this.utiVilleDataGridViewTextBoxColumn.HeaderText = "Uti_Ville";
             this.utiVilleDataGridViewTextBoxColumn.Name = "utiVilleDataGridViewTextBoxColumn";
             this.utiVilleDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiVilleDataGridViewTextBoxColumn.Visible = false;
             // 
             // villeDataGridViewTextBoxColumn
             // 
@@ -4435,6 +4460,7 @@ namespace DashBoard_Stive
             this.villeDataGridViewTextBoxColumn.HeaderText = "Ville";
             this.villeDataGridViewTextBoxColumn.Name = "villeDataGridViewTextBoxColumn";
             this.villeDataGridViewTextBoxColumn.ReadOnly = true;
+            this.villeDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiPaysDataGridViewTextBoxColumn
             // 
@@ -4442,6 +4468,7 @@ namespace DashBoard_Stive
             this.utiPaysDataGridViewTextBoxColumn.HeaderText = "Uti_Pays";
             this.utiPaysDataGridViewTextBoxColumn.Name = "utiPaysDataGridViewTextBoxColumn";
             this.utiPaysDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiPaysDataGridViewTextBoxColumn.Visible = false;
             // 
             // paysDataGridViewTextBoxColumn
             // 
@@ -4449,6 +4476,7 @@ namespace DashBoard_Stive
             this.paysDataGridViewTextBoxColumn.HeaderText = "Pays";
             this.paysDataGridViewTextBoxColumn.Name = "paysDataGridViewTextBoxColumn";
             this.paysDataGridViewTextBoxColumn.ReadOnly = true;
+            this.paysDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiTelContactDataGridViewTextBoxColumn
             // 
@@ -4456,6 +4484,7 @@ namespace DashBoard_Stive
             this.utiTelContactDataGridViewTextBoxColumn.HeaderText = "Uti_TelContact";
             this.utiTelContactDataGridViewTextBoxColumn.Name = "utiTelContactDataGridViewTextBoxColumn";
             this.utiTelContactDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiTelContactDataGridViewTextBoxColumn.Visible = false;
             // 
             // telephoneDataGridViewTextBoxColumn
             // 
@@ -4463,6 +4492,7 @@ namespace DashBoard_Stive
             this.telephoneDataGridViewTextBoxColumn.HeaderText = "Telephone";
             this.telephoneDataGridViewTextBoxColumn.Name = "telephoneDataGridViewTextBoxColumn";
             this.telephoneDataGridViewTextBoxColumn.ReadOnly = true;
+            this.telephoneDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiMdpDataGridViewTextBoxColumn
             // 
@@ -4470,6 +4500,7 @@ namespace DashBoard_Stive
             this.utiMdpDataGridViewTextBoxColumn.HeaderText = "Uti_Mdp";
             this.utiMdpDataGridViewTextBoxColumn.Name = "utiMdpDataGridViewTextBoxColumn";
             this.utiMdpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiMdpDataGridViewTextBoxColumn.Visible = false;
             // 
             // mdpDataGridViewTextBoxColumn
             // 
@@ -4477,6 +4508,7 @@ namespace DashBoard_Stive
             this.mdpDataGridViewTextBoxColumn.HeaderText = "Mdp";
             this.mdpDataGridViewTextBoxColumn.Name = "mdpDataGridViewTextBoxColumn";
             this.mdpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mdpDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiVerifMdpDataGridViewTextBoxColumn
             // 
@@ -4484,6 +4516,7 @@ namespace DashBoard_Stive
             this.utiVerifMdpDataGridViewTextBoxColumn.HeaderText = "Uti_VerifMdp";
             this.utiVerifMdpDataGridViewTextBoxColumn.Name = "utiVerifMdpDataGridViewTextBoxColumn";
             this.utiVerifMdpDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiVerifMdpDataGridViewTextBoxColumn.Visible = false;
             // 
             // mailDataGridViewTextBoxColumn
             // 
@@ -4491,6 +4524,7 @@ namespace DashBoard_Stive
             this.mailDataGridViewTextBoxColumn.HeaderText = "Mail";
             this.mailDataGridViewTextBoxColumn.Name = "mailDataGridViewTextBoxColumn";
             this.mailDataGridViewTextBoxColumn.ReadOnly = true;
+            this.mailDataGridViewTextBoxColumn.Visible = false;
             // 
             // utiDateCreationDataGridViewTextBoxColumn
             // 
@@ -4498,6 +4532,7 @@ namespace DashBoard_Stive
             this.utiDateCreationDataGridViewTextBoxColumn.HeaderText = "Uti_DateCreation";
             this.utiDateCreationDataGridViewTextBoxColumn.Name = "utiDateCreationDataGridViewTextBoxColumn";
             this.utiDateCreationDataGridViewTextBoxColumn.ReadOnly = true;
+            this.utiDateCreationDataGridViewTextBoxColumn.Visible = false;
             // 
             // Cof_Id2
             // 
@@ -4517,63 +4552,69 @@ namespace DashBoard_Stive
             this.Eta_Libelle.HeaderText = "Etat";
             this.Eta_Libelle.Name = "Eta_Libelle";
             // 
-            // Pro_Nom
+            // Ccf_Cof_Id
             // 
-            this.Pro_Nom.DataPropertyName = "Pro_Nom";
-            this.Pro_Nom.HeaderText = "Nom";
-            this.Pro_Nom.Name = "Pro_Nom";
-            this.Pro_Nom.ReadOnly = true;
+            this.Ccf_Cof_Id.DataPropertyName = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.HeaderText = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.Name = "Ccf_Cof_Id";
+            this.Ccf_Cof_Id.ReadOnly = true;
+            this.Ccf_Cof_Id.Visible = false;
             // 
-            // Pro_Typ_Id
+            // dataGridViewTextBoxColumn6
             // 
-            this.Pro_Typ_Id.DataPropertyName = "Pro_Typ_Id";
-            this.Pro_Typ_Id.HeaderText = "Pro_Typ_Id";
-            this.Pro_Typ_Id.Name = "Pro_Typ_Id";
-            this.Pro_Typ_Id.ReadOnly = true;
-            this.Pro_Typ_Id.Visible = false;
+            this.dataGridViewTextBoxColumn6.DataPropertyName = "Pro_Nom";
+            this.dataGridViewTextBoxColumn6.HeaderText = "Produit";
+            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
+            this.dataGridViewTextBoxColumn6.ReadOnly = true;
             // 
-            // Pro_Quantite
+            // Pro_Ref
             // 
-            this.Pro_Quantite.DataPropertyName = "Pro_Quantite";
-            this.Pro_Quantite.HeaderText = "Quantite";
-            this.Pro_Quantite.Name = "Pro_Quantite";
-            this.Pro_Quantite.ReadOnly = true;
+            this.Pro_Ref.DataPropertyName = "Pro_Ref";
+            this.Pro_Ref.HeaderText = "Ref";
+            this.Pro_Ref.Name = "Pro_Ref";
+            this.Pro_Ref.ReadOnly = true;
             // 
-            // Pro_SeuilAlerte
+            // Ccf_Pro_Id
             // 
-            this.Pro_SeuilAlerte.DataPropertyName = "Pro_SeuilAlerte";
-            this.Pro_SeuilAlerte.HeaderText = "Seuil Alerte";
-            this.Pro_SeuilAlerte.Name = "Pro_SeuilAlerte";
-            this.Pro_SeuilAlerte.ReadOnly = true;
+            this.Ccf_Pro_Id.DataPropertyName = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.HeaderText = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.Name = "Ccf_Pro_Id";
+            this.Ccf_Pro_Id.Visible = false;
             // 
-            // Pro_CommandeAuto
+            // ccfQuantiteDataGridViewTextBoxColumn
             // 
-            this.Pro_CommandeAuto.DataPropertyName = "Pro_CommandeAuto";
-            this.Pro_CommandeAuto.HeaderText = "Commande Auto";
-            this.Pro_CommandeAuto.Name = "Pro_CommandeAuto";
-            this.Pro_CommandeAuto.ReadOnly = true;
+            this.ccfQuantiteDataGridViewTextBoxColumn.DataPropertyName = "Ccf_Quantite";
+            this.ccfQuantiteDataGridViewTextBoxColumn.HeaderText = "Quantite";
+            this.ccfQuantiteDataGridViewTextBoxColumn.Name = "ccfQuantiteDataGridViewTextBoxColumn";
+            this.ccfQuantiteDataGridViewTextBoxColumn.ReadOnly = true;
             // 
-            // Typ_Libelle
+            // dataGridViewTextBoxColumn10
             // 
-            this.Typ_Libelle.DataPropertyName = "Typ_Libelle";
-            this.Typ_Libelle.HeaderText = "Type";
-            this.Typ_Libelle.Name = "Typ_Libelle";
-            this.Typ_Libelle.ReadOnly = true;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Uti_Id";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Uti_Id";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Visible = false;
             // 
-            // Fou_NomDomaine2
+            // FouNomDomaine
             // 
-            this.Fou_NomDomaine2.DataPropertyName = "Fou_NomDomaine";
-            this.Fou_NomDomaine2.HeaderText = "Fournisseur";
-            this.Fou_NomDomaine2.Name = "Fou_NomDomaine2";
-            this.Fou_NomDomaine2.ReadOnly = true;
+            this.FouNomDomaine.DataPropertyName = "Fou_NomDomaine";
+            this.FouNomDomaine.HeaderText = "Fournisseur";
+            this.FouNomDomaine.Name = "FouNomDomaine";
+            this.FouNomDomaine.ReadOnly = true;
             // 
-            // Pro_IsWeb
+            // Eta_Id
             // 
-            this.Pro_IsWeb.DataPropertyName = "Pro_IsWeb";
-            this.Pro_IsWeb.HeaderText = "IsWeb";
-            this.Pro_IsWeb.Name = "Pro_IsWeb";
-            this.Pro_IsWeb.ReadOnly = true;
-            this.Pro_IsWeb.Visible = false;
+            this.Eta_Id.DataPropertyName = "Eta_Id";
+            this.Eta_Id.HeaderText = "Eta_Id";
+            this.Eta_Id.Name = "Eta_Id";
+            this.Eta_Id.Visible = false;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Eta_Libelle";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Visible = false;
             // 
             // Dashboard
             // 
@@ -4582,12 +4623,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
+            this.Controls.Add(this.panelBdc);
+            this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
-            this.Controls.Add(this.panelBdc);
-            this.Controls.Add(this.panelClients);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4782,43 +4823,8 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridView Dv_ListeProduit2;
         private System.Windows.Forms.Label Lbl_ListeProduit;
         private System.Windows.Forms.Label Lbl_Uti_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomResp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_TelResp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_MailResp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouIdDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomDomaineDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nomRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouTelRespDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn telRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouMailRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailRespDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouFonctionDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fonctionFouDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouDateCreationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouRoleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCompAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn compAdresseDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiCpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn codePostalDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiVilleDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiPaysDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn paysDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiTelContactDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiMdpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mdpDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiVerifMdpDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn utiMailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiDateCreationDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox Txb_CherchFournisseur;
         private System.Windows.Forms.Label labelCherchFournisseur;
         private System.Windows.Forms.TextBox Txb_Prenom;
@@ -4904,8 +4910,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn imgNomDataGridViewTextBoxColumn;
         private System.Windows.Forms.TextBox Txb_Nom2;
         private System.Windows.Forms.Label label21;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle2;
         private System.Windows.Forms.RadioButton Rbt_Tous;
         private System.Windows.Forms.Button Lbl_afficherBdc;
         private System.Windows.Forms.Button Btn_MajBdc;
@@ -4928,10 +4932,8 @@ namespace DashBoard_Stive
         private System.Windows.Forms.TextBox Tbx_qte;
         private System.Windows.Forms.ComboBox Cbx_Produit;
         private System.Windows.Forms.BindingSource contenuCommandeFournisseurBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofFouIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Libelle2;
         private System.Windows.Forms.DataGridViewTextBoxColumn proNomDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn etatLibelleDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn2;
         private System.Windows.Forms.DataGridViewTextBoxColumn cofFouIdDataGridViewTextBoxColumn1;
@@ -4975,15 +4977,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label Lbl_DateMajComWeb;
         private System.Windows.Forms.Label Lbl_LastInventaire;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ccf_Cof_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Ref;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Ccf_Pro_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn ccfQuantiteDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
-        private System.Windows.Forms.DataGridViewTextBoxColumn FouNomDomaine;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.BindingSource contenuCommandeClientBindingSource;
         private System.Windows.Forms.BindingSource commandeClientBindingSource;
         private System.Windows.Forms.DataGridViewTextBoxColumn proNomDataGridViewTextBoxColumn;
@@ -5021,33 +5014,10 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Cli_DateCreation;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cocIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cocFouIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofIdDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateCreationDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateMajDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn utiIdDataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn cofEtaIdDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn cocIdDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn3;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliNomDataGridViewTextBoxColumn1;
         private System.Windows.Forms.DataGridViewTextBoxColumn cliPrenomDataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Etat;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateMaj;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
-        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Eta_Id;
-        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreation;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn20;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Adresse;
         private System.Windows.Forms.DataGridViewTextBoxColumn Uti_CompAdresse;
@@ -5086,5 +5056,76 @@ namespace DashBoard_Stive
         private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle;
         private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Pro_IsWeb;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn23;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn24;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cocFouIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn25;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn8;
+        private System.Windows.Forms.DataGridViewTextBoxColumn etaLibelleDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofIdDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofDateMajDataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofFouIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiIdDataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn cofEtaIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Typ_Libelle2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Etat;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateMaj;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn9;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Cof_Eta_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn DateCreation;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomDomaine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_NomResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_TelResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Fou_MailResp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Cp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Uti_Ville;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouIdDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomDomaineDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomDomaineDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouNomRespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn nomRespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouTelRespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouMailRespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailRespDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouFonctionDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fonctionFouDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn fouRoleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiAdresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn adresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiCompAdresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn compAdresseDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiCpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn codePostalDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiVilleDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn villeDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiPaysDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn paysDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiTelContactDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn telephoneDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiMdpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mdpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiVerifMdpDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn mailDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn utiDateCreationDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ccf_Cof_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Pro_Ref;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Ccf_Pro_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn ccfQuantiteDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
+        private System.Windows.Forms.DataGridViewTextBoxColumn FouNomDomaine;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Eta_Id;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
     }
 }

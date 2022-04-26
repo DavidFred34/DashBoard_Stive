@@ -471,7 +471,7 @@ namespace DashBoard_Stive
 
                 contBdcListe = JsonConvert.DeserializeObject<List<ContenuCommandeFournisseur>>(contentCommande);
 
-                MessageBox.Show(contentCommande.ToString());  //controle du json
+                //MessageBox.Show(contentCommande.ToString());  //controle du json
                 //MessageBox.Show(contentCommande);
             }
             catch (Exception ex)
@@ -576,45 +576,61 @@ namespace DashBoard_Stive
             //affichage des bdc en cours
             int count = 0;
             bdcEnCoursListe = null;
-            var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
             bdcEnCoursListe = new List<CommandeFournisseur>();
-            foreach (CommandeFournisseur bdc in bdcListe)
-            {
-                if (bdc.Cof_Eta_Id == 2 || bdc.Cof_Eta_Id == 5)
+            if (bdcListe != null) 
+            { 
+                foreach (CommandeFournisseur bdc in bdcListe)
                 {
-                    count ++;
-                    bdcEnCoursListe.Add(bdc);
-                    //MessageBox.Show(bdcEnCoursListe.Count().ToString());
-                    //MessageBox.Show(bdcEnCoursListe.ToString());
+                    if (bdc.Cof_Eta_Id == 2 || bdc.Cof_Eta_Id == 5)
+                    {
+                        count ++;
+                        bdcEnCoursListe.Add(bdc);
+                        //MessageBox.Show(bdcEnCoursListe.Count().ToString());
+                        //MessageBox.Show(bdcEnCoursListe.ToString());
 
+                    }
+                var cc = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
+                Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
                 }
+
+            }
+            else
+            {
+                Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
+
             }
 
             Dv_BdcEnCours.DataSource = bdcEnCoursListe;
             filtre_bdcListe = bdcListe;
-            Lbl_BdcEnCours.Text = "Commandes fournisseurs en cours : " + count.ToString();
 
            //affichage des commandes en cours
             int count2 = 0;
             comWebEnCoursListe = null;
-            var cc2 = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
             comWebEnCoursListe = new List<CommandeClient>();
-           foreach (CommandeClient comweb in comWebListe)
+            if (comWebListe != null)
             {
-                if (comweb.Coc_Eta_Id == 2 || comweb.Coc_Eta_Id == 5)
+                foreach (CommandeClient comweb in comWebListe)
                 {
-                    count2++;
-                    comWebEnCoursListe.Add(comweb);
-                    //MessageBox.Show(bdcEnCoursListe.Count().ToString());
-                    //MessageBox.Show(bdcEnCoursListe.ToString());
+                    if (comweb.Coc_Eta_Id == 2 || comweb.Coc_Eta_Id == 5)
+                    {
+                        count2++;
+                        comWebEnCoursListe.Add(comweb);
+                        //MessageBox.Show(bdcEnCoursListe.Count().ToString());
+                        //MessageBox.Show(bdcEnCoursListe.ToString());
 
+                    }
                 }
+                var cc2 = from c in bdcListe where c.Cof_Eta_Id == 2 || c.Cof_Eta_Id == 5 select c.Cof_Eta_Id;
+                label_CommandeEnCours.Text = "Commandes clients en cours : " + count2.ToString();
             }
-
+            else
+            {
+                label_CommandeEnCours.Text = "Commandes clients en cours : " + count2.ToString();
+            }
+     
 
             Dv_ComWebEnCours.DataSource = comWebEnCoursListe;
             filtre_comWebListe = comWebListe;
-            label_CommandeEnCours.Text = "Commandes clients en cours : " + count2.ToString();
     
             //affichage des prduits proches du seuilAlerte
             List<Produit> prodSeuilListe = new List<Produit>();
@@ -691,7 +707,8 @@ namespace DashBoard_Stive
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
-            Dv_CommandeFournisseur.DataSource = bdcListe;
+            Dv_CommandeFournisseur.DataSource = null;
+            Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
 
             Cbx_Four.DataSource = filtre_fourListe;
            
@@ -734,53 +751,60 @@ namespace DashBoard_Stive
             Rbt_Avalider.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Livre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
             Rbt_Autre.CheckedChanged += new EventHandler(radioButtons_CheckedChanged);
+            //Dv_CommandeFournisseur.DataSource = null;
             Dv_CommandeFournisseur.DataSource = bdcListe;
         }
         
         private void radioButtons_CheckedChanged(object sender, EventArgs e) //pour bdc et comWeb
         {
-            RadioButton radioButton = sender as RadioButton;
-            //selection bdc
-            if (Rbt_Tous.Checked)
+            if (bdcListe != null)
             {
-                filtre_bdcListe = bdcListe;
-                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                RadioButton radioButton = sender as RadioButton;
+                //selection bdc
+                if (Rbt_Tous.Checked)
+                {
+                    filtre_bdcListe = bdcListe;
+                    Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                }
+                else if (Rbt_Avalider.Checked)
+                {
+                    filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 2 || x.Cof_Eta_Id == 5).ToList();
+                    Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                }
+                else if (Rbt_Livre.Checked)
+                {
+                    filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 3).ToList();
+                    Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                }
+                else if (Rbt_Autre.Checked)
+                {
+                    filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 1 || x.Cof_Eta_Id == 4).ToList();
+                    Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
+                }
             }
-            else if (Rbt_Avalider.Checked)
+            if (comWebListe != null)
             {
-                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 2 || x.Cof_Eta_Id == 5).ToList();
-                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
-            }
-            else if (Rbt_Livre.Checked)
-            {
-                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 3).ToList();
-                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
-            }
-            else if (Rbt_Autre.Checked)
-            {
-                filtre_bdcListe = bdcListe.Where(x => x.Cof_Eta_Id == 1 || x.Cof_Eta_Id == 4).ToList();
-                Dv_CommandeFournisseur.DataSource = filtre_bdcListe;
-            }
-            //selection comWeb
-            if (Rbt_Tous2.Checked)
-            {
-                filtre_comWebListe = comWebListe;
-                Dv_ComWeb.DataSource = filtre_comWebListe;
-            }
-            else if (Rbt_EnAttente2.Checked)
-            {
-                filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 2 || x.Coc_Eta_Id == 5).ToList();
-                Dv_ComWeb.DataSource = filtre_comWebListe;
-            }
-            else if (Rbt_Livre2.Checked)
-            {
-                filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 3).ToList();
-                Dv_ComWeb.DataSource = filtre_comWebListe;
-            }
-            else if (Rbt_Autre2.Checked)
-            {
-                filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 1 || x.Coc_Eta_Id == 4).ToList();
-                Dv_ComWeb.DataSource = filtre_comWebListe;
+                //selection comWeb
+                if (Rbt_Tous2.Checked)
+                {
+                    filtre_comWebListe = comWebListe;
+                    Dv_ComWeb.DataSource = filtre_comWebListe;
+                }
+                else if (Rbt_EnAttente2.Checked)
+                {
+                    filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 2 || x.Coc_Eta_Id == 5).ToList();
+                    Dv_ComWeb.DataSource = filtre_comWebListe;
+                }
+                else if (Rbt_Livre2.Checked)
+                {
+                    filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 3).ToList();
+                    Dv_ComWeb.DataSource = filtre_comWebListe;
+                }
+                else if (Rbt_Autre2.Checked)
+                {
+                    filtre_comWebListe = comWebListe.Where(x => x.Coc_Eta_Id == 1 || x.Coc_Eta_Id == 4).ToList();
+                    Dv_ComWeb.DataSource = filtre_comWebListe;
+                }
             }
         }
 
@@ -893,7 +917,7 @@ namespace DashBoard_Stive
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
             var json = JsonConvert.SerializeObject(majBdcListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            MessageBox.Show(json.ToString());
+            //MessageBox.Show(json.ToString());
             
             //StamperContenuBdc(Json : json.ToString()); //permet de recup le json pour le copier
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
@@ -905,10 +929,13 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: pas de mise à jour de la Commande" + "\r\n\n" + response);
 
             Btn_MajBdc.Enabled = true; //pb clics serie, fin
-            //recharge la liste en simulant le click sur le bouton fournisseur
+            //filtre_bdcListe = null;
             contenuBdcListe = null;
-            //Btn_Accueil.PerformClick();
-            //Btn_Bdc.PerformClick();
+            bdcListeFournisseur = null;
+            //bdcListe.Clear();
+            Btn_Accueil.PerformClick();
+            Btn_Bdc.PerformClick();
+            //Btn_AjouterBdc.PerformClick();
             // Dv_DetailCommandeFournisseur = null;
             Dv_DetailCommandeFournisseur.DataSource = contenuBdcListe;
             //StamperFournisseur();
@@ -1022,10 +1049,10 @@ namespace DashBoard_Stive
             httpClient.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", token); //rajout du token dans le header de la requete
             var json = JsonConvert.SerializeObject(newContListe);
             var data = new StringContent(json, Encoding.UTF8, "application/json");
-            MessageBox.Show(json.ToString());
+            //MessageBox.Show(json.ToString());
             //Tbx_Json.Visible = true;
             
-            StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
+            //StamperContenuBdc(Json: json.ToString()); //permet de recup le json pour le copier
             var response = await httpClient.PostAsync("https://apistive.azurewebsites.net/API/controlers/ContenuCommandeFournisseur/ajouter.php", data);
             if (response.IsSuccessStatusCode)
             {
@@ -1035,11 +1062,12 @@ namespace DashBoard_Stive
                 MessageBox.Show("Erreur: Commande non créée" + "\r\n\n" + response);
 
             Btn_CreerBdc.Enabled = true; //pb clics serie, fin
-            //recharge la liste en simulant le click sur le bouton fournisseur
+            filtre_bdcListe = null;
+            contenuBdcListe = null;
             Btn_Accueil.PerformClick();
             Btn_Bdc.PerformClick();
-            newContListe = null;
-            newContenuBdcListe.Clear();
+           // newContListe = null;
+           newContenuBdcListe.Clear();
             Cbx_Four.Enabled = true;
         }
         #endregion
@@ -1260,6 +1288,7 @@ namespace DashBoard_Stive
             contenuComWebListe = null;
             Btn_Accueil.PerformClick();
             Btn_CommandesWeb.PerformClick();
+            Btn_AjouterBdc.PerformClick();
             // Dv_DetailCommandeFournisseur = null;
             Dv_DetailComWeb.DataSource = contenuComWebListe;
             //StamperFournisseur();
@@ -1292,6 +1321,7 @@ namespace DashBoard_Stive
                     newCont.Uti_Id = Convert.ToInt32((from p in prodListe3 where p.Pro_Id == Convert.ToInt32(Cbx_Produit2.SelectedValue) select p.Uti_Id.ToString()).FirstOrDefault());
 
                     newCont.Uti_Adresse = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Adresse.ToString()).FirstOrDefault();
+                   
                     newCont.Uti_CompAdresse = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_CompAdresse.ToString()).FirstOrDefault();
                     newCont.Uti_Cp = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Cp.ToString()).FirstOrDefault();
                     newCont.Uti_Ville = (from p in cliListe where p.Cli_Id == Convert.ToInt32(Cbx_Client.SelectedValue) select p.Uti_Ville.ToString()).FirstOrDefault();
@@ -1381,7 +1411,14 @@ namespace DashBoard_Stive
                 newContenu.Uti_Id = newCont.Uti_Id;
 
                 newContenu.Uti_Adresse = newCont.Uti_Adresse;
-                newContenu.Uti_CompAdresse = newCont.Uti_CompAdresse;
+                if(newCont.Uti_CompAdresse != "")
+                {
+                    newContenu.Uti_CompAdresse = newCont.Uti_CompAdresse;
+                }
+                else
+                {
+                    newContenu.Uti_CompAdresse = "-";
+                }
                 newContenu.Uti_Cp = newCont.Uti_Cp;
                 newContenu.Uti_Ville = newCont.Uti_Ville;
                 newContenu.Uti_Pays = newCont.Uti_Pays;
@@ -1423,6 +1460,7 @@ namespace DashBoard_Stive
             //recharge la liste en simulant le click sur le bouton fournisseur
             Btn_Accueil.PerformClick();
             Btn_CommandesWeb.PerformClick();
+            Btn_AjouterComWeb.PerformClick();
             newContListe = null;
             newContenuComWebListe.Clear();
             Cbx_Four2.Enabled = true;
