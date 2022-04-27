@@ -159,7 +159,6 @@ namespace DashBoard_Stive
             this.Lbl_Uti_Id2 = new System.Windows.Forms.Label();
             this.Txb_Prenom = new System.Windows.Forms.TextBox();
             this.labelPrenom = new System.Windows.Forms.Label();
-            this.checkBoxPro = new System.Windows.Forms.CheckBox();
             this.Txb_Mail = new System.Windows.Forms.TextBox();
             this.labelMail = new System.Windows.Forms.Label();
             this.Txb_Tel = new System.Windows.Forms.TextBox();
@@ -1792,7 +1791,6 @@ namespace DashBoard_Stive
             this.panel15.Controls.Add(this.Lbl_Uti_Id2);
             this.panel15.Controls.Add(this.Txb_Prenom);
             this.panel15.Controls.Add(this.labelPrenom);
-            this.panel15.Controls.Add(this.checkBoxPro);
             this.panel15.Controls.Add(this.Txb_Mail);
             this.panel15.Controls.Add(this.labelMail);
             this.panel15.Controls.Add(this.Txb_Tel);
@@ -1912,19 +1910,6 @@ namespace DashBoard_Stive
             this.labelPrenom.Size = new System.Drawing.Size(69, 19);
             this.labelPrenom.TabIndex = 28;
             this.labelPrenom.Text = "Prénom";
-            // 
-            // checkBoxPro
-            // 
-            this.checkBoxPro.AutoSize = true;
-            this.checkBoxPro.CheckAlign = System.Drawing.ContentAlignment.MiddleRight;
-            this.checkBoxPro.Font = new System.Drawing.Font("Arial", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBoxPro.Location = new System.Drawing.Point(451, 262);
-            this.checkBoxPro.Name = "checkBoxPro";
-            this.checkBoxPro.Size = new System.Drawing.Size(134, 23);
-            this.checkBoxPro.TabIndex = 27;
-            this.checkBoxPro.Text = "Professionnel";
-            this.checkBoxPro.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
-            this.checkBoxPro.UseVisualStyleBackColor = true;
             // 
             // Txb_Mail
             // 
@@ -4623,12 +4608,12 @@ namespace DashBoard_Stive
             this.BackColor = System.Drawing.Color.White;
             this.ClientSize = new System.Drawing.Size(1644, 798);
             this.Controls.Add(this.panelMenu);
-            this.Controls.Add(this.panelBdc);
             this.Controls.Add(this.panelClients);
             this.Controls.Add(this.panelProduit);
             this.Controls.Add(this.panelFournisseurs);
             this.Controls.Add(this.panelAccueil);
             this.Controls.Add(this.panelCommandesWeb);
+            this.Controls.Add(this.panelBdc);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Dashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
@@ -4738,7 +4723,6 @@ namespace DashBoard_Stive
         private System.Windows.Forms.Button Btn_SuppClient;
         private System.Windows.Forms.DataGridView Dv_ListComWeb;
         private System.Windows.Forms.Label labelNom;
-        private System.Windows.Forms.CheckBox checkBoxPro;
         private System.Windows.Forms.TextBox Txb_Mail;
         private System.Windows.Forms.Label labelMail;
         private System.Windows.Forms.TextBox Txb_Tel;

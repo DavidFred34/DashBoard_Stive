@@ -9,5 +9,7 @@ namespace DashBoard_Stive.Class
     internal static class Globales
     {
        internal static  Connect token = null;
+
+
     }
 }
